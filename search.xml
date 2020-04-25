@@ -247,6 +247,227 @@
       </categories>
   </entry>
   <entry>
+    <title>常见的CSS布局</title>
+    <url>/archives/4822cc7.html</url>
+    <content><![CDATA[<h3 id="单栏布局"><a href="#单栏布局" class="headerlink" title="单栏布局"></a>单栏布局</h3><p>常见单栏布局有以下情况：</p>
+<ul>
+<li>header/content/footer等宽单栏布局</li>
+<li>header/footer等宽，content略窄单栏布局</li>
+</ul>
+<p><strong>第一种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#c0c0c0; </span><br><span class="line"> &#125;</span><br><span class="line">.content&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#f1f1f1;</span><br><span class="line">  &#125;</span><br><span class="line">  .footer&#123;</span><br><span class="line">    width:100%; //①</span><br><span class="line">    background:#000</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述设置的width自适应充满屏幕。<br>如果设置width为固定值或者设置最大宽度(max-width)，当屏幕小于当前设置固定宽度(width)时，会出现滚动条；<br>而设置的最大宽度(max-width)，则不会出现滚动条。</p>
+<p>如果实现居中，解决办法是添加居中属性(margin: 0 auto)即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">// content, footer添加margin: 0 auto;属性</span><br></pre></td></tr></table></figure>
+<p><strong>第二种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background: #c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width: 700px;</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#000;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<p>如果header/footer内容宽度不设置，块级元素会充满整个屏幕；<br>如果header/content/footer内容区域中有设置同一个宽度，通过<strong>margin:0 auto</strong>居中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  max-width:600px; //宽度</span><br><span class="line">  background:#fff;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width:600px;  // 宽度</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto;  // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#000; </span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a>两栏布局</h3><p>指一边栏固定宽度，另一边栏充满剩余宽度。<br>常见两栏布局有以下情况：</p>
+<ul>
+<li>左栏固定宽度，右栏自适应</li>
+<li>左栏自适应，右栏固定宽度</li>
+</ul>
+<p><strong>第一种情况</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; //①</span><br><span class="line">  float:left; // ①</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-left:200px; // ②</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display:flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  flex:1; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第二种情况：(注意DOM布局顺序)</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ①</span><br><span class="line">  background:red;</span><br><span class="line">  position:absolute; // ①</span><br><span class="line">  top:0; // ①</span><br><span class="line">  right:0; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-right:200px; // ② </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用margin-right属性留出重叠区域。</p>
+<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果是<strong>自适应两栏布局使用float + overflow</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.content&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  float: left;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方式通过overflow触发BFC，这时zoom:1兼容IE6浏览器；如果侧边栏在右侧注意渲染顺序。</p>
+<h3 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h3><p>指两边栏固定宽度，中间栏自适应布局。</p>
+<p><strong>第一种圣杯</strong><br>实现原理：</p>
+<ul>
+<li><p>三栏都设置左浮动，设置中间栏宽度为100%；</p>
+</li>
+<li><p>这时左右两栏会掉下来，设置margin-left为负值，添加相对定位并设置left属性与right属性，与中间栏同一行；</p>
+</li>
+<li><p>设置padding留出间距。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width:100%; // ① 充满屏幕</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ② 设置一个宽度</span><br><span class="line">  margin-left:-100%; // ② 添加float, 与middle同一行</span><br><span class="line">  float：left; // ②</span><br><span class="line">  position: relative; // ② 添加相对定位移并到左边</span><br><span class="line">  left: -200px; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width: 200px; // ③</span><br><span class="line">  margin-left: -200px; // ③ 添加float, 与minddle同行</span><br><span class="line">  float: left; // ③</span><br><span class="line">  position: relative; // ③ 添加相对定位 并移到右边</span><br><span class="line">  right:-200px; // ③</span><br><span class="line">  background:yellow; </span><br><span class="line">&#125;</span><br><span class="line">.body&#123;</span><br><span class="line">  padding: 0 200px; // ④ 左右两边留出间隙</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第二种双飞翼</strong><br>实现原理：</p>
+<ul>
+<li><p>三栏左浮动，设置中间栏宽度为100%；</p>
+</li>
+<li><p>这时左右两栏会掉下来，设置margin-left为负值并设置left属性与right属性，与中间栏同一行；</p>
+</li>
+<li><p>在中间栏增加一个div，设置margin留出左右间距。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width: 100%; // ①</span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width: 200px; // ②</span><br><span class="line">  margin-left: -100%; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right &#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  margin-left: -200px; // ③</span><br><span class="line">  background: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  margin: 0 200px; // ④</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>圣杯布局与双飞翼布局对比：</p>
+<ul>
+<li><p>圣杯布局是在父容器的左/右内边距配合两个从列相对定位。</p>
+</li>
+<li><p>双飞翼布局是把主列嵌套在一个父级块中配合主列左/右外边距。</p>
+</li>
+</ul>
+<p><strong>第三种flex</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left &#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.middle &#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>补充flex:1</strong></p>
+<p>flex是flex-grow，flex-shrink,  flex-basis的缩写；默认值：0 1 auto。后两者属性可选。</p>
+<p>flex-grow：属性定义了该空间的放大比例，默认值0；表示如果存在剩余空间，也不放大。</p>
+<p>flex-skrink：属性定义了该空间的缩小比例，默认值1；表示如果空间不足，该空间将缩小。</p>
+<p>flex-basis：属性定义在分配多余空间之前，占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间，默认值auto，表示该空间本来的大小。</p>
+<p>flex:属性由两个值：auto(1 1 auto) 和 none(0 0 auto)。</p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+        <category>常见布局方式</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Template模板Mustache.js</title>
+    <url>/archives/3f14c0ad.html</url>
+    <content><![CDATA[<p>最近项目一直在使用Mustache.js前端模版，那么使用过程中一些语法顺便聊下。</p>
+<h3 id="Mustache简介"><a href="#Mustache简介" class="headerlink" title="Mustache简介"></a>Mustache简介</h3><p>Mustache 是一个 logic-less （轻逻辑）模板解析引擎，它的优势在于可以应用在 Javascript、PHP、Python、Perl 等多种编程语言中。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;keyName&#125;&#125;</span><br><span class="line">&#123;&#123;<span class="comment">#keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span></span><br><span class="line">&#123;&#123;^keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span><br><span class="line">&#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;&lt;partials&#125;&#125;</span><br><span class="line">&#123;&#123;&#123;keyName&#125;&#125;&#125;</span><br><span class="line">&#123;&#123;!comments&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Mustache用法"><a href="#Mustache用法" class="headerlink" title="Mustache用法"></a>Mustache用法</h3><p>可以直接下载引用或者npm安装使用；这里使用引用介绍：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"mustache.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">var data = &#123;</span><br><span class="line">  name: <span class="string">"Joe"</span>,</span><br><span class="line">  age:28</span><br><span class="line">&#125;;</span><br><span class="line">var tpl = <span class="string">'&lt;div&gt;My Name：&#123;&#123;Name&#125;&#125;，Age：&#123;&#123;age&#125;&#125;&lt;/div&gt;'</span>;</span><br><span class="line">var html = Mustache.render(tpl, data); //后面省略渲染步骤直接输出结果集</span><br><span class="line">console.log(html); //My Name：Joe，Age：28;</span><br></pre></td></tr></table></figure></p>
+<p>其中花括号就是Mustache标识符号，花括号中的名字表示键名;</p>
+<h3 id="Mustache循环语句"><a href="#Mustache循环语句" class="headerlink" title="Mustache循环语句"></a>Mustache循环语句</h3><p>以#开始、以/结束表示区块，它会根据当前上下文中的键值来对区块进行一次或多次渲染，例如：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"stooges"</span>: [</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Moe"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Larry"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Curly"</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Template"><a href="#Template" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#stooges&#125;&#125;</span></span><br><span class="line">&lt;b&gt;&#123;&#123;name&#125;&#125;&lt;/b&gt;</span><br><span class="line">&#123;&#123;/stooges&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入结果："><a href="#输入结果：" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;Moe&lt;/b&gt;</span><br><span class="line">&lt;b&gt;Larry&lt;/b&gt;</span><br><span class="line">&lt;b&gt;Curly&lt;/b&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;^keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span><br><span class="line">//该语法与&#123;&#123;<span class="comment">#keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;类似，不同在于它是当 keyName 值为 null, undefined, false 时才渲染输出该区块内容。</span></span><br><span class="line">var tpl = &#123;&#123;^nothing&#125;&#125;没找到 nothing 键名就会渲染这段&#123;&#123;/nothing&#125;&#125;;</span><br><span class="line">var html = Mustache.render(tpl, data);</span><br><span class="line">//输出：</span><br><span class="line">没找到 nothing 键名就会渲染这段</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;.&#125;&#125;语法 表示枚举；可以循环输出整个数组，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"musketeers"</span>: [<span class="string">"Athos"</span>, <span class="string">"Aramis"</span>, <span class="string">"Porthos"</span>, <span class="string">"D'Artagnan"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Template-1"><a href="#Template-1" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#musketeers&#125;&#125;</span></span><br><span class="line"> 	&#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;/musketeers&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-1"><a href="#输入结果：-1" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Athos</span><br><span class="line">Aramis</span><br><span class="line">Porthos</span><br><span class="line">D<span class="string">'Artagnan</span></span><br></pre></td></tr></table></figure>
+<h3 id="函数节变量"><a href="#函数节变量" class="headerlink" title="函数节变量"></a>函数节变量</h3><p>如果节变量的值是一个函数，它将在每次迭代的列表中的当前项的上下文中调用，例如：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"beatles"</span>: [</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"John"</span>, <span class="string">"lastName"</span>: <span class="string">"Lennon"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"Paul"</span>, <span class="string">"lastName"</span>: <span class="string">"McCartney"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"George"</span>, <span class="string">"lastName"</span>: <span class="string">"Harrison"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"Ringo"</span>, <span class="string">"lastName"</span>: <span class="string">"Starr"</span> &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"name"</span>: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> this.firstName + <span class="string">" "</span> + this.lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Template-2"><a href="#Template-2" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#beatles&#125;&#125;</span></span><br><span class="line">* &#123;&#123;name&#125;&#125;</span><br><span class="line">&#123;&#123;/beatles&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-2"><a href="#输入结果：-2" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">* John Lennon</span><br><span class="line">* Paul McCartney</span><br><span class="line">* George Harrison</span><br><span class="line">* Ringo Starr</span><br></pre></td></tr></table></figure>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>如果一个节键的值是一个函数，它被称为节的文本块，未渲染，作为它的第一个参数。第二个参数是一个特殊的渲染函数，它使用当前视图作为视图参数。它在当前视图对象的上下文中调用。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Tater"</span>,</span><br><span class="line">  <span class="string">"bold"</span>: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="keyword">function</span> (text, render) &#123;</span><br><span class="line">      <span class="built_in">return</span> <span class="string">"&lt;b&gt;"</span> + render(text) + <span class="string">"&lt;/b&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Template-3"><a href="#Template-3" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#bold&#125;&#125;Hi &#123;&#123;name&#125;&#125;.&#123;&#123;/bold&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-3"><a href="#输入结果：-3" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;Hi Tater.&lt;/b&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//倒置部分^ &#123;&#123;&#125;&#125; &#123;&#123;部分代替<span class="comment">#节&#125;&#125;</span></span><br><span class="line">//一个倒置的节块呈现只有这部分标签的值为空，不确定的，虚假的，falsy或空列表。</span><br><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"repos"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Template-4"><a href="#Template-4" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#repos&#125;&#125;&lt;b&gt;&#123;&#123;name&#125;&#125;&lt;/b&gt;&#123;&#123;/repos&#125;&#125;</span></span><br><span class="line">&#123;&#123;^repos&#125;&#125;No repos :(&#123;&#123;/repos&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-4"><a href="#输入结果：-4" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">No repos :(</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;&gt;partials&#125;&#125;语法；</span><br><span class="line">//以&gt;开始表示子模块；当结构比较复杂时，我们可以使用该语法将复杂的结构拆分成几个小的子模块，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">    <span class="string">"company"</span>: <span class="string">"Apple"</span>,</span><br><span class="line">    <span class="string">"address"</span>: &#123;</span><br><span class="line">        <span class="string">"street"</span>: <span class="string">"1 Infinite Loop Cupertino&lt;/br&gt;"</span>,</span><br><span class="line">        <span class="string">"city"</span>: <span class="string">"California "</span>,</span><br><span class="line">        <span class="string">"state"</span>: <span class="string">"CA "</span>,</span><br><span class="line">        <span class="string">"zip"</span>: <span class="string">"95014 "</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"product"</span>: [<span class="string">"Macbook "</span>,<span class="string">"iPhone "</span>,<span class="string">"iPod "</span>,<span class="string">"iPad "</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Template-5"><a href="#Template-5" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var tpl = <span class="string">"&lt;h1&gt;&#123;&#123;company&#125;&#125;&lt;/h1&gt; &lt;ul&gt;&#123;&#123;&gt;address&#125;&#125;&lt;/ul&gt;"</span></span><br><span class="line">var partials = &#123;address: <span class="string">"&#123;&#123;#address&#125;&#125;&lt;li&gt;&#123;&#123;street&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;city&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;state&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;zip&#125;&#125;&lt;/li&gt;&#123;&#123;/address&#125;&#125;"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-5"><a href="#输入结果：-5" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;h1&gt;Apple&lt;/h1&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt;1 Infinite Loop Cupertino&amp;lt;/br&amp;gt;&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;California&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;CA&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;95014&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;&#123;keyName&#125;&#125;&#125; 语法</span><br><span class="line">//输出会将等特殊字符转译，如果想保持内容原样输出可以使用花括号，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">    <span class="string">"company"</span>: <span class="string">"Apple"</span>,</span><br><span class="line">    <span class="string">"address"</span>: &#123;</span><br><span class="line">        <span class="string">"street"</span>: <span class="string">"1 Infinite Loop Cupertino&lt;/br&gt;"</span>,</span><br><span class="line">        <span class="string">"city"</span>: <span class="string">"California "</span>,</span><br><span class="line">        <span class="string">"state"</span>: <span class="string">"CA "</span>,</span><br><span class="line">        <span class="string">"zip"</span>: <span class="string">"95014 "</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"product"</span>: [<span class="string">"Macbook "</span>,<span class="string">"iPhone "</span>,<span class="string">"iPod "</span>,<span class="string">"iPad "</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Template-6"><a href="#Template-6" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var tpl = <span class="string">'&#123;&#123;#address&#125;&#125; &lt;p&gt;&#123;&#123;&#123;street&#125;&#125;&#125;&lt;/p&gt; &#123;&#123;/address&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-6"><a href="#输入结果：-6" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;1 Infinite Loop Cupertino&lt;/br&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;!comments&#125;&#125;语法</span><br><span class="line">表示注释，注释后不会渲染输出任何内容。</span><br><span class="line">``` bash</span><br><span class="line">&#123;&#123;!这里是注释&#125;&#125;</span><br><span class="line">//输出：</span><br></pre></td></tr></table></figure>
+<p>参考文章<br><a href="https://github.com/janl/mustache.js" target="_blank" rel="noopener">https://github.com/janl/mustache.js</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>入门Mustache.js模版引擎</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>总结CSS前端优化之旅</title>
+    <url>/archives/341da12f.html</url>
+    <content><![CDATA[<p>有关css hack与各浏览器前缀，前端性能优化之旅</p>
+<h3 id="css-hack"><a href="#css-hack" class="headerlink" title="css hack"></a>css hack</h3><hr>
+<p>IE6浏览器下<br>css hack： 属性明前加下划线， 如： <code>_color:#666</code></p>
+<p>IE7浏览器下<br>css hack： 属性名前加 <code>*</code>，如： <code>*clolor:#666</code></p>
+<p>IE8浏览器下(最新的opera浏览器也支持)<br>    css hack： 属性名前加 \0，如： <code>clolor:#666\0</code></p>
+<p>IE9浏览器下<br>css hack： 属性名前加 \9，如：<code>clolor:#666\9</code></p>
+<p>总结：<code>firefox</code>写在最前面，<code>IE7</code>写在中间，IE6写在最后；<code>IE6</code>能识别 <code>*</code>，不能识别！important；<code>IE7</code>能识别 <code>*</code>和<code>！important</code>，<code>FF</code>能识别<code>！important</code>和 <code>_</code>, 不能识别 <code>*</code>。</p>
+<h3 id="浏览器前缀"><a href="#浏览器前缀" class="headerlink" title="浏览器前缀"></a>浏览器前缀</h3><ul>
+<li>IE浏览器：属性名前添加-ms-，如： -ms-tranform:rotate(10deg)</li>
+<li>Firefox浏览器：属性名前加 -moz-，如： -moz-tranform:rotate(10deg)</li>
+<li>safari和chrome浏览器： 属性名前加 -webkit-，如： -webkit-tranform:rotate(10deg)</li>
+<li>opera浏览器：属性名前加 -o-，如： -o-tranform:rotate(10deg)</li>
+</ul>
+<h3 id="前端性能优化之旅"><a href="#前端性能优化之旅" class="headerlink" title="前端性能优化之旅"></a>前端性能优化之旅</h3><pre><code>● 1.缓存
+    ○ 1.1本地储存（cookie, localStorage, sessionStorage, indexedDB）
+    ○ 1.2内存缓存
+    ○ 1.3 Cache API
+    ○ 1.4 HTTP缓存（强缓存：Expires/Cache-Control, 协商缓存： Last-Modified/If-Modified-Since/Etag/If-None-Match）
+    ○ 1.5 Push Cache
+● 2.发送请求：
+    ○ 2.1避免不必要的重定向（301、302）
+    ○ 2.2 DNS预解析
+    ○ 2.3预先建立连接
+    ○ 2.4使用CDN
+● 3.服务端响应
+    ○ 3.1使用流（保存/撤销）
+    ○ 3.2业务接口内部聚合
+    ○ 3.3避免代码问题
+● 4.页面解析与处理
+    ○ 4.1资源位置顺序
+    ○ 4.2合理使用defer/async脚本
+    ○ 4.3关键渲染路径
+● 5.页面静态资源
+    ○ 5.1 Javascript
+        ● 5.1.1减少不必要的请求 （code split/代码合并）
+        ● 5.1.2减少包体大小（代码压缩，Tree Shaking，合理使用polyfill）
+        ● 5.1.3加快解析与执行（初始加载，删除不必要代码；避免long task；考虑是否需要框架；针对代码的编译优化）
+        ● 5.1.4打包导致的缓存失效（hash module id； runtime chunk split； 使用records）
+    ○ 5.2 CSS
+        ● 5.2.1使用关键CSS（内联；骨架屏）
+        ● 5.2.2优化资源请求（按需加载；合并文件；请求的优先级排序；慎用@import；谨慎对待Javascript脚本的位置）
+        ● 5.2.3减少包体积（压缩；选择合适的兼容性polyfill支持）
+        ● 5.2.4加快解析与渲染树构建（简化选择器；避免使用昂贵的属性；使用先进的布局方式）
+        ● 5.2.5利用缓存 webpack MiniCssExtractPlugin
+    ○ 5.3图片
+        ● 5.3.1优化请求（雪碧图；懒加载；base64内联）
+        ● 5.3.2减少图片大小（使用合适的图片格式,使用gpj,webP,SVG,video代替gif；适当降低图片质量；删除图片沉余信息）
+        ● 5.3.3利用缓存
+    ○ 5.4字体
+        ● 5.4.1使用font-display实现fout
+        ● 5.4.2内联字体
+        ● 5.4.3使用css font loging API
+        ● 5.4.4FoFT(flash of Faux Text)
+    ○ 5.5视频
+        ● 5.5.1使用合适的视频格式
+        ● 5.5.2进行视频压缩
+        ● 5.5.3移除不必要的音轨信息
+        ● 5.5.4使用“流”
+        ● 5.5.5移除页面中不必要的视频
+● 6.运行时
+    ○ 6.1注意强制同步布局（避免代码出现在不合适的位置；批量化操作）
+    ○ 6.2长列表优化（实现Vir tual List机制；原生Virtual Scroller）
+    ○ 6.3避免Javascript运行占用时间过长（任务分解；延迟执行；并行计算）
+    ○ 6.4善用composite机制
+    ○ 6.5滚动的性能优化
+    ○ 6.6Passive event listeners
+● 7.预加载
+    ○ 7.1预加载技术（Resource Hints: prefetch/prerender/preload；基于JS实现预加载）
+    ○ 7.2视频预加载技术（preload属性；link preload；自定义buffer）
+    ○ 7.3预加载策略（quicklink；guess.js）
+</code></pre>]]></content>
+      <categories>
+        <category>CSS</category>
+        <category>巩固CSS Hack</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>回调函数</title>
+    <url>/archives/a03e68d3.html</url>
+    <content><![CDATA[<p><strong>前言</strong></p>
+<p>最近一直忙于项目，没时间总写，趁现在有时间总结下遇到的问题。</p>
+<h3 id="data-书写"><a href="#data-书写" class="headerlink" title="data-*书写"></a><code>data-*</code>书写</h3><p>处理数据交互，有时候需要在一些元素上绑定一些<code>data-*</code>数据，不经意间有可能在JS中写成大写的，比如：<code>data-Id</code>，但是在<code>html</code>解析时，浏览器解析的是小写<code>data-id</code>，在调试JS数据交互，有可能很纳闷，明明绑定上去数据，为何获取不到。</p>
+<p>因此建议在书写时，写成小写的，避免坑了自己，比如：<code>data-id</code></p>
+<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>之前项目很少遇到ajax回调，估计项目复杂度不够，应用不到吧；还有就是本身知识有短板。查了很多资料找到了ajax回调函数例子。</p>
+<p>原理：</p>
+<ul>
+<li><p>在函数中传一个参数，如：callBack。</p>
+</li>
+<li><p>在函数体中，把传入的参数callBack当成一个函数，把需要获的数据传入callback这个函数。</p>
+</li>
+</ul>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn(callBack) &#123;</span><br><span class="line">	$.post(xxx, &#123; xxx &#125;, function(r) &#123;</span><br><span class="line">		callBack(r);</span><br><span class="line">	&#125;, &apos;json&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>JS回调函数</category>
+      </categories>
+  </entry>
+  <entry>
     <title>学习JavaScript基础篇</title>
     <url>/archives/3a1eeae5.html</url>
     <content><![CDATA[<p>前言</p>
@@ -564,44 +785,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Template模板Mustache.js</title>
-    <url>/archives/3f14c0ad.html</url>
-    <content><![CDATA[<p>最近项目一直在使用Mustache.js前端模版，那么使用过程中一些语法顺便聊下。</p>
-<h3 id="Mustache简介"><a href="#Mustache简介" class="headerlink" title="Mustache简介"></a>Mustache简介</h3><p>Mustache 是一个 logic-less （轻逻辑）模板解析引擎，它的优势在于可以应用在 Javascript、PHP、Python、Perl 等多种编程语言中。</p>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;keyName&#125;&#125;</span><br><span class="line">&#123;&#123;<span class="comment">#keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span></span><br><span class="line">&#123;&#123;^keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span><br><span class="line">&#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;&lt;partials&#125;&#125;</span><br><span class="line">&#123;&#123;&#123;keyName&#125;&#125;&#125;</span><br><span class="line">&#123;&#123;!comments&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Mustache用法"><a href="#Mustache用法" class="headerlink" title="Mustache用法"></a>Mustache用法</h3><p>可以直接下载引用或者npm安装使用；这里使用引用介绍：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"mustache.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">var data = &#123;</span><br><span class="line">  name: <span class="string">"Joe"</span>,</span><br><span class="line">  age:28</span><br><span class="line">&#125;;</span><br><span class="line">var tpl = <span class="string">'&lt;div&gt;My Name：&#123;&#123;Name&#125;&#125;，Age：&#123;&#123;age&#125;&#125;&lt;/div&gt;'</span>;</span><br><span class="line">var html = Mustache.render(tpl, data); //后面省略渲染步骤直接输出结果集</span><br><span class="line">console.log(html); //My Name：Joe，Age：28;</span><br></pre></td></tr></table></figure></p>
-<p>其中花括号就是Mustache标识符号，花括号中的名字表示键名;</p>
-<h3 id="Mustache循环语句"><a href="#Mustache循环语句" class="headerlink" title="Mustache循环语句"></a>Mustache循环语句</h3><p>以#开始、以/结束表示区块，它会根据当前上下文中的键值来对区块进行一次或多次渲染，例如：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"stooges"</span>: [</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Moe"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Larry"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Curly"</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Template"><a href="#Template" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#stooges&#125;&#125;</span></span><br><span class="line">&lt;b&gt;&#123;&#123;name&#125;&#125;&lt;/b&gt;</span><br><span class="line">&#123;&#123;/stooges&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输入结果："><a href="#输入结果：" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;Moe&lt;/b&gt;</span><br><span class="line">&lt;b&gt;Larry&lt;/b&gt;</span><br><span class="line">&lt;b&gt;Curly&lt;/b&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;^keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span><br><span class="line">//该语法与&#123;&#123;<span class="comment">#keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;类似，不同在于它是当 keyName 值为 null, undefined, false 时才渲染输出该区块内容。</span></span><br><span class="line">var tpl = &#123;&#123;^nothing&#125;&#125;没找到 nothing 键名就会渲染这段&#123;&#123;/nothing&#125;&#125;;</span><br><span class="line">var html = Mustache.render(tpl, data);</span><br><span class="line">//输出：</span><br><span class="line">没找到 nothing 键名就会渲染这段</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;.&#125;&#125;语法 表示枚举；可以循环输出整个数组，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"musketeers"</span>: [<span class="string">"Athos"</span>, <span class="string">"Aramis"</span>, <span class="string">"Porthos"</span>, <span class="string">"D'Artagnan"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Template-1"><a href="#Template-1" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#musketeers&#125;&#125;</span></span><br><span class="line"> 	&#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;/musketeers&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-1"><a href="#输入结果：-1" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Athos</span><br><span class="line">Aramis</span><br><span class="line">Porthos</span><br><span class="line">D<span class="string">'Artagnan</span></span><br></pre></td></tr></table></figure>
-<h3 id="函数节变量"><a href="#函数节变量" class="headerlink" title="函数节变量"></a>函数节变量</h3><p>如果节变量的值是一个函数，它将在每次迭代的列表中的当前项的上下文中调用，例如：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"beatles"</span>: [</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"John"</span>, <span class="string">"lastName"</span>: <span class="string">"Lennon"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"Paul"</span>, <span class="string">"lastName"</span>: <span class="string">"McCartney"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"George"</span>, <span class="string">"lastName"</span>: <span class="string">"Harrison"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"Ringo"</span>, <span class="string">"lastName"</span>: <span class="string">"Starr"</span> &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"name"</span>: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> this.firstName + <span class="string">" "</span> + this.lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Template-2"><a href="#Template-2" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#beatles&#125;&#125;</span></span><br><span class="line">* &#123;&#123;name&#125;&#125;</span><br><span class="line">&#123;&#123;/beatles&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-2"><a href="#输入结果：-2" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">* John Lennon</span><br><span class="line">* Paul McCartney</span><br><span class="line">* George Harrison</span><br><span class="line">* Ringo Starr</span><br></pre></td></tr></table></figure>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>如果一个节键的值是一个函数，它被称为节的文本块，未渲染，作为它的第一个参数。第二个参数是一个特殊的渲染函数，它使用当前视图作为视图参数。它在当前视图对象的上下文中调用。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Tater"</span>,</span><br><span class="line">  <span class="string">"bold"</span>: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="keyword">function</span> (text, render) &#123;</span><br><span class="line">      <span class="built_in">return</span> <span class="string">"&lt;b&gt;"</span> + render(text) + <span class="string">"&lt;/b&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Template-3"><a href="#Template-3" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#bold&#125;&#125;Hi &#123;&#123;name&#125;&#125;.&#123;&#123;/bold&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-3"><a href="#输入结果：-3" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;Hi Tater.&lt;/b&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//倒置部分^ &#123;&#123;&#125;&#125; &#123;&#123;部分代替<span class="comment">#节&#125;&#125;</span></span><br><span class="line">//一个倒置的节块呈现只有这部分标签的值为空，不确定的，虚假的，falsy或空列表。</span><br><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"repos"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Template-4"><a href="#Template-4" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#repos&#125;&#125;&lt;b&gt;&#123;&#123;name&#125;&#125;&lt;/b&gt;&#123;&#123;/repos&#125;&#125;</span></span><br><span class="line">&#123;&#123;^repos&#125;&#125;No repos :(&#123;&#123;/repos&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-4"><a href="#输入结果：-4" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">No repos :(</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;&gt;partials&#125;&#125;语法；</span><br><span class="line">//以&gt;开始表示子模块；当结构比较复杂时，我们可以使用该语法将复杂的结构拆分成几个小的子模块，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">    <span class="string">"company"</span>: <span class="string">"Apple"</span>,</span><br><span class="line">    <span class="string">"address"</span>: &#123;</span><br><span class="line">        <span class="string">"street"</span>: <span class="string">"1 Infinite Loop Cupertino&lt;/br&gt;"</span>,</span><br><span class="line">        <span class="string">"city"</span>: <span class="string">"California "</span>,</span><br><span class="line">        <span class="string">"state"</span>: <span class="string">"CA "</span>,</span><br><span class="line">        <span class="string">"zip"</span>: <span class="string">"95014 "</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"product"</span>: [<span class="string">"Macbook "</span>,<span class="string">"iPhone "</span>,<span class="string">"iPod "</span>,<span class="string">"iPad "</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Template-5"><a href="#Template-5" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var tpl = <span class="string">"&lt;h1&gt;&#123;&#123;company&#125;&#125;&lt;/h1&gt; &lt;ul&gt;&#123;&#123;&gt;address&#125;&#125;&lt;/ul&gt;"</span></span><br><span class="line">var partials = &#123;address: <span class="string">"&#123;&#123;#address&#125;&#125;&lt;li&gt;&#123;&#123;street&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;city&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;state&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;zip&#125;&#125;&lt;/li&gt;&#123;&#123;/address&#125;&#125;"</span>&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-5"><a href="#输入结果：-5" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;h1&gt;Apple&lt;/h1&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt;1 Infinite Loop Cupertino&amp;lt;/br&amp;gt;&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;California&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;CA&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;95014&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;&#123;keyName&#125;&#125;&#125; 语法</span><br><span class="line">//输出会将等特殊字符转译，如果想保持内容原样输出可以使用花括号，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">    <span class="string">"company"</span>: <span class="string">"Apple"</span>,</span><br><span class="line">    <span class="string">"address"</span>: &#123;</span><br><span class="line">        <span class="string">"street"</span>: <span class="string">"1 Infinite Loop Cupertino&lt;/br&gt;"</span>,</span><br><span class="line">        <span class="string">"city"</span>: <span class="string">"California "</span>,</span><br><span class="line">        <span class="string">"state"</span>: <span class="string">"CA "</span>,</span><br><span class="line">        <span class="string">"zip"</span>: <span class="string">"95014 "</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"product"</span>: [<span class="string">"Macbook "</span>,<span class="string">"iPhone "</span>,<span class="string">"iPod "</span>,<span class="string">"iPad "</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Template-6"><a href="#Template-6" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var tpl = <span class="string">'&#123;&#123;#address&#125;&#125; &lt;p&gt;&#123;&#123;&#123;street&#125;&#125;&#125;&lt;/p&gt; &#123;&#123;/address&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-6"><a href="#输入结果：-6" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;1 Infinite Loop Cupertino&lt;/br&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;!comments&#125;&#125;语法</span><br><span class="line">表示注释，注释后不会渲染输出任何内容。</span><br><span class="line">``` bash</span><br><span class="line">&#123;&#123;!这里是注释&#125;&#125;</span><br><span class="line">//输出：</span><br></pre></td></tr></table></figure>
-<p>参考文章<br><a href="https://github.com/janl/mustache.js" target="_blank" rel="noopener">https://github.com/janl/mustache.js</a></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>入门Mustache.js模版引擎</category>
-      </categories>
-  </entry>
-  <entry>
     <title>JavaScript常用算法</title>
     <url>/archives/73d2d809.html</url>
     <content><![CDATA[<p>前言</p>
@@ -652,189 +835,6 @@
       <categories>
         <category>JavaScript</category>
         <category>常见JS算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>总结CSS前端优化之旅</title>
-    <url>/archives/341da12f.html</url>
-    <content><![CDATA[<p>有关css hack与各浏览器前缀，前端性能优化之旅</p>
-<h3 id="css-hack"><a href="#css-hack" class="headerlink" title="css hack"></a>css hack</h3><hr>
-<p>IE6浏览器下<br>css hack： 属性明前加下划线， 如： <code>_color:#666</code></p>
-<p>IE7浏览器下<br>css hack： 属性名前加 <code>*</code>，如： <code>*clolor:#666</code></p>
-<p>IE8浏览器下(最新的opera浏览器也支持)<br>    css hack： 属性名前加 \0，如： <code>clolor:#666\0</code></p>
-<p>IE9浏览器下<br>css hack： 属性名前加 \9，如：<code>clolor:#666\9</code></p>
-<p>总结：<code>firefox</code>写在最前面，<code>IE7</code>写在中间，IE6写在最后；<code>IE6</code>能识别 <code>*</code>，不能识别！important；<code>IE7</code>能识别 <code>*</code>和<code>！important</code>，<code>FF</code>能识别<code>！important</code>和 <code>_</code>, 不能识别 <code>*</code>。</p>
-<h3 id="浏览器前缀"><a href="#浏览器前缀" class="headerlink" title="浏览器前缀"></a>浏览器前缀</h3><ul>
-<li>IE浏览器：属性名前添加-ms-，如： -ms-tranform:rotate(10deg)</li>
-<li>Firefox浏览器：属性名前加 -moz-，如： -moz-tranform:rotate(10deg)</li>
-<li>safari和chrome浏览器： 属性名前加 -webkit-，如： -webkit-tranform:rotate(10deg)</li>
-<li>opera浏览器：属性名前加 -o-，如： -o-tranform:rotate(10deg)</li>
-</ul>
-<h3 id="前端性能优化之旅"><a href="#前端性能优化之旅" class="headerlink" title="前端性能优化之旅"></a>前端性能优化之旅</h3><pre><code>● 1.缓存
-    ○ 1.1本地储存（cookie, localStorage, sessionStorage, indexedDB）
-    ○ 1.2内存缓存
-    ○ 1.3 Cache API
-    ○ 1.4 HTTP缓存（强缓存：Expires/Cache-Control, 协商缓存： Last-Modified/If-Modified-Since/Etag/If-None-Match）
-    ○ 1.5 Push Cache
-● 2.发送请求：
-    ○ 2.1避免不必要的重定向（301、302）
-    ○ 2.2 DNS预解析
-    ○ 2.3预先建立连接
-    ○ 2.4使用CDN
-● 3.服务端响应
-    ○ 3.1使用流（保存/撤销）
-    ○ 3.2业务接口内部聚合
-    ○ 3.3避免代码问题
-● 4.页面解析与处理
-    ○ 4.1资源位置顺序
-    ○ 4.2合理使用defer/async脚本
-    ○ 4.3关键渲染路径
-● 5.页面静态资源
-    ○ 5.1 Javascript
-        ● 5.1.1减少不必要的请求 （code split/代码合并）
-        ● 5.1.2减少包体大小（代码压缩，Tree Shaking，合理使用polyfill）
-        ● 5.1.3加快解析与执行（初始加载，删除不必要代码；避免long task；考虑是否需要框架；针对代码的编译优化）
-        ● 5.1.4打包导致的缓存失效（hash module id； runtime chunk split； 使用records）
-    ○ 5.2 CSS
-        ● 5.2.1使用关键CSS（内联；骨架屏）
-        ● 5.2.2优化资源请求（按需加载；合并文件；请求的优先级排序；慎用@import；谨慎对待Javascript脚本的位置）
-        ● 5.2.3减少包体积（压缩；选择合适的兼容性polyfill支持）
-        ● 5.2.4加快解析与渲染树构建（简化选择器；避免使用昂贵的属性；使用先进的布局方式）
-        ● 5.2.5利用缓存 webpack MiniCssExtractPlugin
-    ○ 5.3图片
-        ● 5.3.1优化请求（雪碧图；懒加载；base64内联）
-        ● 5.3.2减少图片大小（使用合适的图片格式,使用gpj,webP,SVG,video代替gif；适当降低图片质量；删除图片沉余信息）
-        ● 5.3.3利用缓存
-    ○ 5.4字体
-        ● 5.4.1使用font-display实现fout
-        ● 5.4.2内联字体
-        ● 5.4.3使用css font loging API
-        ● 5.4.4FoFT(flash of Faux Text)
-    ○ 5.5视频
-        ● 5.5.1使用合适的视频格式
-        ● 5.5.2进行视频压缩
-        ● 5.5.3移除不必要的音轨信息
-        ● 5.5.4使用“流”
-        ● 5.5.5移除页面中不必要的视频
-● 6.运行时
-    ○ 6.1注意强制同步布局（避免代码出现在不合适的位置；批量化操作）
-    ○ 6.2长列表优化（实现Vir tual List机制；原生Virtual Scroller）
-    ○ 6.3避免Javascript运行占用时间过长（任务分解；延迟执行；并行计算）
-    ○ 6.4善用composite机制
-    ○ 6.5滚动的性能优化
-    ○ 6.6Passive event listeners
-● 7.预加载
-    ○ 7.1预加载技术（Resource Hints: prefetch/prerender/preload；基于JS实现预加载）
-    ○ 7.2视频预加载技术（preload属性；link preload；自定义buffer）
-    ○ 7.3预加载策略（quicklink；guess.js）
-</code></pre>]]></content>
-      <categories>
-        <category>CSS</category>
-        <category>巩固CSS Hack</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>常见的CSS布局</title>
-    <url>/archives/4822cc7.html</url>
-    <content><![CDATA[<h3 id="单栏布局"><a href="#单栏布局" class="headerlink" title="单栏布局"></a>单栏布局</h3><p>常见单栏布局有以下情况：</p>
-<ul>
-<li>header/content/footer等宽单栏布局</li>
-<li>header/footer等宽，content略窄单栏布局</li>
-</ul>
-<p><strong>第一种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#c0c0c0; </span><br><span class="line"> &#125;</span><br><span class="line">.content&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#f1f1f1;</span><br><span class="line">  &#125;</span><br><span class="line">  .footer&#123;</span><br><span class="line">    width:100%; //①</span><br><span class="line">    background:#000</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>上述设置的width自适应充满屏幕。<br>如果设置width为固定值或者设置最大宽度(max-width)，当屏幕小于当前设置固定宽度(width)时，会出现滚动条；<br>而设置的最大宽度(max-width)，则不会出现滚动条。</p>
-<p>如果实现居中，解决办法是添加居中属性(margin: 0 auto)即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">// content, footer添加margin: 0 auto;属性</span><br></pre></td></tr></table></figure>
-<p><strong>第二种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background: #c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width: 700px;</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#000;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注意：</p>
-<p>如果header/footer内容宽度不设置，块级元素会充满整个屏幕；<br>如果header/content/footer内容区域中有设置同一个宽度，通过<strong>margin:0 auto</strong>居中。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  max-width:600px; //宽度</span><br><span class="line">  background:#fff;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width:600px;  // 宽度</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto;  // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#000; </span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a>两栏布局</h3><p>指一边栏固定宽度，另一边栏充满剩余宽度。<br>常见两栏布局有以下情况：</p>
-<ul>
-<li>左栏固定宽度，右栏自适应</li>
-<li>左栏自适应，右栏固定宽度</li>
-</ul>
-<p><strong>第一种情况</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; //①</span><br><span class="line">  float:left; // ①</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-left:200px; // ②</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display:flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  flex:1; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>第二种情况：(注意DOM布局顺序)</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ①</span><br><span class="line">  background:red;</span><br><span class="line">  position:absolute; // ①</span><br><span class="line">  top:0; // ①</span><br><span class="line">  right:0; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-right:200px; // ② </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用margin-right属性留出重叠区域。</p>
-<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果是<strong>自适应两栏布局使用float + overflow</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.content&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  float: left;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种方式通过overflow触发BFC，这时zoom:1兼容IE6浏览器；如果侧边栏在右侧注意渲染顺序。</p>
-<h3 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h3><p>指两边栏固定宽度，中间栏自适应布局。</p>
-<p><strong>第一种圣杯</strong><br>实现原理：</p>
-<ul>
-<li><p>三栏都设置左浮动，设置中间栏宽度为100%；</p>
-</li>
-<li><p>这时左右两栏会掉下来，设置margin-left为负值，添加相对定位并设置left属性与right属性，与中间栏同一行；</p>
-</li>
-<li><p>设置padding留出间距。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width:100%; // ① 充满屏幕</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ② 设置一个宽度</span><br><span class="line">  margin-left:-100%; // ② 添加float, 与middle同一行</span><br><span class="line">  float：left; // ②</span><br><span class="line">  position: relative; // ② 添加相对定位移并到左边</span><br><span class="line">  left: -200px; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width: 200px; // ③</span><br><span class="line">  margin-left: -200px; // ③ 添加float, 与minddle同行</span><br><span class="line">  float: left; // ③</span><br><span class="line">  position: relative; // ③ 添加相对定位 并移到右边</span><br><span class="line">  right:-200px; // ③</span><br><span class="line">  background:yellow; </span><br><span class="line">&#125;</span><br><span class="line">.body&#123;</span><br><span class="line">  padding: 0 200px; // ④ 左右两边留出间隙</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>第二种双飞翼</strong><br>实现原理：</p>
-<ul>
-<li><p>三栏左浮动，设置中间栏宽度为100%；</p>
-</li>
-<li><p>这时左右两栏会掉下来，设置margin-left为负值并设置left属性与right属性，与中间栏同一行；</p>
-</li>
-<li><p>在中间栏增加一个div，设置margin留出左右间距。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width: 100%; // ①</span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width: 200px; // ②</span><br><span class="line">  margin-left: -100%; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right &#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  margin-left: -200px; // ③</span><br><span class="line">  background: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  margin: 0 200px; // ④</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>圣杯布局与双飞翼布局对比：</p>
-<ul>
-<li><p>圣杯布局是在父容器的左/右内边距配合两个从列相对定位。</p>
-</li>
-<li><p>双飞翼布局是把主列嵌套在一个父级块中配合主列左/右外边距。</p>
-</li>
-</ul>
-<p><strong>第三种flex</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left &#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.middle &#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>补充flex:1</strong></p>
-<p>flex是flex-grow，flex-shrink,  flex-basis的缩写；默认值：0 1 auto。后两者属性可选。</p>
-<p>flex-grow：属性定义了该空间的放大比例，默认值0；表示如果存在剩余空间，也不放大。</p>
-<p>flex-skrink：属性定义了该空间的缩小比例，默认值1；表示如果空间不足，该空间将缩小。</p>
-<p>flex-basis：属性定义在分配多余空间之前，占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间，默认值auto，表示该空间本来的大小。</p>
-<p>flex:属性由两个值：auto(1 1 auto) 和 none(0 0 auto)。</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-        <category>常见布局方式</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>回调函数</title>
-    <url>/archives/a03e68d3.html</url>
-    <content><![CDATA[<p><strong>前言</strong></p>
-<p>最近一直忙于项目，没时间总写，趁现在有时间总结下遇到的问题。</p>
-<h3 id="data-书写"><a href="#data-书写" class="headerlink" title="data-*书写"></a><code>data-*</code>书写</h3><p>处理数据交互，有时候需要在一些元素上绑定一些<code>data-*</code>数据，不经意间有可能在JS中写成大写的，比如：<code>data-Id</code>，但是在<code>html</code>解析时，浏览器解析的是小写<code>data-id</code>，在调试JS数据交互，有可能很纳闷，明明绑定上去数据，为何获取不到。</p>
-<p>因此建议在书写时，写成小写的，避免坑了自己，比如：<code>data-id</code></p>
-<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>之前项目很少遇到ajax回调，估计项目复杂度不够，应用不到吧；还有就是本身知识有短板。查了很多资料找到了ajax回调函数例子。</p>
-<p>原理：</p>
-<ul>
-<li><p>在函数中传一个参数，如：callBack。</p>
-</li>
-<li><p>在函数体中，把传入的参数callBack当成一个函数，把需要获的数据传入callback这个函数。</p>
-</li>
-</ul>
-<p>用法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn(callBack) &#123;</span><br><span class="line">	$.post(xxx, &#123; xxx &#125;, function(r) &#123;</span><br><span class="line">		callBack(r);</span><br><span class="line">	&#125;, &apos;json&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>JS回调函数</category>
       </categories>
   </entry>
   <entry>
@@ -1166,71 +1166,6 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       </categories>
   </entry>
   <entry>
-    <title>学习Flex知识</title>
-    <url>/archives/48632995.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前都是使用传统的CSS布局方式，但随着CSS3广泛应用在移动端和主流浏览器中，抱着求学的心态学习接收前端新的知识Flex布局，在这里做下笔记进行总结。</p>
-<hr>
-<h3 id="Flex使用"><a href="#Flex使用" class="headerlink" title="Flex使用"></a>Flex使用</h3><p>设置Flex布局，在父框添加 display:flex即可。</p>
-<p>Flex布局有浏览器兼容性，需要根据不同浏览器内核添加不同浏览器前缀，比如Chrome浏览器使用 -webkit- 前缀。</p>
-<p><strong>注意：</strong> 如果用了弹性布局，子元素不需要浮动 float。</p>
-<h3 id="父框设置Flex携带属性"><a href="#父框设置Flex携带属性" class="headerlink" title="父框设置Flex携带属性"></a>父框设置Flex携带属性</h3><p>justify-content: 子元素水平排列方式，值有以下几种：</p>
-<ul>
-<li>center 居中，(常用)</li>
-<li>space-between    两端对齐(常用)</li>
-<li>space-around    子元素拉手分布    (常用)</li>
-<li>flex-start 居左</li>
-<li>flex-end 居右</li>
-</ul>
-<p>align-items: 子元素垂直排列，值有以下几种：</p>
-<ul>
-<li>center 居中(常用)</li>
-<li>flex-end 底部</li>
-<li>flex-start 开始</li>
-</ul>
-<p>align-content:多行的时候，垂直排列</p>
-<ul>
-<li>center 居中<br>…</li>
-</ul>
-<p>flex-direction: 排列方式，该属性值有以下几种：</p>
-<ul>
-<li>row 横向排列</li>
-<li>row-reverse 横向翻过排列</li>
-<li>column 纵向排列</li>
-<li>column-reverse 纵向翻过排列</li>
-</ul>
-<p>flex-wrap: 子元素是否在一行显示，该属性值有以下几种：</p>
-<ul>
-<li>nowrap 不换行</li>
-<li>wrap 换行</li>
-</ul>
-<p>flex-flow 全拼是 <code>&lt;flex-direction&gt;</code> 与 <code>&lt;flex-wrap&gt;</code>的缩写。    </p>
-<h3 id="子框身上属性"><a href="#子框身上属性" class="headerlink" title="子框身上属性:"></a>子框身上属性:</h3><p>父框设置Flex布局，子框携带的属性：</p>
-<ul>
-<li>flex:1，1 指的是一个系数。</li>
-<li>子元素在划分父元素宽度，先刨除固定宽度。</li>
-<li>align-self 其实就是用来覆盖父级 align-items  垂直排列。</li>
-<li>flex-grow: 1;    定义子元素放大比例。</li>
-<li>order: 规定子元素顺序。排序：数值越小，越靠前，默认值0。</li>
-</ul>
-<h3 id="flex：1的含义"><a href="#flex：1的含义" class="headerlink" title="flex：1的含义"></a>flex：1的含义</h3><ul>
-<li>flex是flex-grow，flex-shrink，flex-basis的缩写。</li>
-<li>flex-grow：父控件空间有剩余是否放大；0表示不放大。</li>
-<li>flex-shrink：父控件空间不足是否缩小。</li>
-<li>flex-basis：子控件占主轴的大小，主轴就是flex的主方向，row是横向，column是竖向。</li>
-<li>flex默认属性是0 1 auto，(父控件有剩余控件不放大，父控件空间不足按1缩小，保持本身的空间大小)。</li>
-<li>flex:1;的值是1 1 0%，(父控件有剩余空间按1放大，父控件空间不足按1缩小，自身的空间大小是0%)。</li>
-</ul>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>CSS</category>
-        <category>Flex布局</category>
-      </categories>
-  </entry>
-  <entry>
     <title>你不知道的前端安全知识</title>
     <url>/archives/8e8805c.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近线上项目被他人攻击，对网站危害极大。之前对前端安全知识只是大致了解，简单应用。为了更详细的了解与应用前端安全知识，因此查找与前端安全相关材料抱着求学的心态系统地学习前端安全知识，在这里做个简单的总结，希望在日常开发中不断预防和修复漏洞。</p>
@@ -1428,6 +1363,71 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       <categories>
         <category>JavaScript</category>
         <category>JavaScript安全</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>学习Flex知识</title>
+    <url>/archives/48632995.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前都是使用传统的CSS布局方式，但随着CSS3广泛应用在移动端和主流浏览器中，抱着求学的心态学习接收前端新的知识Flex布局，在这里做下笔记进行总结。</p>
+<hr>
+<h3 id="Flex使用"><a href="#Flex使用" class="headerlink" title="Flex使用"></a>Flex使用</h3><p>设置Flex布局，在父框添加 display:flex即可。</p>
+<p>Flex布局有浏览器兼容性，需要根据不同浏览器内核添加不同浏览器前缀，比如Chrome浏览器使用 -webkit- 前缀。</p>
+<p><strong>注意：</strong> 如果用了弹性布局，子元素不需要浮动 float。</p>
+<h3 id="父框设置Flex携带属性"><a href="#父框设置Flex携带属性" class="headerlink" title="父框设置Flex携带属性"></a>父框设置Flex携带属性</h3><p>justify-content: 子元素水平排列方式，值有以下几种：</p>
+<ul>
+<li>center 居中，(常用)</li>
+<li>space-between    两端对齐(常用)</li>
+<li>space-around    子元素拉手分布    (常用)</li>
+<li>flex-start 居左</li>
+<li>flex-end 居右</li>
+</ul>
+<p>align-items: 子元素垂直排列，值有以下几种：</p>
+<ul>
+<li>center 居中(常用)</li>
+<li>flex-end 底部</li>
+<li>flex-start 开始</li>
+</ul>
+<p>align-content:多行的时候，垂直排列</p>
+<ul>
+<li>center 居中<br>…</li>
+</ul>
+<p>flex-direction: 排列方式，该属性值有以下几种：</p>
+<ul>
+<li>row 横向排列</li>
+<li>row-reverse 横向翻过排列</li>
+<li>column 纵向排列</li>
+<li>column-reverse 纵向翻过排列</li>
+</ul>
+<p>flex-wrap: 子元素是否在一行显示，该属性值有以下几种：</p>
+<ul>
+<li>nowrap 不换行</li>
+<li>wrap 换行</li>
+</ul>
+<p>flex-flow 全拼是 <code>&lt;flex-direction&gt;</code> 与 <code>&lt;flex-wrap&gt;</code>的缩写。    </p>
+<h3 id="子框身上属性"><a href="#子框身上属性" class="headerlink" title="子框身上属性:"></a>子框身上属性:</h3><p>父框设置Flex布局，子框携带的属性：</p>
+<ul>
+<li>flex:1，1 指的是一个系数。</li>
+<li>子元素在划分父元素宽度，先刨除固定宽度。</li>
+<li>align-self 其实就是用来覆盖父级 align-items  垂直排列。</li>
+<li>flex-grow: 1;    定义子元素放大比例。</li>
+<li>order: 规定子元素顺序。排序：数值越小，越靠前，默认值0。</li>
+</ul>
+<h3 id="flex：1的含义"><a href="#flex：1的含义" class="headerlink" title="flex：1的含义"></a>flex：1的含义</h3><ul>
+<li>flex是flex-grow，flex-shrink，flex-basis的缩写。</li>
+<li>flex-grow：父控件空间有剩余是否放大；0表示不放大。</li>
+<li>flex-shrink：父控件空间不足是否缩小。</li>
+<li>flex-basis：子控件占主轴的大小，主轴就是flex的主方向，row是横向，column是竖向。</li>
+<li>flex默认属性是0 1 auto，(父控件有剩余控件不放大，父控件空间不足按1缩小，保持本身的空间大小)。</li>
+<li>flex:1;的值是1 1 0%，(父控件有剩余空间按1放大，父控件空间不足按1缩小，自身的空间大小是0%)。</li>
+</ul>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>CSS</category>
+        <category>Flex布局</category>
       </categories>
   </entry>
   <entry>
