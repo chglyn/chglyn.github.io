@@ -185,11 +185,11 @@ th {
 }
 body {
   position: relative;
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Georgia,serif", "Microsoft YaHei", sans-serif;
   font-size: 14px;
   line-height: 2;
-  color: #555;
-  background: #f5f7f9;
+  color: #666;
+  background: #efefef;
 }
 @media (max-width: 767px) {
   body {
@@ -216,7 +216,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Georgia,serif", "Microsoft YaHei", sans-serif;
 }
 h2,
 h3,
@@ -318,6 +318,192 @@ dt {
 dd {
   margin: 0;
   padding: 0;
+}
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+#container {
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 1.5em;
+  padding: 1rem;
+  color: #fefefe;
+  overflow: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  width: auto;
+  height: auto;
+  max-height: 40%;
+  min-width: 90%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  transition: height 1s ease;
+  transition: top 1s ease;
+}
+body #container {
+  max-width: 960px;
+  min-width: 40%;
+}
+#container .head {
+  text-align: center;
+  border-bottom: 1px solid #d3d3d3;
+  height: 5em;
+}
+#container .content {
+  list-style: none;
+  padding: 0;
+}
+#container .content li {
+  line-height: 180%;
+  background-color: rgba(0,0,0,0.5);
+  padding: 0.25rem;
+  border-radius: 0.5em;
+  text-shadow: 0 1px 1px #333;
+}
+#container .content li:hover {
+  background-color: #fff;
+}
+#container .content li:hover a {
+  color: #666;
+}
+#container .content a {
+  text-decoration: none;
+  border: 0;
+  color: #fefefe;
+  padding: 0.25rem;
+}
+#container .foot {
+  text-align: right;
+  line-height: 1rem;
+}
+#bodyPage {
+  width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#bodyPage .bg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  display: none;
+}
+@media screen and (max-width: 770px) {
+  body #container {
+    min-width: 80%;
+  }
+}
+@-moz-keyframes octocat-wave {
+  0%, 100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  20%, 60% {
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+@-webkit-keyframes octocat-wave {
+  0%, 100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  20%, 60% {
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+@-o-keyframes octocat-wave {
+  0%, 100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  20%, 60% {
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  20%, 60% {
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
 }
 .text-left {
   text-align: left;
@@ -482,7 +668,7 @@ pre,
 }
 pre,
 code {
-  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  font-family: consolas, Menlo, "Georgia,serif", "Microsoft YaHei", monospace;
 }
 code {
   padding: 2px 4px;
@@ -830,7 +1016,7 @@ pre .javascript .function {
   font-size: 14px;
   color: #fff;
   background: #222;
-  border: 2px solid #555;
+  border: 2px solid #666;
   text-decoration: none;
   border-radius: 0;
   transition-property: background-color;
@@ -848,7 +1034,7 @@ pre .javascript .function {
   display: block;
   width: 22px;
   height: 2px;
-  background: #555;
+  background: #666;
   border-radius: 1px;
 }
 .btn-bar+.btn-bar {
@@ -1012,7 +1198,7 @@ pre .javascript .function {
   line-height: 36px;
   font-size: 20px;
   font-weight: normal;
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Georgia,serif", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
@@ -1101,7 +1287,7 @@ pre .javascript .function {
   opacity: 0;
 }
 .post-body {
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Georgia,serif", "Microsoft YaHei", sans-serif;
 }
 @media (max-width: 767px) {
   .post-body {
@@ -1245,7 +1431,7 @@ pre .javascript .function {
   content: " ";
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 56%;
   margin-left: -4px;
   margin-top: -4px;
   width: 8px;
@@ -1366,7 +1552,7 @@ pre .javascript .function {
 .posts-expand .post-meta {
   margin: 3px 0 60px 0;
   color: #999;
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Georgia,serif", "Microsoft YaHei", sans-serif;
   font-size: 12px;
   text-align: center;
 }
@@ -1437,7 +1623,7 @@ pre .javascript .function {
   margin-top: 50px;
 }
 .post-button .btn {
-  color: #555;
+  color: #666;
   font-size: 14px;
   background: #fff;
   border-radius: 2px;
@@ -1699,7 +1885,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff6afb;
+  background: #3e9ac8;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2799,7 +2985,7 @@ pre .javascript .function {
   float: left;
   margin-top: 300px;
   width: 240px;
-  background: #f5f7f9;
+  background: #efefef;
   box-shadow: none;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2964,7 +3150,7 @@ pre .javascript .function {
 .sidebar-inner {
   box-sizing: border-box;
   width: 240px;
-  color: #555;
+  color: #666;
   background: #fff;
   box-shadow: initial;
   border-radius: initial;
