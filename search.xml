@@ -32,323 +32,6 @@
       </categories>
   </entry>
   <entry>
-    <title>学习JavaScript基础篇</title>
-    <url>/archives/3a1eeae5.html</url>
-    <content><![CDATA[<p>前言</p>
-<p>浅入JS基础。本篇从工作、学习总结归纳JavaScript，列举以下技巧。</p>
-<ul>
-<li>文章涉及：</li>
-<li>变量声明</li>
-<li>typeof</li>
-<li>数据类型</li>
-<li>理解函数</li>
-<li>全局对象(GO)</li>
-<li>闭包</li>
-<li>作用域</li>
-<li>作用域链</li>
-<li>立即执行函数与函数表达式</li>
-<li>运算符</li>
-<li>对象</li>
-<li>new关键字</li>
-<li>包装类</li>
-<li>原型</li>
-<li>原型链</li>
-<li>Object.create()</li>
-<li>call</li>
-<li>apply</li>
-<li>继承</li>
-<li>命名空间</li>
-<li>链式调用</li>
-<li>对象枚举</li>
-<li>this</li>
-<li>数组</li>
-<li>类数组</li>
-<li>try catch</li>
-</ul>
-<h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><ul>
-<li>即任何变量，如果未经声明就使用，此变量就为全局变量所拥有。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// 没有使用var，在全局声明变量num，变量num属于window</span><br><span class="line">num = 10;</span><br><span class="line">console.log(window.num) // 10</span><br></pre></td></tr></table></figure>
-<ul>
-<li>一切声明的全局变量，全是window的属性。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 使用var在全局声明变量num，变量num就属于window。</span><br><span class="line">var num = 10; </span><br><span class="line">console.log(window.num) // 10</span><br></pre></td></tr></table></figure>
-<p>注意</p>
-<p>一旦经历var操作，所得出的属性属于window，这种属性叫做不可配置属性，<strong>不可配置属性不能delete</strong>。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num = 1;</span><br><span class="line">delete window.num // false</span><br></pre></td></tr></table></figure>
-<ul>
-<li>全局定义相同变量，后面变量能把前面变量覆盖。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num = 1; // 首次定义  </span><br><span class="line">...</span><br><span class="line">var num = 10; // 后面再次定义 </span><br><span class="line">console.log(num) // 10</span><br></pre></td></tr></table></figure>
-<h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p>返回数据类型字符串表达。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var num = 1;</span><br><span class="line">typeof num // &apos;number&apos; </span><br><span class="line"></span><br><span class="line">var x = &apos;app&apos;;</span><br><span class="line">typeof x // &apos;string&apos; </span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>typeof 存在比较特殊地方。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">typeof null // &apos;object&apos; </span><br><span class="line">typeof Array // &apos;object&apos;</span><br></pre></td></tr></table></figure>
-<p>通过typeof能返回：number/string/boolean/object/function类型。</p>
-<p>能判断：undefined/number/boolean/function</p>
-<p>不能判断： null/object/Array。</p>
-<p>对于NaN，返回number，NaN是not a number的缩写。</p>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>包括基本数据类型与引用数据类型。</p>
-<p>基本数据类型（栈stack） 包括：number/string/boolean/null/undefined。基本数据类型访问顺序按值访问，由高向低分配，占内存最大是8MB，其中string是特殊的栈，由程序员分配。</p>
-<p>引用类型(堆heap) 包括：function/object/Array。引用类型在栈内存中保存的是对象在堆内存中的引用地址(指针)，向高分配，系统自由分配。</p>
-<ul>
-<li>空间分配方式：<br>栈：由操作系统自由分配释放。<br>堆：一般由程序员分配释放。</li>
-</ul>
-<ul>
-<li>数据结构：<br>栈：先进后出的模式。<br>堆：可以看成一颗树。</li>
-</ul>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>预编译发生在函数执行前一刻。<br>预编译过程：</p>
-<ul>
-<li>创建AO对象：Activetion Object</li>
-<li>找形参和变量声明，将变量和形参名作为AO属性名，值为：undefined</li>
-<li>将实参值和形参统一</li>
-<li>在函数体里面找函数声明，值赋予函数体</li>
-</ul>
-<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn(x, y) &#123;</span><br><span class="line">  z = 3;</span><br><span class="line">  function bar() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">fn(1, 2);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>首次创建Activetion Object<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x:         undefined</span><br><span class="line">y:         undefined</span><br><span class="line">z:         undefined</span><br><span class="line">bar:       undefined</span><br><span class="line">arguments: undefined</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>然后实参值与形参统一<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x:         1</span><br><span class="line">y:         2</span><br><span class="line">z:         3</span><br><span class="line">bar:       undefined</span><br><span class="line">arguments: &lt;1, 2&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>函数体中如果有函数声明，值赋予函数体<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x:         1</span><br><span class="line">y:         2</span><br><span class="line">z:         3</span><br><span class="line">bar:       &lt;function&gt;</span><br><span class="line">arguments: &lt;1, 2&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Global-Object-GO"><a href="#Global-Object-GO" class="headerlink" title="Global Object(GO)"></a>Global Object(GO)</h3><p>简称全局对象，与widow关系是全等(Global Object === window)。</p>
-<p>代码片段<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function a() &#123;</span><br><span class="line">  function b() &#123;</span><br><span class="line">    function c() &#123;&#125;</span><br><span class="line">    c();</span><br><span class="line">  &#125;</span><br><span class="line">  b();</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure></p>
-<p>通过上述代码片段，函数a在全局定义，同时创建自己的scope属性，指向它父函数作用域链Global Object；函数a执行，scope属性指向自身Activetion Object；通过全局Global Object返回，拿到函数a结果。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">a   defined a.[[scope]] --&gt; 0: GO</span><br><span class="line"></span><br><span class="line">a   doing   a.[[scope]] --&gt; 0: a AO</span><br><span class="line">                        --&gt; 1: GO</span><br></pre></td></tr></table></figure></p>
-<p>函数b定义，是在函数a执行结果上定义，同时创建自己的scope；函数b执行，scope属性指向自身Activetion Object，经过函数a的Activetion Object，传递给全局Global Object返回，拿到函数b结果。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// ...省略函数a </span><br><span class="line">b   defined b.[[scope]] --&gt; 0: aAO</span><br><span class="line">                        --&gt; 1: GO</span><br><span class="line"></span><br><span class="line">b   doing   b.[[scope]] --&gt; 0: bAO</span><br><span class="line">                        --&gt; 1: aAO</span><br><span class="line">                        --&gt; 2: GO</span><br></pre></td></tr></table></figure></p>
-<p>函数c定义，是在函数b执行结果上定义，同时创建自己的scope；函数c执行，scope属性指向自身Activetion Object，经过函数b的Activetion Object，经过函数a的Activetion Object，通过全局Global Object返回，拿到函数c结果。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// ...省略函数a </span><br><span class="line">// ...省略函数b </span><br><span class="line">c   defined c.[[scope]] --&gt; 0: bAO</span><br><span class="line">                        --&gt; 1: aAO</span><br><span class="line">                        --&gt; 2: GO</span><br><span class="line"></span><br><span class="line">c   doing   c.[[scope]] --&gt; 0: cAO</span><br><span class="line">                        --&gt; 1: bAO</span><br><span class="line">                        --&gt; 2: aAO    </span><br><span class="line">                        --&gt; 3: GO</span><br></pre></td></tr></table></figure></p>
-<p>通过上述分析可以看到，函数是定义在它父劳动成果上。</p>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>内部的函数被保存到外部，将生成闭包。闭包会导致原作用域链不释放，造成内存泄露。通俗理解里面的函数比外面的函数活着还长。</p>
-<p>规则：</p>
-<ul>
-<li>一定是嵌套函数</li>
-<li>内层函数一定操作了外层函数的局部变量</li>
-<li>外层函数一定将内层函数返回外部, 并且被全局变量保存</li>
-</ul>
-<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">  function bar() &#123;</span><br><span class="line">    var y = 2;</span><br><span class="line">    console.log(x);</span><br><span class="line">  &#125;</span><br><span class="line">  var x = 1;</span><br><span class="line">  return bar;</span><br><span class="line">&#125;</span><br><span class="line">var f = fn();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure></p>
-<p>闭包运用<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">  var arr = [];</span><br><span class="line">  for(var i=0; i&lt;10; i++) &#123;</span><br><span class="line">    arr[i] = function() &#123;</span><br><span class="line">      console.log(i) // 输出10次10 </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br><span class="line">var myArr = fn();</span><br><span class="line">for(var j=0; j&lt;10; j++) &#123;</span><br><span class="line">  myArr[i]();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>打印输出10次10，是因为声明i变量是全局变量。<br>for语句可以这样<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(var i=0; i&lt;10; i++) &#123; </span><br><span class="line">  // ...  </span><br><span class="line">&#125;</span><br><span class="line">// 修改下面是等效 </span><br><span class="line">var i = 0;</span><br><span class="line">for(; i&lt;10; i++) &#123;</span><br><span class="line">  // ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对于上面代码打印0-10，可通过闭包修改，设置局部变量<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">var arr = [];</span><br><span class="line">for(var i=0; i&lt;10; i++) &#123;</span><br><span class="line">    (function(j) &#123; // 形参 </span><br><span class="line">       arr[j] = function() &#123;</span><br><span class="line">          console.log(j) // 输出0-10</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)(i)</span><br><span class="line">  &#125;</span><br><span class="line">return arr;</span><br><span class="line">&#125;</span><br><span class="line">var myArr = fn();</span><br><span class="line">for(var j=0; j&lt;10; j++) &#123;</span><br><span class="line">  myArr[i]();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>ES5中提出全局作用域和函数作用域。</p>
-<p>全局作用域忘记，可以往上翻翻开篇提到的部分；这里补充函数作用域，函数作用域是在函数内部的变量。</p>
-<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">  var num = 10;</span><br><span class="line">  console.log(num); // 10 </span><br><span class="line">  function bar() &#123;</span><br><span class="line">    console.log(num) // 10 </span><br><span class="line">  &#125;</span><br><span class="line">  bar();</span><br><span class="line">&#125;</span><br><span class="line">console.log(num) // 抛出 error </span><br><span class="line">fn();</span><br></pre></td></tr></table></figure></p>
-<p>通过上述结果可以理解，<strong>函数会创建自己的作用域’{}’，并且作用域分层，函数内层域能访问函数外层域，反之不行</strong>。<br>值得注意的是<strong>在if/for/switch/while语句后面的“{}”，不会创建自己的作用域</strong>，定义的变量保存在已经定义的作用域中。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(true) &#123;</span><br><span class="line">  var num = 10;</span><br><span class="line">&#125;</span><br><span class="line">console.log(num) // 10</span><br></pre></td></tr></table></figure></p>
-<p>变量num虽然在’{ }’中，但是if不会创建自己的作用域，变量num相当于定义在全局。</p>
-<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>链可以理解为一层一层的向上寻找。在作用域中呢？<br>看看相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num = 10;</span><br><span class="line">function  fn() &#123;</span><br><span class="line">  console.log(num);</span><br><span class="line">&#125;</span><br><span class="line">fn(); // 输出结果 10</span><br></pre></td></tr></table></figure></p>
-<p>函数fn创建自己的域，在函数内层域中寻找变量num，发现当前域没有定义变量num，继续向函数外层域寻找变量，最后在外层域中找到变量num，输出10。</p>
-<p>目前说明<strong>作用域链是一层一层向上寻找，直到找到所需变量或者最顶层也没找到就停止寻找并返回结果</strong>。</p>
-<p>那么能不能理解成一层一层向函数父域中寻找呢？看下面相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var num = 10;</span><br><span class="line">function fn() &#123;</span><br><span class="line">  console.log(num);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function bar() &#123;</span><br><span class="line">  var num = 20;</span><br><span class="line">  (function() &#123;</span><br><span class="line">    fn();</span><br><span class="line">  &#125;)()</span><br><span class="line">&#125;</span><br><span class="line">bar(); // 输出结果10</span><br></pre></td></tr></table></figure></p>
-<p>上述代码输出结果10。通过这个可以分析<strong>函数会在创建函数的这个域中寻找值，不是调用这个函数域</strong>，说向父域中不准确。</p>
-<h3 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h3><p>可以理解成执行完就释放。<br>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(function(x, y) &#123; // x, y是形参 </span><br><span class="line">  console.log(x + y);</span><br><span class="line">&#125;)(1, 2) // 1, 2 是实参</span><br></pre></td></tr></table></figure></p>
-<p>可以定义一个变量接收。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num = (function(x, y) &#123;</span><br><span class="line">  var z = x + y;</span><br><span class="line">  return z;</span><br><span class="line">&#125;)(1, 2)</span><br><span class="line"></span><br><span class="line">console.log(num)  // 3</span><br></pre></td></tr></table></figure></p>
-<p>注意：<strong>只有表达式才能被执行符号“( )”执行</strong>。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var fn = function() &#123;</span><br><span class="line">  console.log(&apos;hello&apos;);</span><br><span class="line">&#125;()</span><br><span class="line">// 首次调用输出 hello  </span><br><span class="line">// 再次调用console.log(fn) 输出 undefined</span><br></pre></td></tr></table></figure></p>
-<p>函数调用。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">  console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure></p>
-<p>函数使用call方法调用。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">foo.call();</span><br></pre></td></tr></table></figure></p>
-<p>这两个函数打印值是相等。</p>
-<p>函数后面添加运算符”( )”，调用函数什么也不输出。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn(x, y) &#123;</span><br><span class="line">  console.log(x, y); // 无输出  </span><br><span class="line">&#125;(1, 2)</span><br></pre></td></tr></table></figure></p>
-<p>函数前面支持正负非符号。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+|-|! function fn() &#123;</span><br><span class="line">  console.log(&apos;hello&apos;); // hello  </span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure></p>
-<p><strong>“( )”运算符。</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num = (1 - 1, 1 + 1); </span><br><span class="line">console.log(num) // 2 计算前面结果，再计算后面运算结果，返回后面结果</span><br></pre></td></tr></table></figure></p>
-<p>if语句有函数。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x = 1;</span><br><span class="line">if(function() &#123;&#125;) &#123;</span><br><span class="line">  x += typeof f;</span><br><span class="line">&#125;</span><br><span class="line">console.log(x) // 1undefined 此时函数转成表达式，在执行</span><br></pre></td></tr></table></figure></p>
-<h3 id="对象模型"><a href="#对象模型" class="headerlink" title="对象模型"></a>对象模型</h3><p>由属性和属性对应值组成。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line"> // 属性：值  </span><br><span class="line">  name: &apos;sunny&apos;,</span><br><span class="line">  age: 18,</span><br><span class="line">  say: function() &#123;</span><br><span class="line">    console.log(&apos;hello&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以操作对象：</p>
-<ul>
-<li>访问属性：obj.name</li>
-<li>删除属性：delete obj.age</li>
-<li>修改属性：obj.age = 28</li>
-<li>添加属性：obj.sex = ‘male’</li>
-</ul>
-<p><strong>创建对象</strong></p>
-<ul>
-<li><p>使用字面量创建对象</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var  obj = &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用系统自带的构造函数</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = new Object()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自定义</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person()&#123;&#125;</span><br><span class="line">var person = new Person();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意：<br>构造函数和普通函数结构上没区别，存在new才会返回一个对象。<br>构造函数命名规则，大驼峰命名</p>
-<h3 id="new关键字"><a href="#new关键字" class="headerlink" title="new关键字"></a>new关键字</h3><p>在构造函数前面添加new关键字，执行以下操作：</p>
-<ul>
-<li>在函数体最前面隐式的加上this = { }</li>
-<li>执行 this.xxx = xxx</li>
-<li>隐式的返回 this<br>相关代码：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Student(name, age) &#123;</span><br><span class="line">  // 隐式添加 this = &#123; </span><br><span class="line">  // name: name, </span><br><span class="line">  // ... </span><br><span class="line">  // &#125; </span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">  this.sex = &apos;male&apos;;</span><br><span class="line">  // 隐式添加 return this </span><br><span class="line">&#125;</span><br><span class="line">var student = new Student(&apos;sunny&apos;, 18);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>构造函数显示return空对象或者原始值；输出的结果不一样。</p>
-<p>return对象<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Student(name, age) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">  this.sex = &apos;male&apos;;</span><br><span class="line">  return &#123;&#125;; // 返回一个空对象 </span><br><span class="line">&#125;</span><br><span class="line">var student = new Student(&apos;sunny&apos;, 18);</span><br><span class="line">console.log(student) // &#123;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>return原始值<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Student(name, age) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">  this.sex = &apos;male&apos;;</span><br><span class="line">  // 或者return 原始值; 相当于return this，返回一个对象 </span><br><span class="line">  return 123; </span><br><span class="line">&#125;</span><br><span class="line">var student = new Student(&apos;sunny&apos;, 18);</span><br><span class="line">console.log(student) // &#123;name: &quot;sunny&quot;, age: 18, sex: &quot;male&quot;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>自定义对象好处<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Car(color) &#123; // color参数 </span><br><span class="line">    this.color = color;  // color 接受参数</span><br><span class="line">    this.health = 100;</span><br><span class="line">    this.run = function() &#123;</span><br><span class="line">      this.health --;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">// car变量写成Car走预编译环节，进行覆盖</span><br><span class="line">var car1 = new Car(&apos;red&apos;); // &#123;color: &quot;red&quot;, health: 100, run: ƒ&#125;</span><br><span class="line">var car2 = new Car(&apos;green&apos;);// &#123;color: &quot;green&quot;, health: 100, run: ƒ&#125;</span><br></pre></td></tr></table></figure></p>
-<p>通过上述代码结果可以看出car1与car2属性相互各自独立互不影响。</p>
-<h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><p>原始值没有属性和方法。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// eg </span><br><span class="line">var num = 1;</span><br><span class="line">var num = new Number(num);</span><br><span class="line">num.a = &apos;a&apos;;</span><br><span class="line">console.log(num) // Number &#123;1, a: &quot;a&quot;&#125; </span><br><span class="line">console.log(num * 2) // 2 能计算，又返回原类型</span><br></pre></td></tr></table></figure></p>
-<p>String添加属性：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var str = &apos;a&apos;;</span><br><span class="line">var str = new String(str);</span><br><span class="line">str.a = &apos;a&apos;;</span><br><span class="line">console.log(str.a) // a</span><br></pre></td></tr></table></figure></p>
-<p>Number添加属性：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// eg: </span><br><span class="line">var num = 4;</span><br><span class="line">num.len = 3;</span><br><span class="line">console.log(num.len) // undefined</span><br></pre></td></tr></table></figure></p>
-<p>执行过程:</p>
-<ul>
-<li>执行num.len时，发生new Number(num).len = 3新建一个数字对象，该对象len赋值为3，然后delete销毁。</li>
-<li>再次访问重新创建数字对象，添加一个len属性，与上一步new Number不同。</li>
-<li>输出结果undefined。</li>
-</ul>
-<p>boolean添加new。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var bol = new Boolean(&apos;true&apos;);</span><br><span class="line"></span><br><span class="line">// eg </span><br><span class="line">var str = &apos;abc&apos;;</span><br><span class="line">str +=1;</span><br><span class="line">var test = typeof str;</span><br><span class="line">if(test.length == 6) &#123;</span><br><span class="line">  test.sign = &apos;typdof返回的结果可能是string&apos;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(test.sign);</span><br></pre></td></tr></table></figure></p>
-<p>在if里面创建 new String(‘test’).sign = ‘typdof返回的结果可能是string’。<br>在最外层再次访问，重新创建new String(‘test’).sign。<br>最终输出结果 undefined。</p>
-<p>解析片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var str = &apos;abc&apos;;</span><br><span class="line">str +=1;</span><br><span class="line">var test = typeof str;</span><br><span class="line">if(test.length == 6) &#123;</span><br><span class="line">// 创建new String(&apos;test&apos;).sign = &apos;typdof返回的结果可能是string&apos; </span><br><span class="line">  test.sign = &apos;typdof返回的结果可能是string&apos;;</span><br><span class="line">&#125;</span><br><span class="line">// 再次访问重新创建new String(&apos;test&apos;).sign </span><br><span class="line">console.log(test.sign);</span><br></pre></td></tr></table></figure></p>
-<p>注：undefined / null 没有String。</p>
-<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法，原型也是对象。</p>
-<p>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// Person.prototype 看做原型 </span><br><span class="line">// Person.prototype = &#123;&#125; 看做祖先 </span><br><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">var p = new Person();</span><br><span class="line">// p.__proto__.constructor 指向 functon Person()&#123;&#125; </span><br><span class="line">// p.__proto__ === Person.prototype </span><br><span class="line">console.log(p.name) // sunny</span><br></pre></td></tr></table></figure></p>
-<p>通过constructor更改指向。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person() &#123;&#125;</span><br><span class="line">function Car() &#123;&#125;</span><br><span class="line">Car.prototype = &#123;</span><br><span class="line">   // constructor更改了指向 </span><br><span class="line">  constructor: Person;</span><br><span class="line">&#125;</span><br><span class="line">var car = new Car();</span><br></pre></td></tr></table></figure></p>
-<p>new过程构造函数内部做了什么。</p>
-<ul>
-<li>内部隐式添加this对象；</li>
-<li>改变this执向(指向原构造函数原型)；</li>
-<li>返回一个新对象。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// eg </span><br><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;</span><br><span class="line">  // var this = &#123; </span><br><span class="line">  // __proto__: Person.prototype </span><br><span class="line">  // &#125; </span><br><span class="line">&#125;</span><br><span class="line">var person = new Person();</span><br><span class="line">var obj = &#123;</span><br><span class="line">  name: &apos;cherry&apos;</span><br><span class="line">&#125;</span><br><span class="line">person.__proto__  = obj;</span><br><span class="line">console.log(person.name) // cherry</span><br></pre></td></tr></table></figure>
-<p>prototype在<strong>new前</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">Person.prototype.name = &apos;cherry&apos;;</span><br><span class="line">var p = new Person();</span><br><span class="line">console.log(p.name) // cherry</span><br></pre></td></tr></table></figure></p>
-<p>通过上述代码看出<strong>prototype有提升作用，后面定义能把之前定义覆盖</strong>。</p>
-<p>prototype在<strong>new后</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">var p = new Person();</span><br><span class="line">Person.prototype.name = &apos;cherry&apos;;</span><br><span class="line">console.log(p.name) // cherry</span><br></pre></td></tr></table></figure></p>
-<p>可以看出<strong>prototype定义在new之后，值没有变化</strong>；prototype有提升作用，后面重新定义能把之前定义覆盖。</p>
-<p><strong>prototype对象形式 写法</strong><br>在new前<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">Person.prototype = &#123; </span><br><span class="line">  name: &apos;cherry&apos;</span><br><span class="line">&#125;</span><br><span class="line">var p = new Person();</span><br><span class="line">console.log(p.name) // cherry</span><br></pre></td></tr></table></figure></p>
-<p>通过上述看出Person原型给修改了，<strong>没有new生成就改变了</strong>。</p>
-<p>在new之后<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">var p = new Person();</span><br><span class="line">person.prototype = &#123; </span><br><span class="line">  name: &apos;cherry&apos;</span><br><span class="line">&#125;</span><br><span class="line">console.log(p.name) // sunny</span><br></pre></td></tr></table></figure></p>
-<p>Person函数里面<strong>proto</strong>没有修改，只是在原基础上修改Person.prototype属性。</p>
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>Object.prototype是所有对象的最终原型。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// eg </span><br><span class="line">Person.prototype.__proto__ = Object.prototype </span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">Person.prototype.name = &apos;sunny&apos;; </span><br><span class="line">var p = new Person()</span><br></pre></td></tr></table></figure></p>
-<p>引用值可以自己操作自己 (原型链继承模式)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function Father() &#123; </span><br><span class="line">  this.name = &apos;sunny&apos;; </span><br><span class="line">  this.age = 46; </span><br><span class="line">&#125;</span><br><span class="line">var f = new Father(); </span><br><span class="line"></span><br><span class="line">Son.prototype = f; </span><br><span class="line">function Son() &#123;&#125; </span><br><span class="line">var s = new Son(); </span><br><span class="line">s.age++ </span><br><span class="line">console.log(f.age) // 46</span><br></pre></td></tr></table></figure></p>
-<p>揭秘原型与原型链取值</p>
-<p>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  say: function() &#123; </span><br><span class="line">    console.log(this.name) </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">var p = new Person(); </span><br><span class="line">console.log(p.say) // sunny</span><br></pre></td></tr></table></figure></p>
-<p>修改上面代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  say: function() &#123; </span><br><span class="line">    console.log(this.name) </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">function Person() &#123; </span><br><span class="line">  this.name = &apos;cherry&apos;; </span><br><span class="line">&#125;</span><br><span class="line">var p = new Person(); </span><br><span class="line">console.log(p.name) // cherry</span><br></pre></td></tr></table></figure></p>
-<p>通过上述代码片段发现实例对象<strong>就近取值</strong>，如果没有找到值，沿着原型链继续往上寻找。</p>
-<h3 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h3><p>语法：Object.create(原型)。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos; </span><br><span class="line">&#125;</span><br><span class="line">var obj1 = Object.create(obj);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;; </span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">var p = Object.create(Person.prototype);</span><br></pre></td></tr></table></figure>
-<p>绝大多数对象最终都会继承自Object.create，null除外。</p>
-<h3 id="call-继承"><a href="#call-继承" class="headerlink" title="call (继承)"></a>call (继承)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Son(name, age, sex) &#123; </span><br><span class="line">  Person.call(this, name, age); </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125;</span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;); </span><br><span class="line">console.log(son) // &#123;name: &quot;sunny&quot;, age: 18, sex: &quot;male&quot;&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码看出：能共用父类属性，支持传参。</p>
-<h3 id="apply-继承"><a href="#apply-继承" class="headerlink" title="apply (继承)"></a>apply (继承)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person() &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Son(name, age, sex) &#123; </span><br><span class="line">  Person.apply(this, [name, age]); </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125;</span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;)  </span><br><span class="line">console.log(son) // &#123;name: &quot;sunny&quot;, age: 18, sex:&quot;male&quot;&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码看出：能共用父类属性，支持传参，参数是数组形式。<br>对比可以总结归纳：<strong>call与apply传参序列不同，都能改变this指向</strong>。<br>call或者apply 参数为null/undefined时，执行JS全局对象浏览器中的window。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123; </span><br><span class="line">  foo.apply(null, arguments); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function foo() &#123; </span><br><span class="line">  console.log(arguments) </span><br><span class="line">&#125;</span><br><span class="line">foo(1, 2, 3) // 1, 2, 3</span><br></pre></td></tr></table></figure></p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><ul>
-<li>原型链继承，结合子类原型与父类实例<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 代码片段 </span><br><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age; </span><br><span class="line">&#125;</span><br><span class="line">function Son(sex) &#123; </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125;</span><br><span class="line">Son.prototype = new Person(); // 子类的原型为父类实例对象 </span><br><span class="line">var son = New Son(&apos;male&apos;); </span><br><span class="line">console.log(son)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="/images/1_1.png" style="width:100%" alt="javascript"></p>
-<p>如果在子类原型添加方法，能继承吗？ 修改代码：</p>
-<p>在new Person之前：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name;  </span><br><span class="line">  this.age = age;  </span><br><span class="line">&#125;</span><br><span class="line">function Son(sex) &#123; </span><br><span class="line">  this.sex = sex;  </span><br><span class="line">&#125;  </span><br><span class="line">Son.prototype.eat = function() &#123;&#125; // 在这里... </span><br><span class="line">Son.prototype = new Person(); </span><br><span class="line">var son = new Son(&apos;male&apos;); </span><br><span class="line">console.log(son)</span><br></pre></td></tr></table></figure></p>
-<p>在new Person()之后：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name;  </span><br><span class="line">  this.age = age;  </span><br><span class="line">&#125;</span><br><span class="line">function Son(sex) &#123; </span><br><span class="line">  this.sex = sex;  </span><br><span class="line">&#125;</span><br><span class="line">Son.prototype = new  Person(); </span><br><span class="line">SOn.prototype.eat = function() &#123;&#125;; // 在这里... </span><br><span class="line">var son = new Son(&apos;male&apos;);  </span><br><span class="line">console.log(son)</span><br></pre></td></tr></table></figure></p>
-<p>上述代码<strong>在new Person之前子类原型添加方法失败</strong>，原因是更改了原型的指向。<br>该继承缺点：无法实现多继承；<br>在子类原型添加方法和属性，需在Son.prototype=new  Person之后。</p>
-<p><strong>call/apply构造函数继承</strong>，如果忘记可以查看上面call/apply介绍。<br>这里补充父类上原型属性和方法能否被call/apply继承。<br>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Son.prototype.eat = function() &#123;&#125; </span><br><span class="line">function Son(name, age, sex) &#123; </span><br><span class="line">  Person.call(this, name, age); // ...能不能继承sleep函数 </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125;</span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;); </span><br><span class="line">console.log(son);</span><br></pre></td></tr></table></figure></p>
-<p>实例son输出说明，call方法不能继承父类原型上的方法和属性；父类构造函数调用两次：一次在子类构造函数内调用，一次在创建子类原型调用。</p>
-<p><strong>原型链与构造函数组合</strong><br>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Son(name, age, sex)&#123; </span><br><span class="line">  Person.call(this, name, age); </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125;</span><br><span class="line">Son.prototype = new Person(); // 第一步 </span><br><span class="line">Son.prototype.constructor = Son; // 第二步 </span><br><span class="line">Son.prototype.eat = function() &#123;&#125;; </span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;); </span><br><span class="line">console.log(son)</span><br></pre></td></tr></table></figure></p>
-<p>实例son输出说明，子类可以继承父类属性以及父类原型属性和方法；缺点父类的构造函数生成两份实例。</p>
-<p><strong>组合继承</strong><br>通过子类原型和父类原型指向同一个对象。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Person.prototype.sleep = function() &#123;&#125;</span><br><span class="line">function Person(name, age) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Son(name, age, sex) &#123;</span><br><span class="line">  Person.call(this, name, age);</span><br><span class="line">  this.sex = sex;</span><br><span class="line">&#125;</span><br><span class="line">Son.prototype = Person.prototype; // ...在这里</span><br><span class="line">Son.prototype.eat = function() &#123;&#125;;</span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;);</span><br><span class="line">console.log(son)</span><br></pre></td></tr></table></figure></p>
-<p>代码son输出说明，子类可以继承父类原型上方法和属性。</p>
-<p><strong>组合继承优化</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">function Son(name, age, sex) &#123; </span><br><span class="line">  Person.call(this, name, age); </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125; </span><br><span class="line">Son.prototype = Object.create(Person.prototype); </span><br><span class="line">Son.prototype.constructor = Son; </span><br><span class="line">Son.prototype.eat = function() &#123;&#125;;</span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;); </span><br><span class="line">console.log(son);</span><br></pre></td></tr></table></figure></p>
-<p>实例son继承借助创建对象，子类继承父类所有属性和方法。</p>
-<p><strong>函数共享原型</strong><br>对于指向同一个对象继承。<br>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;; </span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">function Son() &#123;&#125;  </span><br><span class="line">Son.prototype = Person.prototype; </span><br><span class="line">var son = new Son(); </span><br><span class="line">console.log(son.name); // sunny</span><br></pre></td></tr></table></figure></p>
-<p>可以将代码整合优化，编写一个公共函数共享原型，一定要在new之前使用。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;; </span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">function Son() &#123;&#125; </span><br><span class="line">// 编写inherit函数共享原型 </span><br><span class="line">function inherit(target, origin) &#123;  </span><br><span class="line">  target.prototype = origin.prototype;   </span><br><span class="line">&#125;</span><br><span class="line">inherit(Son, Person);  // new之前先继承后使用 </span><br><span class="line">var son = new Son(); </span><br><span class="line">console.log(son.name); // sunny</span><br></pre></td></tr></table></figure></p>
-<p>继续对上面代码进行修改，在函数inherit内部使用一个构造函数中转proto指向。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Person.prototype.name = &apos;sunny&apos;; </span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">function Son() &#123;&#125;; </span><br><span class="line">function inherit(target, origin) &#123;  </span><br><span class="line">  function F()&#123; </span><br><span class="line">    F.prototype = origin.prototype; </span><br><span class="line">    target.prototype = new F(); </span><br><span class="line">    target.prototype.constructor = target; </span><br><span class="line">    target.prototype.uber = origin.prototype; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">inherit(Son, Person);</span><br><span class="line">var person = new Person();</span><br><span class="line">var son = new Son();</span><br><span class="line">console.log(son.name) // undefined </span><br><span class="line">console.log(person.name) // sunny </span><br><span class="line"></span><br><span class="line">// Son原型添加属性，不影响原构造函数与原 原型 </span><br><span class="line">Son.prototype.sex = &apos;male&apos;; </span><br><span class="line">console.log(son.sex) // male </span><br><span class="line">console.log(Person.sex) // undefined</span><br></pre></td></tr></table></figure></p>
-<p>上述代码块中沿着目标实例son.<strong>proto</strong>找到构造函数F.prototype，指给原构造函数Person.prototype，此方法称为<strong>圣杯模式继承</strong>。</p>
-<p>抽离核心代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var inherit = (function() &#123; </span><br><span class="line">  var F = function() &#123;&#125; </span><br><span class="line">  return function(target, origin) &#123; </span><br><span class="line">    F.prototype = origin.prototype; </span><br><span class="line">    target.prototype = new F(); </span><br><span class="line">    target.prototype.constructor = target; </span><br><span class="line">    target.prototype.uber = origin.prototype; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
-<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>管理变量，防止污染全局，适用于模块化开发。<br>之前开发中使用对象形式。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  sayName: function() &#123; </span><br><span class="line">    console.log(this.name) </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.sayName(); // 打印结果: sunny</span><br></pre></td></tr></table></figure></p>
-<p>有了立即执行函数结合闭包，演变出以下改进。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var name = &apos;sunny&apos;;</span><br><span class="line">var init = (function()&#123;</span><br><span class="line">  var name = &apos;cherry&apos;;</span><br><span class="line">  function sayName() &#123;</span><br><span class="line">    console.log(name); // cherry</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return function() &#123;</span><br><span class="line">    sayName();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br><span class="line">init();</span><br></pre></td></tr></table></figure></p>
-<p>上述代码使用闭包形式通过私有属性执行。</p>
-<h3 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h3><p>模仿jQuery链式调用。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">obj.eat().drink.slee();</span><br></pre></td></tr></table></figure></p>
-<p>浏览器控制台输出函数结果，会默认值返回undefined。利用对象方法中this指向当前对象，模仿jQuery链式调用，默认返回this即可。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  eat: function() &#123; </span><br><span class="line">    console.log(&apos;eat&apos;); </span><br><span class="line">    return this; </span><br><span class="line">  &#125;,</span><br><span class="line">  drink: function() &#123;</span><br><span class="line">    console.log(&apos;drink&apos;); </span><br><span class="line">    return this; </span><br><span class="line">  &#125;,</span><br><span class="line">  sleep: function() &#123; </span><br><span class="line">    console.log(&apos;sleep&apos;); </span><br><span class="line">    return this;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line">obj.eat().drink().sleep();  // eat, drink, sleep</span><br></pre></td></tr></table></figure></p>
-<h3 id="对象枚举"><a href="#对象枚举" class="headerlink" title="对象枚举"></a>对象枚举</h3><p>打印对象属性对应的值一般使用for…in 。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  age: 18 </span><br><span class="line">&#125;</span><br><span class="line">for(var prop in obj) &#123; </span><br><span class="line">  console.log(obj.prop); // undefined </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在接收对象值应该写成这样obj[prop]，因为在对象内部会隐式转换成obj.prop。</p>
-<p>hasOwnProperty：检测该属性在该对象中是否存在。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  age: 18, </span><br><span class="line">  __proto__: &#123; </span><br><span class="line">    lastname: &apos;cherry&apos;, </span><br><span class="line">    __proto__: Object.prototype </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(var prop in obj) &#123; </span><br><span class="line">  if(obj.hasOwnProperty(prop)) &#123; </span><br><span class="line">    console.log(obj[prop]) // sunny, 18, cherry ... </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>只有对象能用hasOwnProperty。</li>
-<li>是对象自己的属性返回true，反之false。</li>
-<li>能返回原型及原型链上的属性，一旦延伸到原型链顶端不会找到该属性，返回false(系统自带的返回true，自己设置的返回true)。</li>
-</ul>
-<p>in：能不能访问对象属性，包括原型。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  age: 18, </span><br><span class="line">  __proto__:&#123; </span><br><span class="line">    lastname: &apos;cherry&apos;, </span><br><span class="line">    __proto__: Object.prototype </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(&apos;name&apos; in obj) // true</span><br></pre></td></tr></table></figure></p>
-<p>instanceof<br>官方解释：<br>A instanceof B，A对象是不是B构造函数构造出来的。<br>个人理解换种说法：A对象的原型上有没有B的原型。<br>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person() &#123;&#125; </span><br><span class="line">var person = new Person(); </span><br><span class="line">var obj = &#123;&#125;; </span><br><span class="line"></span><br><span class="line">person instanceof Person   // true </span><br><span class="line">person instanceof Object   // true </span><br><span class="line">[] instanceof Object       // true </span><br><span class="line">[] instanceof Array        // true </span><br><span class="line">obj instanceof Person      // false </span><br><span class="line">obj instanceof Array       // false</span><br></pre></td></tr></table></figure></p>
-<p>通过上述代码发现数组与对象在instanceof中返回值，可以使用instanceof区分数组与对象。</p>
-<p>数组与对象的区分还可以使用constructor和toString.call()。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr = []; </span><br><span class="line">var obj = &#123;&#125;; </span><br><span class="line">console.log(arr.constructor) // ƒ Array() &#123; [native code] &#125; </span><br><span class="line">console.log(obj.constructor) // ƒ Object() &#123; [native code] &#125; </span><br><span class="line"></span><br><span class="line">// toString.call() 在Object原型上属性 </span><br><span class="line">console.log(Object.prototype.toString.call(arr)) // [object Array] </span><br><span class="line">console.log(Object.prototype.toString.call(obj)) // [object Object]</span><br></pre></td></tr></table></figure></p>
-<p>toString.call()可以实现深度克隆。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  age: 18, </span><br><span class="line">  car: [&apos;visa&apos;, &apos;BMW&apos;], </span><br><span class="line">  wife: &#123; </span><br><span class="line">    name: &apos;cherry&apos;, </span><br><span class="line">    son: &#123; </span><br><span class="line">      name: &apos;s&apos; </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var targetObj = &#123;&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>实现targetObj对象拥有对象obj所有属性。<br>思路：</p>
-<ul>
-<li>首先使用for…in遍历对象。</li>
-<li>判断是否属于原始值，是数组还是对象。</li>
-<li>建立相应数组与对象。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// ...</span><br><span class="line">function deepClone(target, origin) &#123; </span><br><span class="line">  var target = target || &#123;&#125;; </span><br><span class="line">  var toStr = Object.prototype.toString; </span><br><span class="line">  var arrStr = &apos;[object Array]&apos;; </span><br><span class="line">  </span><br><span class="line">  for(var prop in origin) &#123; </span><br><span class="line">    if(origin hasOwnProperty(prop)) &#123; </span><br><span class="line">      if(origin[prop] != &apos;null&apos; &amp;&amp;  </span><br><span class="line">          typeof(origin[prop]) == &apos;object&apos;) &#123; </span><br><span class="line">        target[prop] = (toStr.call(origin[prop]) == arrStr) </span><br><span class="line">        ? [] </span><br><span class="line">        : &#123;&#125;; </span><br><span class="line">        deepClone(target[prop], origin[prop]); </span><br><span class="line">      &#125;else&#123; </span><br><span class="line">        target[prop] = origin[prop]; </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return target;</span><br><span class="line">&#125;</span><br><span class="line">deepClone(targetObj, obj);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>相反，对象拥有简单属性类型，可以实现浅度克隆。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  age: 18 </span><br><span class="line">&#125;</span><br><span class="line">var targetObj = &#123;&#125;; </span><br><span class="line"></span><br><span class="line">function clone(target, origin) &#123; </span><br><span class="line">  var target = target || &#123;&#125;; </span><br><span class="line">  for(var prop in origin) &#123; </span><br><span class="line">    if(origin.hasOwnProperty(prop)) &#123; </span><br><span class="line">      target[prop] = origin[prop] </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return target;</span><br><span class="line">&#125;</span><br><span class="line">clone(targetObj, obj);</span><br></pre></td></tr></table></figure></p>
-<h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><ul>
-<li>this规则：</li>
-<li>由new调用，绑定到新创建的对象。</li>
-<li>由call/apply调用，绑定到指定的对象。</li>
-<li>由上下文对象调用，绑定到那个上下文对象。</li>
-<li>默认在严格模式下绑定到undefined，否则绑定到全局。</li>
-</ul>
-<p>这里补充this案例<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var name = &apos;sunny&apos;; </span><br><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;cherry&apos;, </span><br><span class="line">  say: function() &#123; </span><br><span class="line">    console.log(this.name) </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var fn = obj.say; </span><br><span class="line">fn(); // sunny </span><br><span class="line">obj.say(); // cherry</span><br></pre></td></tr></table></figure></p>
-<p>fn运行过程可以理解下面这样，把对象obj中函数say方法交给函数fn拥有，当前this就指向所在全局window。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// ...变量省略 </span><br><span class="line">var fn = say function () &#123; </span><br><span class="line">  console.log(this.name) </span><br><span class="line">&#125;</span><br><span class="line">// ...输出语句省略</span><br></pre></td></tr></table></figure>
-<p>案例2<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var foo = 123; </span><br><span class="line">function print() &#123; </span><br><span class="line">  var foo = 456; </span><br><span class="line">  this.foo = 789; </span><br><span class="line">  console.log(foo); </span><br><span class="line">&#125;</span><br><span class="line">print();</span><br></pre></td></tr></table></figure></p>
-<p>可以使用上述规则④，this绑定到全局，因此运行函数输出 456。</p>
-<p>案例3<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var foo = 123; </span><br><span class="line">function Print() &#123; </span><br><span class="line">  this.foo = 234; </span><br><span class="line">  console.log(foo) </span><br><span class="line">&#125; </span><br><span class="line">new Print();</span><br></pre></td></tr></table></figure></p>
-<p>函数Print运行，使用上述规则④，this绑定到全局，改变了全局foo值，当前构造函数Print没有this，沿着原型链向往寻找，最终在window上找到，因此new print()输出234。</p>
-<p>arguments.callee<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  console.log(arguments);</span><br><span class="line">  //Arguments(2) [1, 2, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span><br><span class="line">  </span><br><span class="line">  console.log(arguments.callee);</span><br><span class="line">  // ƒ foo() &#123;</span><br><span class="line">  // console.log(arguments.callee)</span><br><span class="line">  // &#125;</span><br><span class="line"></span><br><span class="line">  console.log(arguments.callee == foo) // true</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">foo(1, 2);</span><br></pre></td></tr></table></figure></p>
-<p>上述输出值，arguments.callee指运行时的函数。</p>
-<p>fn.caller<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function foo() &#123;</span><br><span class="line">  console.log(foo.caller) // foo函数</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure></p>
-<p>上述代码输出值，fn.caller指函数自身foo。<br><strong>callee和caller在es5严格模式下都不能使用</strong>。</p>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>改变原数组</p>
-<ul>
-<li>push() 向数组最后一位添加</li>
-<li>pop() 从最后一位开始剔出去</li>
-<li>shift() 从数组前面删除</li>
-<li>unshift() 在数组前面添加</li>
-<li>reserver() 逆转数组</li>
-<li>sort() 排序</li>
-<li>splice(从第几位开始, 截取长度, 在切口处添加新的数据)</li>
-</ul>
-<p>不改变数组</p>
-<ul>
-<li>concat() //合并数组</li>
-<li>slice(从该位置开始截, 截取到该位)</li>
-<li>split() 返回字符串</li>
-</ul>
-<h3 id="类数组"><a href="#类数组" class="headerlink" title="类数组"></a>类数组</h3><p>类数组必须有length属性，能像数组/对象一样使用。<br>原始类型的值不能拥有属性和方法。</p>
-<p>如何使用：<br>自动创建(看生命周期)，自动销毁(调用完函数之后)</p>
-<p>典型类数组arguments<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function foo() &#123; </span><br><span class="line">  console.log(arguments) </span><br><span class="line">&#125;</span><br><span class="line">foo(1, 2, 3);</span><br></pre></td></tr></table></figure></p>
-<p>向类数组push<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  &apos;2&apos;: &apos;a&apos;, </span><br><span class="line">  &apos;3&apos;: &apos;b&apos;, </span><br><span class="line">  &apos;length&apos;: 2, </span><br><span class="line">  &apos;push&apos;: Array.prototype.push, </span><br><span class="line">  &apos;splice&apos;: Array.prototype.splice </span><br><span class="line">&#125;</span><br><span class="line">obj.push(&apos;d&apos;); </span><br><span class="line">console.log(obj) </span><br><span class="line">// &#123;2: &quot;d&quot;, 3: &quot;b&quot;, length: 3, push: ƒ&#125; </span><br><span class="line"></span><br><span class="line">obj.push(&apos;f&apos;); </span><br><span class="line">console.log(obj); </span><br><span class="line">// &#123;2: &quot;d&quot;, 3: &quot;f&quot;, length: 4, push: ƒ&#125;</span><br></pre></td></tr></table></figure></p>
-<p>通过输出，push后类对象length递增，类对象属性为索引，索引最大length-1，根据当前length-1取索引值。</p>
-<h3 id="try…catch"><a href="#try…catch" class="headerlink" title="try…catch"></a>try…catch</h3><p>规则</p>
-<ul>
-<li>try里面发生错误，不会执行错误后try里面的代码。</li>
-<li>如果try里面没有报错，不会执行catch里面代码；反之会执行catch里面代码。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">try&#123; </span><br><span class="line">  console.log(&apos;ok&apos;) </span><br><span class="line">&#125;catch(e) &#123; </span><br><span class="line">  console.log(&apos;error&apos;); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>归纳六种error信息</p>
-<ul>
-<li>EvalError：eval的使用与定义不一致。</li>
-<li>RangeRrror：数值越界。</li>
-<li>ReferenceError：非法或不能识别的引用数组。</li>
-<li>SyntaxError：发生语法解析错误。</li>
-<li>TypeError：操作数据类似错误。</li>
-<li>URIRrror：URI处理函数使用不当。</li>
-</ul>
-<p>ES5严格模式<br>使用’use strict’(字符串，反之代表是JS语句，JS语句没有规定这种写法)启动严格模式 遵循es5.0模式，不再兼容es3一些不规则语法，推荐局部。</p>
-<p>不支持 with/arguments/callee/caller，变量赋值前必须声明。</p>
-<p>局部this必须被赋值，赋值什么就是什么，拒绝重复属性和参数，不能使用eval()。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var obj = &#123;&#125;; </span><br><span class="line">var name = &apos;window&apos;;</span><br><span class="line">function foo() &#123;</span><br><span class="line">  var name = &apos;scope&apos;;</span><br><span class="line">  with(obj) &#123; // with改变作用域链</span><br><span class="line">    console.log(name); </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-<p>es5.0与es3.0规则</p>
-<ul>
-<li>浏览器基于es3.0方法 + es5.0新增方法。</li>
-<li>es3.0与es5.0发生冲突部分，使用es5.0模式，反之使用es3.0模式。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>入门JS</category>
-      </categories>
-  </entry>
-  <entry>
     <title>学习Html</title>
     <url>/archives/688af21b.html</url>
     <content><![CDATA[<h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>前端应用的HTML页面标签进行简单总结，在这里做个简单笔记汇总。</p>
@@ -724,6 +407,346 @@
       </categories>
   </entry>
   <entry>
+    <title>学习JavaScript基础篇</title>
+    <url>/archives/3a1eeae5.html</url>
+    <content><![CDATA[<p>前言</p>
+<p>浅入JS基础。本篇从工作、学习总结归纳JavaScript，列举以下技巧。</p>
+<ul>
+<li>文章涉及：</li>
+<li>变量声明</li>
+<li>typeof</li>
+<li>数据类型</li>
+<li>理解函数</li>
+<li>全局对象(GO)</li>
+<li>闭包</li>
+<li>作用域</li>
+<li>作用域链</li>
+<li>立即执行函数与函数表达式</li>
+<li>运算符</li>
+<li>对象</li>
+<li>new关键字</li>
+<li>包装类</li>
+<li>原型</li>
+<li>原型链</li>
+<li>Object.create()</li>
+<li>call</li>
+<li>apply</li>
+<li>继承</li>
+<li>命名空间</li>
+<li>链式调用</li>
+<li>对象枚举</li>
+<li>this</li>
+<li>数组</li>
+<li>类数组</li>
+<li>try catch</li>
+</ul>
+<h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><ul>
+<li>即任何变量，如果未经声明就使用，此变量就为全局变量所拥有。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// 没有使用var，在全局声明变量num，变量num属于window</span><br><span class="line">num = 10;</span><br><span class="line">console.log(window.num) // 10</span><br></pre></td></tr></table></figure>
+<ul>
+<li>一切声明的全局变量，全是window的属性。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 使用var在全局声明变量num，变量num就属于window。</span><br><span class="line">var num = 10; </span><br><span class="line">console.log(window.num) // 10</span><br></pre></td></tr></table></figure>
+<p>注意</p>
+<p>一旦经历var操作，所得出的属性属于window，这种属性叫做不可配置属性，<strong>不可配置属性不能delete</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num = 1;</span><br><span class="line">delete window.num // false</span><br></pre></td></tr></table></figure>
+<ul>
+<li>全局定义相同变量，后面变量能把前面变量覆盖。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num = 1; // 首次定义  </span><br><span class="line">...</span><br><span class="line">var num = 10; // 后面再次定义 </span><br><span class="line">console.log(num) // 10</span><br></pre></td></tr></table></figure>
+<h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p>返回数据类型字符串表达。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var num = 1;</span><br><span class="line">typeof num // &apos;number&apos; </span><br><span class="line"></span><br><span class="line">var x = &apos;app&apos;;</span><br><span class="line">typeof x // &apos;string&apos; </span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>typeof 存在比较特殊地方。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">typeof null // &apos;object&apos; </span><br><span class="line">typeof Array // &apos;object&apos;</span><br></pre></td></tr></table></figure>
+<p>通过typeof能返回：number/string/boolean/object/function类型。</p>
+<p>能判断：undefined/number/boolean/function</p>
+<p>不能判断： null/object/Array。</p>
+<p>对于NaN，返回number，NaN是not a number的缩写。</p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>包括基本数据类型与引用数据类型。</p>
+<p>基本数据类型（栈stack） 包括：number/string/boolean/null/undefined。基本数据类型访问顺序按值访问，由高向低分配，占内存最大是8MB，其中string是特殊的栈，由程序员分配。</p>
+<p>引用类型(堆heap) 包括：function/object/Array。引用类型在栈内存中保存的是对象在堆内存中的引用地址(指针)，向高分配，系统自由分配。</p>
+<ul>
+<li>空间分配方式：<br>栈：由操作系统自由分配释放。<br>堆：一般由程序员分配释放。</li>
+</ul>
+<ul>
+<li>数据结构：<br>栈：先进后出的模式。<br>堆：可以看成一颗树。</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>预编译发生在函数执行前一刻。<br>预编译过程：</p>
+<ul>
+<li>创建AO对象：Activetion Object</li>
+<li>找形参和变量声明，将变量和形参名作为AO属性名，值为：undefined</li>
+<li>将实参值和形参统一</li>
+<li>在函数体里面找函数声明，值赋予函数体</li>
+</ul>
+<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn(x, y) &#123;</span><br><span class="line">  z = 3;</span><br><span class="line">  function bar() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">fn(1, 2);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>首次创建Activetion Object<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x:         undefined</span><br><span class="line">y:         undefined</span><br><span class="line">z:         undefined</span><br><span class="line">bar:       undefined</span><br><span class="line">arguments: undefined</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>然后实参值与形参统一<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x:         1</span><br><span class="line">y:         2</span><br><span class="line">z:         3</span><br><span class="line">bar:       undefined</span><br><span class="line">arguments: &lt;1, 2&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>函数体中如果有函数声明，值赋予函数体<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x:         1</span><br><span class="line">y:         2</span><br><span class="line">z:         3</span><br><span class="line">bar:       &lt;function&gt;</span><br><span class="line">arguments: &lt;1, 2&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Global-Object-GO"><a href="#Global-Object-GO" class="headerlink" title="Global Object(GO)"></a>Global Object(GO)</h3><p>简称全局对象，与widow关系是全等(Global Object === window)。</p>
+<p>代码片段<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function a() &#123;</span><br><span class="line">  function b() &#123;</span><br><span class="line">    function c() &#123;&#125;</span><br><span class="line">    c();</span><br><span class="line">  &#125;</span><br><span class="line">  b();</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure></p>
+<p>通过上述代码片段，函数a在全局定义，同时创建自己的scope属性，指向它父函数作用域链Global Object；函数a执行，scope属性指向自身Activetion Object；通过全局Global Object返回，拿到函数a结果。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">a   defined a.[[scope]] --&gt; 0: GO</span><br><span class="line"></span><br><span class="line">a   doing   a.[[scope]] --&gt; 0: a AO</span><br><span class="line">                        --&gt; 1: GO</span><br></pre></td></tr></table></figure></p>
+<p>函数b定义，是在函数a执行结果上定义，同时创建自己的scope；函数b执行，scope属性指向自身Activetion Object，经过函数a的Activetion Object，传递给全局Global Object返回，拿到函数b结果。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// ...省略函数a </span><br><span class="line">b   defined b.[[scope]] --&gt; 0: aAO</span><br><span class="line">                        --&gt; 1: GO</span><br><span class="line"></span><br><span class="line">b   doing   b.[[scope]] --&gt; 0: bAO</span><br><span class="line">                        --&gt; 1: aAO</span><br><span class="line">                        --&gt; 2: GO</span><br></pre></td></tr></table></figure></p>
+<p>函数c定义，是在函数b执行结果上定义，同时创建自己的scope；函数c执行，scope属性指向自身Activetion Object，经过函数b的Activetion Object，经过函数a的Activetion Object，通过全局Global Object返回，拿到函数c结果。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// ...省略函数a </span><br><span class="line">// ...省略函数b </span><br><span class="line">c   defined c.[[scope]] --&gt; 0: bAO</span><br><span class="line">                        --&gt; 1: aAO</span><br><span class="line">                        --&gt; 2: GO</span><br><span class="line"></span><br><span class="line">c   doing   c.[[scope]] --&gt; 0: cAO</span><br><span class="line">                        --&gt; 1: bAO</span><br><span class="line">                        --&gt; 2: aAO    </span><br><span class="line">                        --&gt; 3: GO</span><br></pre></td></tr></table></figure></p>
+<p>通过上述分析可以看到，函数是定义在它父劳动成果上。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>内部的函数被保存到外部，将生成闭包。闭包会导致原作用域链不释放，造成内存泄露。通俗理解里面的函数比外面的函数活着还长。</p>
+<p>规则：</p>
+<ul>
+<li>一定是嵌套函数</li>
+<li>内层函数一定操作了外层函数的局部变量</li>
+<li>外层函数一定将内层函数返回外部, 并且被全局变量保存</li>
+</ul>
+<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">  function bar() &#123;</span><br><span class="line">    var y = 2;</span><br><span class="line">    console.log(x);</span><br><span class="line">  &#125;</span><br><span class="line">  var x = 1;</span><br><span class="line">  return bar;</span><br><span class="line">&#125;</span><br><span class="line">var f = fn();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure></p>
+<p>闭包运用<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">  var arr = [];</span><br><span class="line">  for(var i=0; i&lt;10; i++) &#123;</span><br><span class="line">    arr[i] = function() &#123;</span><br><span class="line">      console.log(i) // 输出10次10 </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br><span class="line">var myArr = fn();</span><br><span class="line">for(var j=0; j&lt;10; j++) &#123;</span><br><span class="line">  myArr[i]();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印输出10次10，是因为声明i变量是全局变量。<br>for语句可以这样<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(var i=0; i&lt;10; i++) &#123; </span><br><span class="line">  // ...  </span><br><span class="line">&#125;</span><br><span class="line">// 修改下面是等效 </span><br><span class="line">var i = 0;</span><br><span class="line">for(; i&lt;10; i++) &#123;</span><br><span class="line">  // ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于上面代码打印0-10，可通过闭包修改，设置局部变量<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">var arr = [];</span><br><span class="line">for(var i=0; i&lt;10; i++) &#123;</span><br><span class="line">    (function(j) &#123; // 形参 </span><br><span class="line">       arr[j] = function() &#123;</span><br><span class="line">          console.log(j) // 输出0-10</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)(i)</span><br><span class="line">  &#125;</span><br><span class="line">return arr;</span><br><span class="line">&#125;</span><br><span class="line">var myArr = fn();</span><br><span class="line">for(var j=0; j&lt;10; j++) &#123;</span><br><span class="line">  myArr[i]();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>ES5中提出全局作用域和函数作用域。</p>
+<p>全局作用域忘记，可以往上翻翻开篇提到的部分；这里补充函数作用域，函数作用域是在函数内部的变量。</p>
+<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">  var num = 10;</span><br><span class="line">  console.log(num); // 10 </span><br><span class="line">  function bar() &#123;</span><br><span class="line">    console.log(num) // 10 </span><br><span class="line">  &#125;</span><br><span class="line">  bar();</span><br><span class="line">&#125;</span><br><span class="line">console.log(num) // 抛出 error </span><br><span class="line">fn();</span><br></pre></td></tr></table></figure></p>
+<p>通过上述结果可以理解，<strong>函数会创建自己的作用域’{}’，并且作用域分层，函数内层域能访问函数外层域，反之不行</strong>。<br>值得注意的是<strong>在if/for/switch/while语句后面的“{}”，不会创建自己的作用域</strong>，定义的变量保存在已经定义的作用域中。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(true) &#123;</span><br><span class="line">  var num = 10;</span><br><span class="line">&#125;</span><br><span class="line">console.log(num) // 10</span><br></pre></td></tr></table></figure></p>
+<p>变量num虽然在’{ }’中，但是if不会创建自己的作用域，变量num相当于定义在全局。</p>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>链可以理解为一层一层的向上寻找。在作用域中呢？<br>看看相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num = 10;</span><br><span class="line">function  fn() &#123;</span><br><span class="line">  console.log(num);</span><br><span class="line">&#125;</span><br><span class="line">fn(); // 输出结果 10</span><br></pre></td></tr></table></figure></p>
+<p>函数fn创建自己的域，在函数内层域中寻找变量num，发现当前域没有定义变量num，继续向函数外层域寻找变量，最后在外层域中找到变量num，输出10。</p>
+<p>目前说明<strong>作用域链是一层一层向上寻找，直到找到所需变量或者最顶层也没找到就停止寻找并返回结果</strong>。</p>
+<p>那么能不能理解成一层一层向函数父域中寻找呢？看下面相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var num = 10;</span><br><span class="line">function fn() &#123;</span><br><span class="line">  console.log(num);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function bar() &#123;</span><br><span class="line">  var num = 20;</span><br><span class="line">  (function() &#123;</span><br><span class="line">    fn();</span><br><span class="line">  &#125;)()</span><br><span class="line">&#125;</span><br><span class="line">bar(); // 输出结果10</span><br></pre></td></tr></table></figure></p>
+<p>上述代码输出结果10。通过这个可以分析<strong>函数会在创建函数的这个域中寻找值，不是调用这个函数域</strong>，说向父域中不准确。</p>
+<h3 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h3><p>可以理解成执行完就释放。<br>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(function(x, y) &#123; // x, y是形参 </span><br><span class="line">  console.log(x + y);</span><br><span class="line">&#125;)(1, 2) // 1, 2 是实参</span><br></pre></td></tr></table></figure></p>
+<p>可以定义一个变量接收。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num = (function(x, y) &#123;</span><br><span class="line">  var z = x + y;</span><br><span class="line">  return z;</span><br><span class="line">&#125;)(1, 2)</span><br><span class="line"></span><br><span class="line">console.log(num)  // 3</span><br></pre></td></tr></table></figure></p>
+<p>注意：<strong>只有表达式才能被执行符号“( )”执行</strong>。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var fn = function() &#123;</span><br><span class="line">  console.log(&apos;hello&apos;);</span><br><span class="line">&#125;()</span><br><span class="line">// 首次调用输出 hello  </span><br><span class="line">// 再次调用console.log(fn) 输出 undefined</span><br></pre></td></tr></table></figure></p>
+<p>函数调用。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">  console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure></p>
+<p>函数使用call方法调用。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">foo.call();</span><br></pre></td></tr></table></figure></p>
+<p>这两个函数打印值是相等。</p>
+<p>函数后面添加运算符”( )”，调用函数什么也不输出。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn(x, y) &#123;</span><br><span class="line">  console.log(x, y); // 无输出  </span><br><span class="line">&#125;(1, 2)</span><br></pre></td></tr></table></figure></p>
+<p>函数前面支持正负非符号。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+|-|! function fn() &#123;</span><br><span class="line">  console.log(&apos;hello&apos;); // hello  </span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure></p>
+<p><strong>“( )”运算符。</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num = (1 - 1, 1 + 1); </span><br><span class="line">console.log(num) // 2 计算前面结果，再计算后面运算结果，返回后面结果</span><br></pre></td></tr></table></figure></p>
+<p>if语句有函数。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x = 1;</span><br><span class="line">if(function() &#123;&#125;) &#123;</span><br><span class="line">  x += typeof f;</span><br><span class="line">&#125;</span><br><span class="line">console.log(x) // 1undefined 此时函数转成表达式，在执行</span><br></pre></td></tr></table></figure></p>
+<h3 id="对象模型"><a href="#对象模型" class="headerlink" title="对象模型"></a>对象模型</h3><p>由属性和属性对应值组成。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line"> // 属性：值  </span><br><span class="line">  name: &apos;sunny&apos;,</span><br><span class="line">  age: 18,</span><br><span class="line">  say: function() &#123;</span><br><span class="line">    console.log(&apos;hello&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以操作对象：</p>
+<ul>
+<li>访问属性：obj.name</li>
+<li>删除属性：delete obj.age</li>
+<li>修改属性：obj.age = 28</li>
+<li>添加属性：obj.sex = ‘male’</li>
+</ul>
+<p><strong>创建对象</strong></p>
+<ul>
+<li><p>使用字面量创建对象</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var  obj = &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用系统自带的构造函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = new Object()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自定义</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person()&#123;&#125;</span><br><span class="line">var person = new Person();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：<br>构造函数和普通函数结构上没区别，存在new才会返回一个对象。<br>构造函数命名规则，大驼峰命名</p>
+<h3 id="new关键字"><a href="#new关键字" class="headerlink" title="new关键字"></a>new关键字</h3><p>在构造函数前面添加new关键字，执行以下操作：</p>
+<ul>
+<li>在函数体最前面隐式的加上this = { }</li>
+<li>执行 this.xxx = xxx</li>
+<li>隐式的返回 this<br>相关代码：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Student(name, age) &#123;</span><br><span class="line">  // 隐式添加 this = &#123; </span><br><span class="line">  // name: name, </span><br><span class="line">  // ... </span><br><span class="line">  // &#125; </span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">  this.sex = &apos;male&apos;;</span><br><span class="line">  // 隐式添加 return this </span><br><span class="line">&#125;</span><br><span class="line">var student = new Student(&apos;sunny&apos;, 18);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>构造函数显示return空对象或者原始值；输出的结果不一样。</p>
+<p>return对象<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Student(name, age) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">  this.sex = &apos;male&apos;;</span><br><span class="line">  return &#123;&#125;; // 返回一个空对象 </span><br><span class="line">&#125;</span><br><span class="line">var student = new Student(&apos;sunny&apos;, 18);</span><br><span class="line">console.log(student) // &#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>return原始值<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Student(name, age) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">  this.sex = &apos;male&apos;;</span><br><span class="line">  // 或者return 原始值; 相当于return this，返回一个对象 </span><br><span class="line">  return 123; </span><br><span class="line">&#125;</span><br><span class="line">var student = new Student(&apos;sunny&apos;, 18);</span><br><span class="line">console.log(student) // &#123;name: &quot;sunny&quot;, age: 18, sex: &quot;male&quot;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>自定义对象好处<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Car(color) &#123; // color参数 </span><br><span class="line">    this.color = color;  // color 接受参数</span><br><span class="line">    this.health = 100;</span><br><span class="line">    this.run = function() &#123;</span><br><span class="line">      this.health --;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">// car变量写成Car走预编译环节，进行覆盖</span><br><span class="line">var car1 = new Car(&apos;red&apos;); // &#123;color: &quot;red&quot;, health: 100, run: ƒ&#125;</span><br><span class="line">var car2 = new Car(&apos;green&apos;);// &#123;color: &quot;green&quot;, health: 100, run: ƒ&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过上述代码结果可以看出car1与car2属性相互各自独立互不影响。</p>
+<h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><p>原始值没有属性和方法。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// eg </span><br><span class="line">var num = 1;</span><br><span class="line">var num = new Number(num);</span><br><span class="line">num.a = &apos;a&apos;;</span><br><span class="line">console.log(num) // Number &#123;1, a: &quot;a&quot;&#125; </span><br><span class="line">console.log(num * 2) // 2 能计算，又返回原类型</span><br></pre></td></tr></table></figure></p>
+<p>String添加属性：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var str = &apos;a&apos;;</span><br><span class="line">var str = new String(str);</span><br><span class="line">str.a = &apos;a&apos;;</span><br><span class="line">console.log(str.a) // a</span><br></pre></td></tr></table></figure></p>
+<p>Number添加属性：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// eg: </span><br><span class="line">var num = 4;</span><br><span class="line">num.len = 3;</span><br><span class="line">console.log(num.len) // undefined</span><br></pre></td></tr></table></figure></p>
+<p>执行过程:</p>
+<ul>
+<li>执行num.len时，发生new Number(num).len = 3新建一个数字对象，该对象len赋值为3，然后delete销毁。</li>
+<li>再次访问重新创建数字对象，添加一个len属性，与上一步new Number不同。</li>
+<li>输出结果undefined。</li>
+</ul>
+<p>boolean添加new。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var bol = new Boolean(&apos;true&apos;);</span><br><span class="line"></span><br><span class="line">// eg </span><br><span class="line">var str = &apos;abc&apos;;</span><br><span class="line">str +=1;</span><br><span class="line">var test = typeof str;</span><br><span class="line">if(test.length == 6) &#123;</span><br><span class="line">  test.sign = &apos;typdof返回的结果可能是string&apos;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(test.sign);</span><br></pre></td></tr></table></figure></p>
+<p>在if里面创建 new String(‘test’).sign = ‘typdof返回的结果可能是string’。<br>在最外层再次访问，重新创建new String(‘test’).sign。<br>最终输出结果 undefined。</p>
+<p>解析片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var str = &apos;abc&apos;;</span><br><span class="line">str +=1;</span><br><span class="line">var test = typeof str;</span><br><span class="line">if(test.length == 6) &#123;</span><br><span class="line">// 创建new String(&apos;test&apos;).sign = &apos;typdof返回的结果可能是string&apos; </span><br><span class="line">  test.sign = &apos;typdof返回的结果可能是string&apos;;</span><br><span class="line">&#125;</span><br><span class="line">// 再次访问重新创建new String(&apos;test&apos;).sign </span><br><span class="line">console.log(test.sign);</span><br></pre></td></tr></table></figure></p>
+<p>注：undefined / null 没有String。</p>
+<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法，原型也是对象。</p>
+<p>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// Person.prototype 看做原型 </span><br><span class="line">// Person.prototype = &#123;&#125; 看做祖先 </span><br><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">var p = new Person();</span><br><span class="line">// p.__proto__.constructor 指向 functon Person()&#123;&#125; </span><br><span class="line">// p.__proto__ === Person.prototype </span><br><span class="line">console.log(p.name) // sunny</span><br></pre></td></tr></table></figure></p>
+<p>通过constructor更改指向。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person() &#123;&#125;</span><br><span class="line">function Car() &#123;&#125;</span><br><span class="line">Car.prototype = &#123;</span><br><span class="line">   // constructor更改了指向 </span><br><span class="line">  constructor: Person;</span><br><span class="line">&#125;</span><br><span class="line">var car = new Car();</span><br></pre></td></tr></table></figure></p>
+<p>new过程构造函数内部做了什么。</p>
+<ul>
+<li>内部隐式添加this对象；</li>
+<li>改变this执向(指向原构造函数原型)；</li>
+<li>返回一个新对象。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// eg </span><br><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;</span><br><span class="line">  // var this = &#123; </span><br><span class="line">  // __proto__: Person.prototype </span><br><span class="line">  // &#125; </span><br><span class="line">&#125;</span><br><span class="line">var person = new Person();</span><br><span class="line">var obj = &#123;</span><br><span class="line">  name: &apos;cherry&apos;</span><br><span class="line">&#125;</span><br><span class="line">person.__proto__  = obj;</span><br><span class="line">console.log(person.name) // cherry</span><br></pre></td></tr></table></figure>
+<p>prototype在<strong>new前</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">Person.prototype.name = &apos;cherry&apos;;</span><br><span class="line">var p = new Person();</span><br><span class="line">console.log(p.name) // cherry</span><br></pre></td></tr></table></figure></p>
+<p>通过上述代码看出<strong>prototype有提升作用，后面定义能把之前定义覆盖</strong>。</p>
+<p>prototype在<strong>new后</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">var p = new Person();</span><br><span class="line">Person.prototype.name = &apos;cherry&apos;;</span><br><span class="line">console.log(p.name) // cherry</span><br></pre></td></tr></table></figure></p>
+<p>可以看出<strong>prototype定义在new之后，值没有变化</strong>；prototype有提升作用，后面重新定义能把之前定义覆盖。</p>
+<p><strong>prototype对象形式 写法</strong><br>在new前<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">Person.prototype = &#123; </span><br><span class="line">  name: &apos;cherry&apos;</span><br><span class="line">&#125;</span><br><span class="line">var p = new Person();</span><br><span class="line">console.log(p.name) // cherry</span><br></pre></td></tr></table></figure></p>
+<p>通过上述看出Person原型给修改了，<strong>没有new生成就改变了</strong>。</p>
+<p>在new之后<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;;</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">var p = new Person();</span><br><span class="line">person.prototype = &#123; </span><br><span class="line">  name: &apos;cherry&apos;</span><br><span class="line">&#125;</span><br><span class="line">console.log(p.name) // sunny</span><br></pre></td></tr></table></figure></p>
+<p>Person函数里面<strong>proto</strong>没有修改，只是在原基础上修改Person.prototype属性。</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>Object.prototype是所有对象的最终原型。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// eg </span><br><span class="line">Person.prototype.__proto__ = Object.prototype </span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">Person.prototype.name = &apos;sunny&apos;; </span><br><span class="line">var p = new Person()</span><br></pre></td></tr></table></figure></p>
+<p>引用值可以自己操作自己 (原型链继承模式)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function Father() &#123; </span><br><span class="line">  this.name = &apos;sunny&apos;; </span><br><span class="line">  this.age = 46; </span><br><span class="line">&#125;</span><br><span class="line">var f = new Father(); </span><br><span class="line"></span><br><span class="line">Son.prototype = f; </span><br><span class="line">function Son() &#123;&#125; </span><br><span class="line">var s = new Son(); </span><br><span class="line">s.age++ </span><br><span class="line">console.log(f.age) // 46</span><br></pre></td></tr></table></figure></p>
+<p>揭秘原型与原型链取值</p>
+<p>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  say: function() &#123; </span><br><span class="line">    console.log(this.name) </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">var p = new Person(); </span><br><span class="line">console.log(p.say) // sunny</span><br></pre></td></tr></table></figure></p>
+<p>修改上面代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  say: function() &#123; </span><br><span class="line">    console.log(this.name) </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">function Person() &#123; </span><br><span class="line">  this.name = &apos;cherry&apos;; </span><br><span class="line">&#125;</span><br><span class="line">var p = new Person(); </span><br><span class="line">console.log(p.name) // cherry</span><br></pre></td></tr></table></figure></p>
+<p>通过上述代码片段发现实例对象<strong>就近取值</strong>，如果没有找到值，沿着原型链继续往上寻找。</p>
+<h3 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h3><p>语法：Object.create(原型)。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos; </span><br><span class="line">&#125;</span><br><span class="line">var obj1 = Object.create(obj);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;; </span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">var p = Object.create(Person.prototype);</span><br></pre></td></tr></table></figure>
+<p>绝大多数对象最终都会继承自Object.create，null除外。</p>
+<h3 id="call-继承"><a href="#call-继承" class="headerlink" title="call (继承)"></a>call (继承)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Son(name, age, sex) &#123; </span><br><span class="line">  Person.call(this, name, age); </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125;</span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;); </span><br><span class="line">console.log(son) // &#123;name: &quot;sunny&quot;, age: 18, sex: &quot;male&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码看出：能共用父类属性，支持传参。</p>
+<h3 id="apply-继承"><a href="#apply-继承" class="headerlink" title="apply (继承)"></a>apply (继承)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person() &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Son(name, age, sex) &#123; </span><br><span class="line">  Person.apply(this, [name, age]); </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125;</span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;)  </span><br><span class="line">console.log(son) // &#123;name: &quot;sunny&quot;, age: 18, sex:&quot;male&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码看出：能共用父类属性，支持传参，参数是数组形式。<br>对比可以总结归纳：<strong>call与apply传参序列不同，都能改变this指向</strong>。<br>call或者apply 参数为null/undefined时，执行JS全局对象浏览器中的window。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn() &#123; </span><br><span class="line">  foo.apply(null, arguments); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function foo() &#123; </span><br><span class="line">  console.log(arguments) </span><br><span class="line">&#125;</span><br><span class="line">foo(1, 2, 3) // 1, 2, 3</span><br></pre></td></tr></table></figure></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><ul>
+<li>原型链继承，结合子类原型与父类实例<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 代码片段 </span><br><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age; </span><br><span class="line">&#125;</span><br><span class="line">function Son(sex) &#123; </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125;</span><br><span class="line">Son.prototype = new Person(); // 子类的原型为父类实例对象 </span><br><span class="line">var son = New Son(&apos;male&apos;); </span><br><span class="line">console.log(son)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/1_1.png" style="width:100%" alt="javascript"></p>
+<p>如果在子类原型添加方法，能继承吗？ 修改代码：</p>
+<p>在new Person之前：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name;  </span><br><span class="line">  this.age = age;  </span><br><span class="line">&#125;</span><br><span class="line">function Son(sex) &#123; </span><br><span class="line">  this.sex = sex;  </span><br><span class="line">&#125;  </span><br><span class="line">Son.prototype.eat = function() &#123;&#125; // 在这里... </span><br><span class="line">Son.prototype = new Person(); </span><br><span class="line">var son = new Son(&apos;male&apos;); </span><br><span class="line">console.log(son)</span><br></pre></td></tr></table></figure></p>
+<p>在new Person()之后：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name;  </span><br><span class="line">  this.age = age;  </span><br><span class="line">&#125;</span><br><span class="line">function Son(sex) &#123; </span><br><span class="line">  this.sex = sex;  </span><br><span class="line">&#125;</span><br><span class="line">Son.prototype = new  Person(); </span><br><span class="line">SOn.prototype.eat = function() &#123;&#125;; // 在这里... </span><br><span class="line">var son = new Son(&apos;male&apos;);  </span><br><span class="line">console.log(son)</span><br></pre></td></tr></table></figure></p>
+<p>上述代码<strong>在new Person之前子类原型添加方法失败</strong>，原因是更改了原型的指向。<br>该继承缺点：无法实现多继承；<br>在子类原型添加方法和属性，需在Son.prototype=new  Person之后。</p>
+<p><strong>call/apply构造函数继承</strong>，如果忘记可以查看上面call/apply介绍。<br>这里补充父类上原型属性和方法能否被call/apply继承。<br>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Son.prototype.eat = function() &#123;&#125; </span><br><span class="line">function Son(name, age, sex) &#123; </span><br><span class="line">  Person.call(this, name, age); // ...能不能继承sleep函数 </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125;</span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;); </span><br><span class="line">console.log(son);</span><br></pre></td></tr></table></figure></p>
+<p>实例son输出说明，call方法不能继承父类原型上的方法和属性；父类构造函数调用两次：一次在子类构造函数内调用，一次在创建子类原型调用。</p>
+<p><strong>原型链与构造函数组合</strong><br>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Son(name, age, sex)&#123; </span><br><span class="line">  Person.call(this, name, age); </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125;</span><br><span class="line">Son.prototype = new Person(); // 第一步 </span><br><span class="line">Son.prototype.constructor = Son; // 第二步 </span><br><span class="line">Son.prototype.eat = function() &#123;&#125;; </span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;); </span><br><span class="line">console.log(son)</span><br></pre></td></tr></table></figure></p>
+<p>实例son输出说明，子类可以继承父类属性以及父类原型属性和方法；缺点父类的构造函数生成两份实例。</p>
+<p><strong>组合继承</strong><br>通过子类原型和父类原型指向同一个对象。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Person.prototype.sleep = function() &#123;&#125;</span><br><span class="line">function Person(name, age) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Son(name, age, sex) &#123;</span><br><span class="line">  Person.call(this, name, age);</span><br><span class="line">  this.sex = sex;</span><br><span class="line">&#125;</span><br><span class="line">Son.prototype = Person.prototype; // ...在这里</span><br><span class="line">Son.prototype.eat = function() &#123;&#125;;</span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;);</span><br><span class="line">console.log(son)</span><br></pre></td></tr></table></figure></p>
+<p>代码son输出说明，子类可以继承父类原型上方法和属性。</p>
+<p><strong>组合继承优化</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.sleep = function() &#123;&#125; </span><br><span class="line">function Person(name, age) &#123; </span><br><span class="line">  this.name = name; </span><br><span class="line">  this.age = age; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">function Son(name, age, sex) &#123; </span><br><span class="line">  Person.call(this, name, age); </span><br><span class="line">  this.sex = sex; </span><br><span class="line">&#125; </span><br><span class="line">Son.prototype = Object.create(Person.prototype); </span><br><span class="line">Son.prototype.constructor = Son; </span><br><span class="line">Son.prototype.eat = function() &#123;&#125;;</span><br><span class="line">var son = new Son(&apos;sunny&apos;, 18, &apos;male&apos;); </span><br><span class="line">console.log(son);</span><br></pre></td></tr></table></figure></p>
+<p>实例son继承借助创建对象，子类继承父类所有属性和方法。</p>
+<p><strong>函数共享原型</strong><br>对于指向同一个对象继承。<br>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;; </span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">function Son() &#123;&#125;  </span><br><span class="line">Son.prototype = Person.prototype; </span><br><span class="line">var son = new Son(); </span><br><span class="line">console.log(son.name); // sunny</span><br></pre></td></tr></table></figure></p>
+<p>可以将代码整合优化，编写一个公共函数共享原型，一定要在new之前使用。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Person.prototype.name = &apos;sunny&apos;; </span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">function Son() &#123;&#125; </span><br><span class="line">// 编写inherit函数共享原型 </span><br><span class="line">function inherit(target, origin) &#123;  </span><br><span class="line">  target.prototype = origin.prototype;   </span><br><span class="line">&#125;</span><br><span class="line">inherit(Son, Person);  // new之前先继承后使用 </span><br><span class="line">var son = new Son(); </span><br><span class="line">console.log(son.name); // sunny</span><br></pre></td></tr></table></figure></p>
+<p>继续对上面代码进行修改，在函数inherit内部使用一个构造函数中转proto指向。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Person.prototype.name = &apos;sunny&apos;; </span><br><span class="line">function Person() &#123;&#125; </span><br><span class="line">function Son() &#123;&#125;; </span><br><span class="line">function inherit(target, origin) &#123;  </span><br><span class="line">  function F()&#123; </span><br><span class="line">    F.prototype = origin.prototype; </span><br><span class="line">    target.prototype = new F(); </span><br><span class="line">    target.prototype.constructor = target; </span><br><span class="line">    target.prototype.uber = origin.prototype; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">inherit(Son, Person);</span><br><span class="line">var person = new Person();</span><br><span class="line">var son = new Son();</span><br><span class="line">console.log(son.name) // undefined </span><br><span class="line">console.log(person.name) // sunny </span><br><span class="line"></span><br><span class="line">// Son原型添加属性，不影响原构造函数与原 原型 </span><br><span class="line">Son.prototype.sex = &apos;male&apos;; </span><br><span class="line">console.log(son.sex) // male </span><br><span class="line">console.log(Person.sex) // undefined</span><br></pre></td></tr></table></figure></p>
+<p>上述代码块中沿着目标实例son.<strong>proto</strong>找到构造函数F.prototype，指给原构造函数Person.prototype，此方法称为<strong>圣杯模式继承</strong>。</p>
+<p>抽离核心代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var inherit = (function() &#123; </span><br><span class="line">  var F = function() &#123;&#125; </span><br><span class="line">  return function(target, origin) &#123; </span><br><span class="line">    F.prototype = origin.prototype; </span><br><span class="line">    target.prototype = new F(); </span><br><span class="line">    target.prototype.constructor = target; </span><br><span class="line">    target.prototype.uber = origin.prototype; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>管理变量，防止污染全局，适用于模块化开发。<br>之前开发中使用对象形式。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  sayName: function() &#123; </span><br><span class="line">    console.log(this.name) </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.sayName(); // 打印结果: sunny</span><br></pre></td></tr></table></figure></p>
+<p>有了立即执行函数结合闭包，演变出以下改进。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var name = &apos;sunny&apos;;</span><br><span class="line">var init = (function()&#123;</span><br><span class="line">  var name = &apos;cherry&apos;;</span><br><span class="line">  function sayName() &#123;</span><br><span class="line">    console.log(name); // cherry</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return function() &#123;</span><br><span class="line">    sayName();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br><span class="line">init();</span><br></pre></td></tr></table></figure></p>
+<p>上述代码使用闭包形式通过私有属性执行。</p>
+<h3 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h3><p>模仿jQuery链式调用。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">obj.eat().drink.slee();</span><br></pre></td></tr></table></figure></p>
+<p>浏览器控制台输出函数结果，会默认值返回undefined。利用对象方法中this指向当前对象，模仿jQuery链式调用，默认返回this即可。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  eat: function() &#123; </span><br><span class="line">    console.log(&apos;eat&apos;); </span><br><span class="line">    return this; </span><br><span class="line">  &#125;,</span><br><span class="line">  drink: function() &#123;</span><br><span class="line">    console.log(&apos;drink&apos;); </span><br><span class="line">    return this; </span><br><span class="line">  &#125;,</span><br><span class="line">  sleep: function() &#123; </span><br><span class="line">    console.log(&apos;sleep&apos;); </span><br><span class="line">    return this;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line">obj.eat().drink().sleep();  // eat, drink, sleep</span><br></pre></td></tr></table></figure></p>
+<h3 id="对象枚举"><a href="#对象枚举" class="headerlink" title="对象枚举"></a>对象枚举</h3><p>打印对象属性对应的值一般使用for…in 。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  age: 18 </span><br><span class="line">&#125;</span><br><span class="line">for(var prop in obj) &#123; </span><br><span class="line">  console.log(obj.prop); // undefined </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在接收对象值应该写成这样obj[prop]，因为在对象内部会隐式转换成obj.prop。</p>
+<p>hasOwnProperty：检测该属性在该对象中是否存在。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  age: 18, </span><br><span class="line">  __proto__: &#123; </span><br><span class="line">    lastname: &apos;cherry&apos;, </span><br><span class="line">    __proto__: Object.prototype </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(var prop in obj) &#123; </span><br><span class="line">  if(obj.hasOwnProperty(prop)) &#123; </span><br><span class="line">    console.log(obj[prop]) // sunny, 18, cherry ... </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>只有对象能用hasOwnProperty。</li>
+<li>是对象自己的属性返回true，反之false。</li>
+<li>能返回原型及原型链上的属性，一旦延伸到原型链顶端不会找到该属性，返回false(系统自带的返回true，自己设置的返回true)。</li>
+</ul>
+<p>in：能不能访问对象属性，包括原型。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  age: 18, </span><br><span class="line">  __proto__:&#123; </span><br><span class="line">    lastname: &apos;cherry&apos;, </span><br><span class="line">    __proto__: Object.prototype </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(&apos;name&apos; in obj) // true</span><br></pre></td></tr></table></figure></p>
+<p>instanceof<br>官方解释：<br>A instanceof B，A对象是不是B构造函数构造出来的。<br>个人理解换种说法：A对象的原型上有没有B的原型。<br>相关代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person() &#123;&#125; </span><br><span class="line">var person = new Person(); </span><br><span class="line">var obj = &#123;&#125;; </span><br><span class="line"></span><br><span class="line">person instanceof Person   // true </span><br><span class="line">person instanceof Object   // true </span><br><span class="line">[] instanceof Object       // true </span><br><span class="line">[] instanceof Array        // true </span><br><span class="line">obj instanceof Person      // false </span><br><span class="line">obj instanceof Array       // false</span><br></pre></td></tr></table></figure></p>
+<p>通过上述代码发现数组与对象在instanceof中返回值，可以使用instanceof区分数组与对象。</p>
+<p>数组与对象的区分还可以使用constructor和toString.call()。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr = []; </span><br><span class="line">var obj = &#123;&#125;; </span><br><span class="line">console.log(arr.constructor) // ƒ Array() &#123; [native code] &#125; </span><br><span class="line">console.log(obj.constructor) // ƒ Object() &#123; [native code] &#125; </span><br><span class="line"></span><br><span class="line">// toString.call() 在Object原型上属性 </span><br><span class="line">console.log(Object.prototype.toString.call(arr)) // [object Array] </span><br><span class="line">console.log(Object.prototype.toString.call(obj)) // [object Object]</span><br></pre></td></tr></table></figure></p>
+<p>toString.call()可以实现深度克隆。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  age: 18, </span><br><span class="line">  car: [&apos;visa&apos;, &apos;BMW&apos;], </span><br><span class="line">  wife: &#123; </span><br><span class="line">    name: &apos;cherry&apos;, </span><br><span class="line">    son: &#123; </span><br><span class="line">      name: &apos;s&apos; </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var targetObj = &#123;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>实现targetObj对象拥有对象obj所有属性。<br>思路：</p>
+<ul>
+<li>首先使用for…in遍历对象。</li>
+<li>判断是否属于原始值，是数组还是对象。</li>
+<li>建立相应数组与对象。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// ...</span><br><span class="line">function deepClone(target, origin) &#123; </span><br><span class="line">  var target = target || &#123;&#125;; </span><br><span class="line">  var toStr = Object.prototype.toString; </span><br><span class="line">  var arrStr = &apos;[object Array]&apos;; </span><br><span class="line">  </span><br><span class="line">  for(var prop in origin) &#123; </span><br><span class="line">    if(origin hasOwnProperty(prop)) &#123; </span><br><span class="line">      if(origin[prop] != &apos;null&apos; &amp;&amp;  </span><br><span class="line">          typeof(origin[prop]) == &apos;object&apos;) &#123; </span><br><span class="line">        target[prop] = (toStr.call(origin[prop]) == arrStr) </span><br><span class="line">        ? [] </span><br><span class="line">        : &#123;&#125;; </span><br><span class="line">        deepClone(target[prop], origin[prop]); </span><br><span class="line">      &#125;else&#123; </span><br><span class="line">        target[prop] = origin[prop]; </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return target;</span><br><span class="line">&#125;</span><br><span class="line">deepClone(targetObj, obj);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>相反，对象拥有简单属性类型，可以实现浅度克隆。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;sunny&apos;, </span><br><span class="line">  age: 18 </span><br><span class="line">&#125;</span><br><span class="line">var targetObj = &#123;&#125;; </span><br><span class="line"></span><br><span class="line">function clone(target, origin) &#123; </span><br><span class="line">  var target = target || &#123;&#125;; </span><br><span class="line">  for(var prop in origin) &#123; </span><br><span class="line">    if(origin.hasOwnProperty(prop)) &#123; </span><br><span class="line">      target[prop] = origin[prop] </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return target;</span><br><span class="line">&#125;</span><br><span class="line">clone(targetObj, obj);</span><br></pre></td></tr></table></figure></p>
+<h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><ul>
+<li>this规则：</li>
+<li>由new调用，绑定到新创建的对象。</li>
+<li>由call/apply调用，绑定到指定的对象。</li>
+<li>由上下文对象调用，绑定到那个上下文对象。</li>
+<li>默认在严格模式下绑定到undefined，否则绑定到全局。</li>
+</ul>
+<p>这里补充this案例<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var name = &apos;sunny&apos;; </span><br><span class="line">var obj = &#123; </span><br><span class="line">  name: &apos;cherry&apos;, </span><br><span class="line">  say: function() &#123; </span><br><span class="line">    console.log(this.name) </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var fn = obj.say; </span><br><span class="line">fn(); // sunny </span><br><span class="line">obj.say(); // cherry</span><br></pre></td></tr></table></figure></p>
+<p>fn运行过程可以理解下面这样，把对象obj中函数say方法交给函数fn拥有，当前this就指向所在全局window。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// ...变量省略 </span><br><span class="line">var fn = say function () &#123; </span><br><span class="line">  console.log(this.name) </span><br><span class="line">&#125;</span><br><span class="line">// ...输出语句省略</span><br></pre></td></tr></table></figure>
+<p>案例2<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var foo = 123; </span><br><span class="line">function print() &#123; </span><br><span class="line">  var foo = 456; </span><br><span class="line">  this.foo = 789; </span><br><span class="line">  console.log(foo); </span><br><span class="line">&#125;</span><br><span class="line">print();</span><br></pre></td></tr></table></figure></p>
+<p>可以使用上述规则④，this绑定到全局，因此运行函数输出 456。</p>
+<p>案例3<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var foo = 123; </span><br><span class="line">function Print() &#123; </span><br><span class="line">  this.foo = 234; </span><br><span class="line">  console.log(foo) </span><br><span class="line">&#125; </span><br><span class="line">new Print();</span><br></pre></td></tr></table></figure></p>
+<p>函数Print运行，使用上述规则④，this绑定到全局，改变了全局foo值，当前构造函数Print没有this，沿着原型链向往寻找，最终在window上找到，因此new print()输出234。</p>
+<p>arguments.callee<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  console.log(arguments);</span><br><span class="line">  //Arguments(2) [1, 2, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span><br><span class="line">  </span><br><span class="line">  console.log(arguments.callee);</span><br><span class="line">  // ƒ foo() &#123;</span><br><span class="line">  // console.log(arguments.callee)</span><br><span class="line">  // &#125;</span><br><span class="line"></span><br><span class="line">  console.log(arguments.callee == foo) // true</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">foo(1, 2);</span><br></pre></td></tr></table></figure></p>
+<p>上述输出值，arguments.callee指运行时的函数。</p>
+<p>fn.caller<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function foo() &#123;</span><br><span class="line">  console.log(foo.caller) // foo函数</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure></p>
+<p>上述代码输出值，fn.caller指函数自身foo。<br><strong>callee和caller在es5严格模式下都不能使用</strong>。</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>改变原数组</p>
+<ul>
+<li>push() 向数组最后一位添加</li>
+<li>pop() 从最后一位开始剔出去</li>
+<li>shift() 从数组前面删除</li>
+<li>unshift() 在数组前面添加</li>
+<li>reserver() 逆转数组</li>
+<li>sort() 排序</li>
+<li>splice(从第几位开始, 截取长度, 在切口处添加新的数据)</li>
+</ul>
+<p>不改变数组</p>
+<ul>
+<li>concat() //合并数组</li>
+<li>slice(从该位置开始截, 截取到该位)</li>
+<li>split() 返回字符串</li>
+</ul>
+<h3 id="类数组"><a href="#类数组" class="headerlink" title="类数组"></a>类数组</h3><p>类数组必须有length属性，能像数组/对象一样使用。<br>原始类型的值不能拥有属性和方法。</p>
+<p>如何使用：<br>自动创建(看生命周期)，自动销毁(调用完函数之后)</p>
+<p>典型类数组arguments<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function foo() &#123; </span><br><span class="line">  console.log(arguments) </span><br><span class="line">&#125;</span><br><span class="line">foo(1, 2, 3);</span><br></pre></td></tr></table></figure></p>
+<p>向类数组push<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">  &apos;2&apos;: &apos;a&apos;, </span><br><span class="line">  &apos;3&apos;: &apos;b&apos;, </span><br><span class="line">  &apos;length&apos;: 2, </span><br><span class="line">  &apos;push&apos;: Array.prototype.push, </span><br><span class="line">  &apos;splice&apos;: Array.prototype.splice </span><br><span class="line">&#125;</span><br><span class="line">obj.push(&apos;d&apos;); </span><br><span class="line">console.log(obj) </span><br><span class="line">// &#123;2: &quot;d&quot;, 3: &quot;b&quot;, length: 3, push: ƒ&#125; </span><br><span class="line"></span><br><span class="line">obj.push(&apos;f&apos;); </span><br><span class="line">console.log(obj); </span><br><span class="line">// &#123;2: &quot;d&quot;, 3: &quot;f&quot;, length: 4, push: ƒ&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过输出，push后类对象length递增，类对象属性为索引，索引最大length-1，根据当前length-1取索引值。</p>
+<h3 id="try…catch"><a href="#try…catch" class="headerlink" title="try…catch"></a>try…catch</h3><p>规则</p>
+<ul>
+<li>try里面发生错误，不会执行错误后try里面的代码。</li>
+<li>如果try里面没有报错，不会执行catch里面代码；反之会执行catch里面代码。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">try&#123; </span><br><span class="line">  console.log(&apos;ok&apos;) </span><br><span class="line">&#125;catch(e) &#123; </span><br><span class="line">  console.log(&apos;error&apos;); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>归纳六种error信息</p>
+<ul>
+<li>EvalError：eval的使用与定义不一致。</li>
+<li>RangeRrror：数值越界。</li>
+<li>ReferenceError：非法或不能识别的引用数组。</li>
+<li>SyntaxError：发生语法解析错误。</li>
+<li>TypeError：操作数据类似错误。</li>
+<li>URIRrror：URI处理函数使用不当。</li>
+</ul>
+<p>ES5严格模式<br>使用’use strict’(字符串，反之代表是JS语句，JS语句没有规定这种写法)启动严格模式 遵循es5.0模式，不再兼容es3一些不规则语法，推荐局部。</p>
+<p>不支持 with/arguments/callee/caller，变量赋值前必须声明。</p>
+<p>局部this必须被赋值，赋值什么就是什么，拒绝重复属性和参数，不能使用eval()。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var obj = &#123;&#125;; </span><br><span class="line">var name = &apos;window&apos;;</span><br><span class="line">function foo() &#123;</span><br><span class="line">  var name = &apos;scope&apos;;</span><br><span class="line">  with(obj) &#123; // with改变作用域链</span><br><span class="line">    console.log(name); </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+<p>es5.0与es3.0规则</p>
+<ul>
+<li>浏览器基于es3.0方法 + es5.0新增方法。</li>
+<li>es3.0与es5.0发生冲突部分，使用es5.0模式，反之使用es3.0模式。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>入门JS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>回调函数</title>
+    <url>/archives/a03e68d3.html</url>
+    <content><![CDATA[<p><strong>前言</strong></p>
+<p>最近一直忙于项目，没时间总写，趁现在有时间总结下遇到的问题。</p>
+<h3 id="data-书写"><a href="#data-书写" class="headerlink" title="data-*书写"></a><code>data-*</code>书写</h3><p>处理数据交互，有时候需要在一些元素上绑定一些<code>data-*</code>数据，不经意间有可能在JS中写成大写的，比如：<code>data-Id</code>，但是在<code>html</code>解析时，浏览器解析的是小写<code>data-id</code>，在调试JS数据交互，有可能很纳闷，明明绑定上去数据，为何获取不到。</p>
+<p>因此建议在书写时，写成小写的，避免坑了自己，比如：<code>data-id</code></p>
+<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>之前项目很少遇到ajax回调，估计项目复杂度不够，应用不到吧；还有就是本身知识有短板。查了很多资料找到了ajax回调函数例子。</p>
+<p>原理：</p>
+<ul>
+<li><p>在函数中传一个参数，如：callBack。</p>
+</li>
+<li><p>在函数体中，把传入的参数callBack当成一个函数，把需要获的数据传入callback这个函数。</p>
+</li>
+</ul>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn(callBack) &#123;</span><br><span class="line">	$.post(xxx, &#123; xxx &#125;, function(r) &#123;</span><br><span class="line">		callBack(r);</span><br><span class="line">	&#125;, &apos;json&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>JS回调函数</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Template模板Mustache.js</title>
     <url>/archives/3f14c0ad.html</url>
     <content><![CDATA[<p>最近项目一直在使用Mustache.js前端模版，那么使用过程中一些语法顺便聊下。</p>
@@ -815,29 +838,6 @@
       </categories>
   </entry>
   <entry>
-    <title>回调函数</title>
-    <url>/archives/a03e68d3.html</url>
-    <content><![CDATA[<p><strong>前言</strong></p>
-<p>最近一直忙于项目，没时间总写，趁现在有时间总结下遇到的问题。</p>
-<h3 id="data-书写"><a href="#data-书写" class="headerlink" title="data-*书写"></a><code>data-*</code>书写</h3><p>处理数据交互，有时候需要在一些元素上绑定一些<code>data-*</code>数据，不经意间有可能在JS中写成大写的，比如：<code>data-Id</code>，但是在<code>html</code>解析时，浏览器解析的是小写<code>data-id</code>，在调试JS数据交互，有可能很纳闷，明明绑定上去数据，为何获取不到。</p>
-<p>因此建议在书写时，写成小写的，避免坑了自己，比如：<code>data-id</code></p>
-<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>之前项目很少遇到ajax回调，估计项目复杂度不够，应用不到吧；还有就是本身知识有短板。查了很多资料找到了ajax回调函数例子。</p>
-<p>原理：</p>
-<ul>
-<li><p>在函数中传一个参数，如：callBack。</p>
-</li>
-<li><p>在函数体中，把传入的参数callBack当成一个函数，把需要获的数据传入callback这个函数。</p>
-</li>
-</ul>
-<p>用法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn(callBack) &#123;</span><br><span class="line">	$.post(xxx, &#123; xxx &#125;, function(r) &#123;</span><br><span class="line">		callBack(r);</span><br><span class="line">	&#125;, &apos;json&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>JS回调函数</category>
-      </categories>
-  </entry>
-  <entry>
     <title>模拟Form表单完成数据交互</title>
     <url>/archives/f536e456.html</url>
     <content><![CDATA[<p><strong>前言：</strong></p>
@@ -863,6 +863,106 @@
       <categories>
         <category>JavaScript</category>
         <category>模拟form表单</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>学习VueRouter</title>
+    <url>/archives/ab36bed0.html</url>
+    <content><![CDATA[<p><strong>前言</strong></p>
+<p>Vue官方提供了一个vue-router作为跳转链接组件之间，为何不能使用a标签实现组件跳转链接，以及vue-router怎么使用，怎么实现传参，有哪些需要注意的地方，本篇将开启vue-router的介绍。</p>
+<h3 id="vue-router是什么"><a href="#vue-router是什么" class="headerlink" title="vue-router是什么"></a>vue-router是什么</h3><p>vue-router是路由，这里的路由是SPA(单页面 全称：single page application)路径管理器。</p>
+<p>vue-router是Vue.js官方路由插件，它和Vue.js是深度集成的，用于构建单页面应用。Vue单页面应用是基于路由和组件，路由设定为访问路径，并将路径和组件映射起来。在传统的页面应用中，使用一些超链接实现页面切换跳转；而vue-router单页面应用中，是路径间的切换，也就是组件间的切换。路由模块本质，是建立url和页面之间的映射关系。</p>
+<p>为何不能使用a标签。</p>
+<p>Vue都是单页面应用，在项目打包时，运行npm build就会生成一个dist文件夹，这里面只有静态资源和一个index.html页面，因此必须使用vue-router实现页面跳转。</p>
+<h3 id="vue-router实现原理"><a href="#vue-router实现原理" class="headerlink" title="vue-router实现原理"></a>vue-router实现原理</h3><p>SPA单页面应用，只有一个完整页面；页面在加载时，不会加载整个页面，只是更新某个指定容器里的内容。vue-router实现单页面应用路由，提供两个方式：history模式与hash模式，根据参数mode区分使用哪一种方式。SPA核心是更新视图，不重新请求页面。</p>
+<p>history模式</p>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  mode: &apos;history&apos;,</span><br><span class="line">  routes: [ </span><br><span class="line">    // ... </span><br><span class="line">  ]</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+<p>只需要在路由配置项中添加参数mode设置成history即可。</p>
+<p>这种模式和传统url路由看起来没有任何区别，比如：(<a href="http://xxx.com/course/courseId)。" target="_blank" rel="noopener">http://xxx.com/course/courseId)。</a><br>需要注意的是：需要后端配合，使用正确的配置；否则，访问会返回404。大部分情况设置成：如果url输入错误或者匹配不到任何静态资源，就自动跳转到首页。</p>
+<p>histroy模式采用H5 history interface新增的pushState()方法与replaceState()方法；</p>
+<p>这两种方法应用于浏览器记录栈，当前浏览器已有的back/forward/go功能基础上，它们提供了对历史记录修改功能。当它们执行修改时，改变当前url，浏览器不会立即向后端发送请求。</p>
+<p>hash模式</p>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  mode: &apos;hash&apos;,</span><br><span class="line">  routes: [</span><br><span class="line">    // ...</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>只需要在路由配置项中添加参数mode设置成hash即可。</p>
+<p>这种模式和传统url路由看起来有区别，会在url后天添加“ # ”符号后跟一串hash值，<br>比如：<a href="http://xxx.com/course/courseId#hash值。" target="_blank" rel="noopener">http://xxx.com/course/courseId#hash值。</a></p>
+<p>vue-router默认设置成hash模式。使用url的hash模拟一个完整的url，当url发生变化时，页面不会重新加载。“ # ”是页面中的一个位置，是一个锚点；改变后面的hash值，浏览器只会滚动到相应位置，不会重新加载页面。也就是说hash出现在url中，不会被包含在http请求中，对后端完全没有影响，改变url不会重新加载页面。</p>
+<p>每一次改变hash值，都会在浏览器的访问历史中增加一条记录，点击返回按钮，就能回到上一个位置；hash模式是通过不同的锚点值，渲染指定DOM位置的不同数据。hash模式的原理使用onhashchange事件监听hash值的变化，可以在window对象上监听这个事件。</p>
+<h3 id="vue-router使用"><a href="#vue-router使用" class="headerlink" title="vue-router使用"></a>vue-router使用</h3><p>使用Vue官网提供的vue-cli脚手架。</p>
+<p>在src目录下创建一个router文件夹，在该文件夹下创建一个index.js存放路由。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// index.js</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import VueRouter from &apos;vue-router&apos;</span><br><span class="line">const TeacherCourseList = ()=&gt;import(&apos;@/teacher/course.list&apos;)</span><br><span class="line">const TeacherInfo = ()=&gt;import(&apos;@/teacher/info&apos;)</span><br><span class="line">Vue.use(VueRouter) // 使用use方法注册使用路由</span><br><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  mode: &apos;history&apos;,</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">       path: &apos;/teacher/courselist&apos;,</span><br><span class="line">       component: TeacherCourseList,</span><br><span class="line">       // 如果该路由下有 -&gt; 子路由</span><br><span class="line">       // 在该路由下添加children 进行路由嵌套</span><br><span class="line">       children: [</span><br><span class="line">         &#123;</span><br><span class="line">           path: &apos;/teacher/info&apos;,</span><br><span class="line">           component: TeacherInfo</span><br><span class="line">         &#125;</span><br><span class="line">       ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line">export default router</span><br></pre></td></tr></table></figure>
+<p>引入router，注册路由到整个应用都有路由功能。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// app.js</span><br><span class="line">import router from &apos;@/router&apos;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  // ...</span><br><span class="line">  router // 相当于：router: router，vue官方默认router简写，</span><br><span class="line">        // 如果定义别名 使用router: 路由别名</span><br><span class="line">&#125;).$mount(&apos;#app&apos;);</span><br></pre></td></tr></table></figure>
+<p>模版中使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;router-link to=&quot;/teacher/courselist&quot;&gt; router &lt;/router-link&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<p>router-view表示路由匹配到的组件在该地方展示。</p>
+<p>vue-router样式选中：</p>
+<ul>
+<li>在配置项中添加linkActiveClass选项。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// ...</span><br><span class="line">new VueRouter(&#123;</span><br><span class="line">  linkActiveClass: &apos;curr&apos;, // 可以自定义class</span><br><span class="line">  // ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在router-link中写入active-class。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;router-link class=&quot;active-class&quot; to=&quot;/teacher/courselist&quot;&gt; router &lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+<p>这样书写会出现一个问题，只要以to开头的都会激活选中样式。</p>
+<p>比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;router-link to=&quot;/&quot; class=&quot;active-class&quot;&gt; router &lt;/router-link&gt;</span><br><span class="line">&lt;router-link to=&quot;/a&quot; class=&quot;active-class&quot;&gt; router &lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+<p>可以使用exact属性精确匹配模式解决。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;router-link to=&quot;/&quot; class=&quot;active-class&quot; exact&gt; router &lt;router-link&gt;</span><br></pre></td></tr></table></figure>
+<p>表示这个链接只会在地址为 / 时被激活。</p>
+<p>路由重定向</p>
+<p>也是通过routes配置完成；重定向的目标可以是一个命名的路由；可以是一个方法，动态返回重定向目标。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/teacher/courselist&apos;,</span><br><span class="line">      redirect: &apos;/courselist&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/teacher/courselist&apos;,</span><br><span class="line">      redirect: &#123;</span><br><span class="line">        name: &apos;TeacherCourseList&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/teacher/courselist&apos;,</span><br><span class="line">      redirect: to =&gt; &#123;</span><br><span class="line">         // 方法接收 目标路由 作为参数</span><br><span class="line">         // return 重定向的字符串路径/路径对象</span><br><span class="line">         return &apos;/teacher/courselist&apos;;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="路由传参"><a href="#路由传参" class="headerlink" title="路由传参"></a>路由传参</h3><ul>
+<li>使用to</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 定义</span><br><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;teacherPCCourseList&apos;,</span><br><span class="line">    path: &apos;/teacher/courselist/:courseId/teacherId&apos;,</span><br><span class="line">    component: TeacherCourseList</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>可以给路由取个name属性名字，代表当前路由；:courseId表示动态参数，teacherId表示静态参数</p>
+<p>页面传参</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">this.$router.push(&#123;</span><br><span class="line">    path: `/teacher/courselist/$&#123;courseId&#125;/01`</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>获取参数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&#123; this.$route.params.courseId &#125;&#125; </span><br><span class="line">-- </span><br><span class="line">&#123;&#123; this.$route.params.teacherId &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>特点：<strong>参数拼接在后面，丑陋；而且暴露信息</strong>。</p>
+<ul>
+<li>使用params</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 定义</span><br><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;TeacherPCCourseList&apos;,</span><br><span class="line">    path: &apos;/teacher/courselist&apos;,</span><br><span class="line">    component: TeacherCourseList</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>页面传参</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">this.$router.push(&#123;</span><br><span class="line">    name: &apos;TeacherPCCourseList&apos;,</span><br><span class="line">    params: &#123;</span><br><span class="line">      courseId: courseId </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>获取参数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&#123; this.$route.params.courseId &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>特点：<strong>页面刷新后面参数会丢失</strong>。</p>
+<ul>
+<li>使用query</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 定义</span><br><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;TeacherPCCourseList&apos;,</span><br><span class="line">    path: &apos;/teacher/courselist&apos;,</span><br><span class="line">    query: &#123; </span><br><span class="line">      courseId: courseId</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>页面传参</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">this.$router.push(&#123;</span><br><span class="line">    name: &apos;TeacherPCCourseList&apos;,</span><br><span class="line">    query: &#123;</span><br><span class="line">      courseId: courseId</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>获取参数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&#123; this.$route.query.courseId &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>特点：<strong>不会在后面拼接参数，页面刷新参数不会丢失</strong>。</p>
+<h3 id="route与-router"><a href="#route与-router" class="headerlink" title="$route与$router"></a>$route与$router</h3><p>$route是路由信息对象，包括：path，name，params，query，hash等。</p>
+<p>$route.path：表示当前路由的路径，解析为绝对路径；如：/list。</p>
+<p>$route.name：表示当前路径名称。</p>
+<p>$route.params：表示当前路由参数，是一个key/value对象，包含动态参数和静态参数；没有查询到是一个空对象。</p>
+<p>$route.query：表示当前路由参数，是一个key/value对象，包含动态参数和静态参数；没有查询到是一个空对象。</p>
+<p>$route.hash：表示当前路由的hash值；没有hash值，是个空字符串。</p>
+<p>$router是路由实例对象，使用new VueRouter创建的实例，包括：路由跳转方法，钩子函数等。</p>
+<p>常见的路由跳转方式：</p>
+<p>$router.go(-1)；表示跳转到上一次浏览的页面。</p>
+<p>$router.replace(‘/teacher/couselist’)；表示跳转该指定地址。</p>
+<p>$router.replace({name:’TeacherPCCourseList’ })；使用name属性跳转该指定地址。</p>
+<p>$router.push(‘/teacher/courselist’)；表示跳转该指定地址。</p>
+<p>$router.push({ name: ‘TeacherPCCourseList’ })；使用name属性进行跳转该指定地址。</p>
+<p>$router.replace与$router.push区别：</p>
+<p>使用replace方法不会向浏览器history栈添加新记录，而是替换当前history栈中的记录；当replace跳转到页面后，使用浏览器后退按钮不能查看之前的页面。</p>
+<p>使用push方法会向浏览器history栈添加新记录，使用浏览器后退按钮能查看之前的页面。</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>深出浅入vue-router</category>
       </categories>
   </entry>
   <entry>
@@ -983,6 +1083,24 @@
       </categories>
   </entry>
   <entry>
+    <title>补充深度克隆</title>
+    <url>/archives/1102c4d5.html</url>
+    <content><![CDATA[<p><strong>前言：</strong><br>在<a href="http://localhost:4000/blog/2015/08/10.html" target="_blank" rel="noopener">学习JavaScript基础篇</a>提到深度克隆与浅度克隆，最近在云栖社区看到有另一种深度克隆写法，因此记下笔记。</p>
+<p>实现思路：</p>
+<ul>
+<li><p>利用ES6的数组原方法Array.isArray判断数据类型。</p>
+</li>
+<li><p>如果是引用数据类型循环递归判断，否则输出。</p>
+</li>
+</ul>
+<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function deepClone(origin)&#123;</span><br><span class="line">	var newObj = (Array.isArray(origin)) ? [] : &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	for(var key in origin)&#123;</span><br><span class="line">		newObj[key] = (typeof origin[key] == &apos;object&apos;) </span><br><span class="line">		? deepClone2(origin[key])</span><br><span class="line">		: origin[key]; </span><br><span class="line">	&#125;</span><br><span class="line">	return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>深度克隆</category>
+      </categories>
+  </entry>
+  <entry>
     <title>学习ES6</title>
     <url>/archives/768f3ad2.html</url>
     <content><![CDATA[<p><strong>前言：</strong><br>时代不断向前，时刻要跟上步伐，要不断保持学习。最新开始做新项目，基于前端工程化用到很多新知识，比如ES6；因此趁机学习补齐短板。</p>
@@ -1016,24 +1134,6 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       <categories>
         <category>JavaScript</category>
         <category>入门ES6</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>补充深度克隆</title>
-    <url>/archives/1102c4d5.html</url>
-    <content><![CDATA[<p><strong>前言：</strong><br>在<a href="http://localhost:4000/blog/2015/08/10.html" target="_blank" rel="noopener">学习JavaScript基础篇</a>提到深度克隆与浅度克隆，最近在云栖社区看到有另一种深度克隆写法，因此记下笔记。</p>
-<p>实现思路：</p>
-<ul>
-<li><p>利用ES6的数组原方法Array.isArray判断数据类型。</p>
-</li>
-<li><p>如果是引用数据类型循环递归判断，否则输出。</p>
-</li>
-</ul>
-<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function deepClone(origin)&#123;</span><br><span class="line">	var newObj = (Array.isArray(origin)) ? [] : &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	for(var key in origin)&#123;</span><br><span class="line">		newObj[key] = (typeof origin[key] == &apos;object&apos;) </span><br><span class="line">		? deepClone2(origin[key])</span><br><span class="line">		: origin[key]; </span><br><span class="line">	&#125;</span><br><span class="line">	return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>深度克隆</category>
       </categories>
   </entry>
   <entry>
@@ -1331,6 +1431,72 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       </categories>
   </entry>
   <entry>
+    <title>Hexo个人博客绑定域名</title>
+    <url>/archives/8a6c9ade.html</url>
+    <content><![CDATA[<p><strong>前言</strong></p>
+<p>申请域名已经很久，之前偶尔用用，没有用起来；最近想充分利用，在网上研究一番，现在配置成功可以使用，记下心得。</p>
+<h3 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h3><p>在万网，新网等网站申请一个域名。本文以万网为例：</p>
+<ul>
+<li><p>首先注册阿里云账号，如果有淘宝账号的，可以直接登录。</p>
+</li>
+<li><p>登录以后，先进行实名认证（购买域名要用到）。</p>
+</li>
+<li><p>认证信息提交完毕后，可能需要一两天的审核时间。</p>
+</li>
+<li><p>认证完毕后回到首页，上方导航栏，产品-&gt;点击万网，搜索自己想要的域名并进行购买（域名持有者选择个人，这里就用到之前的认证）。</p>
+</li>
+<li><p>购买完毕后，回到首页点击右上方的控制台，进入后点击上方导航栏的产品与服务，然后选择域名，点击进入域名解析列表，然后就可以看到刚刚买的域名了，接下来进行解析配置（绑定）。</p>
+</li>
+</ul>
+<h3 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h3><p>登录成功阿里云，进入个人页面找到<strong>最近使用的产品</strong>文案，点击域名进入域名管理页面：</p>
+<p><img src="/images/1_6.png" alt="域名"></p>
+<p>在域名列表中找到自己想要解析的域名，点击域名右侧<code>解析</code>文案：</p>
+<p><img src="/images/1_7.png" alt="域名列表"></p>
+<p>进入到域名解析设置页面，如下图：</p>
+<p><img src="/images/1_8.png" alt="域名解析设置"></p>
+<ul>
+<li><p>第一个红色框中，点击修改在<code>记录值</code>中填写自己的<code>github</code>博客地址，不需要<code>http://</code>前缀。</p>
+</li>
+<li><p>第二个红色框中，填写博客站点的<code>IP</code>，获取博客<code>IP</code>方式：</p>
+</li>
+</ul>
+<p><code>win+R</code>快捷键打开“运行”窗口，输入<code>cmd</code>运行命令行控制台。</p>
+<p>用以下指令获取自己博客站点的<code>IP</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping xxx.github.io</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">正在 Ping xxx.github.io [185.xxx.xxx.153] 具有 32 字节的</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=57ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=55ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=56ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=60ms TTL=48</span><br></pre></td></tr></table></figure>
+<p>把获取到的<code>IP</code>填写在第二个红色框中。</p>
+<h3 id="创建CNAME"><a href="#创建CNAME" class="headerlink" title="创建CNAME"></a>创建CNAME</h3><p>在本地博客站点路径下的source文件夹里，创建一个名为CNAME的文件（注意要大写），里面写上你之前购买的域名。</p>
+<p>如下图：</p>
+<p><img src="/images/1_9.png" alt="填写CNAME"></p>
+<p>文件里的域名前加不加www都可以，具体规则如下：</p>
+<ul>
+<li>如果填写的是没有<code>www</code>的，比如 yuanbeauty.com，无论是访问 <code>http://www.yuanbeauty.com</code> 还是 <code>http://yuanbeauty.com</code> ，都会自动跳转到 <code>http://yuanbeauty.com</code>。</li>
+</ul>
+<ul>
+<li>如果你填写的是其它子域名，比如 <code>abc.yuanbeauty.com</code>，访问 <code>http://abc.yuanbeauty.com</code> 没问题，但是访问 <code>http://yuanbeauty.com</code> ，不会自动跳转到 <code>http://abc.yuanbeauty.com</code>。</li>
+</ul>
+<h3 id="github绑定域名"><a href="#github绑定域名" class="headerlink" title="github绑定域名"></a>github绑定域名</h3><p>在<a href="https://github.com" target="_blank" rel="noopener">github</a>上，点击进入头像个人设置，如下图：</p>
+<p><img src="/images/1_3.png" alt="setting"></p>
+<p>点击存放个人博客的仓库，在<strong>仓库标题</strong>下面，有<code>setting</code>设置点击进入，</p>
+<p><img src="/images/1_4.png" alt="setting"></p>
+<p>在当前页面拉动滚动条找到<code>GitHub Pages</code>，填入购买的域名：</p>
+<p><img src="/images/1_5.png" alt="github-pages"></p>
+<p>重新生成个人博客，打包部署就能使用域名访问博客，执行命令：</p>
+<ul>
+<li><p><code>hexo clean</code> 清理缓存文件</p>
+</li>
+<li><p><code>hexo g</code> 生成静态文件</p>
+</li>
+<li><p><code>hexo d</code> 部署个人博客项目</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>绑定域名</category>
+      </categories>
+  </entry>
+  <entry>
     <title>总结Vue使用技巧</title>
     <url>/archives/efcc221b.html</url>
     <content><![CDATA[<p><strong>前言：</strong></p>
@@ -1487,172 +1653,6 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       <categories>
         <category>Vue</category>
         <category>Vue实用技巧</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo个人博客绑定域名</title>
-    <url>/archives/8a6c9ade.html</url>
-    <content><![CDATA[<p><strong>前言</strong></p>
-<p>申请域名已经很久，之前偶尔用用，没有用起来；最近想充分利用，在网上研究一番，现在配置成功可以使用，记下心得。</p>
-<h3 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h3><p>在万网，新网等网站申请一个域名。本文以万网为例：</p>
-<ul>
-<li><p>首先注册阿里云账号，如果有淘宝账号的，可以直接登录。</p>
-</li>
-<li><p>登录以后，先进行实名认证（购买域名要用到）。</p>
-</li>
-<li><p>认证信息提交完毕后，可能需要一两天的审核时间。</p>
-</li>
-<li><p>认证完毕后回到首页，上方导航栏，产品-&gt;点击万网，搜索自己想要的域名并进行购买（域名持有者选择个人，这里就用到之前的认证）。</p>
-</li>
-<li><p>购买完毕后，回到首页点击右上方的控制台，进入后点击上方导航栏的产品与服务，然后选择域名，点击进入域名解析列表，然后就可以看到刚刚买的域名了，接下来进行解析配置（绑定）。</p>
-</li>
-</ul>
-<h3 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h3><p>登录成功阿里云，进入个人页面找到<strong>最近使用的产品</strong>文案，点击域名进入域名管理页面：</p>
-<p><img src="/images/1_6.png" alt="域名"></p>
-<p>在域名列表中找到自己想要解析的域名，点击域名右侧<code>解析</code>文案：</p>
-<p><img src="/images/1_7.png" alt="域名列表"></p>
-<p>进入到域名解析设置页面，如下图：</p>
-<p><img src="/images/1_8.png" alt="域名解析设置"></p>
-<ul>
-<li><p>第一个红色框中，点击修改在<code>记录值</code>中填写自己的<code>github</code>博客地址，不需要<code>http://</code>前缀。</p>
-</li>
-<li><p>第二个红色框中，填写博客站点的<code>IP</code>，获取博客<code>IP</code>方式：</p>
-</li>
-</ul>
-<p><code>win+R</code>快捷键打开“运行”窗口，输入<code>cmd</code>运行命令行控制台。</p>
-<p>用以下指令获取自己博客站点的<code>IP</code>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping xxx.github.io</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">正在 Ping xxx.github.io [185.xxx.xxx.153] 具有 32 字节的</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=57ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=55ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=56ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=60ms TTL=48</span><br></pre></td></tr></table></figure>
-<p>把获取到的<code>IP</code>填写在第二个红色框中。</p>
-<h3 id="创建CNAME"><a href="#创建CNAME" class="headerlink" title="创建CNAME"></a>创建CNAME</h3><p>在本地博客站点路径下的source文件夹里，创建一个名为CNAME的文件（注意要大写），里面写上你之前购买的域名。</p>
-<p>如下图：</p>
-<p><img src="/images/1_9.png" alt="填写CNAME"></p>
-<p>文件里的域名前加不加www都可以，具体规则如下：</p>
-<ul>
-<li>如果填写的是没有<code>www</code>的，比如 yuanbeauty.com，无论是访问 <code>http://www.yuanbeauty.com</code> 还是 <code>http://yuanbeauty.com</code> ，都会自动跳转到 <code>http://yuanbeauty.com</code>。</li>
-</ul>
-<ul>
-<li>如果你填写的是其它子域名，比如 <code>abc.yuanbeauty.com</code>，访问 <code>http://abc.yuanbeauty.com</code> 没问题，但是访问 <code>http://yuanbeauty.com</code> ，不会自动跳转到 <code>http://abc.yuanbeauty.com</code>。</li>
-</ul>
-<h3 id="github绑定域名"><a href="#github绑定域名" class="headerlink" title="github绑定域名"></a>github绑定域名</h3><p>在<a href="https://github.com" target="_blank" rel="noopener">github</a>上，点击进入头像个人设置，如下图：</p>
-<p><img src="/images/1_3.png" alt="setting"></p>
-<p>点击存放个人博客的仓库，在<strong>仓库标题</strong>下面，有<code>setting</code>设置点击进入，</p>
-<p><img src="/images/1_4.png" alt="setting"></p>
-<p>在当前页面拉动滚动条找到<code>GitHub Pages</code>，填入购买的域名：</p>
-<p><img src="/images/1_5.png" alt="github-pages"></p>
-<p>重新生成个人博客，打包部署就能使用域名访问博客，执行命令：</p>
-<ul>
-<li><p><code>hexo clean</code> 清理缓存文件</p>
-</li>
-<li><p><code>hexo g</code> 生成静态文件</p>
-</li>
-<li><p><code>hexo d</code> 部署个人博客项目</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>绑定域名</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>学习VueRouter</title>
-    <url>/archives/ab36bed0.html</url>
-    <content><![CDATA[<p><strong>前言</strong></p>
-<p>Vue官方提供了一个vue-router作为跳转链接组件之间，为何不能使用a标签实现组件跳转链接，以及vue-router怎么使用，怎么实现传参，有哪些需要注意的地方，本篇将开启vue-router的介绍。</p>
-<h3 id="vue-router是什么"><a href="#vue-router是什么" class="headerlink" title="vue-router是什么"></a>vue-router是什么</h3><p>vue-router是路由，这里的路由是SPA(单页面 全称：single page application)路径管理器。</p>
-<p>vue-router是Vue.js官方路由插件，它和Vue.js是深度集成的，用于构建单页面应用。Vue单页面应用是基于路由和组件，路由设定为访问路径，并将路径和组件映射起来。在传统的页面应用中，使用一些超链接实现页面切换跳转；而vue-router单页面应用中，是路径间的切换，也就是组件间的切换。路由模块本质，是建立url和页面之间的映射关系。</p>
-<p>为何不能使用a标签。</p>
-<p>Vue都是单页面应用，在项目打包时，运行npm build就会生成一个dist文件夹，这里面只有静态资源和一个index.html页面，因此必须使用vue-router实现页面跳转。</p>
-<h3 id="vue-router实现原理"><a href="#vue-router实现原理" class="headerlink" title="vue-router实现原理"></a>vue-router实现原理</h3><p>SPA单页面应用，只有一个完整页面；页面在加载时，不会加载整个页面，只是更新某个指定容器里的内容。vue-router实现单页面应用路由，提供两个方式：history模式与hash模式，根据参数mode区分使用哪一种方式。SPA核心是更新视图，不重新请求页面。</p>
-<p>history模式</p>
-<p>配置：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  mode: &apos;history&apos;,</span><br><span class="line">  routes: [ </span><br><span class="line">    // ... </span><br><span class="line">  ]</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
-<p>只需要在路由配置项中添加参数mode设置成history即可。</p>
-<p>这种模式和传统url路由看起来没有任何区别，比如：(<a href="http://xxx.com/course/courseId)。" target="_blank" rel="noopener">http://xxx.com/course/courseId)。</a><br>需要注意的是：需要后端配合，使用正确的配置；否则，访问会返回404。大部分情况设置成：如果url输入错误或者匹配不到任何静态资源，就自动跳转到首页。</p>
-<p>histroy模式采用H5 history interface新增的pushState()方法与replaceState()方法；</p>
-<p>这两种方法应用于浏览器记录栈，当前浏览器已有的back/forward/go功能基础上，它们提供了对历史记录修改功能。当它们执行修改时，改变当前url，浏览器不会立即向后端发送请求。</p>
-<p>hash模式</p>
-<p>配置：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  mode: &apos;hash&apos;,</span><br><span class="line">  routes: [</span><br><span class="line">    // ...</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>只需要在路由配置项中添加参数mode设置成hash即可。</p>
-<p>这种模式和传统url路由看起来有区别，会在url后天添加“ # ”符号后跟一串hash值，<br>比如：<a href="http://xxx.com/course/courseId#hash值。" target="_blank" rel="noopener">http://xxx.com/course/courseId#hash值。</a></p>
-<p>vue-router默认设置成hash模式。使用url的hash模拟一个完整的url，当url发生变化时，页面不会重新加载。“ # ”是页面中的一个位置，是一个锚点；改变后面的hash值，浏览器只会滚动到相应位置，不会重新加载页面。也就是说hash出现在url中，不会被包含在http请求中，对后端完全没有影响，改变url不会重新加载页面。</p>
-<p>每一次改变hash值，都会在浏览器的访问历史中增加一条记录，点击返回按钮，就能回到上一个位置；hash模式是通过不同的锚点值，渲染指定DOM位置的不同数据。hash模式的原理使用onhashchange事件监听hash值的变化，可以在window对象上监听这个事件。</p>
-<h3 id="vue-router使用"><a href="#vue-router使用" class="headerlink" title="vue-router使用"></a>vue-router使用</h3><p>使用Vue官网提供的vue-cli脚手架。</p>
-<p>在src目录下创建一个router文件夹，在该文件夹下创建一个index.js存放路由。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// index.js</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import VueRouter from &apos;vue-router&apos;</span><br><span class="line">const TeacherCourseList = ()=&gt;import(&apos;@/teacher/course.list&apos;)</span><br><span class="line">const TeacherInfo = ()=&gt;import(&apos;@/teacher/info&apos;)</span><br><span class="line">Vue.use(VueRouter) // 使用use方法注册使用路由</span><br><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  mode: &apos;history&apos;,</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">       path: &apos;/teacher/courselist&apos;,</span><br><span class="line">       component: TeacherCourseList,</span><br><span class="line">       // 如果该路由下有 -&gt; 子路由</span><br><span class="line">       // 在该路由下添加children 进行路由嵌套</span><br><span class="line">       children: [</span><br><span class="line">         &#123;</span><br><span class="line">           path: &apos;/teacher/info&apos;,</span><br><span class="line">           component: TeacherInfo</span><br><span class="line">         &#125;</span><br><span class="line">       ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line">export default router</span><br></pre></td></tr></table></figure>
-<p>引入router，注册路由到整个应用都有路由功能。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// app.js</span><br><span class="line">import router from &apos;@/router&apos;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  // ...</span><br><span class="line">  router // 相当于：router: router，vue官方默认router简写，</span><br><span class="line">        // 如果定义别名 使用router: 路由别名</span><br><span class="line">&#125;).$mount(&apos;#app&apos;);</span><br></pre></td></tr></table></figure>
-<p>模版中使用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;router-link to=&quot;/teacher/courselist&quot;&gt; router &lt;/router-link&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-<p>router-view表示路由匹配到的组件在该地方展示。</p>
-<p>vue-router样式选中：</p>
-<ul>
-<li>在配置项中添加linkActiveClass选项。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// ...</span><br><span class="line">new VueRouter(&#123;</span><br><span class="line">  linkActiveClass: &apos;curr&apos;, // 可以自定义class</span><br><span class="line">  // ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在router-link中写入active-class。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;router-link class=&quot;active-class&quot; to=&quot;/teacher/courselist&quot;&gt; router &lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
-<p>这样书写会出现一个问题，只要以to开头的都会激活选中样式。</p>
-<p>比如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;router-link to=&quot;/&quot; class=&quot;active-class&quot;&gt; router &lt;/router-link&gt;</span><br><span class="line">&lt;router-link to=&quot;/a&quot; class=&quot;active-class&quot;&gt; router &lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
-<p>可以使用exact属性精确匹配模式解决。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;router-link to=&quot;/&quot; class=&quot;active-class&quot; exact&gt; router &lt;router-link&gt;</span><br></pre></td></tr></table></figure>
-<p>表示这个链接只会在地址为 / 时被激活。</p>
-<p>路由重定向</p>
-<p>也是通过routes配置完成；重定向的目标可以是一个命名的路由；可以是一个方法，动态返回重定向目标。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/teacher/courselist&apos;,</span><br><span class="line">      redirect: &apos;/courselist&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/teacher/courselist&apos;,</span><br><span class="line">      redirect: &#123;</span><br><span class="line">        name: &apos;TeacherCourseList&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/teacher/courselist&apos;,</span><br><span class="line">      redirect: to =&gt; &#123;</span><br><span class="line">         // 方法接收 目标路由 作为参数</span><br><span class="line">         // return 重定向的字符串路径/路径对象</span><br><span class="line">         return &apos;/teacher/courselist&apos;;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="路由传参"><a href="#路由传参" class="headerlink" title="路由传参"></a>路由传参</h3><ul>
-<li>使用to</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 定义</span><br><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;teacherPCCourseList&apos;,</span><br><span class="line">    path: &apos;/teacher/courselist/:courseId/teacherId&apos;,</span><br><span class="line">    component: TeacherCourseList</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>可以给路由取个name属性名字，代表当前路由；:courseId表示动态参数，teacherId表示静态参数</p>
-<p>页面传参</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">this.$router.push(&#123;</span><br><span class="line">    path: `/teacher/courselist/$&#123;courseId&#125;/01`</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>获取参数</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&#123; this.$route.params.courseId &#125;&#125; </span><br><span class="line">-- </span><br><span class="line">&#123;&#123; this.$route.params.teacherId &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>特点：<strong>参数拼接在后面，丑陋；而且暴露信息</strong>。</p>
-<ul>
-<li>使用params</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 定义</span><br><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;TeacherPCCourseList&apos;,</span><br><span class="line">    path: &apos;/teacher/courselist&apos;,</span><br><span class="line">    component: TeacherCourseList</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>页面传参</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">this.$router.push(&#123;</span><br><span class="line">    name: &apos;TeacherPCCourseList&apos;,</span><br><span class="line">    params: &#123;</span><br><span class="line">      courseId: courseId </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-<p>获取参数</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&#123; this.$route.params.courseId &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>特点：<strong>页面刷新后面参数会丢失</strong>。</p>
-<ul>
-<li>使用query</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 定义</span><br><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;TeacherPCCourseList&apos;,</span><br><span class="line">    path: &apos;/teacher/courselist&apos;,</span><br><span class="line">    query: &#123; </span><br><span class="line">      courseId: courseId</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>页面传参</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">this.$router.push(&#123;</span><br><span class="line">    name: &apos;TeacherPCCourseList&apos;,</span><br><span class="line">    query: &#123;</span><br><span class="line">      courseId: courseId</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-<p>获取参数</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&#123; this.$route.query.courseId &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>特点：<strong>不会在后面拼接参数，页面刷新参数不会丢失</strong>。</p>
-<h3 id="route与-router"><a href="#route与-router" class="headerlink" title="$route与$router"></a>$route与$router</h3><p>$route是路由信息对象，包括：path，name，params，query，hash等。</p>
-<p>$route.path：表示当前路由的路径，解析为绝对路径；如：/list。</p>
-<p>$route.name：表示当前路径名称。</p>
-<p>$route.params：表示当前路由参数，是一个key/value对象，包含动态参数和静态参数；没有查询到是一个空对象。</p>
-<p>$route.query：表示当前路由参数，是一个key/value对象，包含动态参数和静态参数；没有查询到是一个空对象。</p>
-<p>$route.hash：表示当前路由的hash值；没有hash值，是个空字符串。</p>
-<p>$router是路由实例对象，使用new VueRouter创建的实例，包括：路由跳转方法，钩子函数等。</p>
-<p>常见的路由跳转方式：</p>
-<p>$router.go(-1)；表示跳转到上一次浏览的页面。</p>
-<p>$router.replace(‘/teacher/couselist’)；表示跳转该指定地址。</p>
-<p>$router.replace({name:’TeacherPCCourseList’ })；使用name属性跳转该指定地址。</p>
-<p>$router.push(‘/teacher/courselist’)；表示跳转该指定地址。</p>
-<p>$router.push({ name: ‘TeacherPCCourseList’ })；使用name属性进行跳转该指定地址。</p>
-<p>$router.replace与$router.push区别：</p>
-<p>使用replace方法不会向浏览器history栈添加新记录，而是替换当前history栈中的记录；当replace跳转到页面后，使用浏览器后退按钮不能查看之前的页面。</p>
-<p>使用push方法会向浏览器history栈添加新记录，使用浏览器后退按钮能查看之前的页面。</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-        <category>深出浅入vue-router</category>
       </categories>
   </entry>
 </search>
