@@ -389,8 +389,12 @@ body #container {
   padding: 0.25rem;
 }
 #container .foot {
+  color: #666;
   text-align: right;
   line-height: 1rem;
+}
+#container .foot .theme-link:hover {
+  color: #666;
 }
 #bodyPage {
   width: 100%;
@@ -1885,7 +1889,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #52c93c;
+  background: #0960ff;
 }
 .links-of-blogroll {
   font-size: 13px;
