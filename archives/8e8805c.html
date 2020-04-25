@@ -1,0 +1,1168 @@
+<!doctype html>
+
+
+
+  
+
+
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="Wh9e8U7wdZ">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="园子,web前端技术栈,web技术栈,Vue.js实战,微信小程序,React Native,Webpack,MVVM,React.js,Node.js,Redux,JavaScript,vue-router,react-router,小程序,跨端开发,react hooks,redux-saga,Web 前端实战,小程序实战,移动端实战,yuan blog">
+
+
+<meta property="article:tag" content="Vue.js实战">
+<meta property="article:tag" content="微信小程序">
+<meta property="article:tag" content="React Native">
+<meta property="article:tag" content="Webpack">
+<meta property="article:tag" content="MVVM">
+<meta property="article:tag" content="React.js">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="Redux">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="react hooks">
+<meta property="article:tag" content="redux-saga">
+<meta property="article:tag" content="Web 前端">
+<meta property="article:tag" content="移动端实战">
+<meta property="article:tag" content="小程序实战">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="园子" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="前言最近线上项目被他人攻击，对网站危害极大。之前对前端安全知识只是大致了解，简单应用。为了更详细的了解与应用前端安全知识，因此查找与前端安全相关材料抱着求学的心态系统地学习前端安全知识，在这里做个简单的总结，希望在日常开发中不断预防和修复漏洞。 典型的前端安全有XSS攻击和CSRF攻击，本篇主要从这两方面阐述。 XSS的介绍 XSS全称Cross-Site Scripting(跨站脚本攻击)，是一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你不知道的前端安全知识">
+<meta property="og:url" content="http://blog.yuanbeauty.com/archives/8e8805c.html">
+<meta property="og:site_name" content="园子">
+<meta property="og:description" content="前言最近线上项目被他人攻击，对网站危害极大。之前对前端安全知识只是大致了解，简单应用。为了更详细的了解与应用前端安全知识，因此查找与前端安全相关材料抱着求学的心态系统地学习前端安全知识，在这里做个简单的总结，希望在日常开发中不断预防和修复漏洞。 典型的前端安全有XSS攻击和CSRF攻击，本篇主要从这两方面阐述。 XSS的介绍 XSS全称Cross-Site Scripting(跨站脚本攻击)，是一">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-02T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你不知道的前端安全知识">
+<meta name="twitter:description" content="前言最近线上项目被他人攻击，对网站危害极大。之前对前端安全知识只是大致了解，简单应用。为了更详细的了解与应用前端安全知识，因此查找与前端安全相关材料抱着求学的心态系统地学习前端安全知识，在这里做个简单的总结，希望在日常开发中不断预防和修复漏洞。 典型的前端安全有XSS攻击和CSRF攻击，本篇主要从这两方面阐述。 XSS的介绍 XSS全称Cross-Site Scripting(跨站脚本攻击)，是一">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.yuanbeauty.com/archives/8e8805c.html">
+
+
+
+
+
+  <title> 你不知道的前端安全知识 - 园子 - 或许为了自身写，或许为了知己写！ </title>
+</head>
+
+<body lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="http://blog.yuanbeauty.com" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">园子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">或许为了自身写，或许为了知己写！</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页  
+            
+            
+            
+          </a>
+        </li>
+      
+
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档  
+            
+            
+              <span class="menu-num">19</span>
+            
+            
+          </a>
+        </li>
+      
+
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类  
+            
+            
+              <span class="menu-num">24</span>
+            
+            
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.yuanbeauty.com/archives/8e8805c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/cc-bf-chglyn.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="园子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                你不知道的前端安全知识
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T00:00:00+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-03T00:00:00+08:00">
+                2019-05-03
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/archives/8e8805c.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">字数统计</span>
+                  
+                    <span title="字数统计" }}">
+                      3.6k 字
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">阅读时长大约</span>
+                  
+                    <span title="阅读时长大约" }}">
+                      13 分钟
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近线上项目被他人攻击，对网站危害极大。之前对前端安全知识只是大致了解，简单应用。为了更详细的了解与应用前端安全知识，因此查找与前端安全相关材料抱着求学的心态系统地学习前端安全知识，在这里做个简单的总结，希望在日常开发中不断预防和修复漏洞。</p>
+<p>典型的前端安全有XSS攻击和CSRF攻击，本篇主要从这两方面阐述。</p>
+<p><strong>XSS的介绍</strong></p>
+<p>XSS全称Cross-Site Scripting(跨站脚本攻击)，是一种代码注入攻击。攻击者在目标网站上注入恶意脚本，能在用户的浏览器上运行。利用恶意脚本，攻击者可以获取用户敏感信息，如：Cookie等，进行攻击危害数据。</p>
+<h3 id="XSS存在的原因"><a href="#XSS存在的原因" class="headerlink" title="XSS存在的原因"></a>XSS存在的原因</h3><p>在URL参数场景，用户输入提交给服务端的URL内容，没有进行充分的过滤。如果将所有不合法的参数和输入内容做充分的过滤，就不会导致在用户浏览器中执行攻击者的脚本。</p>
+<p>只做URL参数过滤和用户提交内容过滤是不行的。因为攻击者可以使用各种方式绕过服务端的过滤，最典型的是对URL参数进行各种编码，比如: <code>escape/encodeURI/encodeURIComponent</code>/8进制/10进制/16进制绕过过滤。   </p>
+<p><strong>XSS攻击方式</strong></p>
+<p>①、一个搜索页面，点击搜索页面url添加上了关键词，页面显示与关键词相关的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; value=&quot;&lt;%= getParams(keyword)%&gt;&quot; /&gt;</span><br><span class="line">&lt;button&gt;搜索&lt;/button&gt;</span><br><span class="line">&lt;div&gt;显示搜索的内容：&lt;%= getParams(keyword)%&gt; &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>附：文中&lt;%= … %&gt;语法参考EJS语法。</li>
+</ul>
+<p>文本框值没做任何处理，项目就上线了。某天收到一个神秘链接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.xxx.com/search?keyword=&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>浏览器发送请求<code>http://www.xxx.com/search?keyword=&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;</code>时，后端会解析URL中的请求参数keyword的值，得到<code>&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;</code>，浏览器最终在页面搜索结果区域显示与关键词相关内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;显示搜索的内容：&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt; &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>对于<code>&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;</code>浏览器无法分辨是否属于恶意代码，因此会执行脚本。</p>
+<p>对于这种攻击方式，可以告诉浏览器这段内容是文本就可以了。可以选择进行转义字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; value=&quot;&lt;%= esHTML(getParams(keyword))%&gt;&quot; /&gt;</span><br><span class="line">&lt;button&gt;搜索&lt;/button&gt;</span><br><span class="line">&lt;div&gt;显示搜索的内容：&lt;%= esHTML(getParams(keyword))%&gt; &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>转义规则：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>转义后的字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>‘</td>
+<td><code>&amp;#x27;</code></td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td><code>&amp;amp;</code></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td><code>&amp;lt;</code></td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td><code>&amp;gt;</code></td>
+</tr>
+<tr>
+<td>/</td>
+<td><code>&amp;#x2F;</code></td>
+</tr>
+<tr>
+<td>“</td>
+<td><code>&amp;quot;</code></td>
+</tr>
+</tbody>
+</table>
+<p>经过转义后：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; value=&quot;&amp;lt;script&amp;gt;alert(&amp;#x27;xss&amp;#x27;)&amp;lt;script&amp;gt;&quot; /&gt;</span><br><span class="line">&lt;button&gt;搜索&lt;/button&gt;</span><br><span class="line">&lt;div&gt;显示搜索的内容：</span><br><span class="line">  &amp;lt;script&amp;gt;alert(&amp;#x27;xss&amp;#x27;)&amp;lt;script&amp;gt; </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>通过<strong>转义字符恶意脚本</strong>被转义，浏览器<strong>不会执行</strong>恶意脚本，搜索到的与关键词相关内容也正常在页面中显示出来。有些情况只做HTML转义，并不是高枕无忧，比如下面场景。</p>
+<p>②、超链接场景，页面正常显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;http://www.xxx.com/search?to=javascript:alert(&apos;xss&apos;);&quot;&gt;click&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>用户一旦进行点击，浏览器就会执行代码；这种场景如果使用上述转义字符规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;http://www.xxx.com/search?to=javascript:alert(&amp;#x27;xss&amp;#x27;);&quot;&gt;click&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>显然是不可行的。因为href跟的是正确属性，浏览器无法分辨属性值是否属于恶意代码，用户点击恶意脚本会执行。</p>
+<p>对于这种形式可以<strong>设置白名单</strong>预防攻击：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var allowHTTP = [&apos;http&apos;, &apos;https&apos;];</span><br><span class="line">var isAllow = isAllowFunc(allowHTTP, to);</span><br><span class="line">if(!!isAllow) &#123;</span><br><span class="line">  &lt;a href=&quot;跳转到相应页面&quot;&gt;...&lt;/a&gt;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">  &lt;a href=&quot;/404.html&quot;&gt;...&lt;/a&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过该方式可知针对超链接跳转方式，如：<code>location.href=&quot;xxx&quot;或者&lt;a href=&quot;xxx&quot;&gt;&lt;/a&gt;；</code>甚至包括<code>&lt;script&gt;，&lt;style&gt;，&lt;img&gt;</code>等标签的src属性值，可以选择白名单校验禁止以<code>javascript:</code>开头的链接 (包括javascript大小写的拼写) 和其他非法的scheme。</p>
+<p>③、有些情况把JSON数据直接写在HTML中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt; var data = data.toJSON(); &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>这种方式JSON也存在风险，并且插入的JSON不能进行转义。因为转义 “ 后JSON格式被破坏。</p>
+<p>因此需要实现一个对JSON数据进行转义的方法。但是需要注意的是：</p>
+<ul>
+<li><p>当JSON中包含U+2028或U+2029这两个字符时，不能作为 JavaScript 的字面量使用，否则会抛出语法错误。</p>
+</li>
+<li><p>当JSON中包含字符串<code>&lt;/script&gt;</code>时，当前的script标签将会被闭合，后面的字符串内容浏览器会按照HTML进行解析；通过增加下一个<code>&lt;script&gt;</code>标签等方法就可以完成注入。</p>
+</li>
+</ul>
+<p>转义规则：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>转义后的字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U+2028</td>
+<td><code>\u2028</code></td>
+</tr>
+<tr>
+<td>U+2029</td>
+<td><code>\u2029</code></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td><code>\u003c</code></td>
+</tr>
+</tbody>
+</table>
+<p>修改后的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt; var data = esJSON(data.toJSON()); &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>通过以上可知：</p>
+<p>HTML<strong>转义</strong>是<strong>非常复杂</strong>的，在不同的场景要<strong>采用不同的转义规则</strong>。如果采用的方式不正确，很可能埋下XSS隐患。因此尽量避免自己写转义库，<strong>应采用成熟，通用的转义库</strong>。</p>
+<h3 id="归纳注入方式"><a href="#归纳注入方式" class="headerlink" title="归纳注入方式"></a>归纳注入方式</h3><ul>
+<li>在HTML中内嵌恶意内容以script标签形式注入。</li>
+<li>在HTML中拼接的JavaScript数据突破了原本的限制(字符串，变量等)。</li>
+<li>在标签属性中，恶意内容包含引号，突破属性值的限制，注入其他属性或标签。</li>
+<li>在标签style，href，src等属性中，包含JavaScript等可执行代码。</li>
+<li>在onload，onclick等事件中注入不受控制的代码。</li>
+<li>在style属性和标签中，包含background: url(‘JavaScript…’)类似代码。</li>
+<li>在style属性和标签中，包含expression(…)类似CSS表达式代码。</li>
+</ul>
+<h3 id="XSS攻击分类"><a href="#XSS攻击分类" class="headerlink" title="XSS攻击分类"></a>XSS攻击分类</h3><p>根据攻击的来源，可以将XSS攻击分以下类型：</p>
+<ul>
+<li>存储型攻击</li>
+</ul>
+<p>该攻击常见于论坛博主发贴，网站用户评论，网站用户留言等场景，攻击者将<strong>恶意脚本存储到目标网站</strong>上。</p>
+<p>实现方式：<br>1、攻击者将恶意脚本提交到目标网站数据库中。<br>2、用户打开该网站浏览时，浏览器发送请求恶意脚本从数据库中读取，拼接在页面HTML中。<br>3、浏览器接收到响应后解析执行。<br>4、混在其中的恶意脚本也被执行，恶意脚本窃取用户数据，如：Cookie，发送到攻击者网站。</p>
+<ul>
+<li>反射型攻击</li>
+</ul>
+<p>该攻击常见于网站搜索，跳转等场景，通过URL传递参数，需要用户主动打开恶意的URL才会生效。攻击者将<strong>恶意脚本存储到URL</strong>里。</p>
+<p>实现方式：<br>1、攻击者构造出特殊的URL并添加恶意脚本。<br>2、用户打开带有恶意脚本的URL，服务端将恶意脚本从URL中取出，拼接在HTML中返回给浏览器。<br>3、浏览器接收到响应后解析执行。<br>4、混在其中的恶意脚本也被执行，恶意脚本窃取用户数据，如：Cookie，发送到攻击者网站。</p>
+<ul>
+<li>DOM型攻击</li>
+</ul>
+<p>该攻击常发生于用户的输入来动态的构造一个DOM节点场景，如果没有对用户的输入进行过滤，很有可能造成XSS攻击。<strong>基于DOM的XSS</strong>取出恶意脚本和执行恶意脚本<strong>由浏览器端完成</strong>，服务端不参与。</p>
+<p>实现方式：<br>1、攻击者构造出特殊的URL并添加恶意脚本。<br>2、用户打开带有恶意脚本的URL。<br>3、浏览器接收到响应后解析执行，前端JavaScript取出URL中的恶意脚本并执行。<br>4、恶意脚本窃取用户数据，如：Cookie，发送到攻击者网站。</p>
+<h3 id="XSS防御策略"><a href="#XSS防御策略" class="headerlink" title="XSS防御策略"></a>XSS防御策略</h3><ul>
+<li>客户端对用户有明确的输入类型，例如：数字，URL，手机号，邮箱等内容进行安全符转义，服务端对提交的内容进行安全转义。</li>
+<li>对输入和URL参数进行过滤，对输出进行编码；和白名单结合。</li>
+<li>避免拼接HTML。如果框架允许，使用createElement，setAttribute等之类的方法实现，或者采用比较成熟的框架，如：Vue/React。</li>
+<li>要警惕插入位置为DOM属性，链接等位置。</li>
+<li>尽量不要使用onClick=”fn(‘‘)”等形式内联事件的写法。可以通过addEventListener事件绑定更安全。</li>
+<li>服务端渲染开启模版引擎自带的HTML转义功能。</li>
+<li>增加验证码功能，防止脚本冒充用户提交危险操作。</li>
+<li>限制用户输入长度，增加攻击的难度。</li>
+<li>设置Http-Only Cookie 禁止JavaScript读取敏感Cookie，攻击者完成XSS注入也无法窃取Cookie。</li>
+<li>避免第三方跨域提交内容到服务端。</li>
+</ul>
+<h3 id="CSRF的介绍"><a href="#CSRF的介绍" class="headerlink" title="CSRF的介绍"></a>CSRF的介绍</h3><p>CSRF全称Cross-Site Request Forgery(跨站请求伪造)，攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求。利用受害者在被攻击网站已经获取的注册凭证，绕过后台的用户验证，达到冒充用户对被攻击的网站执行某项操作的目的。</p>
+<h3 id="CSRF的特点"><a href="#CSRF的特点" class="headerlink" title="CSRF的特点"></a>CSRF的特点</h3><ul>
+<li>攻击一般在第三方网站，而不是被攻击的网站。被攻击的网站无法防止攻击发生。</li>
+<li>攻击利用受害者在被攻击网站的登录凭证，冒充受害者提交操作，而不是直接窃取数据。</li>
+<li>整个过程攻击者并不能获取到受害者的登录凭证，仅仅是冒用。</li>
+<li>跨站请求可以用各种方式，如：图片URL，超链接，Form等。部分请求方式可以直接嵌入在第三方论坛中，难以追踪。</li>
+</ul>
+<p><strong>CSRF通常是跨域的</strong>，因为<strong>外域</strong>通常更容易被攻击者<strong>掌握</strong>。反之，在本域下进行，如：可以发链接的评论，攻击反而更加危险。</p>
+<h3 id="CSRF攻击分类"><a href="#CSRF攻击分类" class="headerlink" title="CSRF攻击分类"></a>CSRF攻击分类</h3><ul>
+<li>GET类型的CSRF</li>
+</ul>
+<p>该攻击方式只需要一个HTTP请求，一般是这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;http://www.xxx.com?time=100&amp;keyword=get&quot; alt=&quot;&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>受害者在访问这个图片页面后，浏览器自动向：<code>http://www.xxx.com?account=danger&amp;time=100&amp;keyword=get</code>发送一次HTTP请求。<code>www.xxx.com</code>会包含受害者登录信息的一次跨域请求。</p>
+<ul>
+<li>POST类型的CSRF。</li>
+</ul>
+<p>该攻击方式通常使用的是一个自动提交的表单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;http://www.xxx.com&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">  &lt;input type=&quot;hidden&quot; name=&quot;time&quot; value=&quot;100&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;script&gt; document.forms[0].submit(); &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>用户访问该页面，表单会自动提交，完成了模拟POST操作。一般在网站上传功能上很有可能是发起攻击的来源。</p>
+<ul>
+<li>链接类型的CSRF。</li>
+</ul>
+<p>该攻击方式通常发生在论坛发布图片嵌入恶意链接，或者以广告的形式诱导用户点击，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;http://www.xxx.com/csrf&quot;&gt;充1元送1000&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>这种方式是用户之前登录了信任网站A，并且保存了登录状态。只要用户主动访问这个页面，攻击者就能攻击成功。</p>
+<h3 id="CSRF防御策略"><a href="#CSRF防御策略" class="headerlink" title="CSRF防御策略"></a>CSRF防御策略</h3><ul>
+<li>添加token验证</li>
+</ul>
+<p>本站点的接口请求前在头部添加token用于鉴别身份，第三方站点不能获取头部token。</p>
+<p>该方式弊端：token鉴权对服务器压力较大；页面form提交，超链接不能形成统一的token增加入口，造成部分疏漏。</p>
+<ul>
+<li>服务端通过Referer Header和Origin Header进行同源验证。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;http://www.xxx.com/csrf&quot; referrerpolicy=&quot;no-referrer&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>该方式弊端：<br>1、可以部分修改或隐藏Referer。<br>2、在低版本浏览器下对Referer和Origin不是很稳定。<br>3、在一些浏览器或操作会丢失Origin头部，如：302重定向。<br>4、HTTPS跳转到HTTP，所有浏览器Referer都会丢失。</p>
+<ul>
+<li>禁止第三方网站获取Cookie。</li>
+</ul>
+<p>可以设置Chrome的SameSite属性，而SameSite兼容性不好。</p>
+<ul>
+<li>利用双重Cookie认证。</li>
+</ul>
+<p>每个请求的参数都添加scrfCookie=’随机数’ 防御参数，并在Cookie中混入该防御参数值，服务端请求头部的Cookie中的Cookie参数和请求参数所带的该参数进行对比。</p>
+<p>该方式弊端：<br>如果前后端代码分离，前端和后端接口不同源，如：前端为<code>www.a.com</code>，后端为<code>api.a.com</code>，前端要拿到后端接口下的Cookie，必须将Cookie放在<code>a.com</code>下才能保证子域下都可以获取到，然而这样会增加XSS攻击风险。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本篇到这里算是结束了，从以上内容可以知晓：防范XSS是需要前端和后端共同参与的，针对DOM型攻击需要前端完成，选择适合的转义库，在不同的上下文调用不同的转义规则；防范CSRF，自动防御策略需要使用同源检测(Referer和Origin验证)，主动防御策略增加Token验证或双重Cookie验证，以及配合Samesite Cookie。为了更好的防御，最佳实践应结合防御措施优缺点和Web应用程序自身情况选择适合方案。文章可能存在一些没有说清楚的地方或者有错的地方，欢迎指正~</p>
+<p>参考资料：</p>
+<ul>
+<li>XSS防御方法总结</li>
+<li><a href="https://www.cnblogs.com/meituantech/p/9718677.html" target="_blank" rel="noopener">前端安全系列（一）：如何防止XSS攻击？</a></li>
+<li><a href="https://blog.csdn.net/MeituanTech/article/details/83023558" target="_blank" rel="noopener">前端安全系列之二：如何防止CSRF攻击？</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;padding-top:20px;">———— / END / ————</div>
+
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/48632995.html" rel="next" title="学习Flex知识">
+                <i class="fa fa-chevron-left"></i> 学习Flex知识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/efcc221b.html" rel="prev" title="总结Vue使用技巧">
+                总结Vue使用技巧 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <!--a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a-->
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <!--a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a-->
+    <!--a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a-->
+    <!--a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a-->
+    <!--a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a-->
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/cc-bf-chglyn.png" alt="Changyuan">
+          <p class="site-author-name" itemprop="name">Changyuan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.baidu.com" title="baidu" target="_blank">baidu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://relign.github.io" title="relignBlog" target="_blank">relignBlog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.zhangtaifeng.com" title="zhangtaifeng" target="_blank">zhangtaifeng</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lmaomaoz.com/blog2" title="lmaomaoz" target="_blank">lmaomaoz</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS存在的原因"><span class="nav-number">2.</span> <span class="nav-text">XSS存在的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归纳注入方式"><span class="nav-number">3.</span> <span class="nav-text">归纳注入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS攻击分类"><span class="nav-number">4.</span> <span class="nav-text">XSS攻击分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS防御策略"><span class="nav-number">5.</span> <span class="nav-text">XSS防御策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的介绍"><span class="nav-number">6.</span> <span class="nav-text">CSRF的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的特点"><span class="nav-number">7.</span> <span class="nav-text">CSRF的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF攻击分类"><span class="nav-number">8.</span> <span class="nav-text">CSRF攻击分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF防御策略"><span class="nav-number">9.</span> <span class="nav-text">CSRF防御策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  京ICP备13052054号-1
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love animation-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">园子</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "http://blog.yuanbeauty.com",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    bp.src = (curProtocol === 'https') 
+    ? 'https://zz.bdstatic.com/linksubmit/push.js'
+    : 'http://push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+  
+
+</body>
+</html>

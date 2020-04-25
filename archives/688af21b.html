@@ -1,0 +1,1183 @@
+<!doctype html>
+
+
+
+  
+
+
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="Wh9e8U7wdZ">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="园子,web前端技术栈,web技术栈,Vue.js实战,微信小程序,React Native,Webpack,MVVM,React.js,Node.js,Redux,JavaScript,vue-router,react-router,小程序,跨端开发,react hooks,redux-saga,Web 前端实战,小程序实战,移动端实战,yuan blog">
+
+
+<meta property="article:tag" content="Vue.js实战">
+<meta property="article:tag" content="微信小程序">
+<meta property="article:tag" content="React Native">
+<meta property="article:tag" content="Webpack">
+<meta property="article:tag" content="MVVM">
+<meta property="article:tag" content="React.js">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="Redux">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="react hooks">
+<meta property="article:tag" content="redux-saga">
+<meta property="article:tag" content="Web 前端">
+<meta property="article:tag" content="移动端实战">
+<meta property="article:tag" content="小程序实战">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="园子" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="前言：前端应用的HTML页面标签进行简单总结，在这里做个简单笔记汇总。  页面头部的keywords字段: 告诉搜索爬虫引擎，网站是关于什么内容的。 有序列表与无序列表有序列表： 123&amp;lt;ol&amp;gt;	&amp;lt;li&amp;gt;demo&amp;lt;/li&amp;gt;&amp;lt;/ol&amp;gt; 可以设置序号从第几开始，添加start字段即可： 123&amp;lt;ol start=&amp;quot;10&amp;quot;&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习Html">
+<meta property="og:url" content="http://blog.yuanbeauty.com/archives/688af21b.html">
+<meta property="og:site_name" content="园子">
+<meta property="og:description" content="前言：前端应用的HTML页面标签进行简单总结，在这里做个简单笔记汇总。  页面头部的keywords字段: 告诉搜索爬虫引擎，网站是关于什么内容的。 有序列表与无序列表有序列表： 123&amp;lt;ol&amp;gt;	&amp;lt;li&amp;gt;demo&amp;lt;/li&amp;gt;&amp;lt;/ol&amp;gt; 可以设置序号从第几开始，添加start字段即可： 123&amp;lt;ol start=&amp;quot;10&amp;quot;&amp;gt;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2015-06-08T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习Html">
+<meta name="twitter:description" content="前言：前端应用的HTML页面标签进行简单总结，在这里做个简单笔记汇总。  页面头部的keywords字段: 告诉搜索爬虫引擎，网站是关于什么内容的。 有序列表与无序列表有序列表： 123&amp;lt;ol&amp;gt;	&amp;lt;li&amp;gt;demo&amp;lt;/li&amp;gt;&amp;lt;/ol&amp;gt; 可以设置序号从第几开始，添加start字段即可： 123&amp;lt;ol start=&amp;quot;10&amp;quot;&amp;gt;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.yuanbeauty.com/archives/688af21b.html">
+
+
+
+
+
+  <title> 学习Html - 园子 - 或许为了自身写，或许为了知己写！ </title>
+</head>
+
+<body lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="http://blog.yuanbeauty.com" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">园子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">或许为了自身写，或许为了知己写！</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页  
+            
+            
+            
+          </a>
+        </li>
+      
+
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档  
+            
+            
+              <span class="menu-num">19</span>
+            
+            
+          </a>
+        </li>
+      
+
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类  
+            
+            
+              <span class="menu-num">24</span>
+            
+            
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.yuanbeauty.com/archives/688af21b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/cc-bf-chglyn.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="园子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                学习Html
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-09T00:00:00+08:00">
+                2015-06-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2015-06-09T00:00:00+08:00">
+                2015-06-09
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/archives/688af21b.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">字数统计</span>
+                  
+                    <span title="字数统计" }}">
+                      1.5k 字
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">阅读时长大约</span>
+                  
+                    <span title="阅读时长大约" }}">
+                      6 分钟
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>前端应用的HTML页面标签进行简单总结，在这里做个简单笔记汇总。</p>
+<hr>
+<p>页面头部的keywords字段: <strong>告诉搜索爬虫引擎，网站是关于什么内容的。</strong></p>
+<h3 id="有序列表与无序列表"><a href="#有序列表与无序列表" class="headerlink" title="有序列表与无序列表"></a>有序列表与无序列表</h3><p>有序列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">	&lt;li&gt;demo&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+<p>可以设置序号从第几开始，添加start字段即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol start=&quot;10&quot;&gt;</span><br><span class="line">	&lt;li&gt;demo&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+<p>无序列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt;demo&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>在无序列表中使用 type 属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li type=&quot;fruits&quot;&gt;app&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>在 HTML 4.01 中，不赞成 type 属性；在 XHTML 1.0 Strict DTD 中，不支持 type 属性。请使用 CSS 代替。</p>
+<h3 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h3><ul>
+<li>在页面中当作超链接使用：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;/404.html&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在页面中当作锚点使用：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;#Id&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在页面中调起电话使用：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;tel:130XXXXXXXX&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在页面中调起邮件使用：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;mailto:liu@xxx.com&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在页面中协议限定符：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;javascript:while(1)&#123;alert(1)&#125;&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="主流浏览器内核"><a href="#主流浏览器内核" class="headerlink" title="主流浏览器内核"></a>主流浏览器内核</h3><table>
+<thead>
+<tr>
+<th>主流浏览器</th>
+<th>内核</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Gecko</td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Webkit /Blink</td>
+</tr>
+<tr>
+<td>IE</td>
+<td>Trident</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Webkit</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td>Presto</td>
+</tr>
+</tbody>
+</table>
+<h3 id="CSS-cascading-style-sheet"><a href="#CSS-cascading-style-sheet" class="headerlink" title="CSS(cascading style sheet)"></a>CSS(cascading style sheet)</h3><p>页面引入CSS方式:</p>
+<ul>
+<li>行间样式</li>
+<li>页面级</li>
+<li>外链</li>
+</ul>
+<p>CSS选择器:</p>
+<ul>
+<li>id</li>
+<li>class</li>
+<li>标签</li>
+</ul>
+<p>CSS权重对比：</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>权重值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>!important</td>
+<td>Infinity</td>
+</tr>
+<tr>
+<td>行间样式(style=”…”)</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>id</td>
+<td>100</td>
+</tr>
+<tr>
+<td>class/属性/伪类</td>
+<td>10</td>
+</tr>
+<tr>
+<td>标签/伪元素</td>
+<td>1</td>
+</tr>
+<tr>
+<td>通配符</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>CSS权重原理：</p>
+<p>比如id权重值是100并不是指id的一个权重值就是100，实际上这个100是一个进制数，不是2进制，也不是10进制；而是256进制，<br>就是0到255后+1才是1。列如：通配符的权重值0到标签、伪元素的权重值1，中时间实际上差了255。依次类推。</p>
+<p>CSS权重等级：</p>
+<p>!important &gt; 行间样式 &gt; id &gt; class | 属性 &gt; 标签选择器 &gt; 通配符</p>
+<p>CSS选择器组合：</p>
+<ul>
+<li>父子选择器 div span</li>
+<li>直接选择器 div &gt; span</li>
+<li>并列选择器 div.class</li>
+<li>分组选择器 span, div</li>
+</ul>
+<p>CSS取值：</p>
+<ul>
+<li><p>土鳖式（纯英文） color:red;</p>
+</li>
+<li><p>颜色代码 color:#0000ff (16进制)</p>
+</li>
+<li><p>颜色函数 color:rgb(0-255, 0-255, 0-255);</p>
+</li>
+</ul>
+<p>CSS属性可以缩写，比如: border: 1px solid red; 与其相对应的是： border-width + border-style + border-color</p>
+<h3 id="伪类与伪元素"><a href="#伪类与伪元素" class="headerlink" title="伪类与伪元素"></a>伪类与伪元素</h3><p>两者可以从外表<strong>长短</strong>进行区分。伪类是一个 <strong>:</strong> ，伪元素是两个 <strong>::</strong> 。</p>
+<h3 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h3><p>行内元素简称内联元素，该元素带有 inline 属性， 不可以改变宽高。</p>
+<p>比如：span、strong、em、a、del、… 。</p>
+<h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><p>该元素带有 block 属性， 独占一行， 可以通过css改变宽高。</p>
+<p>比如：div、p、ul、ol、li、form、address、…。</p>
+<h3 id="行级块元素"><a href="#行级块元素" class="headerlink" title="行级块元素"></a>行级块元素</h3><p>该元素带有 inline-block 属性，行内元素和块级元素可以转化为行级块元素。</p>
+<p>比如：img</p>
+<p>注意：凡是带有inline的元素，都有文字特性留白间距；文本分隔符，元素与元素直接有空白间隔。</p>
+<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><ul>
+<li>盒子壁: border</li>
+<li>内边距: padding</li>
+<li>盒内容: width + height</li>
+</ul>
+<p>盒子模型包括：margin + border + padding + content(width + height)</p>
+<p>盒子可视区域  border + padding + width/height</p>
+<p>CSS3盒子模型提出box-sizing属性，它的值有：content-box/border-box</p>
+<p>首先看下content-box下盒子模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">	width:200px;</span><br><span class="line">	height:200px;</span><br><span class="line">	margin: 20px;</span><br><span class="line">	border:2px solid red;</span><br><span class="line">	background-color:#ccc;</span><br><span class="line">	box-sizing: content-box; /*这个盒子模型*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从图中可以看出，该盒子模型宽度为204px，也就是说在该属性下盒子<strong>向外扩展</strong>，盒子会变大。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">	width:200px;</span><br><span class="line">	height:200px;</span><br><span class="line">	border:2px solid red;</span><br><span class="line">	background-color:#ccc;</span><br><span class="line">	box-sizing: border-box; // 这个盒子模型</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从图中可以看出，该盒子模型宽度为200px，也就是说在该属性下盒子<strong>向内扩展</strong>，盒子会不变大。</p>
+<h3 id="定位技术"><a href="#定位技术" class="headerlink" title="定位技术"></a>定位技术</h3><ul>
+<li><p>position常用的值: relative | absolute | fixed | static</p>
+</li>
+<li><p>relative 相对定位 保留原来位置进行定位 相对于自己原来的位置进行定位</p>
+</li>
+<li><p>absolute 绝对定位 脱离原来位置进行定位 相对于最近有定位的父级进行定位；如果没有，相对于文档进行定位</p>
+</li>
+</ul>
+<p>常识<br>    body有个默认的8像素 margin值</p>
+<h3 id="margin塌陷问题"><a href="#margin塌陷问题" class="headerlink" title="margin塌陷问题"></a>margin塌陷问题</h3><p>如何触发一个盒子BFC：</p>
+<ul>
+<li><p>设置绝对定位，position:absoulte</p>
+</li>
+<li><p>设置行内块元素， display:inline-block</p>
+</li>
+<li><p>设置元素浮动，float:left/right</p>
+</li>
+<li><p>添加overflow:hidden</p>
+</li>
+</ul>
+<p>注意：垂直方向上父子上的margin，取最大的那个值。</p>
+<p>解决margin塌陷添：</p>
+<ul>
+<li><p>margin塌陷添加css</p>
+</li>
+<li><p>margin合并添加html</p>
+</li>
+</ul>
+<h3 id="float模型"><a href="#float模型" class="headerlink" title="float模型"></a>float模型</h3><p>float常用取值：left/right。</p>
+<p>1、浮动元素产生了浮动流（只有块级元素会产生），所有产生了浮动流的元素，块级元素看不到他们。</p>
+<p>2、产生了BFC的元素和文本类属性的元素以及文本都能看到浮动元素（带有inline属性的都属于文本类属性）。</p>
+<p>如何清理浮动：</p>
+<ul>
+<li><p>清除周边浮动在父级元素添加一个标签，设置使用clear:both 不推荐。</p>
+</li>
+<li><p>添加伪元素(inline属性) ::before{content:’’;clear:both;display:block;}，content只能适用于伪元素，添加clear清除必须是块级元素所以添加block属性。</p>
+</li>
+</ul>
+<h3 id="文字溢出"><a href="#文字溢出" class="headerlink" title="文字溢出"></a>文字溢出</h3><p>单行文本三件套： white-space:nowrap overflow:hidden text-overflow:ellipsis。</p>
+<p>多行文本 只做截断。    </p>
+<h3 id="图片处理"><a href="#图片处理" class="headerlink" title="图片处理"></a>图片处理</h3><p>1、text-indent:设置超过盒子宽; overflow:hidden; white-space:nowrap</p>
+<p>2、height:0;设置padding-top:设置一个高度;overflow:hidden;</p>
+<h3 id="元素嵌套规则"><a href="#元素嵌套规则" class="headerlink" title="元素嵌套规则"></a>元素嵌套规则</h3><ul>
+<li>行级元素只能嵌套行级元素</li>
+<li>块级元素可以嵌套任何元素 </li>
+<li>p标签特殊、a标签不能嵌套a标签</li>
+</ul>
+<h3 id="常识"><a href="#常识" class="headerlink" title="常识"></a>常识</h3><ul>
+<li>1em = 16px。</li>
+<li>body有8px的margin值。</li>
+<li>凡是设置position:absoulte;float:left/right 打内部把元素转化成inline-block。</li>
+<li>图片环绕文字 图片设置float:left。</li>
+<li>行内元素设置行块级属性里面文字和外面文字上对齐，使用vertical-align。</li>
+<li>行内元素里面文字和外面文字底对齐。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;padding-top:20px;">———— / END / ————</div>
+
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/17420403.html" rel="next" title="Hexo在github上搭建博客">
+                <i class="fa fa-chevron-left"></i> Hexo在github上搭建博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/3a1eeae5.html" rel="prev" title="学习JavaScript基础篇">
+                学习JavaScript基础篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <!--a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a-->
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <!--a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a-->
+    <!--a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a-->
+    <!--a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a-->
+    <!--a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a-->
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/cc-bf-chglyn.png" alt="Changyuan">
+          <p class="site-author-name" itemprop="name">Changyuan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.baidu.com" title="baidu" target="_blank">baidu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://relign.github.io" title="relignBlog" target="_blank">relignBlog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.zhangtaifeng.com" title="zhangtaifeng" target="_blank">zhangtaifeng</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lmaomaoz.com/blog2" title="lmaomaoz" target="_blank">lmaomaoz</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有序列表与无序列表"><span class="nav-number">2.</span> <span class="nav-text">有序列表与无序列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a标签"><span class="nav-number">3.</span> <span class="nav-text">a标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主流浏览器内核"><span class="nav-number">4.</span> <span class="nav-text">主流浏览器内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-cascading-style-sheet"><span class="nav-number">5.</span> <span class="nav-text">CSS(cascading style sheet)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类与伪元素"><span class="nav-number">6.</span> <span class="nav-text">伪类与伪元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行内元素"><span class="nav-number">7.</span> <span class="nav-text">行内元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级元素"><span class="nav-number">8.</span> <span class="nav-text">块级元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行级块元素"><span class="nav-number">9.</span> <span class="nav-text">行级块元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒子模型"><span class="nav-number">10.</span> <span class="nav-text">盒子模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位技术"><span class="nav-number">11.</span> <span class="nav-text">定位技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#margin塌陷问题"><span class="nav-number">12.</span> <span class="nav-text">margin塌陷问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#float模型"><span class="nav-number">13.</span> <span class="nav-text">float模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字溢出"><span class="nav-number">14.</span> <span class="nav-text">文字溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片处理"><span class="nav-number">15.</span> <span class="nav-text">图片处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素嵌套规则"><span class="nav-number">16.</span> <span class="nav-text">元素嵌套规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常识"><span class="nav-number">17.</span> <span class="nav-text">常识</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  京ICP备13052054号-1
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love animation-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">园子</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "http://blog.yuanbeauty.com",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    bp.src = (curProtocol === 'https') 
+    ? 'https://zz.bdstatic.com/linksubmit/push.js'
+    : 'http://push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+  
+
+</body>
+</html>
