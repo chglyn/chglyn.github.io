@@ -436,7 +436,7 @@
 <p>这两种方法应用于浏览器记录栈，当前浏览器已有的back/forward/go功能基础上，它们提供了对历史记录修改功能。当它们执行修改时，改变当前url，浏览器不会立即向后端发送请求。</p>
 <p>hash模式</p>
 <p>配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  mode: &apos;hash&apos;,</span><br><span class="line">  routes: [</span><br><span class="line">    // ...</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  mode: &apos;hash&apos;,</span><br><span class="line">  routes: [</span><br><span class="line">    // ...</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>只需要在路由配置项中添加参数mode设置成hash即可。</p>
 <p>这种模式和传统url路由看起来有区别，会在url后天添加“ # ”符号后跟一串hash值，<br>比如：<a href="http://xxx.com/course/courseId#hash值。" target="_blank" rel="noopener">http://xxx.com/course/courseId#hash值。</a></p>
 <p>vue-router默认设置成hash模式。使用url的hash模拟一个完整的url，当url发生变化时，页面不会重新加载。“ # ”是页面中的一个位置，是一个锚点；改变后面的hash值，浏览器只会滚动到相应位置，不会重新加载页面。也就是说hash出现在url中，不会被包含在http请求中，对后端完全没有影响，改变url不会重新加载页面。</p>
