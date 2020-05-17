@@ -552,6 +552,139 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
         </div>
         
           
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/cc-bf-chglyn.png" alt="Changyuan">
+          <p class="site-author-name" itemprop="name">Changyuan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.baidu.com" title="baidu" target="_blank">baidu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://relign.github.io" title="relignBlog" target="_blank">relignBlog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.zhangtaifeng.com" title="zhangtaifeng" target="_blank">zhangtaifeng</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lmaomaoz.com/blog2" title="lmaomaoz" target="_blank">lmaomaoz</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#let-const定义变量"><span class="nav-number">1.</span> <span class="nav-text">let, const定义变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构赋值"><span class="nav-number">2.</span> <span class="nav-text">结构赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的扩展"><span class="nav-number">3.</span> <span class="nav-text">字符串的扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模版字符串"><span class="nav-number">4.</span> <span class="nav-text">模版字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array类上的扩展"><span class="nav-number">5.</span> <span class="nav-text">Array类上的扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的扩展"><span class="nav-number">6.</span> <span class="nav-text">函数的扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数作用域问题"><span class="nav-number">7.</span> <span class="nav-text">参数作用域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展运算符-…"><span class="nav-number">8.</span> <span class="nav-text">扩展运算符 …</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数"><span class="nav-number">9.</span> <span class="nav-text">箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的扩展"><span class="nav-number">10.</span> <span class="nav-text">对象的扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的set和get"><span class="nav-number">11.</span> <span class="nav-text">对象的set和get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol"><span class="nav-number">12.</span> <span class="nav-text">Symbol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">13.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set使用场景"><span class="nav-number">14.</span> <span class="nav-text">set使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">15.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxy"><span class="nav-number">16.</span> <span class="nav-text">Proxy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class"><span class="nav-number">17.</span> <span class="nav-text">class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#promise"><span class="nav-number">18.</span> <span class="nav-text">promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#async"><span class="nav-number">19.</span> <span class="nav-text">async</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
     </main>
