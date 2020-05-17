@@ -1,118 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo在github上搭建博客</title>
-    <url>/archives/17420403.html</url>
-    <content><![CDATA[<p>首先在<code>github</code>上注册一个账号，然后在界面找到菜单按钮New <code>reposition</code>点击进去，在<code>Repository name</code>里面输入自己合适的地址<br>然后安装<code>node</code>，<code>git</code>，适合自己的编辑器，如：<code>sublime</code></p>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>在合适的目录下安装<code>git</code>一直<code>next</code>；在计划创建博客文件目录下执行配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
-<p>把<code>github</code>上的项目克隆在本地创建新的文件夹下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> Your site address...</span><br></pre></td></tr></table></figure>
-<p>然后在本地项目文件里把<code>hexo</code>主题克隆下来，和你在<code>github</code>上的项目放在同一等级位置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<h3 id="安装依赖和插件"><a href="#安装依赖和插件" class="headerlink" title="安装依赖和插件"></a>安装依赖和插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h3 id="启动服务查看"><a href="#启动服务查看" class="headerlink" title="启动服务查看"></a>启动服务查看</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">启动服务器本地查看 浏览器地址输入：localhost:4000，就能本地预览</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<h3 id="模板配置"><a href="#模板配置" class="headerlink" title="模板配置"></a>模板配置</h3><p><code>hexo</code>模板配置，详情预览官方API手册：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/getting-started.html</a></p>
-<h3 id="创建分类"><a href="#创建分类" class="headerlink" title="创建分类"></a>创建分类</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">"categories"</span></span><br></pre></td></tr></table></figure>
-<p>然后再<code>categories</code>文件里添加属性 <code>type: categories</code>就可以设置分类</p>
-<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
-<p>然后再<code>tags</code>文件里添加属性 <code>type: tags</code>就可以设置标签</p>
-<h3 id="hexo使用命令"><a href="#hexo使用命令" class="headerlink" title="hexo使用命令"></a>hexo使用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo n <span class="string">"我的博客"</span> == hexo new <span class="string">"我的博客"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo p == hexo publish</span><br><span class="line">hexo g == hexo generate<span class="comment">#生成</span></span><br><span class="line">hexo s == hexo server <span class="comment">#启动服务预览</span></span><br><span class="line">hexo d == hexo deploy<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p><code>hexo</code>使用中的问题：<br><code>hexo</code>部署提示找不到<code>git</code>，解决方法执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p><code>git pull</code> 提示<code>fatal: Could not read from remote repository</code>，执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin your-github-url</span><br></pre></td></tr></table></figure>
-<p>关于更多<code>hexo</code>语法，这个问下度娘 ^_^</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>搭建简单博客</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>常见的CSS布局</title>
-    <url>/archives/4822cc7.html</url>
-    <content><![CDATA[<h3 id="单栏布局"><a href="#单栏布局" class="headerlink" title="单栏布局"></a>单栏布局</h3><p>常见单栏布局有以下情况：</p>
-<ul>
-<li>header/content/footer等宽单栏布局</li>
-<li>header/footer等宽，content略窄单栏布局</li>
-</ul>
-<p><strong>第一种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#c0c0c0; </span><br><span class="line"> &#125;</span><br><span class="line">.content&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#f1f1f1;</span><br><span class="line">  &#125;</span><br><span class="line">  .footer&#123;</span><br><span class="line">    width:100%; //①</span><br><span class="line">    background:#000</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>上述设置的width自适应充满屏幕。<br>如果设置width为固定值或者设置最大宽度(max-width)，当屏幕小于当前设置固定宽度(width)时，会出现滚动条；<br>而设置的最大宽度(max-width)，则不会出现滚动条。</p>
-<p>如果实现居中，解决办法是添加居中属性(margin: 0 auto)即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">// content, footer添加margin: 0 auto;属性</span><br></pre></td></tr></table></figure>
-<p><strong>第二种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background: #c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width: 700px;</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#000;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注意：</p>
-<p>如果header/footer内容宽度不设置，块级元素会充满整个屏幕；<br>如果header/content/footer内容区域中有设置同一个宽度，通过<strong>margin:0 auto</strong>居中。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  max-width:600px; //宽度</span><br><span class="line">  background:#fff;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width:600px;  // 宽度</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto;  // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#000; </span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a>两栏布局</h3><p>指一边栏固定宽度，另一边栏充满剩余宽度。<br>常见两栏布局有以下情况：</p>
-<ul>
-<li>左栏固定宽度，右栏自适应</li>
-<li>左栏自适应，右栏固定宽度</li>
-</ul>
-<p><strong>第一种情况</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; //①</span><br><span class="line">  float:left; // ①</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-left:200px; // ②</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display:flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  flex:1; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>第二种情况：(注意DOM布局顺序)</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ①</span><br><span class="line">  background:red;</span><br><span class="line">  position:absolute; // ①</span><br><span class="line">  top:0; // ①</span><br><span class="line">  right:0; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-right:200px; // ② </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用margin-right属性留出重叠区域。</p>
-<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果是<strong>自适应两栏布局使用float + overflow</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.content&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  float: left;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种方式通过overflow触发BFC，这时zoom:1兼容IE6浏览器；如果侧边栏在右侧注意渲染顺序。</p>
-<h3 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h3><p>指两边栏固定宽度，中间栏自适应布局。</p>
-<p><strong>第一种圣杯</strong><br>实现原理：</p>
-<ul>
-<li><p>三栏都设置左浮动，设置中间栏宽度为100%；</p>
-</li>
-<li><p>这时左右两栏会掉下来，设置margin-left为负值，添加相对定位并设置left属性与right属性，与中间栏同一行；</p>
-</li>
-<li><p>设置padding留出间距。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width:100%; // ① 充满屏幕</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ② 设置一个宽度</span><br><span class="line">  margin-left:-100%; // ② 添加float, 与middle同一行</span><br><span class="line">  float：left; // ②</span><br><span class="line">  position: relative; // ② 添加相对定位移并到左边</span><br><span class="line">  left: -200px; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width: 200px; // ③</span><br><span class="line">  margin-left: -200px; // ③ 添加float, 与minddle同行</span><br><span class="line">  float: left; // ③</span><br><span class="line">  position: relative; // ③ 添加相对定位 并移到右边</span><br><span class="line">  right:-200px; // ③</span><br><span class="line">  background:yellow; </span><br><span class="line">&#125;</span><br><span class="line">.body&#123;</span><br><span class="line">  padding: 0 200px; // ④ 左右两边留出间隙</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>第二种双飞翼</strong><br>实现原理：</p>
-<ul>
-<li><p>三栏左浮动，设置中间栏宽度为100%；</p>
-</li>
-<li><p>这时左右两栏会掉下来，设置margin-left为负值并设置left属性与right属性，与中间栏同一行；</p>
-</li>
-<li><p>在中间栏增加一个div，设置margin留出左右间距。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width: 100%; // ①</span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width: 200px; // ②</span><br><span class="line">  margin-left: -100%; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right &#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  margin-left: -200px; // ③</span><br><span class="line">  background: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  margin: 0 200px; // ④</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>圣杯布局与双飞翼布局对比：</p>
-<ul>
-<li><p>圣杯布局是在父容器的左/右内边距配合两个从列相对定位。</p>
-</li>
-<li><p>双飞翼布局是把主列嵌套在一个父级块中配合主列左/右外边距。</p>
-</li>
-</ul>
-<p><strong>第三种flex</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left &#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.middle &#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>补充flex:1</strong></p>
-<p>flex是flex-grow，flex-shrink,  flex-basis的缩写；默认值：0 1 auto。后两者属性可选。</p>
-<p>flex-grow：属性定义了该空间的放大比例，默认值0；表示如果存在剩余空间，也不放大。</p>
-<p>flex-skrink：属性定义了该空间的缩小比例，默认值1；表示如果空间不足，该空间将缩小。</p>
-<p>flex-basis：属性定义在分配多余空间之前，占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间，默认值auto，表示该空间本来的大小。</p>
-<p>flex:属性由两个值：auto(1 1 auto) 和 none(0 0 auto)。</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-        <category>常见布局方式</category>
-      </categories>
-  </entry>
-  <entry>
     <title>学习Html</title>
     <url>/archives/688af21b.html</url>
     <content><![CDATA[<h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>前端应用的HTML页面标签进行简单总结，在这里做个简单笔记汇总。</p>
@@ -325,6 +213,197 @@
       <categories>
         <category>HTML</category>
         <category>巩固HTML</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常见的CSS布局</title>
+    <url>/archives/4822cc7.html</url>
+    <content><![CDATA[<h3 id="单栏布局"><a href="#单栏布局" class="headerlink" title="单栏布局"></a>单栏布局</h3><p>常见单栏布局有以下情况：</p>
+<ul>
+<li>header/content/footer等宽单栏布局</li>
+<li>header/footer等宽，content略窄单栏布局</li>
+</ul>
+<p><strong>第一种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#c0c0c0; </span><br><span class="line"> &#125;</span><br><span class="line">.content&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#f1f1f1;</span><br><span class="line">  &#125;</span><br><span class="line">  .footer&#123;</span><br><span class="line">    width:100%; //①</span><br><span class="line">    background:#000</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述设置的width自适应充满屏幕。<br>如果设置width为固定值或者设置最大宽度(max-width)，当屏幕小于当前设置固定宽度(width)时，会出现滚动条；<br>而设置的最大宽度(max-width)，则不会出现滚动条。</p>
+<p>如果实现居中，解决办法是添加居中属性(margin: 0 auto)即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">// content, footer添加margin: 0 auto;属性</span><br></pre></td></tr></table></figure>
+<p><strong>第二种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background: #c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width: 700px;</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#000;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<p>如果header/footer内容宽度不设置，块级元素会充满整个屏幕；<br>如果header/content/footer内容区域中有设置同一个宽度，通过<strong>margin:0 auto</strong>居中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  max-width:600px; //宽度</span><br><span class="line">  background:#fff;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width:600px;  // 宽度</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto;  // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#000; </span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a>两栏布局</h3><p>指一边栏固定宽度，另一边栏充满剩余宽度。<br>常见两栏布局有以下情况：</p>
+<ul>
+<li>左栏固定宽度，右栏自适应</li>
+<li>左栏自适应，右栏固定宽度</li>
+</ul>
+<p><strong>第一种情况</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; //①</span><br><span class="line">  float:left; // ①</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-left:200px; // ②</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display:flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  flex:1; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第二种情况：(注意DOM布局顺序)</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ①</span><br><span class="line">  background:red;</span><br><span class="line">  position:absolute; // ①</span><br><span class="line">  top:0; // ①</span><br><span class="line">  right:0; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-right:200px; // ② </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用margin-right属性留出重叠区域。</p>
+<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果是<strong>自适应两栏布局使用float + overflow</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.content&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  float: left;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方式通过overflow触发BFC，这时zoom:1兼容IE6浏览器；如果侧边栏在右侧注意渲染顺序。</p>
+<h3 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h3><p>指两边栏固定宽度，中间栏自适应布局。</p>
+<p><strong>第一种圣杯</strong><br>实现原理：</p>
+<ul>
+<li><p>三栏都设置左浮动，设置中间栏宽度为100%；</p>
+</li>
+<li><p>这时左右两栏会掉下来，设置margin-left为负值，添加相对定位并设置left属性与right属性，与中间栏同一行；</p>
+</li>
+<li><p>设置padding留出间距。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width:100%; // ① 充满屏幕</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ② 设置一个宽度</span><br><span class="line">  margin-left:-100%; // ② 添加float, 与middle同一行</span><br><span class="line">  float：left; // ②</span><br><span class="line">  position: relative; // ② 添加相对定位移并到左边</span><br><span class="line">  left: -200px; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width: 200px; // ③</span><br><span class="line">  margin-left: -200px; // ③ 添加float, 与minddle同行</span><br><span class="line">  float: left; // ③</span><br><span class="line">  position: relative; // ③ 添加相对定位 并移到右边</span><br><span class="line">  right:-200px; // ③</span><br><span class="line">  background:yellow; </span><br><span class="line">&#125;</span><br><span class="line">.body&#123;</span><br><span class="line">  padding: 0 200px; // ④ 左右两边留出间隙</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第二种双飞翼</strong><br>实现原理：</p>
+<ul>
+<li><p>三栏左浮动，设置中间栏宽度为100%；</p>
+</li>
+<li><p>这时左右两栏会掉下来，设置margin-left为负值并设置left属性与right属性，与中间栏同一行；</p>
+</li>
+<li><p>在中间栏增加一个div，设置margin留出左右间距。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width: 100%; // ①</span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width: 200px; // ②</span><br><span class="line">  margin-left: -100%; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right &#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  margin-left: -200px; // ③</span><br><span class="line">  background: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  margin: 0 200px; // ④</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>圣杯布局与双飞翼布局对比：</p>
+<ul>
+<li><p>圣杯布局是在父容器的左/右内边距配合两个从列相对定位。</p>
+</li>
+<li><p>双飞翼布局是把主列嵌套在一个父级块中配合主列左/右外边距。</p>
+</li>
+</ul>
+<p><strong>第三种flex</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left &#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.middle &#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>补充flex:1</strong></p>
+<p>flex是flex-grow，flex-shrink,  flex-basis的缩写；默认值：0 1 auto。后两者属性可选。</p>
+<p>flex-grow：属性定义了该空间的放大比例，默认值0；表示如果存在剩余空间，也不放大。</p>
+<p>flex-skrink：属性定义了该空间的缩小比例，默认值1；表示如果空间不足，该空间将缩小。</p>
+<p>flex-basis：属性定义在分配多余空间之前，占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间，默认值auto，表示该空间本来的大小。</p>
+<p>flex:属性由两个值：auto(1 1 auto) 和 none(0 0 auto)。</p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+        <category>常见布局方式</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo在github上搭建博客</title>
+    <url>/archives/17420403.html</url>
+    <content><![CDATA[<p>首先在<code>github</code>上注册一个账号，然后在界面找到菜单按钮New <code>reposition</code>点击进去，在<code>Repository name</code>里面输入自己合适的地址<br>然后安装<code>node</code>，<code>git</code>，适合自己的编辑器，如：<code>sublime</code></p>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>在合适的目录下安装<code>git</code>一直<code>next</code>；在计划创建博客文件目录下执行配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>把<code>github</code>上的项目克隆在本地创建新的文件夹下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> Your site address...</span><br></pre></td></tr></table></figure>
+<p>然后在本地项目文件里把<code>hexo</code>主题克隆下来，和你在<code>github</code>上的项目放在同一等级位置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<h3 id="安装依赖和插件"><a href="#安装依赖和插件" class="headerlink" title="安装依赖和插件"></a>安装依赖和插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h3 id="启动服务查看"><a href="#启动服务查看" class="headerlink" title="启动服务查看"></a>启动服务查看</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">启动服务器本地查看 浏览器地址输入：localhost:4000，就能本地预览</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h3 id="模板配置"><a href="#模板配置" class="headerlink" title="模板配置"></a>模板配置</h3><p><code>hexo</code>模板配置，详情预览官方API手册：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/getting-started.html</a></p>
+<h3 id="创建分类"><a href="#创建分类" class="headerlink" title="创建分类"></a>创建分类</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">"categories"</span></span><br></pre></td></tr></table></figure>
+<p>然后再<code>categories</code>文件里添加属性 <code>type: categories</code>就可以设置分类</p>
+<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
+<p>然后再<code>tags</code>文件里添加属性 <code>type: tags</code>就可以设置标签</p>
+<h3 id="hexo使用命令"><a href="#hexo使用命令" class="headerlink" title="hexo使用命令"></a>hexo使用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo n <span class="string">"我的博客"</span> == hexo new <span class="string">"我的博客"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo p == hexo publish</span><br><span class="line">hexo g == hexo generate<span class="comment">#生成</span></span><br><span class="line">hexo s == hexo server <span class="comment">#启动服务预览</span></span><br><span class="line">hexo d == hexo deploy<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p><code>hexo</code>使用中的问题：<br><code>hexo</code>部署提示找不到<code>git</code>，解决方法执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p><code>git pull</code> 提示<code>fatal: Could not read from remote repository</code>，执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin your-github-url</span><br></pre></td></tr></table></figure>
+<p>关于更多<code>hexo</code>语法，这个问下度娘 ^_^</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>搭建简单博客</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>总结CSS前端优化之旅</title>
+    <url>/archives/341da12f.html</url>
+    <content><![CDATA[<p>有关css hack与各浏览器前缀，前端性能优化之旅</p>
+<h3 id="css-hack"><a href="#css-hack" class="headerlink" title="css hack"></a>css hack</h3><hr>
+<p>IE6浏览器下<br>css hack： 属性明前加下划线， 如： <code>_color:#666</code></p>
+<p>IE7浏览器下<br>css hack： 属性名前加 <code>*</code>，如： <code>*clolor:#666</code></p>
+<p>IE8浏览器下(最新的opera浏览器也支持)<br>    css hack： 属性名前加 \0，如： <code>clolor:#666\0</code></p>
+<p>IE9浏览器下<br>css hack： 属性名前加 \9，如：<code>clolor:#666\9</code></p>
+<p>总结：<code>firefox</code>写在最前面，<code>IE7</code>写在中间，IE6写在最后；<code>IE6</code>能识别 <code>*</code>，不能识别！important；<code>IE7</code>能识别 <code>*</code>和<code>！important</code>，<code>FF</code>能识别<code>！important</code>和 <code>_</code>, 不能识别 <code>*</code>。</p>
+<h3 id="浏览器前缀"><a href="#浏览器前缀" class="headerlink" title="浏览器前缀"></a>浏览器前缀</h3><ul>
+<li>IE浏览器：属性名前添加-ms-，如： -ms-tranform:rotate(10deg)</li>
+<li>Firefox浏览器：属性名前加 -moz-，如： -moz-tranform:rotate(10deg)</li>
+<li>safari和chrome浏览器： 属性名前加 -webkit-，如： -webkit-tranform:rotate(10deg)</li>
+<li>opera浏览器：属性名前加 -o-，如： -o-tranform:rotate(10deg)</li>
+</ul>
+<h3 id="前端性能优化之旅"><a href="#前端性能优化之旅" class="headerlink" title="前端性能优化之旅"></a>前端性能优化之旅</h3><pre><code>● 1.缓存
+    ○ 1.1本地储存（cookie, localStorage, sessionStorage, indexedDB）
+    ○ 1.2内存缓存
+    ○ 1.3 Cache API
+    ○ 1.4 HTTP缓存（强缓存：Expires/Cache-Control, 协商缓存： Last-Modified/If-Modified-Since/Etag/If-None-Match）
+    ○ 1.5 Push Cache
+● 2.发送请求：
+    ○ 2.1避免不必要的重定向（301、302）
+    ○ 2.2 DNS预解析
+    ○ 2.3预先建立连接
+    ○ 2.4使用CDN
+● 3.服务端响应
+    ○ 3.1使用流（保存/撤销）
+    ○ 3.2业务接口内部聚合
+    ○ 3.3避免代码问题
+● 4.页面解析与处理
+    ○ 4.1资源位置顺序
+    ○ 4.2合理使用defer/async脚本
+    ○ 4.3关键渲染路径
+● 5.页面静态资源
+    ○ 5.1 Javascript
+        ● 5.1.1减少不必要的请求 （code split/代码合并）
+        ● 5.1.2减少包体大小（代码压缩，Tree Shaking，合理使用polyfill）
+        ● 5.1.3加快解析与执行（初始加载，删除不必要代码；避免long task；考虑是否需要框架；针对代码的编译优化）
+        ● 5.1.4打包导致的缓存失效（hash module id； runtime chunk split； 使用records）
+    ○ 5.2 CSS
+        ● 5.2.1使用关键CSS（内联；骨架屏）
+        ● 5.2.2优化资源请求（按需加载；合并文件；请求的优先级排序；慎用@import；谨慎对待Javascript脚本的位置）
+        ● 5.2.3减少包体积（压缩；选择合适的兼容性polyfill支持）
+        ● 5.2.4加快解析与渲染树构建（简化选择器；避免使用昂贵的属性；使用先进的布局方式）
+        ● 5.2.5利用缓存 webpack MiniCssExtractPlugin
+    ○ 5.3图片
+        ● 5.3.1优化请求（雪碧图；懒加载；base64内联）
+        ● 5.3.2减少图片大小（使用合适的图片格式,使用gpj,webP,SVG,video代替gif；适当降低图片质量；删除图片沉余信息）
+        ● 5.3.3利用缓存
+    ○ 5.4字体
+        ● 5.4.1使用font-display实现fout
+        ● 5.4.2内联字体
+        ● 5.4.3使用css font loging API
+        ● 5.4.4FoFT(flash of Faux Text)
+    ○ 5.5视频
+        ● 5.5.1使用合适的视频格式
+        ● 5.5.2进行视频压缩
+        ● 5.5.3移除不必要的音轨信息
+        ● 5.5.4使用“流”
+        ● 5.5.5移除页面中不必要的视频
+● 6.运行时
+    ○ 6.1注意强制同步布局（避免代码出现在不合适的位置；批量化操作）
+    ○ 6.2长列表优化（实现Vir tual List机制；原生Virtual Scroller）
+    ○ 6.3避免Javascript运行占用时间过长（任务分解；延迟执行；并行计算）
+    ○ 6.4善用composite机制
+    ○ 6.5滚动的性能优化
+    ○ 6.6Passive event listeners
+● 7.预加载
+    ○ 7.1预加载技术（Resource Hints: prefetch/prerender/preload；基于JS实现预加载）
+    ○ 7.2视频预加载技术（preload属性；link preload；自定义buffer）
+    ○ 7.3预加载策略（quicklink；guess.js）
+</code></pre>]]></content>
+      <categories>
+        <category>CSS</category>
+        <category>巩固CSS Hack</category>
       </categories>
   </entry>
   <entry>
@@ -642,85 +721,6 @@
       <categories>
         <category>JavaScript</category>
         <category>入门JS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>总结CSS前端优化之旅</title>
-    <url>/archives/341da12f.html</url>
-    <content><![CDATA[<p>有关css hack与各浏览器前缀，前端性能优化之旅</p>
-<h3 id="css-hack"><a href="#css-hack" class="headerlink" title="css hack"></a>css hack</h3><hr>
-<p>IE6浏览器下<br>css hack： 属性明前加下划线， 如： <code>_color:#666</code></p>
-<p>IE7浏览器下<br>css hack： 属性名前加 <code>*</code>，如： <code>*clolor:#666</code></p>
-<p>IE8浏览器下(最新的opera浏览器也支持)<br>    css hack： 属性名前加 \0，如： <code>clolor:#666\0</code></p>
-<p>IE9浏览器下<br>css hack： 属性名前加 \9，如：<code>clolor:#666\9</code></p>
-<p>总结：<code>firefox</code>写在最前面，<code>IE7</code>写在中间，IE6写在最后；<code>IE6</code>能识别 <code>*</code>，不能识别！important；<code>IE7</code>能识别 <code>*</code>和<code>！important</code>，<code>FF</code>能识别<code>！important</code>和 <code>_</code>, 不能识别 <code>*</code>。</p>
-<h3 id="浏览器前缀"><a href="#浏览器前缀" class="headerlink" title="浏览器前缀"></a>浏览器前缀</h3><ul>
-<li>IE浏览器：属性名前添加-ms-，如： -ms-tranform:rotate(10deg)</li>
-<li>Firefox浏览器：属性名前加 -moz-，如： -moz-tranform:rotate(10deg)</li>
-<li>safari和chrome浏览器： 属性名前加 -webkit-，如： -webkit-tranform:rotate(10deg)</li>
-<li>opera浏览器：属性名前加 -o-，如： -o-tranform:rotate(10deg)</li>
-</ul>
-<h3 id="前端性能优化之旅"><a href="#前端性能优化之旅" class="headerlink" title="前端性能优化之旅"></a>前端性能优化之旅</h3><pre><code>● 1.缓存
-    ○ 1.1本地储存（cookie, localStorage, sessionStorage, indexedDB）
-    ○ 1.2内存缓存
-    ○ 1.3 Cache API
-    ○ 1.4 HTTP缓存（强缓存：Expires/Cache-Control, 协商缓存： Last-Modified/If-Modified-Since/Etag/If-None-Match）
-    ○ 1.5 Push Cache
-● 2.发送请求：
-    ○ 2.1避免不必要的重定向（301、302）
-    ○ 2.2 DNS预解析
-    ○ 2.3预先建立连接
-    ○ 2.4使用CDN
-● 3.服务端响应
-    ○ 3.1使用流（保存/撤销）
-    ○ 3.2业务接口内部聚合
-    ○ 3.3避免代码问题
-● 4.页面解析与处理
-    ○ 4.1资源位置顺序
-    ○ 4.2合理使用defer/async脚本
-    ○ 4.3关键渲染路径
-● 5.页面静态资源
-    ○ 5.1 Javascript
-        ● 5.1.1减少不必要的请求 （code split/代码合并）
-        ● 5.1.2减少包体大小（代码压缩，Tree Shaking，合理使用polyfill）
-        ● 5.1.3加快解析与执行（初始加载，删除不必要代码；避免long task；考虑是否需要框架；针对代码的编译优化）
-        ● 5.1.4打包导致的缓存失效（hash module id； runtime chunk split； 使用records）
-    ○ 5.2 CSS
-        ● 5.2.1使用关键CSS（内联；骨架屏）
-        ● 5.2.2优化资源请求（按需加载；合并文件；请求的优先级排序；慎用@import；谨慎对待Javascript脚本的位置）
-        ● 5.2.3减少包体积（压缩；选择合适的兼容性polyfill支持）
-        ● 5.2.4加快解析与渲染树构建（简化选择器；避免使用昂贵的属性；使用先进的布局方式）
-        ● 5.2.5利用缓存 webpack MiniCssExtractPlugin
-    ○ 5.3图片
-        ● 5.3.1优化请求（雪碧图；懒加载；base64内联）
-        ● 5.3.2减少图片大小（使用合适的图片格式,使用gpj,webP,SVG,video代替gif；适当降低图片质量；删除图片沉余信息）
-        ● 5.3.3利用缓存
-    ○ 5.4字体
-        ● 5.4.1使用font-display实现fout
-        ● 5.4.2内联字体
-        ● 5.4.3使用css font loging API
-        ● 5.4.4FoFT(flash of Faux Text)
-    ○ 5.5视频
-        ● 5.5.1使用合适的视频格式
-        ● 5.5.2进行视频压缩
-        ● 5.5.3移除不必要的音轨信息
-        ● 5.5.4使用“流”
-        ● 5.5.5移除页面中不必要的视频
-● 6.运行时
-    ○ 6.1注意强制同步布局（避免代码出现在不合适的位置；批量化操作）
-    ○ 6.2长列表优化（实现Vir tual List机制；原生Virtual Scroller）
-    ○ 6.3避免Javascript运行占用时间过长（任务分解；延迟执行；并行计算）
-    ○ 6.4善用composite机制
-    ○ 6.5滚动的性能优化
-    ○ 6.6Passive event listeners
-● 7.预加载
-    ○ 7.1预加载技术（Resource Hints: prefetch/prerender/preload；基于JS实现预加载）
-    ○ 7.2视频预加载技术（preload属性；link preload；自定义buffer）
-    ○ 7.3预加载策略（quicklink；guess.js）
-</code></pre>]]></content>
-      <categories>
-        <category>CSS</category>
-        <category>巩固CSS Hack</category>
       </categories>
   </entry>
   <entry>
@@ -1119,6 +1119,24 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       </categories>
   </entry>
   <entry>
+    <title>补充深度克隆</title>
+    <url>/archives/1102c4d5.html</url>
+    <content><![CDATA[<p><strong>前言：</strong><br>在<a href="http://localhost:4000/blog/2015/08/10.html" target="_blank" rel="noopener">学习JavaScript基础篇</a>提到深度克隆与浅度克隆，最近在云栖社区看到有另一种深度克隆写法，因此记下笔记。</p>
+<p>实现思路：</p>
+<ul>
+<li><p>利用ES6的数组原方法Array.isArray判断数据类型。</p>
+</li>
+<li><p>如果是引用数据类型循环递归判断，否则输出。</p>
+</li>
+</ul>
+<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function deepClone(origin)&#123;</span><br><span class="line">	var newObj = (Array.isArray(origin)) ? [] : &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	for(var key in origin)&#123;</span><br><span class="line">		newObj[key] = (typeof origin[key] == &apos;object&apos;) </span><br><span class="line">		? deepClone2(origin[key])</span><br><span class="line">		: origin[key]; </span><br><span class="line">	&#125;</span><br><span class="line">	return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>深度克隆</category>
+      </categories>
+  </entry>
+  <entry>
     <title>格式化时间与ElementTree注意点</title>
     <url>/archives/8bd98ba7.html</url>
     <content><![CDATA[<p><strong>前言</strong></p>
@@ -1145,24 +1163,6 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       <categories>
         <category>Vue</category>
         <category>ElementTree</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>补充深度克隆</title>
-    <url>/archives/1102c4d5.html</url>
-    <content><![CDATA[<p><strong>前言：</strong><br>在<a href="http://localhost:4000/blog/2015/08/10.html" target="_blank" rel="noopener">学习JavaScript基础篇</a>提到深度克隆与浅度克隆，最近在云栖社区看到有另一种深度克隆写法，因此记下笔记。</p>
-<p>实现思路：</p>
-<ul>
-<li><p>利用ES6的数组原方法Array.isArray判断数据类型。</p>
-</li>
-<li><p>如果是引用数据类型循环递归判断，否则输出。</p>
-</li>
-</ul>
-<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function deepClone(origin)&#123;</span><br><span class="line">	var newObj = (Array.isArray(origin)) ? [] : &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	for(var key in origin)&#123;</span><br><span class="line">		newObj[key] = (typeof origin[key] == &apos;object&apos;) </span><br><span class="line">		? deepClone2(origin[key])</span><br><span class="line">		: origin[key]; </span><br><span class="line">	&#125;</span><br><span class="line">	return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>深度克隆</category>
       </categories>
   </entry>
   <entry>
@@ -1431,72 +1431,6 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       </categories>
   </entry>
   <entry>
-    <title>Hexo个人博客绑定域名</title>
-    <url>/archives/8a6c9ade.html</url>
-    <content><![CDATA[<p><strong>前言</strong></p>
-<p>申请域名已经很久，之前偶尔用用，没有用起来；最近想充分利用，在网上研究一番，现在配置成功可以使用，记下心得。</p>
-<h3 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h3><p>在万网，新网等网站申请一个域名。本文以万网为例：</p>
-<ul>
-<li><p>首先注册阿里云账号，如果有淘宝账号的，可以直接登录。</p>
-</li>
-<li><p>登录以后，先进行实名认证（购买域名要用到）。</p>
-</li>
-<li><p>认证信息提交完毕后，可能需要一两天的审核时间。</p>
-</li>
-<li><p>认证完毕后回到首页，上方导航栏，产品-&gt;点击万网，搜索自己想要的域名并进行购买（域名持有者选择个人，这里就用到之前的认证）。</p>
-</li>
-<li><p>购买完毕后，回到首页点击右上方的控制台，进入后点击上方导航栏的产品与服务，然后选择域名，点击进入域名解析列表，然后就可以看到刚刚买的域名了，接下来进行解析配置（绑定）。</p>
-</li>
-</ul>
-<h3 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h3><p>登录成功阿里云，进入个人页面找到<strong>最近使用的产品</strong>文案，点击域名进入域名管理页面：</p>
-<p><img src="/images/1_6.png" alt="域名"></p>
-<p>在域名列表中找到自己想要解析的域名，点击域名右侧<code>解析</code>文案：</p>
-<p><img src="/images/1_7.png" alt="域名列表"></p>
-<p>进入到域名解析设置页面，如下图：</p>
-<p><img src="/images/1_8.png" alt="域名解析设置"></p>
-<ul>
-<li><p>第一个红色框中，点击修改在<code>记录值</code>中填写自己的<code>github</code>博客地址，不需要<code>http://</code>前缀。</p>
-</li>
-<li><p>第二个红色框中，填写博客站点的<code>IP</code>，获取博客<code>IP</code>方式：</p>
-</li>
-</ul>
-<p><code>win+R</code>快捷键打开“运行”窗口，输入<code>cmd</code>运行命令行控制台。</p>
-<p>用以下指令获取自己博客站点的<code>IP</code>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping xxx.github.io</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">正在 Ping xxx.github.io [185.xxx.xxx.153] 具有 32 字节的</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=57ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=55ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=56ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=60ms TTL=48</span><br></pre></td></tr></table></figure>
-<p>把获取到的<code>IP</code>填写在第二个红色框中。</p>
-<h3 id="创建CNAME"><a href="#创建CNAME" class="headerlink" title="创建CNAME"></a>创建CNAME</h3><p>在本地博客站点路径下的source文件夹里，创建一个名为CNAME的文件（注意要大写），里面写上你之前购买的域名。</p>
-<p>如下图：</p>
-<p><img src="/images/1_9.png" alt="填写CNAME"></p>
-<p>文件里的域名前加不加www都可以，具体规则如下：</p>
-<ul>
-<li>如果填写的是没有<code>www</code>的，比如 yuanbeauty.com，无论是访问 <code>http://www.yuanbeauty.com</code> 还是 <code>http://yuanbeauty.com</code> ，都会自动跳转到 <code>http://yuanbeauty.com</code>。</li>
-</ul>
-<ul>
-<li>如果你填写的是其它子域名，比如 <code>abc.yuanbeauty.com</code>，访问 <code>http://abc.yuanbeauty.com</code> 没问题，但是访问 <code>http://yuanbeauty.com</code> ，不会自动跳转到 <code>http://abc.yuanbeauty.com</code>。</li>
-</ul>
-<h3 id="github绑定域名"><a href="#github绑定域名" class="headerlink" title="github绑定域名"></a>github绑定域名</h3><p>在<a href="https://github.com" target="_blank" rel="noopener">github</a>上，点击进入头像个人设置，如下图：</p>
-<p><img src="/images/1_3.png" alt="setting"></p>
-<p>点击存放个人博客的仓库，在<strong>仓库标题</strong>下面，有<code>setting</code>设置点击进入，</p>
-<p><img src="/images/1_4.png" alt="setting"></p>
-<p>在当前页面拉动滚动条找到<code>GitHub Pages</code>，填入购买的域名：</p>
-<p><img src="/images/1_5.png" alt="github-pages"></p>
-<p>重新生成个人博客，打包部署就能使用域名访问博客，执行命令：</p>
-<ul>
-<li><p><code>hexo clean</code> 清理缓存文件</p>
-</li>
-<li><p><code>hexo g</code> 生成静态文件</p>
-</li>
-<li><p><code>hexo d</code> 部署个人博客项目</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>绑定域名</category>
-      </categories>
-  </entry>
-  <entry>
     <title>总结Vue使用技巧</title>
     <url>/archives/efcc221b.html</url>
     <content><![CDATA[<p><strong>前言：</strong></p>
@@ -1653,6 +1587,99 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       <categories>
         <category>Vue</category>
         <category>Vue实用技巧</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Git 创建多账号</title>
+    <url>/archives/aff47974.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>使用 <code>Git</code> 过程中，难免会遇到使用 <code>Git</code> 既管理公司项目，又要管理自己个人项目。那么 <code>Git</code> 如何做到呢？是本篇主要讨论的内容，在这里做下笔记。</p>
+<h3 id="生成新-ssh-key"><a href="#生成新-ssh-key" class="headerlink" title="生成新 ssh key"></a>生成新 ssh key</h3><p>确保已经安装了 <code>Git</code>，在电脑上打开 <code>Git</code> 创建 <code>ssh key</code>。如果已经存在一个 <code>ssh key</code> 那么需要生成第二个 <code>ssh key</code>，使用命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygn -t rsa -C &quot;email&quot;</span><br></pre></td></tr></table></figure>
+<p>为了与之前的 <code>ssh</code> 区分，可以重新命名以 <code>id_rsa_me</code> 重新命名。回车，重复确认回车即可。</p>
+<h3 id="添加新-ssh-key"><a href="#添加新-ssh-key" class="headerlink" title="添加新 ssh key"></a>添加新 ssh key</h3><p>默认 <code>ssh</code> 只会读取 <code>id_rsa</code>，所以为了让 <code>ssh</code> 识别新的私钥，需要将其添加到 <code>ssh agent</code>。</p>
+<p>使用命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_me</span><br></pre></td></tr></table></figure>
+<p>如果报错 <code>Could not open a connection to your authentication agent.</code>无法连接到 <code>ssh agent</code> 可执行 <code>ssh-agent bash</code> 命令后再执行 <code>ssh-add</code> 命令。</p>
+<p>然后将公钥添加到 <code>Git</code> 帐号。</p>
+<h3 id="配置-config-文件"><a href="#配置-config-文件" class="headerlink" title="配置 config 文件"></a>配置 config 文件</h3><p>查看 <code>.ssh</code> 文件中是否存在 <code>config</code> 文件。</p>
+<p>如果存在，可以直接编辑 <code>config</code> 文件。可以使用 <code>Sublime Text</code> 编辑器进行编辑。</p>
+<p>如果不存在，需要创建 <code>config</code> 文件，使用 <code>touch config</code> 命令创建，然后再编辑 <code>config</code> 文件。</p>
+<p>对 <code>config</code> 文件进行配置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 第一个账号</span><br><span class="line">Host xxx.com</span><br><span class="line">    HostName xxx.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># 第二个账号</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_me</span><br></pre></td></tr></table></figure>
+<h3 id="测试是否配置成功"><a href="#测试是否配置成功" class="headerlink" title="测试是否配置成功"></a>测试是否配置成功</h3><p>使用命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">ssh -T git@zc</span><br></pre></td></tr></table></figure>
+<p>如果出现欢迎语，则表示配置成功。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>创建 <code>Git</code> 多账号时，注意创建新的 <code>ssh key</code> 与默认 <code>ssh key</code> 区分，再创建 <code>config</code> 文件进行配置帐号进行管理。 </p>
+]]></content>
+      <categories>
+        <category>Git</category>
+        <category>创建多帐号</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo个人博客绑定域名</title>
+    <url>/archives/8a6c9ade.html</url>
+    <content><![CDATA[<p><strong>前言</strong></p>
+<p>申请域名已经很久，之前偶尔用用，没有用起来；最近想充分利用，在网上研究一番，现在配置成功可以使用，记下心得。</p>
+<h3 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h3><p>在万网，新网等网站申请一个域名。本文以万网为例：</p>
+<ul>
+<li><p>首先注册阿里云账号，如果有淘宝账号的，可以直接登录。</p>
+</li>
+<li><p>登录以后，先进行实名认证（购买域名要用到）。</p>
+</li>
+<li><p>认证信息提交完毕后，可能需要一两天的审核时间。</p>
+</li>
+<li><p>认证完毕后回到首页，上方导航栏，产品-&gt;点击万网，搜索自己想要的域名并进行购买（域名持有者选择个人，这里就用到之前的认证）。</p>
+</li>
+<li><p>购买完毕后，回到首页点击右上方的控制台，进入后点击上方导航栏的产品与服务，然后选择域名，点击进入域名解析列表，然后就可以看到刚刚买的域名了，接下来进行解析配置（绑定）。</p>
+</li>
+</ul>
+<h3 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h3><p>登录成功阿里云，进入个人页面找到<strong>最近使用的产品</strong>文案，点击域名进入域名管理页面：</p>
+<p><img src="/images/1_6.png" alt="域名"></p>
+<p>在域名列表中找到自己想要解析的域名，点击域名右侧<code>解析</code>文案：</p>
+<p><img src="/images/1_7.png" alt="域名列表"></p>
+<p>进入到域名解析设置页面，如下图：</p>
+<p><img src="/images/1_8.png" alt="域名解析设置"></p>
+<ul>
+<li><p>第一个红色框中，点击修改在<code>记录值</code>中填写自己的<code>github</code>博客地址，不需要<code>http://</code>前缀。</p>
+</li>
+<li><p>第二个红色框中，填写博客站点的<code>IP</code>，获取博客<code>IP</code>方式：</p>
+</li>
+</ul>
+<p><code>win+R</code>快捷键打开“运行”窗口，输入<code>cmd</code>运行命令行控制台。</p>
+<p>用以下指令获取自己博客站点的<code>IP</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping xxx.github.io</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">正在 Ping xxx.github.io [185.xxx.xxx.153] 具有 32 字节的</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=57ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=55ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=56ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=60ms TTL=48</span><br></pre></td></tr></table></figure>
+<p>把获取到的<code>IP</code>填写在第二个红色框中。</p>
+<h3 id="创建CNAME"><a href="#创建CNAME" class="headerlink" title="创建CNAME"></a>创建CNAME</h3><p>在本地博客站点路径下的source文件夹里，创建一个名为CNAME的文件（注意要大写），里面写上你之前购买的域名。</p>
+<p>如下图：</p>
+<p><img src="/images/1_9.png" alt="填写CNAME"></p>
+<p>文件里的域名前加不加www都可以，具体规则如下：</p>
+<ul>
+<li>如果填写的是没有<code>www</code>的，比如 yuanbeauty.com，无论是访问 <code>http://www.yuanbeauty.com</code> 还是 <code>http://yuanbeauty.com</code> ，都会自动跳转到 <code>http://yuanbeauty.com</code>。</li>
+</ul>
+<ul>
+<li>如果你填写的是其它子域名，比如 <code>abc.yuanbeauty.com</code>，访问 <code>http://abc.yuanbeauty.com</code> 没问题，但是访问 <code>http://yuanbeauty.com</code> ，不会自动跳转到 <code>http://abc.yuanbeauty.com</code>。</li>
+</ul>
+<h3 id="github绑定域名"><a href="#github绑定域名" class="headerlink" title="github绑定域名"></a>github绑定域名</h3><p>在<a href="https://github.com" target="_blank" rel="noopener">github</a>上，点击进入头像个人设置，如下图：</p>
+<p><img src="/images/1_3.png" alt="setting"></p>
+<p>点击存放个人博客的仓库，在<strong>仓库标题</strong>下面，有<code>setting</code>设置点击进入，</p>
+<p><img src="/images/1_4.png" alt="setting"></p>
+<p>在当前页面拉动滚动条找到<code>GitHub Pages</code>，填入购买的域名：</p>
+<p><img src="/images/1_5.png" alt="github-pages"></p>
+<p>重新生成个人博客，打包部署就能使用域名访问博客，执行命令：</p>
+<ul>
+<li><p><code>hexo clean</code> 清理缓存文件</p>
+</li>
+<li><p><code>hexo g</code> 生成静态文件</p>
+</li>
+<li><p><code>hexo d</code> 部署个人博客项目</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>绑定域名</category>
       </categories>
   </entry>
 </search>

@@ -45,6 +45,32 @@
   </entry>
   
   <entry>
+    <title>Git 创建多账号</title>
+    <link href="http://blog.yuanbeauty.com/archives/aff47974.html"/>
+    <id>http://blog.yuanbeauty.com/archives/aff47974.html</id>
+    <published>2020-01-03T16:00:00.000Z</published>
+    <updated>2020-01-03T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>使用 <code>Git</code> 过程中，难免会遇到使用 <code>Git</code> 既管理公司项目，又要管理自己个人项目。那么 <code>Git</code> 如何做到呢？是本篇主要讨论的内容，在这里做下笔记。</p><h3 id="生成新-ssh-key"><a href="#生成新-ssh-key" class="headerlink" title="生成新 ssh key"></a>生成新 ssh key</h3><p>确保已经安装了 <code>Git</code>，在电脑上打开 <code>Git</code> 创建 <code>ssh key</code>。如果已经存在一个 <code>ssh key</code> 那么需要生成第二个 <code>ssh key</code>，使用命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygn -t rsa -C &quot;email&quot;</span><br></pre></td></tr></table></figure><p>为了与之前的 <code>ssh</code> 区分，可以重新命名以 <code>id_rsa_me</code> 重新命名。回车，重复确认回车即可。</p><h3 id="添加新-ssh-key"><a href="#添加新-ssh-key" class="headerlink" title="添加新 ssh key"></a>添加新 ssh key</h3><p>默认 <code>ssh</code> 只会读取 <code>id_rsa</code>，所以为了让 <code>ssh</code> 识别新的私钥，需要将其添加到 <code>ssh agent</code>。</p><p>使用命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_me</span><br></pre></td></tr></table></figure><p>如果报错 <code>Could not open a connection to your authentication agent.</code>无法连接到 <code>ssh agent</code> 可执行 <code>ssh-agent bash</code> 命令后再执行 <code>ssh-add</code> 命令。</p><p>然后将公钥添加到 <code>Git</code> 帐号。</p><h3 id="配置-config-文件"><a href="#配置-config-文件" class="headerlink" title="配置 config 文件"></a>配置 config 文件</h3><p>查看 <code>.ssh</code> 文件中是否存在 <code>config</code> 文件。</p><p>如果存在，可以直接编辑 <code>config</code> 文件。可以使用 <code>Sublime Text</code> 编辑器进行编辑。</p><p>如果不存在，需要创建 <code>config</code> 文件，使用 <code>touch config</code> 命令创建，然后再编辑 <code>config</code> 文件。</p><p>对 <code>config</code> 文件进行配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 第一个账号</span><br><span class="line">Host xxx.com</span><br><span class="line">    HostName xxx.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># 第二个账号</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_me</span><br></pre></td></tr></table></figure><h3 id="测试是否配置成功"><a href="#测试是否配置成功" class="headerlink" title="测试是否配置成功"></a>测试是否配置成功</h3><p>使用命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ssh -T git@zc</span><br></pre></td></tr></table></figure><p>如果出现欢迎语，则表示配置成功。</p><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>创建 <code>Git</code> 多账号时，注意创建新的 <code>ssh key</code> 与默认 <code>ssh key</code> 区分，再创建 <code>config</code> 文件进行配置帐号进行管理。 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;使用 &lt;code&gt;Git&lt;/code&gt; 过程中，难免会遇到使用 &lt;code&gt;Git&lt;/code&gt; 既管理公司项目，又要管理自己个人项目。那么
+      
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://blog.yuanbeauty.com/categories/Git/"/>
+    
+      <category term="创建多帐号" scheme="http://blog.yuanbeauty.com/categories/Git/%E5%88%9B%E5%BB%BA%E5%A4%9A%E5%B8%90%E5%8F%B7/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>总结Vue使用技巧</title>
     <link href="http://blog.yuanbeauty.com/archives/efcc221b.html"/>
     <id>http://blog.yuanbeauty.com/archives/efcc221b.html</id>
