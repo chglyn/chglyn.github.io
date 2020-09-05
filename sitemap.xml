@@ -30,14 +30,14 @@
   </url>
   
   <url>
-    <loc>http://blog.yuanbeauty.com/about/index.html</loc>
+    <loc>http://blog.yuanbeauty.com/categories/index.html</loc>
     
     <lastmod>2020-04-25T03:08:30.001Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.yuanbeauty.com/categories/index.html</loc>
+    <loc>http://blog.yuanbeauty.com/about/index.html</loc>
     
     <lastmod>2020-04-25T03:08:30.001Z</lastmod>
     
@@ -75,6 +75,13 @@
     <loc>http://blog.yuanbeauty.com/archives/efcc221b.html</loc>
     
     <lastmod>2019-11-09T16:00:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.yuanbeauty.com/archives/85d76abc.html</loc>
+    
+    <lastmod>2019-07-02T16:00:00.000Z</lastmod>
     
   </url>
   
