@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.yuanbeauty.com/"/>
-  <updated>2020-09-21T16:00:00.000Z</updated>
+  <updated>2020-10-23T16:00:00.000Z</updated>
   <id>http://blog.yuanbeauty.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>实现6位短信验证码input输入框效果</title>
+    <link href="http://blog.yuanbeauty.com/archives/88c42c5b.html"/>
+    <id>http://blog.yuanbeauty.com/archives/88c42c5b.html</id>
+    <published>2020-10-23T16:00:00.000Z</published>
+    <updated>2020-10-23T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>UI 提供一张设计图，如下：</p><p><img src="/images/free-pwd1.jpg" style="width:100%;height:900px;" alt="UI设计图"></p><p>输入 6 位数字密码，每个 <code>input</code> 只能输入一个数字，每次输入完当前 <code>input</code> 框后自动跳转到下一个 <code>input</code>，输入完成后提交数据。</p><p><img src="/images/free-pwd2.jpg" style="width:100%;height:900px;" alt="输入完整后效果"></p><h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>布局 6 个 <code>input</code> 框，使用 <code>keydown</code> 事件监听删除操作，<code>keyup</code> 事件监听输入时操作，输入完当前 <code>input</code> 是否满足需求， 判断是否跳转到下一个 <code>input</code>。</p><p><code>html</code> 代码部分：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;input-frame mb10 clearfix&quot;&gt;</span><br><span class="line">&lt;input @keydown.8=&quot;deleteVal(&apos;input1&apos;, &apos;input1&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input1&apos;, &apos;input2&apos;)&quot; ref=&quot;input1&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input1&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">&lt;input @keydown.8=&quot;deleteVal(&apos;input2&apos;, &apos;input1&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input2&apos;, &apos;input3&apos;)&quot; ref=&quot;input2&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input2&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">&lt;input @keydown.8=&quot;deleteVal(&apos;input3&apos;, &apos;input2&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input3&apos;, &apos;input4&apos;)&quot; ref=&quot;input3&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input3&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">&lt;input @keydown.8=&quot;deleteVal(&apos;input4&apos;, &apos;input3&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input4&apos;, &apos;input5&apos;)&quot; ref=&quot;input4&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input4&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">&lt;input @keydown.8=&quot;deleteVal(&apos;input5&apos;, &apos;input4&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input5&apos;, &apos;input6&apos;)&quot; ref=&quot;input5&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input5&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">&lt;input @keydown.8=&quot;deleteVal(&apos;input6&apos;, &apos;input5&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input6&apos;, &apos;input6&apos;)&quot; ref=&quot;input6&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input6&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;tac pt15&quot;&gt;</span><br><span class="line">&lt;p class=&quot;p10&quot; style=&quot;color:#FC3D39;&quot;&gt;&#123;&#123; errMsg &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;button class=&quot;btn fs16 btn-theme&quot; @click=&quot;saveFreePassword&quot;&gt;确定&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><p>删除值时监听当前 <code>input</code> 值，和 上一个 <code>input</code> 值；如果当前 <code>input</code> 值为空，则鼠标光标跳转到上一个 <code>input</code> 框，并清除该 <code>input</code> 值。</p><p>输入值时，监听系统事件，当前 <code>input</code> 值，和下一个 <code>input</code> 值，输入完当前 <code>input</code> 值后，鼠标光标自动跳转到下一个 <code>input</code>。输入正确完整后提交数据到后端。</p><p><code>JS</code> 代码部分：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">// ...</span><br><span class="line">data: function() &#123;</span><br><span class="line">return &#123;</span><br><span class="line">errMsg: &apos;&apos;,</span><br><span class="line">input1: &apos;&apos;,</span><br><span class="line">input2: &apos;&apos;,</span><br><span class="line">input3: &apos;&apos;,</span><br><span class="line">input4: &apos;&apos;,</span><br><span class="line">input5: &apos;&apos;,</span><br><span class="line">input6: &apos;&apos;</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">deleteVal: function(inputval, preInputVal) &#123;</span><br><span class="line">if(this[inputval].length &gt; 0) &#123;</span><br><span class="line">this[inputval] = &apos;&apos;;</span><br><span class="line">&#125;else&#123; //光标跳转到上一个input</span><br><span class="line">this.$nextTick(function() &#123;</span><br><span class="line">this.$refs[preInputVal].focus();</span><br><span class="line">this[preInputVal] = &apos;&apos;;</span><br><span class="line">this[inputval] = &apos;&apos;;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">this.errMsg = &apos;&apos;;</span><br><span class="line">&#125;,</span><br><span class="line">changeVal: function(e, inputVal, nextInputVal) &#123; //当前input，下一个input</span><br><span class="line">this[inputVal] = this[inputVal].replace(/[^\d]&#123;1&#125;/g, &apos;&apos;);</span><br><span class="line">if(this[inputVal].length &lt;= 0) return false;</span><br><span class="line">if(e.keyCode != 8) &#123;</span><br><span class="line">this.$nextTick(function() &#123;</span><br><span class="line">this.$refs[nextInputVal].focus();</span><br><span class="line">this[inputVal] = (this[inputVal]).toString().slice(-1);</span><br><span class="line">this.errMsg = &apos;&apos;;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">saveFreePassword: function() &#123;</span><br><span class="line">this.freePassword = this.input1 + this.input2 + this.input3 + this.input4 + this.input5 + this.input6;</span><br><span class="line">this.freePassword = this.freePassword.replace(/[^\d]/g, &apos;&apos;);</span><br><span class="line">if(this.freePassword.length != 6) &#123;</span><br><span class="line">this.errMsg = &apos;※ 密码错误，请确认密码后重新输入&apos;;</span><br><span class="line">return false;</span><br><span class="line">&#125;</span><br><span class="line">this.$root.Bus.$emit(&apos;freeCoursePassword&apos;, &#123; freePassword:  this.freePassword&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;需求&quot;&gt;&lt;a href=&quot;#需求&quot; class=&quot;headerlink&quot; title=&quot;需求&quot;&gt;&lt;/a&gt;需求&lt;/h3&gt;&lt;p&gt;UI 提供一张设计图，如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/free-pwd1.jpg&quot; style=&quot;width:10
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://blog.yuanbeauty.com/categories/Vue/"/>
+    
+      <category term="input" scheme="http://blog.yuanbeauty.com/categories/Vue/input/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>ElementUI中Drawer组件特效在Safari浏览器出现动画错误</title>
@@ -531,34 +558,6 @@
       <category term="JavaScript" scheme="http://blog.yuanbeauty.com/categories/JavaScript/"/>
     
       <category term="模拟form表单" scheme="http://blog.yuanbeauty.com/categories/JavaScript/%E6%A8%A1%E6%8B%9Fform%E8%A1%A8%E5%8D%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>回调函数</title>
-    <link href="http://blog.yuanbeauty.com/archives/a03e68d3.html"/>
-    <id>http://blog.yuanbeauty.com/archives/a03e68d3.html</id>
-    <published>2016-08-02T16:00:00.000Z</published>
-    <updated>2016-08-02T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>前言</strong></p><p>最近一直忙于项目，没时间总写，趁现在有时间总结下遇到的问题。</p><h3 id="data-书写"><a href="#data-书写" class="headerlink" title="data-*书写"></a><code>data-*</code>书写</h3><p>处理数据交互，有时候需要在一些元素上绑定一些<code>data-*</code>数据，不经意间有可能在JS中写成大写的，比如：<code>data-Id</code>，但是在<code>html</code>解析时，浏览器解析的是小写<code>data-id</code>，在调试JS数据交互，有可能很纳闷，明明绑定上去数据，为何获取不到。</p><p>因此建议在书写时，写成小写的，避免坑了自己，比如：<code>data-id</code></p><h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>之前项目很少遇到ajax回调，估计项目复杂度不够，应用不到吧；还有就是本身知识有短板。查了很多资料找到了ajax回调函数例子。</p><p>原理：</p><ul><li><p>在函数中传一个参数，如：callBack。</p></li><li><p>在函数体中，把传入的参数callBack当成一个函数，把需要获的数据传入callback这个函数。</p></li></ul><p>用法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function fn(callBack) &#123;</span><br><span class="line">$.post(xxx, &#123; xxx &#125;, function(r) &#123;</span><br><span class="line">callBack(r);</span><br><span class="line">&#125;, &apos;json&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;前言&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;最近一直忙于项目，没时间总写，趁现在有时间总结下遇到的问题。&lt;/p&gt;
-&lt;h3 id=&quot;data-书写&quot;&gt;&lt;a href=&quot;#data-书写&quot; class=&quot;headerlink&quot; title=&quot;data-*书写&quot;&gt;&lt;/a
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://blog.yuanbeauty.com/categories/JavaScript/"/>
-    
-      <category term="JS回调函数" scheme="http://blog.yuanbeauty.com/categories/JavaScript/JS%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/"/>
     
     
   </entry>

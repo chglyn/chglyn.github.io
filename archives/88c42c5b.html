@@ -82,17 +82,20 @@
 
 
 
-<meta name="description" content="前言之前都是使用传统的CSS布局方式，但随着CSS3广泛应用在移动端和主流浏览器中，抱着求学的心态学习接收前端新的知识Flex布局，在这里做下笔记进行总结。  Flex使用设置Flex布局，在父框添加 display:flex即可。 Flex布局有浏览器兼容性，需要根据不同浏览器内核添加不同浏览器前缀，比如Chrome浏览器使用 -webkit- 前缀。 注意： 如果用了弹性布局，子元素不需要浮动">
+<meta name="description" content="需求UI 提供一张设计图，如下：  输入 6 位数字密码，每个 input 只能输入一个数字，每次输入完当前 input 框后自动跳转到下一个 input，输入完成后提交数据。  实现布局 6 个 input 框，使用 keydown 事件监听删除操作，keyup 事件监听输入时操作，输入完当前 input 是否满足需求， 判断是否跳转到下一个 input。 html 代码部分： 12345678">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学习Flex知识">
-<meta property="og:url" content="http://blog.yuanbeauty.com/archives/48632995.html">
+<meta property="og:title" content="实现6位短信验证码input输入框效果">
+<meta property="og:url" content="http://blog.yuanbeauty.com/archives/88c42c5b.html">
 <meta property="og:site_name" content="园子">
-<meta property="og:description" content="前言之前都是使用传统的CSS布局方式，但随着CSS3广泛应用在移动端和主流浏览器中，抱着求学的心态学习接收前端新的知识Flex布局，在这里做下笔记进行总结。  Flex使用设置Flex布局，在父框添加 display:flex即可。 Flex布局有浏览器兼容性，需要根据不同浏览器内核添加不同浏览器前缀，比如Chrome浏览器使用 -webkit- 前缀。 注意： 如果用了弹性布局，子元素不需要浮动">
+<meta property="og:description" content="需求UI 提供一张设计图，如下：  输入 6 位数字密码，每个 input 只能输入一个数字，每次输入完当前 input 框后自动跳转到下一个 input，输入完成后提交数据。  实现布局 6 个 input 框，使用 keydown 事件监听删除操作，keyup 事件监听输入时操作，输入完当前 input 是否满足需求， 判断是否跳转到下一个 input。 html 代码部分： 12345678">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-25T16:00:00.000Z">
+<meta property="og:image" content="http://blog.yuanbeauty.com/images/free-pwd1.jpg">
+<meta property="og:image" content="http://blog.yuanbeauty.com/images/free-pwd2.jpg">
+<meta property="og:updated_time" content="2020-10-23T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学习Flex知识">
-<meta name="twitter:description" content="前言之前都是使用传统的CSS布局方式，但随着CSS3广泛应用在移动端和主流浏览器中，抱着求学的心态学习接收前端新的知识Flex布局，在这里做下笔记进行总结。  Flex使用设置Flex布局，在父框添加 display:flex即可。 Flex布局有浏览器兼容性，需要根据不同浏览器内核添加不同浏览器前缀，比如Chrome浏览器使用 -webkit- 前缀。 注意： 如果用了弹性布局，子元素不需要浮动">
+<meta name="twitter:title" content="实现6位短信验证码input输入框效果">
+<meta name="twitter:description" content="需求UI 提供一张设计图，如下：  输入 6 位数字密码，每个 input 只能输入一个数字，每次输入完当前 input 框后自动跳转到下一个 input，输入完成后提交数据。  实现布局 6 个 input 框，使用 keydown 事件监听删除操作，keyup 事件监听输入时操作，输入完当前 input 是否满足需求， 判断是否跳转到下一个 input。 html 代码部分： 12345678">
+<meta name="twitter:image" content="http://blog.yuanbeauty.com/images/free-pwd1.jpg">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.yuanbeauty.com/archives/48632995.html">
+  <link rel="canonical" href="http://blog.yuanbeauty.com/archives/88c42c5b.html">
 
 
 
 
 
-  <title> 学习Flex知识 - 园子 - 或许为了自身写，或许为了知己写！ </title>
+  <title> 实现6位短信验证码input输入框效果 - 园子 - 或许为了自身写，或许为了知己写！ </title>
 </head>
 
 <body lang="zh-Hans">
@@ -294,7 +297,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.yuanbeauty.com/archives/48632995.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.yuanbeauty.com/archives/88c42c5b.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Changyuan">
@@ -315,7 +318,7 @@
             
             
               
-                学习Flex知识
+                实现6位短信验证码input输入框效果
               
             
           </h2>
@@ -330,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T00:00:00+08:00">
-                2019-02-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-24T00:00:00+08:00">
+                2020-10-24
               </time>
             
 
@@ -346,8 +349,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-26T00:00:00+08:00">
-                2019-02-26
+              <time title="更新于" itemprop="dateModified" datetime="2020-10-24T00:00:00+08:00">
+                2020-10-24
               </time>
             
           </span>
@@ -361,7 +364,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/archives/48632995.html#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/archives/88c42c5b.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -383,7 +386,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      593 字
+                      840 字
                     </span>
               
 
@@ -406,63 +409,17 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前都是使用传统的CSS布局方式，但随着CSS3广泛应用在移动端和主流浏览器中，抱着求学的心态学习接收前端新的知识Flex布局，在这里做下笔记进行总结。</p>
-<hr>
-<h3 id="Flex使用"><a href="#Flex使用" class="headerlink" title="Flex使用"></a>Flex使用</h3><p>设置Flex布局，在父框添加 display:flex即可。</p>
-<p>Flex布局有浏览器兼容性，需要根据不同浏览器内核添加不同浏览器前缀，比如Chrome浏览器使用 -webkit- 前缀。</p>
-<p><strong>注意：</strong> 如果用了弹性布局，子元素不需要浮动 float。</p>
-<h3 id="父框设置Flex携带属性"><a href="#父框设置Flex携带属性" class="headerlink" title="父框设置Flex携带属性"></a>父框设置Flex携带属性</h3><p>justify-content: 子元素水平排列方式，值有以下几种：</p>
-<ul>
-<li>center 居中，(常用)</li>
-<li>space-between    两端对齐(常用)</li>
-<li>space-around    子元素拉手分布    (常用)</li>
-<li>flex-start 居左</li>
-<li>flex-end 居右</li>
-</ul>
-<p>align-items: 子元素垂直排列，值有以下几种：</p>
-<ul>
-<li>center 居中(常用)</li>
-<li>flex-end 底部</li>
-<li>flex-start 开始</li>
-</ul>
-<p>align-content:多行的时候，垂直排列</p>
-<ul>
-<li>center 居中<br>…</li>
-</ul>
-<p>flex-direction: 排列方式，该属性值有以下几种：</p>
-<ul>
-<li>row 横向排列</li>
-<li>row-reverse 横向翻过排列</li>
-<li>column 纵向排列</li>
-<li>column-reverse 纵向翻过排列</li>
-</ul>
-<p>flex-wrap: 子元素是否在一行显示，该属性值有以下几种：</p>
-<ul>
-<li>nowrap 不换行</li>
-<li>wrap 换行</li>
-</ul>
-<p>flex-flow 全拼是 <code>&lt;flex-direction&gt;</code> 与 <code>&lt;flex-wrap&gt;</code>的缩写。    </p>
-<h3 id="子框身上属性"><a href="#子框身上属性" class="headerlink" title="子框身上属性:"></a>子框身上属性:</h3><p>父框设置Flex布局，子框携带的属性：</p>
-<ul>
-<li>flex:1，1 指的是一个系数。</li>
-<li>子元素在划分父元素宽度，先刨除固定宽度。</li>
-<li>align-self 其实就是用来覆盖父级 align-items  垂直排列。</li>
-<li>flex-grow: 1;    定义子元素放大比例。</li>
-<li>order: 规定子元素顺序。排序：数值越小，越靠前，默认值0。</li>
-</ul>
-<h3 id="flex：1的含义"><a href="#flex：1的含义" class="headerlink" title="flex：1的含义"></a>flex：1的含义</h3><ul>
-<li>flex是flex-grow，flex-shrink，flex-basis的缩写。</li>
-<li>flex-grow：父控件空间有剩余是否放大；0表示不放大。</li>
-<li>flex-shrink：父控件空间不足是否缩小。</li>
-<li>flex-basis：子控件占主轴的大小，主轴就是flex的主方向，row是横向，column是竖向。</li>
-<li>flex默认属性是0 1 auto，(父控件有剩余控件不放大，父控件空间不足按1缩小，保持本身的空间大小)。</li>
-<li>flex:1;的值是1 1 0%，(父控件有剩余空间按1放大，父控件空间不足按1缩小，自身的空间大小是0%)。</li>
-</ul>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></li>
-</ul>
-
+        <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>UI 提供一张设计图，如下：</p>
+<p><img src="/images/free-pwd1.jpg" style="width:100%;height:900px;" alt="UI设计图"></p>
+<p>输入 6 位数字密码，每个 <code>input</code> 只能输入一个数字，每次输入完当前 <code>input</code> 框后自动跳转到下一个 <code>input</code>，输入完成后提交数据。</p>
+<p><img src="/images/free-pwd2.jpg" style="width:100%;height:900px;" alt="输入完整后效果"></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>布局 6 个 <code>input</code> 框，使用 <code>keydown</code> 事件监听删除操作，<code>keyup</code> 事件监听输入时操作，输入完当前 <code>input</code> 是否满足需求， 判断是否跳转到下一个 <code>input</code>。</p>
+<p><code>html</code> 代码部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;input-frame mb10 clearfix&quot;&gt;</span><br><span class="line">	&lt;input @keydown.8=&quot;deleteVal(&apos;input1&apos;, &apos;input1&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input1&apos;, &apos;input2&apos;)&quot; ref=&quot;input1&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input1&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">	&lt;input @keydown.8=&quot;deleteVal(&apos;input2&apos;, &apos;input1&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input2&apos;, &apos;input3&apos;)&quot; ref=&quot;input2&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input2&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">	&lt;input @keydown.8=&quot;deleteVal(&apos;input3&apos;, &apos;input2&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input3&apos;, &apos;input4&apos;)&quot; ref=&quot;input3&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input3&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">	&lt;input @keydown.8=&quot;deleteVal(&apos;input4&apos;, &apos;input3&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input4&apos;, &apos;input5&apos;)&quot; ref=&quot;input4&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input4&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">	&lt;input @keydown.8=&quot;deleteVal(&apos;input5&apos;, &apos;input4&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input5&apos;, &apos;input6&apos;)&quot; ref=&quot;input5&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input5&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">	&lt;input @keydown.8=&quot;deleteVal(&apos;input6&apos;, &apos;input5&apos;)&quot; @keyup=&quot;changeVal($event, &apos;input6&apos;, &apos;input6&apos;)&quot; ref=&quot;input6&quot; type=&quot;text&quot; class=&quot;c-fl input-password&quot; maxLength=&quot;1&quot; v-model.trim=&quot;input6&quot; type=&quot;number&quot; autocomplete=&quot;off&quot; /&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;tac pt15&quot;&gt;</span><br><span class="line">	&lt;p class=&quot;p10&quot; style=&quot;color:#FC3D39;&quot;&gt;&#123;&#123; errMsg &#125;&#125;&lt;/p&gt;</span><br><span class="line">	&lt;button class=&quot;btn fs16 btn-theme&quot; @click=&quot;saveFreePassword&quot;&gt;确定&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>删除值时监听当前 <code>input</code> 值，和 上一个 <code>input</code> 值；如果当前 <code>input</code> 值为空，则鼠标光标跳转到上一个 <code>input</code> 框，并清除该 <code>input</code> 值。</p>
+<p>输入值时，监听系统事件，当前 <code>input</code> 值，和下一个 <code>input</code> 值，输入完当前 <code>input</code> 值后，鼠标光标自动跳转到下一个 <code>input</code>。输入正确完整后提交数据到后端。</p>
+<p><code>JS</code> 代码部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">// ...</span><br><span class="line">data: function() &#123;</span><br><span class="line">	return &#123;</span><br><span class="line">		errMsg: &apos;&apos;,</span><br><span class="line">		input1: &apos;&apos;,</span><br><span class="line">		input2: &apos;&apos;,</span><br><span class="line">		input3: &apos;&apos;,</span><br><span class="line">		input4: &apos;&apos;,</span><br><span class="line">		input5: &apos;&apos;,</span><br><span class="line">		input6: &apos;&apos;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">	deleteVal: function(inputval, preInputVal) &#123;</span><br><span class="line">		if(this[inputval].length &gt; 0) &#123;</span><br><span class="line">			this[inputval] = &apos;&apos;;</span><br><span class="line">		&#125;else&#123; //光标跳转到上一个input</span><br><span class="line">			this.$nextTick(function() &#123;</span><br><span class="line">				this.$refs[preInputVal].focus();</span><br><span class="line">				this[preInputVal] = &apos;&apos;;</span><br><span class="line">				this[inputval] = &apos;&apos;;</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">		this.errMsg = &apos;&apos;;</span><br><span class="line">	&#125;,</span><br><span class="line">	changeVal: function(e, inputVal, nextInputVal) &#123; //当前input，下一个input</span><br><span class="line">		this[inputVal] = this[inputVal].replace(/[^\d]&#123;1&#125;/g, &apos;&apos;);</span><br><span class="line">		if(this[inputVal].length &lt;= 0) return false;</span><br><span class="line">		if(e.keyCode != 8) &#123;</span><br><span class="line">			this.$nextTick(function() &#123;</span><br><span class="line">				this.$refs[nextInputVal].focus();</span><br><span class="line">				this[inputVal] = (this[inputVal]).toString().slice(-1);</span><br><span class="line">				this.errMsg = &apos;&apos;;</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	saveFreePassword: function() &#123;</span><br><span class="line">		this.freePassword = this.input1 + this.input2 + this.input3 + this.input4 + this.input5 + this.input6;</span><br><span class="line">		this.freePassword = this.freePassword.replace(/[^\d]/g, &apos;&apos;);</span><br><span class="line">			if(this.freePassword.length != 6) &#123;</span><br><span class="line">			this.errMsg = &apos;※ 密码错误，请确认密码后重新输入&apos;;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		this.$root.Bus.$emit(&apos;freeCoursePassword&apos;, &#123; freePassword:  this.freePassword&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -502,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/8bd98ba7.html" rel="next" title="格式化时间与ElementTree注意点">
-                <i class="fa fa-chevron-left"></i> 格式化时间与ElementTree注意点
+              <a href="/archives/a83e3e60.html" rel="next" title="ElementUI中Drawer组件特效在Safari浏览器出现动画错误">
+                <i class="fa fa-chevron-left"></i> ElementUI中Drawer组件特效在Safari浏览器出现动画错误
               </a>
             
           </div>
@@ -511,10 +468,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/8e8805c.html" rel="prev" title="你不知道的前端安全知识">
-                你不知道的前端安全知识 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -700,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex使用"><span class="nav-number">2.</span> <span class="nav-text">Flex使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父框设置Flex携带属性"><span class="nav-number">3.</span> <span class="nav-text">父框设置Flex携带属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子框身上属性"><span class="nav-number">4.</span> <span class="nav-text">子框身上属性:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex：1的含义"><span class="nav-number">5.</span> <span class="nav-text">flex：1的含义</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
             
 
           </div>
