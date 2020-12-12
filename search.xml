@@ -1,6 +1,333 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo在github上搭建博客</title>
+    <url>/archives/17420403.html</url>
+    <content><![CDATA[<p>首先在<code>github</code>上注册一个账号，然后在界面找到菜单按钮New <code>reposition</code>点击进去，在<code>Repository name</code>里面输入自己合适的地址<br>然后安装<code>node</code>，<code>git</code>，适合自己的编辑器，如：<code>sublime</code></p>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>在合适的目录下安装<code>git</code>一直<code>next</code>；在计划创建博客文件目录下执行配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>把<code>github</code>上的项目克隆在本地创建新的文件夹下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> Your site address...</span><br></pre></td></tr></table></figure>
+<p>然后在本地项目文件里把<code>hexo</code>主题克隆下来，和你在<code>github</code>上的项目放在同一等级位置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<h3 id="安装依赖和插件"><a href="#安装依赖和插件" class="headerlink" title="安装依赖和插件"></a>安装依赖和插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h3 id="启动服务查看"><a href="#启动服务查看" class="headerlink" title="启动服务查看"></a>启动服务查看</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">启动服务器本地查看 浏览器地址输入：localhost:4000，就能本地预览</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h3 id="模板配置"><a href="#模板配置" class="headerlink" title="模板配置"></a>模板配置</h3><p><code>hexo</code>模板配置，详情预览官方API手册：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/getting-started.html</a></p>
+<h3 id="创建分类"><a href="#创建分类" class="headerlink" title="创建分类"></a>创建分类</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">"categories"</span></span><br></pre></td></tr></table></figure>
+<p>然后再<code>categories</code>文件里添加属性 <code>type: categories</code>就可以设置分类</p>
+<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
+<p>然后再<code>tags</code>文件里添加属性 <code>type: tags</code>就可以设置标签</p>
+<h3 id="hexo使用命令"><a href="#hexo使用命令" class="headerlink" title="hexo使用命令"></a>hexo使用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo n <span class="string">"我的博客"</span> == hexo new <span class="string">"我的博客"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo p == hexo publish</span><br><span class="line">hexo g == hexo generate<span class="comment">#生成</span></span><br><span class="line">hexo s == hexo server <span class="comment">#启动服务预览</span></span><br><span class="line">hexo d == hexo deploy<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p><code>hexo</code>使用中的问题：<br><code>hexo</code>部署提示找不到<code>git</code>，解决方法执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p><code>git pull</code> 提示<code>fatal: Could not read from remote repository</code>，执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin your-github-url</span><br></pre></td></tr></table></figure>
+<p>关于更多<code>hexo</code>语法，这个问下度娘 ^_^</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>搭建简单博客</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>学习Html</title>
+    <url>/archives/688af21b.html</url>
+    <content><![CDATA[<h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>前端应用的HTML页面标签进行简单总结，在这里做个简单笔记汇总。</p>
+<hr>
+<p>页面头部的keywords字段: <strong>告诉搜索爬虫引擎，网站是关于什么内容的。</strong></p>
+<h3 id="有序列表与无序列表"><a href="#有序列表与无序列表" class="headerlink" title="有序列表与无序列表"></a>有序列表与无序列表</h3><p>有序列表：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">	&lt;li&gt;demo&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+<p>可以设置序号从第几开始，添加start字段即可：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ol start=&quot;10&quot;&gt;</span><br><span class="line">	&lt;li&gt;demo&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+<p>无序列表：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt;demo&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>在无序列表中使用 type 属性：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li type=&quot;fruits&quot;&gt;app&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>在 HTML 4.01 中，不赞成 type 属性；在 XHTML 1.0 Strict DTD 中，不支持 type 属性。请使用 CSS 代替。</p>
+<h3 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h3><ul>
+<li>在页面中当作超链接使用：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;/404.html&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在页面中当作锚点使用：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;#Id&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在页面中调起电话使用：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;tel:130XXXXXXXX&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在页面中调起邮件使用：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;mailto:liu@xxx.com&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在页面中协议限定符：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;javascript:while(1)&#123;alert(1)&#125;&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="主流浏览器内核"><a href="#主流浏览器内核" class="headerlink" title="主流浏览器内核"></a>主流浏览器内核</h3><table>
+<thead>
+<tr>
+<th>主流浏览器</th>
+<th>内核</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Gecko</td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Webkit /Blink</td>
+</tr>
+<tr>
+<td>IE</td>
+<td>Trident</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Webkit</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td>Presto</td>
+</tr>
+</tbody>
+</table>
+<h3 id="CSS-cascading-style-sheet"><a href="#CSS-cascading-style-sheet" class="headerlink" title="CSS(cascading style sheet)"></a>CSS(cascading style sheet)</h3><p>页面引入CSS方式:</p>
+<ul>
+<li>行间样式</li>
+<li>页面级</li>
+<li>外链</li>
+</ul>
+<p>CSS选择器:</p>
+<ul>
+<li>id</li>
+<li>class</li>
+<li>标签</li>
+</ul>
+<p>CSS权重对比：</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>权重值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>!important</td>
+<td>Infinity</td>
+</tr>
+<tr>
+<td>行间样式(style=”…”)</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>id</td>
+<td>100</td>
+</tr>
+<tr>
+<td>class/属性/伪类</td>
+<td>10</td>
+</tr>
+<tr>
+<td>标签/伪元素</td>
+<td>1</td>
+</tr>
+<tr>
+<td>通配符</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>CSS权重原理：</p>
+<p>比如id权重值是100并不是指id的一个权重值就是100，实际上这个100是一个进制数，不是2进制，也不是10进制；而是256进制，<br>就是0到255后+1才是1。列如：通配符的权重值0到标签、伪元素的权重值1，中时间实际上差了255。依次类推。</p>
+<p>CSS权重等级：</p>
+<p>!important &gt; 行间样式 &gt; id &gt; class | 属性 &gt; 标签选择器 &gt; 通配符</p>
+<p>CSS选择器组合：</p>
+<ul>
+<li>父子选择器 div span</li>
+<li>直接选择器 div &gt; span</li>
+<li>并列选择器 div.class</li>
+<li>分组选择器 span, div</li>
+</ul>
+<p>CSS取值：</p>
+<ul>
+<li><p>土鳖式（纯英文） color:red;</p>
+</li>
+<li><p>颜色代码 color:#0000ff (16进制)</p>
+</li>
+<li><p>颜色函数 color:rgb(0-255, 0-255, 0-255);</p>
+</li>
+</ul>
+<p>CSS属性可以缩写，比如: border: 1px solid red; 与其相对应的是： border-width + border-style + border-color</p>
+<h3 id="伪类与伪元素"><a href="#伪类与伪元素" class="headerlink" title="伪类与伪元素"></a>伪类与伪元素</h3><p>两者可以从外表<strong>长短</strong>进行区分。伪类是一个 <strong>:</strong> ，伪元素是两个 <strong>::</strong> 。</p>
+<h3 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h3><p>行内元素简称内联元素，该元素带有 inline 属性， 不可以改变宽高。</p>
+<p>比如：span、strong、em、a、del、… 。</p>
+<h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><p>该元素带有 block 属性， 独占一行， 可以通过css改变宽高。</p>
+<p>比如：div、p、ul、ol、li、form、address、…。</p>
+<h3 id="行级块元素"><a href="#行级块元素" class="headerlink" title="行级块元素"></a>行级块元素</h3><p>该元素带有 inline-block 属性，行内元素和块级元素可以转化为行级块元素。</p>
+<p>比如：img</p>
+<p>注意：凡是带有inline的元素，都有文字特性留白间距；文本分隔符，元素与元素直接有空白间隔。</p>
+<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><ul>
+<li>盒子壁: border</li>
+<li>内边距: padding</li>
+<li>盒内容: width + height</li>
+</ul>
+<p>盒子模型包括：margin + border + padding + content(width + height)</p>
+<p>盒子可视区域  border + padding + width/height</p>
+<p>CSS3盒子模型提出box-sizing属性，它的值有：content-box/border-box</p>
+<p>首先看下content-box下盒子模型：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">	width:200px;</span><br><span class="line">	height:200px;</span><br><span class="line">	margin: 20px;</span><br><span class="line">	border:2px solid red;</span><br><span class="line">	background-color:#ccc;</span><br><span class="line">	box-sizing: content-box; /*这个盒子模型*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从图中可以看出，该盒子模型宽度为204px，也就是说在该属性下盒子<strong>向外扩展</strong>，盒子会变大。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">	width:200px;</span><br><span class="line">	height:200px;</span><br><span class="line">	border:2px solid red;</span><br><span class="line">	background-color:#ccc;</span><br><span class="line">	box-sizing: border-box; // 这个盒子模型</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从图中可以看出，该盒子模型宽度为200px，也就是说在该属性下盒子<strong>向内扩展</strong>，盒子会不变大。</p>
+<h3 id="定位技术"><a href="#定位技术" class="headerlink" title="定位技术"></a>定位技术</h3><ul>
+<li><p>position常用的值: relative | absolute | fixed | static</p>
+</li>
+<li><p>relative 相对定位 保留原来位置进行定位 相对于自己原来的位置进行定位</p>
+</li>
+<li><p>absolute 绝对定位 脱离原来位置进行定位 相对于最近有定位的父级进行定位；如果没有，相对于文档进行定位</p>
+</li>
+</ul>
+<p>常识<br>    body有个默认的8像素 margin值</p>
+<h3 id="margin塌陷问题"><a href="#margin塌陷问题" class="headerlink" title="margin塌陷问题"></a>margin塌陷问题</h3><p>如何触发一个盒子BFC：</p>
+<ul>
+<li><p>设置绝对定位，position:absoulte</p>
+</li>
+<li><p>设置行内块元素， display:inline-block</p>
+</li>
+<li><p>设置元素浮动，float:left/right</p>
+</li>
+<li><p>添加overflow:hidden</p>
+</li>
+</ul>
+<p>注意：垂直方向上父子上的margin，取最大的那个值。</p>
+<p>解决margin塌陷添：</p>
+<ul>
+<li><p>margin塌陷添加css</p>
+</li>
+<li><p>margin合并添加html</p>
+</li>
+</ul>
+<h3 id="float模型"><a href="#float模型" class="headerlink" title="float模型"></a>float模型</h3><p>float常用取值：left/right。</p>
+<p>1、浮动元素产生了浮动流（只有块级元素会产生），所有产生了浮动流的元素，块级元素看不到他们。</p>
+<p>2、产生了BFC的元素和文本类属性的元素以及文本都能看到浮动元素（带有inline属性的都属于文本类属性）。</p>
+<p>如何清理浮动：</p>
+<ul>
+<li><p>清除周边浮动在父级元素添加一个标签，设置使用clear:both 不推荐。</p>
+</li>
+<li><p>添加伪元素(inline属性) ::before{content:’’;clear:both;display:block;}，content只能适用于伪元素，添加clear清除必须是块级元素所以添加block属性。</p>
+</li>
+</ul>
+<h3 id="文字溢出"><a href="#文字溢出" class="headerlink" title="文字溢出"></a>文字溢出</h3><p>单行文本三件套： white-space:nowrap overflow:hidden text-overflow:ellipsis。</p>
+<p>多行文本 只做截断。    </p>
+<h3 id="图片处理"><a href="#图片处理" class="headerlink" title="图片处理"></a>图片处理</h3><p>1、text-indent:设置超过盒子宽; overflow:hidden; white-space:nowrap</p>
+<p>2、height:0;设置padding-top:设置一个高度;overflow:hidden;</p>
+<h3 id="元素嵌套规则"><a href="#元素嵌套规则" class="headerlink" title="元素嵌套规则"></a>元素嵌套规则</h3><ul>
+<li>行级元素只能嵌套行级元素</li>
+<li>块级元素可以嵌套任何元素 </li>
+<li>p标签特殊、a标签不能嵌套a标签</li>
+</ul>
+<h3 id="常识"><a href="#常识" class="headerlink" title="常识"></a>常识</h3><ul>
+<li>1em = 16px。</li>
+<li>body有8px的margin值。</li>
+<li>凡是设置position:absoulte;float:left/right 打内部把元素转化成inline-block。</li>
+<li>图片环绕文字 图片设置float:left。</li>
+<li>行内元素设置行块级属性里面文字和外面文字上对齐，使用vertical-align。</li>
+<li>行内元素里面文字和外面文字底对齐。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>HTML</category>
+        <category>巩固HTML</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常见的CSS布局</title>
+    <url>/archives/4822cc7.html</url>
+    <content><![CDATA[<h3 id="单栏布局"><a href="#单栏布局" class="headerlink" title="单栏布局"></a>单栏布局</h3><p>常见单栏布局有以下情况：</p>
+<ul>
+<li>header/content/footer等宽单栏布局</li>
+<li>header/footer等宽，content略窄单栏布局</li>
+</ul>
+<p><strong>第一种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#c0c0c0; </span><br><span class="line"> &#125;</span><br><span class="line">.content&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#f1f1f1;</span><br><span class="line">  &#125;</span><br><span class="line">  .footer&#123;</span><br><span class="line">    width:100%; //①</span><br><span class="line">    background:#000</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述设置的width自适应充满屏幕。<br>如果设置width为固定值或者设置最大宽度(max-width)，当屏幕小于当前设置固定宽度(width)时，会出现滚动条；<br>而设置的最大宽度(max-width)，则不会出现滚动条。</p>
+<p>如果实现居中，解决办法是添加居中属性(margin: 0 auto)即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">// content, footer添加margin: 0 auto;属性</span><br></pre></td></tr></table></figure>
+<p><strong>第二种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background: #c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width: 700px;</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#000;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<p>如果header/footer内容宽度不设置，块级元素会充满整个屏幕；<br>如果header/content/footer内容区域中有设置同一个宽度，通过<strong>margin:0 auto</strong>居中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  max-width:600px; //宽度</span><br><span class="line">  background:#fff;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width:600px;  // 宽度</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto;  // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#000; </span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a>两栏布局</h3><p>指一边栏固定宽度，另一边栏充满剩余宽度。<br>常见两栏布局有以下情况：</p>
+<ul>
+<li>左栏固定宽度，右栏自适应</li>
+<li>左栏自适应，右栏固定宽度</li>
+</ul>
+<p><strong>第一种情况</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; //①</span><br><span class="line">  float:left; // ①</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-left:200px; // ②</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display:flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  flex:1; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第二种情况：(注意DOM布局顺序)</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ①</span><br><span class="line">  background:red;</span><br><span class="line">  position:absolute; // ①</span><br><span class="line">  top:0; // ①</span><br><span class="line">  right:0; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-right:200px; // ② </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用margin-right属性留出重叠区域。</p>
+<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果是<strong>自适应两栏布局使用float + overflow</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.content&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  float: left;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方式通过overflow触发BFC，这时zoom:1兼容IE6浏览器；如果侧边栏在右侧注意渲染顺序。</p>
+<h3 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h3><p>指两边栏固定宽度，中间栏自适应布局。</p>
+<p><strong>第一种圣杯</strong><br>实现原理：</p>
+<ul>
+<li><p>三栏都设置左浮动，设置中间栏宽度为100%；</p>
+</li>
+<li><p>这时左右两栏会掉下来，设置margin-left为负值，添加相对定位并设置left属性与right属性，与中间栏同一行；</p>
+</li>
+<li><p>设置padding留出间距。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width:100%; // ① 充满屏幕</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ② 设置一个宽度</span><br><span class="line">  margin-left:-100%; // ② 添加float, 与middle同一行</span><br><span class="line">  float：left; // ②</span><br><span class="line">  position: relative; // ② 添加相对定位移并到左边</span><br><span class="line">  left: -200px; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width: 200px; // ③</span><br><span class="line">  margin-left: -200px; // ③ 添加float, 与minddle同行</span><br><span class="line">  float: left; // ③</span><br><span class="line">  position: relative; // ③ 添加相对定位 并移到右边</span><br><span class="line">  right:-200px; // ③</span><br><span class="line">  background:yellow; </span><br><span class="line">&#125;</span><br><span class="line">.body&#123;</span><br><span class="line">  padding: 0 200px; // ④ 左右两边留出间隙</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第二种双飞翼</strong><br>实现原理：</p>
+<ul>
+<li><p>三栏左浮动，设置中间栏宽度为100%；</p>
+</li>
+<li><p>这时左右两栏会掉下来，设置margin-left为负值并设置left属性与right属性，与中间栏同一行；</p>
+</li>
+<li><p>在中间栏增加一个div，设置margin留出左右间距。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width: 100%; // ①</span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width: 200px; // ②</span><br><span class="line">  margin-left: -100%; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right &#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  margin-left: -200px; // ③</span><br><span class="line">  background: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  margin: 0 200px; // ④</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>圣杯布局与双飞翼布局对比：</p>
+<ul>
+<li><p>圣杯布局是在父容器的左/右内边距配合两个从列相对定位。</p>
+</li>
+<li><p>双飞翼布局是把主列嵌套在一个父级块中配合主列左/右外边距。</p>
+</li>
+</ul>
+<p><strong>第三种flex</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left &#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.middle &#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>补充flex:1</strong></p>
+<p>flex是flex-grow，flex-shrink,  flex-basis的缩写；默认值：0 1 auto。后两者属性可选。</p>
+<p>flex-grow：属性定义了该空间的放大比例，默认值0；表示如果存在剩余空间，也不放大。</p>
+<p>flex-skrink：属性定义了该空间的缩小比例，默认值1；表示如果空间不足，该空间将缩小。</p>
+<p>flex-basis：属性定义在分配多余空间之前，占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间，默认值auto，表示该空间本来的大小。</p>
+<p>flex:属性由两个值：auto(1 1 auto) 和 none(0 0 auto)。</p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+        <category>常见布局方式</category>
+      </categories>
+  </entry>
+  <entry>
     <title>学习JavaScript基础篇</title>
     <url>/archives/3a1eeae5.html</url>
     <content><![CDATA[<p>前言</p>
@@ -318,330 +645,41 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo在github上搭建博客</title>
-    <url>/archives/17420403.html</url>
-    <content><![CDATA[<p>首先在<code>github</code>上注册一个账号，然后在界面找到菜单按钮New <code>reposition</code>点击进去，在<code>Repository name</code>里面输入自己合适的地址<br>然后安装<code>node</code>，<code>git</code>，适合自己的编辑器，如：<code>sublime</code></p>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>在合适的目录下安装<code>git</code>一直<code>next</code>；在计划创建博客文件目录下执行配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
-<p>把<code>github</code>上的项目克隆在本地创建新的文件夹下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> Your site address...</span><br></pre></td></tr></table></figure>
-<p>然后在本地项目文件里把<code>hexo</code>主题克隆下来，和你在<code>github</code>上的项目放在同一等级位置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<h3 id="安装依赖和插件"><a href="#安装依赖和插件" class="headerlink" title="安装依赖和插件"></a>安装依赖和插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h3 id="启动服务查看"><a href="#启动服务查看" class="headerlink" title="启动服务查看"></a>启动服务查看</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">启动服务器本地查看 浏览器地址输入：localhost:4000，就能本地预览</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<h3 id="模板配置"><a href="#模板配置" class="headerlink" title="模板配置"></a>模板配置</h3><p><code>hexo</code>模板配置，详情预览官方API手册：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/getting-started.html</a></p>
-<h3 id="创建分类"><a href="#创建分类" class="headerlink" title="创建分类"></a>创建分类</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">"categories"</span></span><br></pre></td></tr></table></figure>
-<p>然后再<code>categories</code>文件里添加属性 <code>type: categories</code>就可以设置分类</p>
-<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
-<p>然后再<code>tags</code>文件里添加属性 <code>type: tags</code>就可以设置标签</p>
-<h3 id="hexo使用命令"><a href="#hexo使用命令" class="headerlink" title="hexo使用命令"></a>hexo使用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo n <span class="string">"我的博客"</span> == hexo new <span class="string">"我的博客"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo p == hexo publish</span><br><span class="line">hexo g == hexo generate<span class="comment">#生成</span></span><br><span class="line">hexo s == hexo server <span class="comment">#启动服务预览</span></span><br><span class="line">hexo d == hexo deploy<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p><code>hexo</code>使用中的问题：<br><code>hexo</code>部署提示找不到<code>git</code>，解决方法执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p><code>git pull</code> 提示<code>fatal: Could not read from remote repository</code>，执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin your-github-url</span><br></pre></td></tr></table></figure>
-<p>关于更多<code>hexo</code>语法，这个问下度娘 ^_^</p>
+    <title>Template模板Mustache.js</title>
+    <url>/archives/3f14c0ad.html</url>
+    <content><![CDATA[<p>最近项目一直在使用Mustache.js前端模版，那么使用过程中一些语法顺便聊下。</p>
+<h3 id="Mustache简介"><a href="#Mustache简介" class="headerlink" title="Mustache简介"></a>Mustache简介</h3><p>Mustache 是一个 logic-less （轻逻辑）模板解析引擎，它的优势在于可以应用在 Javascript、PHP、Python、Perl 等多种编程语言中。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;keyName&#125;&#125;</span><br><span class="line">&#123;&#123;<span class="comment">#keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span></span><br><span class="line">&#123;&#123;^keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span><br><span class="line">&#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;&lt;partials&#125;&#125;</span><br><span class="line">&#123;&#123;&#123;keyName&#125;&#125;&#125;</span><br><span class="line">&#123;&#123;!comments&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Mustache用法"><a href="#Mustache用法" class="headerlink" title="Mustache用法"></a>Mustache用法</h3><p>可以直接下载引用或者npm安装使用；这里使用引用介绍：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"mustache.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">var data = &#123;</span><br><span class="line">  name: <span class="string">"Joe"</span>,</span><br><span class="line">  age:28</span><br><span class="line">&#125;;</span><br><span class="line">var tpl = <span class="string">'&lt;div&gt;My Name：&#123;&#123;Name&#125;&#125;，Age：&#123;&#123;age&#125;&#125;&lt;/div&gt;'</span>;</span><br><span class="line">var html = Mustache.render(tpl, data); //后面省略渲染步骤直接输出结果集</span><br><span class="line">console.log(html); //My Name：Joe，Age：28;</span><br></pre></td></tr></table></figure></p>
+<p>其中花括号就是Mustache标识符号，花括号中的名字表示键名;</p>
+<h3 id="Mustache循环语句"><a href="#Mustache循环语句" class="headerlink" title="Mustache循环语句"></a>Mustache循环语句</h3><p>以#开始、以/结束表示区块，它会根据当前上下文中的键值来对区块进行一次或多次渲染，例如：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"stooges"</span>: [</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Moe"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Larry"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Curly"</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Template"><a href="#Template" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#stooges&#125;&#125;</span></span><br><span class="line">&lt;b&gt;&#123;&#123;name&#125;&#125;&lt;/b&gt;</span><br><span class="line">&#123;&#123;/stooges&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入结果："><a href="#输入结果：" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;Moe&lt;/b&gt;</span><br><span class="line">&lt;b&gt;Larry&lt;/b&gt;</span><br><span class="line">&lt;b&gt;Curly&lt;/b&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;^keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span><br><span class="line">//该语法与&#123;&#123;<span class="comment">#keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;类似，不同在于它是当 keyName 值为 null, undefined, false 时才渲染输出该区块内容。</span></span><br><span class="line">var tpl = &#123;&#123;^nothing&#125;&#125;没找到 nothing 键名就会渲染这段&#123;&#123;/nothing&#125;&#125;;</span><br><span class="line">var html = Mustache.render(tpl, data);</span><br><span class="line">//输出：</span><br><span class="line">没找到 nothing 键名就会渲染这段</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;.&#125;&#125;语法 表示枚举；可以循环输出整个数组，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"musketeers"</span>: [<span class="string">"Athos"</span>, <span class="string">"Aramis"</span>, <span class="string">"Porthos"</span>, <span class="string">"D'Artagnan"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Template-1"><a href="#Template-1" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#musketeers&#125;&#125;</span></span><br><span class="line"> 	&#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;/musketeers&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-1"><a href="#输入结果：-1" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Athos</span><br><span class="line">Aramis</span><br><span class="line">Porthos</span><br><span class="line">D<span class="string">'Artagnan</span></span><br></pre></td></tr></table></figure>
+<h3 id="函数节变量"><a href="#函数节变量" class="headerlink" title="函数节变量"></a>函数节变量</h3><p>如果节变量的值是一个函数，它将在每次迭代的列表中的当前项的上下文中调用，例如：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"beatles"</span>: [</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"John"</span>, <span class="string">"lastName"</span>: <span class="string">"Lennon"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"Paul"</span>, <span class="string">"lastName"</span>: <span class="string">"McCartney"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"George"</span>, <span class="string">"lastName"</span>: <span class="string">"Harrison"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"Ringo"</span>, <span class="string">"lastName"</span>: <span class="string">"Starr"</span> &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"name"</span>: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> this.firstName + <span class="string">" "</span> + this.lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Template-2"><a href="#Template-2" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#beatles&#125;&#125;</span></span><br><span class="line">* &#123;&#123;name&#125;&#125;</span><br><span class="line">&#123;&#123;/beatles&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-2"><a href="#输入结果：-2" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">* John Lennon</span><br><span class="line">* Paul McCartney</span><br><span class="line">* George Harrison</span><br><span class="line">* Ringo Starr</span><br></pre></td></tr></table></figure>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>如果一个节键的值是一个函数，它被称为节的文本块，未渲染，作为它的第一个参数。第二个参数是一个特殊的渲染函数，它使用当前视图作为视图参数。它在当前视图对象的上下文中调用。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Tater"</span>,</span><br><span class="line">  <span class="string">"bold"</span>: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="keyword">function</span> (text, render) &#123;</span><br><span class="line">      <span class="built_in">return</span> <span class="string">"&lt;b&gt;"</span> + render(text) + <span class="string">"&lt;/b&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Template-3"><a href="#Template-3" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#bold&#125;&#125;Hi &#123;&#123;name&#125;&#125;.&#123;&#123;/bold&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-3"><a href="#输入结果：-3" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;Hi Tater.&lt;/b&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//倒置部分^ &#123;&#123;&#125;&#125; &#123;&#123;部分代替<span class="comment">#节&#125;&#125;</span></span><br><span class="line">//一个倒置的节块呈现只有这部分标签的值为空，不确定的，虚假的，falsy或空列表。</span><br><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"repos"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Template-4"><a href="#Template-4" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#repos&#125;&#125;&lt;b&gt;&#123;&#123;name&#125;&#125;&lt;/b&gt;&#123;&#123;/repos&#125;&#125;</span></span><br><span class="line">&#123;&#123;^repos&#125;&#125;No repos :(&#123;&#123;/repos&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-4"><a href="#输入结果：-4" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">No repos :(</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;&gt;partials&#125;&#125;语法；</span><br><span class="line">//以&gt;开始表示子模块；当结构比较复杂时，我们可以使用该语法将复杂的结构拆分成几个小的子模块，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">    <span class="string">"company"</span>: <span class="string">"Apple"</span>,</span><br><span class="line">    <span class="string">"address"</span>: &#123;</span><br><span class="line">        <span class="string">"street"</span>: <span class="string">"1 Infinite Loop Cupertino&lt;/br&gt;"</span>,</span><br><span class="line">        <span class="string">"city"</span>: <span class="string">"California "</span>,</span><br><span class="line">        <span class="string">"state"</span>: <span class="string">"CA "</span>,</span><br><span class="line">        <span class="string">"zip"</span>: <span class="string">"95014 "</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"product"</span>: [<span class="string">"Macbook "</span>,<span class="string">"iPhone "</span>,<span class="string">"iPod "</span>,<span class="string">"iPad "</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Template-5"><a href="#Template-5" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var tpl = <span class="string">"&lt;h1&gt;&#123;&#123;company&#125;&#125;&lt;/h1&gt; &lt;ul&gt;&#123;&#123;&gt;address&#125;&#125;&lt;/ul&gt;"</span></span><br><span class="line">var partials = &#123;address: <span class="string">"&#123;&#123;#address&#125;&#125;&lt;li&gt;&#123;&#123;street&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;city&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;state&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;zip&#125;&#125;&lt;/li&gt;&#123;&#123;/address&#125;&#125;"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-5"><a href="#输入结果：-5" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;h1&gt;Apple&lt;/h1&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt;1 Infinite Loop Cupertino&amp;lt;/br&amp;gt;&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;California&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;CA&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;95014&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;&#123;keyName&#125;&#125;&#125; 语法</span><br><span class="line">//输出会将等特殊字符转译，如果想保持内容原样输出可以使用花括号，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">    <span class="string">"company"</span>: <span class="string">"Apple"</span>,</span><br><span class="line">    <span class="string">"address"</span>: &#123;</span><br><span class="line">        <span class="string">"street"</span>: <span class="string">"1 Infinite Loop Cupertino&lt;/br&gt;"</span>,</span><br><span class="line">        <span class="string">"city"</span>: <span class="string">"California "</span>,</span><br><span class="line">        <span class="string">"state"</span>: <span class="string">"CA "</span>,</span><br><span class="line">        <span class="string">"zip"</span>: <span class="string">"95014 "</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"product"</span>: [<span class="string">"Macbook "</span>,<span class="string">"iPhone "</span>,<span class="string">"iPod "</span>,<span class="string">"iPad "</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Template-6"><a href="#Template-6" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var tpl = <span class="string">'&#123;&#123;#address&#125;&#125; &lt;p&gt;&#123;&#123;&#123;street&#125;&#125;&#125;&lt;/p&gt; &#123;&#123;/address&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入结果：-6"><a href="#输入结果：-6" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;1 Infinite Loop Cupertino&lt;/br&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;!comments&#125;&#125;语法</span><br><span class="line">表示注释，注释后不会渲染输出任何内容。</span><br><span class="line">``` bash</span><br><span class="line">&#123;&#123;!这里是注释&#125;&#125;</span><br><span class="line">//输出：</span><br></pre></td></tr></table></figure>
+<p>参考文章<br><a href="https://github.com/janl/mustache.js" target="_blank" rel="noopener">https://github.com/janl/mustache.js</a></p>
 ]]></content>
       <categories>
-        <category>Hexo</category>
-        <category>搭建简单博客</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>常见的CSS布局</title>
-    <url>/archives/4822cc7.html</url>
-    <content><![CDATA[<h3 id="单栏布局"><a href="#单栏布局" class="headerlink" title="单栏布局"></a>单栏布局</h3><p>常见单栏布局有以下情况：</p>
-<ul>
-<li>header/content/footer等宽单栏布局</li>
-<li>header/footer等宽，content略窄单栏布局</li>
-</ul>
-<p><strong>第一种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#c0c0c0; </span><br><span class="line"> &#125;</span><br><span class="line">.content&#123; </span><br><span class="line">    width:100%; // ①</span><br><span class="line">    background:#f1f1f1;</span><br><span class="line">  &#125;</span><br><span class="line">  .footer&#123;</span><br><span class="line">    width:100%; //①</span><br><span class="line">    background:#000</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>上述设置的width自适应充满屏幕。<br>如果设置width为固定值或者设置最大宽度(max-width)，当屏幕小于当前设置固定宽度(width)时，会出现滚动条；<br>而设置的最大宽度(max-width)，则不会出现滚动条。</p>
-<p>如果实现居中，解决办法是添加居中属性(margin: 0 auto)即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">// content, footer添加margin: 0 auto;属性</span><br></pre></td></tr></table></figure>
-<p><strong>第二种情况：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt; header &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background: #c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width: 700px;</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#000;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注意：</p>
-<p>如果header/footer内容宽度不设置，块级元素会充满整个屏幕；<br>如果header/content/footer内容区域中有设置同一个宽度，通过<strong>margin:0 auto</strong>居中。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;header&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt; content &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt; footer &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>css部分<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  max-width: 800px;</span><br><span class="line">  background:#c0c0c0;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  max-width:600px; //宽度</span><br><span class="line">  background:#fff;</span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">  max-width:600px;  // 宽度</span><br><span class="line">  background:#f1f1f1;</span><br><span class="line">  margin: 0 auto;  // ①</span><br><span class="line">&#125;</span><br><span class="line">.footer&#123;</span><br><span class="line">  max-width:800px;</span><br><span class="line">  background:#000; </span><br><span class="line">  margin: 0 auto; // ①</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a>两栏布局</h3><p>指一边栏固定宽度，另一边栏充满剩余宽度。<br>常见两栏布局有以下情况：</p>
-<ul>
-<li>左栏固定宽度，右栏自适应</li>
-<li>左栏自适应，右栏固定宽度</li>
-</ul>
-<p><strong>第一种情况</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; //①</span><br><span class="line">  float:left; // ①</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-left:200px; // ②</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display:flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  flex:1; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>第二种情况：(注意DOM布局顺序)</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ①</span><br><span class="line">  background:red;</span><br><span class="line">  position:absolute; // ①</span><br><span class="line">  top:0; // ①</span><br><span class="line">  right:0; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  background:blue;</span><br><span class="line">  margin-right:200px; // ② </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用margin-right属性留出重叠区域。</p>
-<p>使用flex<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果是<strong>自适应两栏布局使用float + overflow</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.content&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  float: left;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  zoom: 1;</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种方式通过overflow触发BFC，这时zoom:1兼容IE6浏览器；如果侧边栏在右侧注意渲染顺序。</p>
-<h3 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h3><p>指两边栏固定宽度，中间栏自适应布局。</p>
-<p><strong>第一种圣杯</strong><br>实现原理：</p>
-<ul>
-<li><p>三栏都设置左浮动，设置中间栏宽度为100%；</p>
-</li>
-<li><p>这时左右两栏会掉下来，设置margin-left为负值，添加相对定位并设置left属性与right属性，与中间栏同一行；</p>
-</li>
-<li><p>设置padding留出间距。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width:100%; // ① 充满屏幕</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width:200px; // ② 设置一个宽度</span><br><span class="line">  margin-left:-100%; // ② 添加float, 与middle同一行</span><br><span class="line">  float：left; // ②</span><br><span class="line">  position: relative; // ② 添加相对定位移并到左边</span><br><span class="line">  left: -200px; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width: 200px; // ③</span><br><span class="line">  margin-left: -200px; // ③ 添加float, 与minddle同行</span><br><span class="line">  float: left; // ③</span><br><span class="line">  position: relative; // ③ 添加相对定位 并移到右边</span><br><span class="line">  right:-200px; // ③</span><br><span class="line">  background:yellow; </span><br><span class="line">&#125;</span><br><span class="line">.body&#123;</span><br><span class="line">  padding: 0 200px; // ④ 左右两边留出间隙</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>第二种双飞翼</strong><br>实现原理：</p>
-<ul>
-<li><p>三栏左浮动，设置中间栏宽度为100%；</p>
-</li>
-<li><p>这时左右两栏会掉下来，设置margin-left为负值并设置left属性与right属性，与中间栏同一行；</p>
-</li>
-<li><p>在中间栏增加一个div，设置margin留出左右间距。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;middle&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt; container &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.middle&#123;</span><br><span class="line">  float:left; // ①</span><br><span class="line">  width: 100%; // ①</span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">  width: 200px; // ②</span><br><span class="line">  margin-left: -100%; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right &#123;</span><br><span class="line">  width:200px; // ③</span><br><span class="line">  margin-left: -200px; // ③</span><br><span class="line">  background: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">  margin: 0 200px; // ④</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>圣杯布局与双飞翼布局对比：</p>
-<ul>
-<li><p>圣杯布局是在父容器的左/右内边距配合两个从列相对定位。</p>
-</li>
-<li><p>双飞翼布局是把主列嵌套在一个父级块中配合主列左/右外边距。</p>
-</li>
-</ul>
-<p><strong>第三种flex</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt; left &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;middle&quot;&gt; middle &lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt; right &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">  display: flex; // ①</span><br><span class="line">&#125;</span><br><span class="line">.left &#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:red;</span><br><span class="line">&#125;</span><br><span class="line">.middle &#123;</span><br><span class="line">  flex:1; // ②</span><br><span class="line">  background:blue;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  width:200px;</span><br><span class="line">  background:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>补充flex:1</strong></p>
-<p>flex是flex-grow，flex-shrink,  flex-basis的缩写；默认值：0 1 auto。后两者属性可选。</p>
-<p>flex-grow：属性定义了该空间的放大比例，默认值0；表示如果存在剩余空间，也不放大。</p>
-<p>flex-skrink：属性定义了该空间的缩小比例，默认值1；表示如果空间不足，该空间将缩小。</p>
-<p>flex-basis：属性定义在分配多余空间之前，占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间，默认值auto，表示该空间本来的大小。</p>
-<p>flex:属性由两个值：auto(1 1 auto) 和 none(0 0 auto)。</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-        <category>常见布局方式</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>学习Html</title>
-    <url>/archives/688af21b.html</url>
-    <content><![CDATA[<h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>前端应用的HTML页面标签进行简单总结，在这里做个简单笔记汇总。</p>
-<hr>
-<p>页面头部的keywords字段: <strong>告诉搜索爬虫引擎，网站是关于什么内容的。</strong></p>
-<h3 id="有序列表与无序列表"><a href="#有序列表与无序列表" class="headerlink" title="有序列表与无序列表"></a>有序列表与无序列表</h3><p>有序列表：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">	&lt;li&gt;demo&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
-<p>可以设置序号从第几开始，添加start字段即可：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ol start=&quot;10&quot;&gt;</span><br><span class="line">	&lt;li&gt;demo&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
-<p>无序列表：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt;demo&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-<p>在无序列表中使用 type 属性：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li type=&quot;fruits&quot;&gt;app&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-<p>在 HTML 4.01 中，不赞成 type 属性；在 XHTML 1.0 Strict DTD 中，不支持 type 属性。请使用 CSS 代替。</p>
-<h3 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h3><ul>
-<li>在页面中当作超链接使用：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;/404.html&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在页面中当作锚点使用：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;#Id&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在页面中调起电话使用：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;tel:130XXXXXXXX&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在页面中调起邮件使用：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;mailto:liu@xxx.com&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在页面中协议限定符：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;javascript:while(1)&#123;alert(1)&#125;&quot;&gt;...&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="主流浏览器内核"><a href="#主流浏览器内核" class="headerlink" title="主流浏览器内核"></a>主流浏览器内核</h3><table>
-<thead>
-<tr>
-<th>主流浏览器</th>
-<th>内核</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Firefox</td>
-<td>Gecko</td>
-</tr>
-<tr>
-<td>Chrome</td>
-<td>Webkit /Blink</td>
-</tr>
-<tr>
-<td>IE</td>
-<td>Trident</td>
-</tr>
-<tr>
-<td>Safari</td>
-<td>Webkit</td>
-</tr>
-<tr>
-<td>Opera</td>
-<td>Presto</td>
-</tr>
-</tbody>
-</table>
-<h3 id="CSS-cascading-style-sheet"><a href="#CSS-cascading-style-sheet" class="headerlink" title="CSS(cascading style sheet)"></a>CSS(cascading style sheet)</h3><p>页面引入CSS方式:</p>
-<ul>
-<li>行间样式</li>
-<li>页面级</li>
-<li>外链</li>
-</ul>
-<p>CSS选择器:</p>
-<ul>
-<li>id</li>
-<li>class</li>
-<li>标签</li>
-</ul>
-<p>CSS权重对比：</p>
-<table>
-<thead>
-<tr>
-<th>选择器</th>
-<th>权重值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>!important</td>
-<td>Infinity</td>
-</tr>
-<tr>
-<td>行间样式(style=”…”)</td>
-<td>1000</td>
-</tr>
-<tr>
-<td>id</td>
-<td>100</td>
-</tr>
-<tr>
-<td>class/属性/伪类</td>
-<td>10</td>
-</tr>
-<tr>
-<td>标签/伪元素</td>
-<td>1</td>
-</tr>
-<tr>
-<td>通配符</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>CSS权重原理：</p>
-<p>比如id权重值是100并不是指id的一个权重值就是100，实际上这个100是一个进制数，不是2进制，也不是10进制；而是256进制，<br>就是0到255后+1才是1。列如：通配符的权重值0到标签、伪元素的权重值1，中时间实际上差了255。依次类推。</p>
-<p>CSS权重等级：</p>
-<p>!important &gt; 行间样式 &gt; id &gt; class | 属性 &gt; 标签选择器 &gt; 通配符</p>
-<p>CSS选择器组合：</p>
-<ul>
-<li>父子选择器 div span</li>
-<li>直接选择器 div &gt; span</li>
-<li>并列选择器 div.class</li>
-<li>分组选择器 span, div</li>
-</ul>
-<p>CSS取值：</p>
-<ul>
-<li><p>土鳖式（纯英文） color:red;</p>
-</li>
-<li><p>颜色代码 color:#0000ff (16进制)</p>
-</li>
-<li><p>颜色函数 color:rgb(0-255, 0-255, 0-255);</p>
-</li>
-</ul>
-<p>CSS属性可以缩写，比如: border: 1px solid red; 与其相对应的是： border-width + border-style + border-color</p>
-<h3 id="伪类与伪元素"><a href="#伪类与伪元素" class="headerlink" title="伪类与伪元素"></a>伪类与伪元素</h3><p>两者可以从外表<strong>长短</strong>进行区分。伪类是一个 <strong>:</strong> ，伪元素是两个 <strong>::</strong> 。</p>
-<h3 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h3><p>行内元素简称内联元素，该元素带有 inline 属性， 不可以改变宽高。</p>
-<p>比如：span、strong、em、a、del、… 。</p>
-<h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><p>该元素带有 block 属性， 独占一行， 可以通过css改变宽高。</p>
-<p>比如：div、p、ul、ol、li、form、address、…。</p>
-<h3 id="行级块元素"><a href="#行级块元素" class="headerlink" title="行级块元素"></a>行级块元素</h3><p>该元素带有 inline-block 属性，行内元素和块级元素可以转化为行级块元素。</p>
-<p>比如：img</p>
-<p>注意：凡是带有inline的元素，都有文字特性留白间距；文本分隔符，元素与元素直接有空白间隔。</p>
-<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><ul>
-<li>盒子壁: border</li>
-<li>内边距: padding</li>
-<li>盒内容: width + height</li>
-</ul>
-<p>盒子模型包括：margin + border + padding + content(width + height)</p>
-<p>盒子可视区域  border + padding + width/height</p>
-<p>CSS3盒子模型提出box-sizing属性，它的值有：content-box/border-box</p>
-<p>首先看下content-box下盒子模型：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">	width:200px;</span><br><span class="line">	height:200px;</span><br><span class="line">	margin: 20px;</span><br><span class="line">	border:2px solid red;</span><br><span class="line">	background-color:#ccc;</span><br><span class="line">	box-sizing: content-box; /*这个盒子模型*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从图中可以看出，该盒子模型宽度为204px，也就是说在该属性下盒子<strong>向外扩展</strong>，盒子会变大。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">	width:200px;</span><br><span class="line">	height:200px;</span><br><span class="line">	border:2px solid red;</span><br><span class="line">	background-color:#ccc;</span><br><span class="line">	box-sizing: border-box; // 这个盒子模型</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从图中可以看出，该盒子模型宽度为200px，也就是说在该属性下盒子<strong>向内扩展</strong>，盒子会不变大。</p>
-<h3 id="定位技术"><a href="#定位技术" class="headerlink" title="定位技术"></a>定位技术</h3><ul>
-<li><p>position常用的值: relative | absolute | fixed | static</p>
-</li>
-<li><p>relative 相对定位 保留原来位置进行定位 相对于自己原来的位置进行定位</p>
-</li>
-<li><p>absolute 绝对定位 脱离原来位置进行定位 相对于最近有定位的父级进行定位；如果没有，相对于文档进行定位</p>
-</li>
-</ul>
-<p>常识<br>    body有个默认的8像素 margin值</p>
-<h3 id="margin塌陷问题"><a href="#margin塌陷问题" class="headerlink" title="margin塌陷问题"></a>margin塌陷问题</h3><p>如何触发一个盒子BFC：</p>
-<ul>
-<li><p>设置绝对定位，position:absoulte</p>
-</li>
-<li><p>设置行内块元素， display:inline-block</p>
-</li>
-<li><p>设置元素浮动，float:left/right</p>
-</li>
-<li><p>添加overflow:hidden</p>
-</li>
-</ul>
-<p>注意：垂直方向上父子上的margin，取最大的那个值。</p>
-<p>解决margin塌陷添：</p>
-<ul>
-<li><p>margin塌陷添加css</p>
-</li>
-<li><p>margin合并添加html</p>
-</li>
-</ul>
-<h3 id="float模型"><a href="#float模型" class="headerlink" title="float模型"></a>float模型</h3><p>float常用取值：left/right。</p>
-<p>1、浮动元素产生了浮动流（只有块级元素会产生），所有产生了浮动流的元素，块级元素看不到他们。</p>
-<p>2、产生了BFC的元素和文本类属性的元素以及文本都能看到浮动元素（带有inline属性的都属于文本类属性）。</p>
-<p>如何清理浮动：</p>
-<ul>
-<li><p>清除周边浮动在父级元素添加一个标签，设置使用clear:both 不推荐。</p>
-</li>
-<li><p>添加伪元素(inline属性) ::before{content:’’;clear:both;display:block;}，content只能适用于伪元素，添加clear清除必须是块级元素所以添加block属性。</p>
-</li>
-</ul>
-<h3 id="文字溢出"><a href="#文字溢出" class="headerlink" title="文字溢出"></a>文字溢出</h3><p>单行文本三件套： white-space:nowrap overflow:hidden text-overflow:ellipsis。</p>
-<p>多行文本 只做截断。    </p>
-<h3 id="图片处理"><a href="#图片处理" class="headerlink" title="图片处理"></a>图片处理</h3><p>1、text-indent:设置超过盒子宽; overflow:hidden; white-space:nowrap</p>
-<p>2、height:0;设置padding-top:设置一个高度;overflow:hidden;</p>
-<h3 id="元素嵌套规则"><a href="#元素嵌套规则" class="headerlink" title="元素嵌套规则"></a>元素嵌套规则</h3><ul>
-<li>行级元素只能嵌套行级元素</li>
-<li>块级元素可以嵌套任何元素 </li>
-<li>p标签特殊、a标签不能嵌套a标签</li>
-</ul>
-<h3 id="常识"><a href="#常识" class="headerlink" title="常识"></a>常识</h3><ul>
-<li>1em = 16px。</li>
-<li>body有8px的margin值。</li>
-<li>凡是设置position:absoulte;float:left/right 打内部把元素转化成inline-block。</li>
-<li>图片环绕文字 图片设置float:left。</li>
-<li>行内元素设置行块级属性里面文字和外面文字上对齐，使用vertical-align。</li>
-<li>行内元素里面文字和外面文字底对齐。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>HTML</category>
-        <category>巩固HTML</category>
+        <category>JavaScript</category>
+        <category>入门Mustache.js模版引擎</category>
       </categories>
   </entry>
   <entry>
@@ -724,67 +762,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Template模板Mustache.js</title>
-    <url>/archives/3f14c0ad.html</url>
-    <content><![CDATA[<p>最近项目一直在使用Mustache.js前端模版，那么使用过程中一些语法顺便聊下。</p>
-<h3 id="Mustache简介"><a href="#Mustache简介" class="headerlink" title="Mustache简介"></a>Mustache简介</h3><p>Mustache 是一个 logic-less （轻逻辑）模板解析引擎，它的优势在于可以应用在 Javascript、PHP、Python、Perl 等多种编程语言中。</p>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;keyName&#125;&#125;</span><br><span class="line">&#123;&#123;<span class="comment">#keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span></span><br><span class="line">&#123;&#123;^keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span><br><span class="line">&#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;&lt;partials&#125;&#125;</span><br><span class="line">&#123;&#123;&#123;keyName&#125;&#125;&#125;</span><br><span class="line">&#123;&#123;!comments&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Mustache用法"><a href="#Mustache用法" class="headerlink" title="Mustache用法"></a>Mustache用法</h3><p>可以直接下载引用或者npm安装使用；这里使用引用介绍：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"mustache.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">var data = &#123;</span><br><span class="line">  name: <span class="string">"Joe"</span>,</span><br><span class="line">  age:28</span><br><span class="line">&#125;;</span><br><span class="line">var tpl = <span class="string">'&lt;div&gt;My Name：&#123;&#123;Name&#125;&#125;，Age：&#123;&#123;age&#125;&#125;&lt;/div&gt;'</span>;</span><br><span class="line">var html = Mustache.render(tpl, data); //后面省略渲染步骤直接输出结果集</span><br><span class="line">console.log(html); //My Name：Joe，Age：28;</span><br></pre></td></tr></table></figure></p>
-<p>其中花括号就是Mustache标识符号，花括号中的名字表示键名;</p>
-<h3 id="Mustache循环语句"><a href="#Mustache循环语句" class="headerlink" title="Mustache循环语句"></a>Mustache循环语句</h3><p>以#开始、以/结束表示区块，它会根据当前上下文中的键值来对区块进行一次或多次渲染，例如：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"stooges"</span>: [</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Moe"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Larry"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Curly"</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Template"><a href="#Template" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#stooges&#125;&#125;</span></span><br><span class="line">&lt;b&gt;&#123;&#123;name&#125;&#125;&lt;/b&gt;</span><br><span class="line">&#123;&#123;/stooges&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输入结果："><a href="#输入结果：" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;Moe&lt;/b&gt;</span><br><span class="line">&lt;b&gt;Larry&lt;/b&gt;</span><br><span class="line">&lt;b&gt;Curly&lt;/b&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;^keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;</span><br><span class="line">//该语法与&#123;&#123;<span class="comment">#keyName&#125;&#125; &#123;&#123;/keyName&#125;&#125;类似，不同在于它是当 keyName 值为 null, undefined, false 时才渲染输出该区块内容。</span></span><br><span class="line">var tpl = &#123;&#123;^nothing&#125;&#125;没找到 nothing 键名就会渲染这段&#123;&#123;/nothing&#125;&#125;;</span><br><span class="line">var html = Mustache.render(tpl, data);</span><br><span class="line">//输出：</span><br><span class="line">没找到 nothing 键名就会渲染这段</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;.&#125;&#125;语法 表示枚举；可以循环输出整个数组，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"musketeers"</span>: [<span class="string">"Athos"</span>, <span class="string">"Aramis"</span>, <span class="string">"Porthos"</span>, <span class="string">"D'Artagnan"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Template-1"><a href="#Template-1" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#musketeers&#125;&#125;</span></span><br><span class="line"> 	&#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;/musketeers&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-1"><a href="#输入结果：-1" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Athos</span><br><span class="line">Aramis</span><br><span class="line">Porthos</span><br><span class="line">D<span class="string">'Artagnan</span></span><br></pre></td></tr></table></figure>
-<h3 id="函数节变量"><a href="#函数节变量" class="headerlink" title="函数节变量"></a>函数节变量</h3><p>如果节变量的值是一个函数，它将在每次迭代的列表中的当前项的上下文中调用，例如：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"beatles"</span>: [</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"John"</span>, <span class="string">"lastName"</span>: <span class="string">"Lennon"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"Paul"</span>, <span class="string">"lastName"</span>: <span class="string">"McCartney"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"George"</span>, <span class="string">"lastName"</span>: <span class="string">"Harrison"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"Ringo"</span>, <span class="string">"lastName"</span>: <span class="string">"Starr"</span> &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"name"</span>: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> this.firstName + <span class="string">" "</span> + this.lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Template-2"><a href="#Template-2" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#beatles&#125;&#125;</span></span><br><span class="line">* &#123;&#123;name&#125;&#125;</span><br><span class="line">&#123;&#123;/beatles&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-2"><a href="#输入结果：-2" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">* John Lennon</span><br><span class="line">* Paul McCartney</span><br><span class="line">* George Harrison</span><br><span class="line">* Ringo Starr</span><br></pre></td></tr></table></figure>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>如果一个节键的值是一个函数，它被称为节的文本块，未渲染，作为它的第一个参数。第二个参数是一个特殊的渲染函数，它使用当前视图作为视图参数。它在当前视图对象的上下文中调用。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Tater"</span>,</span><br><span class="line">  <span class="string">"bold"</span>: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="keyword">function</span> (text, render) &#123;</span><br><span class="line">      <span class="built_in">return</span> <span class="string">"&lt;b&gt;"</span> + render(text) + <span class="string">"&lt;/b&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Template-3"><a href="#Template-3" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#bold&#125;&#125;Hi &#123;&#123;name&#125;&#125;.&#123;&#123;/bold&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-3"><a href="#输入结果：-3" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;Hi Tater.&lt;/b&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//倒置部分^ &#123;&#123;&#125;&#125; &#123;&#123;部分代替<span class="comment">#节&#125;&#125;</span></span><br><span class="line">//一个倒置的节块呈现只有这部分标签的值为空，不确定的，虚假的，falsy或空列表。</span><br><span class="line">var data = &#123;</span><br><span class="line">  <span class="string">"repos"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Template-4"><a href="#Template-4" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;&#123;<span class="comment">#repos&#125;&#125;&lt;b&gt;&#123;&#123;name&#125;&#125;&lt;/b&gt;&#123;&#123;/repos&#125;&#125;</span></span><br><span class="line">&#123;&#123;^repos&#125;&#125;No repos :(&#123;&#123;/repos&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-4"><a href="#输入结果：-4" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">No repos :(</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;&gt;partials&#125;&#125;语法；</span><br><span class="line">//以&gt;开始表示子模块；当结构比较复杂时，我们可以使用该语法将复杂的结构拆分成几个小的子模块，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">    <span class="string">"company"</span>: <span class="string">"Apple"</span>,</span><br><span class="line">    <span class="string">"address"</span>: &#123;</span><br><span class="line">        <span class="string">"street"</span>: <span class="string">"1 Infinite Loop Cupertino&lt;/br&gt;"</span>,</span><br><span class="line">        <span class="string">"city"</span>: <span class="string">"California "</span>,</span><br><span class="line">        <span class="string">"state"</span>: <span class="string">"CA "</span>,</span><br><span class="line">        <span class="string">"zip"</span>: <span class="string">"95014 "</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"product"</span>: [<span class="string">"Macbook "</span>,<span class="string">"iPhone "</span>,<span class="string">"iPod "</span>,<span class="string">"iPad "</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Template-5"><a href="#Template-5" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var tpl = <span class="string">"&lt;h1&gt;&#123;&#123;company&#125;&#125;&lt;/h1&gt; &lt;ul&gt;&#123;&#123;&gt;address&#125;&#125;&lt;/ul&gt;"</span></span><br><span class="line">var partials = &#123;address: <span class="string">"&#123;&#123;#address&#125;&#125;&lt;li&gt;&#123;&#123;street&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;city&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;state&#125;&#125;&lt;/li&gt;&lt;li&gt;&#123;&#123;zip&#125;&#125;&lt;/li&gt;&#123;&#123;/address&#125;&#125;"</span>&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-5"><a href="#输入结果：-5" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;h1&gt;Apple&lt;/h1&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt;1 Infinite Loop Cupertino&amp;lt;/br&amp;gt;&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;California&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;CA&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;95014&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;&#123;keyName&#125;&#125;&#125; 语法</span><br><span class="line">//输出会将等特殊字符转译，如果想保持内容原样输出可以使用花括号，例如：</span><br><span class="line">var data = &#123;</span><br><span class="line">    <span class="string">"company"</span>: <span class="string">"Apple"</span>,</span><br><span class="line">    <span class="string">"address"</span>: &#123;</span><br><span class="line">        <span class="string">"street"</span>: <span class="string">"1 Infinite Loop Cupertino&lt;/br&gt;"</span>,</span><br><span class="line">        <span class="string">"city"</span>: <span class="string">"California "</span>,</span><br><span class="line">        <span class="string">"state"</span>: <span class="string">"CA "</span>,</span><br><span class="line">        <span class="string">"zip"</span>: <span class="string">"95014 "</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"product"</span>: [<span class="string">"Macbook "</span>,<span class="string">"iPhone "</span>,<span class="string">"iPod "</span>,<span class="string">"iPad "</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Template-6"><a href="#Template-6" class="headerlink" title="Template:"></a>Template:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var tpl = <span class="string">'&#123;&#123;#address&#125;&#125; &lt;p&gt;&#123;&#123;&#123;street&#125;&#125;&#125;&lt;/p&gt; &#123;&#123;/address&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
-<h3 id="输入结果：-6"><a href="#输入结果：-6" class="headerlink" title="输入结果："></a>输入结果：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;1 Infinite Loop Cupertino&lt;/br&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//&#123;&#123;!comments&#125;&#125;语法</span><br><span class="line">表示注释，注释后不会渲染输出任何内容。</span><br><span class="line">``` bash</span><br><span class="line">&#123;&#123;!这里是注释&#125;&#125;</span><br><span class="line">//输出：</span><br></pre></td></tr></table></figure>
-<p>参考文章<br><a href="https://github.com/janl/mustache.js" target="_blank" rel="noopener">https://github.com/janl/mustache.js</a></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>入门Mustache.js模版引擎</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>回调函数</title>
-    <url>/archives/a03e68d3.html</url>
-    <content><![CDATA[<p><strong>前言</strong></p>
-<p>最近一直忙于项目，没时间总写，趁现在有时间总结下遇到的问题。</p>
-<h3 id="data-书写"><a href="#data-书写" class="headerlink" title="data-*书写"></a><code>data-*</code>书写</h3><p>处理数据交互，有时候需要在一些元素上绑定一些<code>data-*</code>数据，不经意间有可能在JS中写成大写的，比如：<code>data-Id</code>，但是在<code>html</code>解析时，浏览器解析的是小写<code>data-id</code>，在调试JS数据交互，有可能很纳闷，明明绑定上去数据，为何获取不到。</p>
-<p>因此建议在书写时，写成小写的，避免坑了自己，比如：<code>data-id</code></p>
-<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>之前项目很少遇到ajax回调，估计项目复杂度不够，应用不到吧；还有就是本身知识有短板。查了很多资料找到了ajax回调函数例子。</p>
-<p>原理：</p>
-<ul>
-<li><p>在函数中传一个参数，如：callBack。</p>
-</li>
-<li><p>在函数体中，把传入的参数callBack当成一个函数，把需要获的数据传入callback这个函数。</p>
-</li>
-</ul>
-<p>用法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn(callBack) &#123;</span><br><span class="line">	$.post(xxx, &#123; xxx &#125;, function(r) &#123;</span><br><span class="line">		callBack(r);</span><br><span class="line">	&#125;, &apos;json&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>JS回调函数</category>
-      </categories>
-  </entry>
-  <entry>
     <title>模拟Form表单完成数据交互</title>
     <url>/archives/f536e456.html</url>
     <content><![CDATA[<p><strong>前言：</strong></p>
@@ -810,6 +787,29 @@
       <categories>
         <category>JavaScript</category>
         <category>模拟form表单</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>回调函数</title>
+    <url>/archives/a03e68d3.html</url>
+    <content><![CDATA[<p><strong>前言</strong></p>
+<p>最近一直忙于项目，没时间总写，趁现在有时间总结下遇到的问题。</p>
+<h3 id="data-书写"><a href="#data-书写" class="headerlink" title="data-*书写"></a><code>data-*</code>书写</h3><p>处理数据交互，有时候需要在一些元素上绑定一些<code>data-*</code>数据，不经意间有可能在JS中写成大写的，比如：<code>data-Id</code>，但是在<code>html</code>解析时，浏览器解析的是小写<code>data-id</code>，在调试JS数据交互，有可能很纳闷，明明绑定上去数据，为何获取不到。</p>
+<p>因此建议在书写时，写成小写的，避免坑了自己，比如：<code>data-id</code></p>
+<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>之前项目很少遇到ajax回调，估计项目复杂度不够，应用不到吧；还有就是本身知识有短板。查了很多资料找到了ajax回调函数例子。</p>
+<p>原理：</p>
+<ul>
+<li><p>在函数中传一个参数，如：callBack。</p>
+</li>
+<li><p>在函数体中，把传入的参数callBack当成一个函数，把需要获的数据传入callback这个函数。</p>
+</li>
+</ul>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn(callBack) &#123;</span><br><span class="line">	$.post(xxx, &#123; xxx &#125;, function(r) &#123;</span><br><span class="line">		callBack(r);</span><br><span class="line">	&#125;, &apos;json&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>JS回调函数</category>
       </categories>
   </entry>
   <entry>
@@ -863,86 +863,6 @@
       <categories>
         <category>JavaScript</category>
         <category>常见JS算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>深入学习Vue响应式原理</title>
-    <url>/archives/31d66cf8.html</url>
-    <content><![CDATA[<p><strong>前言</strong><br>Vue是参考mvvm模式设计的一套用于构建用户界面的渐进式框架，可以自底向上逐层应用，采用非侵入性的响应式系统。在修改数据时，视图也会跟着更新，开发过程中只需关注数据。</p>
-<h3 id="开发中的响应式："><a href="#开发中的响应式：" class="headerlink" title="开发中的响应式："></a>开发中的响应式：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;数量：&#123;&#123; num &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;价格：&#123;&#123; num * price &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;总计：&#123;&#123; total &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;button @click=&quot;btn&quot;&gt;点击按钮&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">expprt default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      num: 1,</span><br><span class="line">      price: 2</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    total: function() &#123;</span><br><span class="line">      return this.num * this.price;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    btn: function() &#123;</span><br><span class="line">      this.num = 10;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>页面属性num发生变化时，经历了</p>
-<ul>
-<li>获取属性num</li>
-<li>更新属性num值</li>
-<li>计算total值，更新页面<br>数据发生变化后，页面会重新更新数据。</li>
-</ul>
-<p>想要完成整个过程，需要：</p>
-<ul>
-<li>侦测数据变化 (简称：数据劫持)</li>
-<li>收集视图依赖数据 (简称：依赖收集)</li>
-<li>数据变化，通知视图需要更新的部分 (简称：发布订阅模式)</li>
-</ul>
-<h3 id="数据劫持"><a href="#数据劫持" class="headerlink" title="数据劫持"></a>数据劫持</h3><p>Vue2.x版本中使用Object.defineProperty进行数据劫持。</p>
-<p>Vue通过对象属性getter/setter监听数据变化，通过getter进行依赖收集，每个setter方法就是一个观察者，数据发生变化时通知订阅者更新视图。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  title: &apos;Vue&apos;,</span><br><span class="line">  obj: &#123;</span><br><span class="line">    age: 6</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br><span class="line">function observer(data) &#123;</span><br><span class="line">  if(data &amp;&amp; typeof data == &apos;object&apos;) &#123;</span><br><span class="line">    Object.keys(data).forEach(function(key) &#123;</span><br><span class="line">      defineReactive(data, key, data[key]);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function defineReactive(data, key, value) &#123;</span><br><span class="line">  observer(value); // 劫持每一层数据</span><br><span class="line">  Object.defineProperty(data, key, &#123;</span><br><span class="line">    enumberable: true, // 可枚举</span><br><span class="line">    configurable: true, // 可配置</span><br><span class="line">    get: function() &#123;</span><br><span class="line">      console.log(&apos;get&apos;, value)</span><br><span class="line">      return value;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: function(newVal) &#123;</span><br><span class="line">      console.log(&apos;set&apos;, newVal);</span><br><span class="line">      observer(newVal) // 劫持新值</span><br><span class="line">      if(newVal !== value) &#123; </span><br><span class="line">          value = newVal;      </span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">observer(data);</span><br><span class="line">data.title // get vue</span><br><span class="line">data.obj = &#123;</span><br><span class="line">  age: 60</span><br><span class="line">&#125; // set &#123; age: 60 &#125;</span><br></pre></td></tr></table></figure>
-<p>函数observe传入一个需要被追踪变化的对象data，遍历对象每个属性都使用defineReactive处理，实现侦测对象变化。</p>
-<p>侦测Vue中的data数据。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Vue(options) &#123;</span><br><span class="line">  this.$el = options.el;</span><br><span class="line">  this.$data = options.data;</span><br><span class="line">  this.$options = options;</span><br><span class="line">  if(this.$el) &#123;</span><br><span class="line">    observer(this.$data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>只需要new Vue一个对象，就会将data中数据进行追踪变化。</p>
-<p>需要注意的是Object.defineProperty有以下缺点：</p>
-<ul>
-<li>无法检测对象属性的添加和删除</li>
-</ul>
-<p>因为Vue通过Object.defineProperty将对象的key转化成getter/setter依赖追踪变化，而getter/setter只能追踪数据是否被修改，却无法追踪新增属性和删除属性。</p>
-<p>对于新增属性，使用Vue.set()方法，可以将新增属性添加到Vue响应式系统中；如：在data对象下新增一个size属性，使用Vue.set(data, ‘size’, ‘10KB’)，参数依次是：目标对象，目标对象新增属性，目标对象新增属性值。</p>
-<p>也可以给这个对象重新赋值，如：Vue.set(data, ‘title’, ‘MVue’) 。</p>
-<p>对于删除属性，使用Vue.delete(目标对象, 删除目标对象属性)；如：Vue.delete(data, ‘obj’)。</p>
-<ul>
-<li>不能监听数组变化，可以对数组方法进行重写(参考深入浅出Vue.js)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr = [&apos;小社区&apos;, &apos;社区&apos;, &apos;大社区&apos;];</span><br><span class="line">// 定义数组方法</span><br><span class="line">var arrMethods = [&apos;push&apos;, &apos;shift&apos;, &apos;pop&apos;, &apos;unshift&apos;];</span><br><span class="line">// 获取数组原型</span><br><span class="line">var arr_proto = Array.prototype;</span><br><span class="line">// 创建新原型对象</span><br><span class="line">var _proto = Object.create(arr_proto); </span><br><span class="line">arrMethods.forEach(function(method) &#123;</span><br><span class="line">  _proto[method] = function() &#123;</span><br><span class="line">      var res = arr_proto[method].call(this, ...arguments);     </span><br><span class="line">      return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">function observer(data) &#123;</span><br><span class="line">  if(Array.isArray(data)) &#123;</span><br><span class="line">      data.__proto__ = _proto;</span><br><span class="line">      return;</span><br><span class="line">  &#125;</span><br><span class="line">  if(data &amp;&amp; typeof data == &apos;object&apos;) &#123;</span><br><span class="line">    Object.keys(data).forEach(function(key) &#123;</span><br><span class="line">      defineReactive(data, key, data[key]);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line">function defineReactive(data, key, value) &#123;</span><br><span class="line">  observer(value);</span><br><span class="line">  Object.defineProperty(data, key, &#123;</span><br><span class="line">    enumberable: true,</span><br><span class="line">    configurable: true,</span><br><span class="line">    get: function() &#123;</span><br><span class="line">      console.log(&apos;get&apos;, value);</span><br><span class="line">      return value;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: function(newVal) &#123;</span><br><span class="line">      console.log(&apos;set&apos;, newVal);</span><br><span class="line">      observer(newVal);</span><br><span class="line">      if(newVal !== value) &#123;</span><br><span class="line">        value = newVal;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">//添加属性重新赋值给新的对象</span><br><span class="line">function $set(data, key, value) &#123;</span><br><span class="line">  defineProperty(data, key, value);</span><br><span class="line">&#125;</span><br><span class="line">observer(arr);</span><br><span class="line">arr.shift(); // 使用定义数组中方法</span><br><span class="line">console.log(obj); // [&quot;社区&quot;, &quot;大社区&quot;]</span><br></pre></td></tr></table></figure>
-<p>上述把数组原自带的方法进行重写，覆盖掉原数组方法；重写后的数组方法需要被拦截，但是Vue对这些重写的方法是拦截不到的，也就不能响应。</p>
-<p>比如：修改上述数组某一项值，无法侦测数组变化。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">arr[1] = &apos;物业&apos;;</span><br></pre></td></tr></table></figure>
-<p>Vue3.x使用proxy作为实现代理，proxy具有代理、拦截与劫持的特征。</p>
-<p>proxy实现特征：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let arr = [&apos;小社区&apos;, &apos;社区&apos;， &apos;大社区&apos;];</span><br><span class="line">let handler = &#123;</span><br><span class="line">  get(data, key) &#123;</span><br><span class="line">    if(typeof data[key] == &apos;object&apos; &amp;&amp; </span><br><span class="line">    data[key] !== null) &#123;</span><br><span class="line">      return new Proxy(data[key], handler);</span><br><span class="line">    &#125;</span><br><span class="line">    return Reflect.get(data, key);</span><br><span class="line">  &#125;,</span><br><span class="line">  set(data, key, value) &#123;</span><br><span class="line">    if(key == &apos;length&apos;) return true;</span><br><span class="line">    return Reflect.set(data, key, value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">let proxy = new Proxy(arr, handler);</span><br><span class="line">proxy[0] = &apos;物业&apos;;</span><br><span class="line">console.log(proxy); // Proxy &#123;0: &quot;物业&quot;, 1: &quot;社区&quot;, 2: &quot;大社区&quot;&#125;</span><br></pre></td></tr></table></figure>
-<p>对比Object.defineProperty与proxy：</p>
-<p>Object.fefineProperty必须遍历对象每个属性；无法检测对象属性的新增属性与删除属性；无法监听重写数组方法的变化。</p>
-<p>proxy只需做一层代理就能监听同级结构下所有属性，支持代理数组变化。(深层次的数据结构，还是需要递归)</p>
-<h3 id="收集依赖"><a href="#收集依赖" class="headerlink" title="收集依赖"></a>收集依赖</h3><p>观察数据目的是当数据属性发生变化时，可以通知那些使用了该数据的地方。</p>
-<p>比如：开篇用到的数据num，当数据num发生变化时，会通知所有用到数据num的地方。</p>
-<p>如果是多个Vue实例共用一个变量，比如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var str = &apos;Vue&apos;;</span><br><span class="line">var vm1 = new Vue(&#123;</span><br><span class="line">  data: str,</span><br><span class="line">  template: &apos;&lt;div&gt; &#123;&#123; str &#125;&#125; &lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br><span class="line">var vm2 = new Vue(&#123;</span><br><span class="line">  data: str,</span><br><span class="line">  template: &apos;&lt;div&gt; &#123;&#123; str &#125;&#125; &lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>此时更改str属性值，这两个实例视图会更新。那么只有通过收集依赖才能知道哪些地方依赖了数据str，以及数据str派发更新数据。</p>
-<p>收集依赖核心思想是事件发布订阅模式，这里有两个角色：订阅者Dep和观察者Watcher。</p>
-<p>收集依赖是为依赖寻找一个存储依赖的地方，因此创建了Dep。使用订阅者Dep用来收集依赖，删除依赖、向依赖发送消息。</p>
-<p>简单实现订阅者Dep：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Dep() &#123;</span><br><span class="line">  this.subs = []; // 存储Watcher</span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype.addSub = function(sub) &#123;</span><br><span class="line">  this.subs.push(sub); // 添加Watcher</span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype.notify = function() &#123;</span><br><span class="line">  this.subs.forEach(function(sub) &#123;</span><br><span class="line">    sub.update(); // 通知Watcher更新视图</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从上面代码订阅者Dep的作用是存储观察者Watcher，可以把观察者Watcher理解成一个中转站，当数据发生变化时通知观察者Watcher，再有观察者Watcher通知其他地方。</p>
-<p>当需要依赖收集时调用函数addSub，当需要派发更新时调用函数notify。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var dep = new Dep();</span><br><span class="line">dep.addSub(function() &#123;</span><br><span class="line">  console.log(&apos;add&apos;)</span><br><span class="line">&#125;)</span><br><span class="line">dep.notify();</span><br></pre></td></tr></table></figure>
-<p>如何收集依赖：在getter中收集依赖，在setter中触发依赖；就是把用到该数据的地方收集起来，等到属性发生变化时，把之前收集好的依赖循环触发一边。</p>
-<p>具体是当外界通过观察者Watcher读取数据时就会触发getter，将观察者Watcher添加到依赖中。哪个观察者Watcher触发getter就把哪个观察者Watcher收集到Dep中；当数据发生变化时，会循环依赖列表，把所有的观察者Watcher都通知一遍。</p>
-<h3 id="观察者Watcher"><a href="#观察者Watcher" class="headerlink" title="观察者Watcher"></a>观察者Watcher</h3><p>Vue官方定义一个Watcher类用来表示观察订阅依赖。其中《深入浅出Vue.js》给出这样的解释：为什么要引入观察者Watcher。</p>
-<p>在属性发生变化后，需要通知用到该数据的地方。而该数据可能被很多地方用到，并且类型还不一样，可能是模版，可能是开发者编写的watch。这时候需要抽象出一个能集中处理这些情况的类，然后在依赖收集阶段只收集这个封装好的类的实例，通知也只通知这个封装好的类的实例，再由这个封装好的类的实例通知到其他。</p>
-<p>依赖收集的目的是将观察者Watcher存放到当前订阅者Dep的subs中。</p>
-<p>简单实现观察者Watcher：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Watcher(data, key, cb) &#123; // cb -&gt;callback缩写</span><br><span class="line">  Dep.target = this;</span><br><span class="line">  // Dep.target 指向自己，在触发getter时添加监听</span><br><span class="line">  this.data = data;</span><br><span class="line">  this.key = key;</span><br><span class="line">  this.cb = cb;</span><br><span class="line">  this.value = data[key];</span><br><span class="line">  Dep.target = null; </span><br><span class="line">  // 如果不为null，每次都追加一个Dep</span><br><span class="line">  // 比如：第一次是[&apos;Dep&apos;], 第二次是[&apos;Dep&apos;, &apos;Dep&apos;], ...</span><br><span class="line">&#125;</span><br><span class="line">Watcher.prototype.update = function() &#123;</span><br><span class="line">  this.value = this.data[this.key];</span><br><span class="line">  this.cb(this.value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>执行构造函数把Dep.target指向自身，收集到对应的Watcher，在派发更新时取出对应的观察者Watcher，执行函数update。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>结合以上内容实现一个简单响应式</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var data = &#123;</span><br><span class="line">  title: &apos;vue&apos;,</span><br><span class="line">  obj: &#123;</span><br><span class="line">    age: 6</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">function Dep() &#123;</span><br><span class="line">  this.subs = [];</span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype.addSub = function(sub) &#123;</span><br><span class="line">  this.subs.push(sub);</span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype.notify = function() &#123;</span><br><span class="line">  console.log(&apos;Dep notify&apos;);</span><br><span class="line">  // this.subs.forEach(function(sub) &#123;</span><br><span class="line">  // sub.update()</span><br><span class="line">  // &#125;)</span><br><span class="line">&#125;</span><br><span class="line">function render() &#123;</span><br><span class="line">  console.log(&apos;模版render...&apos;);</span><br><span class="line">&#125;</span><br><span class="line">function observer(data) &#123;</span><br><span class="line">  if(data &amp;&amp; typeof data == &apos;object&apos;) &#123;</span><br><span class="line">    Object.keys(data).forEach(function(key) &#123;</span><br><span class="line">      defineReactive(data, key, data[key]);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">function defineReactive(data, key, value) &#123;</span><br><span class="line">  observer(value);</span><br><span class="line">  var dep = new Dep();</span><br><span class="line">  Object.defineProperty(data, key, &#123;</span><br><span class="line">    enumberable: true,</span><br><span class="line">    configurable: true,</span><br><span class="line">    get: function() &#123;</span><br><span class="line">      console.log(&apos;get：&apos; value);</span><br><span class="line">      Dep.target &amp;&amp; dep.addSub(Dep.target);</span><br><span class="line">      return value;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: function (newVal) &#123;</span><br><span class="line">      console.log(&apos;set：&apos;, newVal);</span><br><span class="line">      if(newVal !== value) &#123;</span><br><span class="line">        value = newVal;</span><br><span class="line">        dep.notify();</span><br><span class="line">        render();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">function MVue(options) &#123;</span><br><span class="line">  this.$options = options;</span><br><span class="line">  this.$el = options.el;</span><br><span class="line">  this.$data = options.data;</span><br><span class="line">  if(this.$el) observer(this.$data);</span><br><span class="line">&#125;</span><br><span class="line">new MVue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  data: data</span><br><span class="line">&#125;)</span><br><span class="line">data.title; // 首次访问数据</span><br><span class="line">data.title = &apos;MVue&apos;; // 修改数据</span><br><span class="line">data.title; // 访问修改后的数据</span><br></pre></td></tr></table></figure>
-<p>函数render被渲染时，读取所需对象的值，会触发getter方法把当前观察者Watcher收集到函数Dep中；如果需要修改对象的值，会触发setter方法，通知函数Dep中的notify方法，触发所有观察者Watcher对象中的update方法更新对应视图。</p>
-<p>总结Vue响应式原理</p>
-<p>通过数据劫持结合订阅与发布者模式的方式，通过Object.defineProperty劫持各个属性的getter/setter，在数据发生变化时发布消息给订阅者，触发相应的回调函数。</p>
-<p>执行new Vue整个过程发生了：</p>
-<p>new Vue后，Vue会调用函数_init进行初始化。在这个过程data通过函数observer转化成getter/setter追踪数据变化；当被设置的对象被读取时会执行getter方法，当对象被重新赋值时会执行setter方法。</p>
-<p>函数render执行时，会读取所需对象的值，会触发getter方法把观察者Watcher添加到依赖中进行依赖收集。</p>
-<p>修改对象的值时，会触发相应的setter方法；setter方法通知之前依赖收集得到的Dep中每一个观察者Watcher，再有观察者Watcher通知其他，自己的值被更改了需要重新渲染视图；这时观察者Watcher就会调用update方法更新视图。</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-        <category>深入浅出Vue响应式</category>
       </categories>
   </entry>
   <entry>
@@ -1046,6 +966,86 @@
       </categories>
   </entry>
   <entry>
+    <title>深入学习Vue响应式原理</title>
+    <url>/archives/31d66cf8.html</url>
+    <content><![CDATA[<p><strong>前言</strong><br>Vue是参考mvvm模式设计的一套用于构建用户界面的渐进式框架，可以自底向上逐层应用，采用非侵入性的响应式系统。在修改数据时，视图也会跟着更新，开发过程中只需关注数据。</p>
+<h3 id="开发中的响应式："><a href="#开发中的响应式：" class="headerlink" title="开发中的响应式："></a>开发中的响应式：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;数量：&#123;&#123; num &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;价格：&#123;&#123; num * price &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;总计：&#123;&#123; total &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;button @click=&quot;btn&quot;&gt;点击按钮&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">expprt default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      num: 1,</span><br><span class="line">      price: 2</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    total: function() &#123;</span><br><span class="line">      return this.num * this.price;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    btn: function() &#123;</span><br><span class="line">      this.num = 10;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>页面属性num发生变化时，经历了</p>
+<ul>
+<li>获取属性num</li>
+<li>更新属性num值</li>
+<li>计算total值，更新页面<br>数据发生变化后，页面会重新更新数据。</li>
+</ul>
+<p>想要完成整个过程，需要：</p>
+<ul>
+<li>侦测数据变化 (简称：数据劫持)</li>
+<li>收集视图依赖数据 (简称：依赖收集)</li>
+<li>数据变化，通知视图需要更新的部分 (简称：发布订阅模式)</li>
+</ul>
+<h3 id="数据劫持"><a href="#数据劫持" class="headerlink" title="数据劫持"></a>数据劫持</h3><p>Vue2.x版本中使用Object.defineProperty进行数据劫持。</p>
+<p>Vue通过对象属性getter/setter监听数据变化，通过getter进行依赖收集，每个setter方法就是一个观察者，数据发生变化时通知订阅者更新视图。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var data = &#123;</span><br><span class="line">  title: &apos;Vue&apos;,</span><br><span class="line">  obj: &#123;</span><br><span class="line">    age: 6</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br><span class="line">function observer(data) &#123;</span><br><span class="line">  if(data &amp;&amp; typeof data == &apos;object&apos;) &#123;</span><br><span class="line">    Object.keys(data).forEach(function(key) &#123;</span><br><span class="line">      defineReactive(data, key, data[key]);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function defineReactive(data, key, value) &#123;</span><br><span class="line">  observer(value); // 劫持每一层数据</span><br><span class="line">  Object.defineProperty(data, key, &#123;</span><br><span class="line">    enumberable: true, // 可枚举</span><br><span class="line">    configurable: true, // 可配置</span><br><span class="line">    get: function() &#123;</span><br><span class="line">      console.log(&apos;get&apos;, value)</span><br><span class="line">      return value;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: function(newVal) &#123;</span><br><span class="line">      console.log(&apos;set&apos;, newVal);</span><br><span class="line">      observer(newVal) // 劫持新值</span><br><span class="line">      if(newVal !== value) &#123; </span><br><span class="line">          value = newVal;      </span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">observer(data);</span><br><span class="line">data.title // get vue</span><br><span class="line">data.obj = &#123;</span><br><span class="line">  age: 60</span><br><span class="line">&#125; // set &#123; age: 60 &#125;</span><br></pre></td></tr></table></figure>
+<p>函数observe传入一个需要被追踪变化的对象data，遍历对象每个属性都使用defineReactive处理，实现侦测对象变化。</p>
+<p>侦测Vue中的data数据。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Vue(options) &#123;</span><br><span class="line">  this.$el = options.el;</span><br><span class="line">  this.$data = options.data;</span><br><span class="line">  this.$options = options;</span><br><span class="line">  if(this.$el) &#123;</span><br><span class="line">    observer(this.$data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>只需要new Vue一个对象，就会将data中数据进行追踪变化。</p>
+<p>需要注意的是Object.defineProperty有以下缺点：</p>
+<ul>
+<li>无法检测对象属性的添加和删除</li>
+</ul>
+<p>因为Vue通过Object.defineProperty将对象的key转化成getter/setter依赖追踪变化，而getter/setter只能追踪数据是否被修改，却无法追踪新增属性和删除属性。</p>
+<p>对于新增属性，使用Vue.set()方法，可以将新增属性添加到Vue响应式系统中；如：在data对象下新增一个size属性，使用Vue.set(data, ‘size’, ‘10KB’)，参数依次是：目标对象，目标对象新增属性，目标对象新增属性值。</p>
+<p>也可以给这个对象重新赋值，如：Vue.set(data, ‘title’, ‘MVue’) 。</p>
+<p>对于删除属性，使用Vue.delete(目标对象, 删除目标对象属性)；如：Vue.delete(data, ‘obj’)。</p>
+<ul>
+<li>不能监听数组变化，可以对数组方法进行重写(参考深入浅出Vue.js)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr = [&apos;小社区&apos;, &apos;社区&apos;, &apos;大社区&apos;];</span><br><span class="line">// 定义数组方法</span><br><span class="line">var arrMethods = [&apos;push&apos;, &apos;shift&apos;, &apos;pop&apos;, &apos;unshift&apos;];</span><br><span class="line">// 获取数组原型</span><br><span class="line">var arr_proto = Array.prototype;</span><br><span class="line">// 创建新原型对象</span><br><span class="line">var _proto = Object.create(arr_proto); </span><br><span class="line">arrMethods.forEach(function(method) &#123;</span><br><span class="line">  _proto[method] = function() &#123;</span><br><span class="line">      var res = arr_proto[method].call(this, ...arguments);     </span><br><span class="line">      return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">function observer(data) &#123;</span><br><span class="line">  if(Array.isArray(data)) &#123;</span><br><span class="line">      data.__proto__ = _proto;</span><br><span class="line">      return;</span><br><span class="line">  &#125;</span><br><span class="line">  if(data &amp;&amp; typeof data == &apos;object&apos;) &#123;</span><br><span class="line">    Object.keys(data).forEach(function(key) &#123;</span><br><span class="line">      defineReactive(data, key, data[key]);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line">function defineReactive(data, key, value) &#123;</span><br><span class="line">  observer(value);</span><br><span class="line">  Object.defineProperty(data, key, &#123;</span><br><span class="line">    enumberable: true,</span><br><span class="line">    configurable: true,</span><br><span class="line">    get: function() &#123;</span><br><span class="line">      console.log(&apos;get&apos;, value);</span><br><span class="line">      return value;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: function(newVal) &#123;</span><br><span class="line">      console.log(&apos;set&apos;, newVal);</span><br><span class="line">      observer(newVal);</span><br><span class="line">      if(newVal !== value) &#123;</span><br><span class="line">        value = newVal;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">//添加属性重新赋值给新的对象</span><br><span class="line">function $set(data, key, value) &#123;</span><br><span class="line">  defineProperty(data, key, value);</span><br><span class="line">&#125;</span><br><span class="line">observer(arr);</span><br><span class="line">arr.shift(); // 使用定义数组中方法</span><br><span class="line">console.log(obj); // [&quot;社区&quot;, &quot;大社区&quot;]</span><br></pre></td></tr></table></figure>
+<p>上述把数组原自带的方法进行重写，覆盖掉原数组方法；重写后的数组方法需要被拦截，但是Vue对这些重写的方法是拦截不到的，也就不能响应。</p>
+<p>比如：修改上述数组某一项值，无法侦测数组变化。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">arr[1] = &apos;物业&apos;;</span><br></pre></td></tr></table></figure>
+<p>Vue3.x使用proxy作为实现代理，proxy具有代理、拦截与劫持的特征。</p>
+<p>proxy实现特征：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let arr = [&apos;小社区&apos;, &apos;社区&apos;， &apos;大社区&apos;];</span><br><span class="line">let handler = &#123;</span><br><span class="line">  get(data, key) &#123;</span><br><span class="line">    if(typeof data[key] == &apos;object&apos; &amp;&amp; </span><br><span class="line">    data[key] !== null) &#123;</span><br><span class="line">      return new Proxy(data[key], handler);</span><br><span class="line">    &#125;</span><br><span class="line">    return Reflect.get(data, key);</span><br><span class="line">  &#125;,</span><br><span class="line">  set(data, key, value) &#123;</span><br><span class="line">    if(key == &apos;length&apos;) return true;</span><br><span class="line">    return Reflect.set(data, key, value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">let proxy = new Proxy(arr, handler);</span><br><span class="line">proxy[0] = &apos;物业&apos;;</span><br><span class="line">console.log(proxy); // Proxy &#123;0: &quot;物业&quot;, 1: &quot;社区&quot;, 2: &quot;大社区&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>对比Object.defineProperty与proxy：</p>
+<p>Object.fefineProperty必须遍历对象每个属性；无法检测对象属性的新增属性与删除属性；无法监听重写数组方法的变化。</p>
+<p>proxy只需做一层代理就能监听同级结构下所有属性，支持代理数组变化。(深层次的数据结构，还是需要递归)</p>
+<h3 id="收集依赖"><a href="#收集依赖" class="headerlink" title="收集依赖"></a>收集依赖</h3><p>观察数据目的是当数据属性发生变化时，可以通知那些使用了该数据的地方。</p>
+<p>比如：开篇用到的数据num，当数据num发生变化时，会通知所有用到数据num的地方。</p>
+<p>如果是多个Vue实例共用一个变量，比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var str = &apos;Vue&apos;;</span><br><span class="line">var vm1 = new Vue(&#123;</span><br><span class="line">  data: str,</span><br><span class="line">  template: &apos;&lt;div&gt; &#123;&#123; str &#125;&#125; &lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br><span class="line">var vm2 = new Vue(&#123;</span><br><span class="line">  data: str,</span><br><span class="line">  template: &apos;&lt;div&gt; &#123;&#123; str &#125;&#125; &lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>此时更改str属性值，这两个实例视图会更新。那么只有通过收集依赖才能知道哪些地方依赖了数据str，以及数据str派发更新数据。</p>
+<p>收集依赖核心思想是事件发布订阅模式，这里有两个角色：订阅者Dep和观察者Watcher。</p>
+<p>收集依赖是为依赖寻找一个存储依赖的地方，因此创建了Dep。使用订阅者Dep用来收集依赖，删除依赖、向依赖发送消息。</p>
+<p>简单实现订阅者Dep：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Dep() &#123;</span><br><span class="line">  this.subs = []; // 存储Watcher</span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype.addSub = function(sub) &#123;</span><br><span class="line">  this.subs.push(sub); // 添加Watcher</span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype.notify = function() &#123;</span><br><span class="line">  this.subs.forEach(function(sub) &#123;</span><br><span class="line">    sub.update(); // 通知Watcher更新视图</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面代码订阅者Dep的作用是存储观察者Watcher，可以把观察者Watcher理解成一个中转站，当数据发生变化时通知观察者Watcher，再有观察者Watcher通知其他地方。</p>
+<p>当需要依赖收集时调用函数addSub，当需要派发更新时调用函数notify。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var dep = new Dep();</span><br><span class="line">dep.addSub(function() &#123;</span><br><span class="line">  console.log(&apos;add&apos;)</span><br><span class="line">&#125;)</span><br><span class="line">dep.notify();</span><br></pre></td></tr></table></figure>
+<p>如何收集依赖：在getter中收集依赖，在setter中触发依赖；就是把用到该数据的地方收集起来，等到属性发生变化时，把之前收集好的依赖循环触发一边。</p>
+<p>具体是当外界通过观察者Watcher读取数据时就会触发getter，将观察者Watcher添加到依赖中。哪个观察者Watcher触发getter就把哪个观察者Watcher收集到Dep中；当数据发生变化时，会循环依赖列表，把所有的观察者Watcher都通知一遍。</p>
+<h3 id="观察者Watcher"><a href="#观察者Watcher" class="headerlink" title="观察者Watcher"></a>观察者Watcher</h3><p>Vue官方定义一个Watcher类用来表示观察订阅依赖。其中《深入浅出Vue.js》给出这样的解释：为什么要引入观察者Watcher。</p>
+<p>在属性发生变化后，需要通知用到该数据的地方。而该数据可能被很多地方用到，并且类型还不一样，可能是模版，可能是开发者编写的watch。这时候需要抽象出一个能集中处理这些情况的类，然后在依赖收集阶段只收集这个封装好的类的实例，通知也只通知这个封装好的类的实例，再由这个封装好的类的实例通知到其他。</p>
+<p>依赖收集的目的是将观察者Watcher存放到当前订阅者Dep的subs中。</p>
+<p>简单实现观察者Watcher：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Watcher(data, key, cb) &#123; // cb -&gt;callback缩写</span><br><span class="line">  Dep.target = this;</span><br><span class="line">  // Dep.target 指向自己，在触发getter时添加监听</span><br><span class="line">  this.data = data;</span><br><span class="line">  this.key = key;</span><br><span class="line">  this.cb = cb;</span><br><span class="line">  this.value = data[key];</span><br><span class="line">  Dep.target = null; </span><br><span class="line">  // 如果不为null，每次都追加一个Dep</span><br><span class="line">  // 比如：第一次是[&apos;Dep&apos;], 第二次是[&apos;Dep&apos;, &apos;Dep&apos;], ...</span><br><span class="line">&#125;</span><br><span class="line">Watcher.prototype.update = function() &#123;</span><br><span class="line">  this.value = this.data[this.key];</span><br><span class="line">  this.cb(this.value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行构造函数把Dep.target指向自身，收集到对应的Watcher，在派发更新时取出对应的观察者Watcher，执行函数update。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>结合以上内容实现一个简单响应式</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var data = &#123;</span><br><span class="line">  title: &apos;vue&apos;,</span><br><span class="line">  obj: &#123;</span><br><span class="line">    age: 6</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">function Dep() &#123;</span><br><span class="line">  this.subs = [];</span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype.addSub = function(sub) &#123;</span><br><span class="line">  this.subs.push(sub);</span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype.notify = function() &#123;</span><br><span class="line">  console.log(&apos;Dep notify&apos;);</span><br><span class="line">  // this.subs.forEach(function(sub) &#123;</span><br><span class="line">  // sub.update()</span><br><span class="line">  // &#125;)</span><br><span class="line">&#125;</span><br><span class="line">function render() &#123;</span><br><span class="line">  console.log(&apos;模版render...&apos;);</span><br><span class="line">&#125;</span><br><span class="line">function observer(data) &#123;</span><br><span class="line">  if(data &amp;&amp; typeof data == &apos;object&apos;) &#123;</span><br><span class="line">    Object.keys(data).forEach(function(key) &#123;</span><br><span class="line">      defineReactive(data, key, data[key]);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">function defineReactive(data, key, value) &#123;</span><br><span class="line">  observer(value);</span><br><span class="line">  var dep = new Dep();</span><br><span class="line">  Object.defineProperty(data, key, &#123;</span><br><span class="line">    enumberable: true,</span><br><span class="line">    configurable: true,</span><br><span class="line">    get: function() &#123;</span><br><span class="line">      console.log(&apos;get：&apos; value);</span><br><span class="line">      Dep.target &amp;&amp; dep.addSub(Dep.target);</span><br><span class="line">      return value;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: function (newVal) &#123;</span><br><span class="line">      console.log(&apos;set：&apos;, newVal);</span><br><span class="line">      if(newVal !== value) &#123;</span><br><span class="line">        value = newVal;</span><br><span class="line">        dep.notify();</span><br><span class="line">        render();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">function MVue(options) &#123;</span><br><span class="line">  this.$options = options;</span><br><span class="line">  this.$el = options.el;</span><br><span class="line">  this.$data = options.data;</span><br><span class="line">  if(this.$el) observer(this.$data);</span><br><span class="line">&#125;</span><br><span class="line">new MVue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  data: data</span><br><span class="line">&#125;)</span><br><span class="line">data.title; // 首次访问数据</span><br><span class="line">data.title = &apos;MVue&apos;; // 修改数据</span><br><span class="line">data.title; // 访问修改后的数据</span><br></pre></td></tr></table></figure>
+<p>函数render被渲染时，读取所需对象的值，会触发getter方法把当前观察者Watcher收集到函数Dep中；如果需要修改对象的值，会触发setter方法，通知函数Dep中的notify方法，触发所有观察者Watcher对象中的update方法更新对应视图。</p>
+<p>总结Vue响应式原理</p>
+<p>通过数据劫持结合订阅与发布者模式的方式，通过Object.defineProperty劫持各个属性的getter/setter，在数据发生变化时发布消息给订阅者，触发相应的回调函数。</p>
+<p>执行new Vue整个过程发生了：</p>
+<p>new Vue后，Vue会调用函数_init进行初始化。在这个过程data通过函数observer转化成getter/setter追踪数据变化；当被设置的对象被读取时会执行getter方法，当对象被重新赋值时会执行setter方法。</p>
+<p>函数render执行时，会读取所需对象的值，会触发getter方法把观察者Watcher添加到依赖中进行依赖收集。</p>
+<p>修改对象的值时，会触发相应的setter方法；setter方法通知之前依赖收集得到的Dep中每一个观察者Watcher，再有观察者Watcher通知其他，自己的值被更改了需要重新渲染视图；这时观察者Watcher就会调用update方法更新视图。</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>深入浅出Vue响应式</category>
+      </categories>
+  </entry>
+  <entry>
     <title>学习ES6</title>
     <url>/archives/768f3ad2.html</url>
     <content><![CDATA[<p><strong>前言：</strong><br>时代不断向前，时刻要跟上步伐，要不断保持学习。最新开始做新项目，基于前端工程化用到很多新知识，比如ES6；因此趁机学习补齐短板。</p>
@@ -1079,6 +1079,24 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       <categories>
         <category>JavaScript</category>
         <category>入门ES6</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>补充深度克隆</title>
+    <url>/archives/1102c4d5.html</url>
+    <content><![CDATA[<p><strong>前言：</strong><br>在<a href="http://localhost:4000/blog/2015/08/10.html" target="_blank" rel="noopener">学习JavaScript基础篇</a>提到深度克隆与浅度克隆，最近在云栖社区看到有另一种深度克隆写法，因此记下笔记。</p>
+<p>实现思路：</p>
+<ul>
+<li><p>利用ES6的数组原方法Array.isArray判断数据类型。</p>
+</li>
+<li><p>如果是引用数据类型循环递归判断，否则输出。</p>
+</li>
+</ul>
+<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function deepClone(origin)&#123;</span><br><span class="line">	var newObj = (Array.isArray(origin)) ? [] : &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	for(var key in origin)&#123;</span><br><span class="line">		newObj[key] = (typeof origin[key] == &apos;object&apos;) </span><br><span class="line">		? deepClone2(origin[key])</span><br><span class="line">		: origin[key]; </span><br><span class="line">	&#125;</span><br><span class="line">	return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>深度克隆</category>
       </categories>
   </entry>
   <entry>
@@ -1148,86 +1166,49 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       </categories>
   </entry>
   <entry>
-    <title>学习Flex知识</title>
-    <url>/archives/48632995.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前都是使用传统的CSS布局方式，但随着CSS3广泛应用在移动端和主流浏览器中，抱着求学的心态学习接收前端新的知识Flex布局，在这里做下笔记进行总结。</p>
-<hr>
-<h3 id="Flex使用"><a href="#Flex使用" class="headerlink" title="Flex使用"></a>Flex使用</h3><p>设置Flex布局，在父框添加 display:flex即可。</p>
-<p>Flex布局有浏览器兼容性，需要根据不同浏览器内核添加不同浏览器前缀，比如Chrome浏览器使用 -webkit- 前缀。</p>
-<p><strong>注意：</strong> 如果用了弹性布局，子元素不需要浮动 float。</p>
-<h3 id="父框设置Flex携带属性"><a href="#父框设置Flex携带属性" class="headerlink" title="父框设置Flex携带属性"></a>父框设置Flex携带属性</h3><p>justify-content: 子元素水平排列方式，值有以下几种：</p>
-<ul>
-<li>center 居中，(常用)</li>
-<li>space-between    两端对齐(常用)</li>
-<li>space-around    子元素拉手分布    (常用)</li>
-<li>flex-start 居左</li>
-<li>flex-end 居右</li>
-</ul>
-<p>align-items: 子元素垂直排列，值有以下几种：</p>
-<ul>
-<li>center 居中(常用)</li>
-<li>flex-end 底部</li>
-<li>flex-start 开始</li>
-</ul>
-<p>align-content:多行的时候，垂直排列</p>
-<ul>
-<li>center 居中<br>…</li>
-</ul>
-<p>flex-direction: 排列方式，该属性值有以下几种：</p>
-<ul>
-<li>row 横向排列</li>
-<li>row-reverse 横向翻过排列</li>
-<li>column 纵向排列</li>
-<li>column-reverse 纵向翻过排列</li>
-</ul>
-<p>flex-wrap: 子元素是否在一行显示，该属性值有以下几种：</p>
-<ul>
-<li>nowrap 不换行</li>
-<li>wrap 换行</li>
-</ul>
-<p>flex-flow 全拼是 <code>&lt;flex-direction&gt;</code> 与 <code>&lt;flex-wrap&gt;</code>的缩写。    </p>
-<h3 id="子框身上属性"><a href="#子框身上属性" class="headerlink" title="子框身上属性:"></a>子框身上属性:</h3><p>父框设置Flex布局，子框携带的属性：</p>
-<ul>
-<li>flex:1，1 指的是一个系数。</li>
-<li>子元素在划分父元素宽度，先刨除固定宽度。</li>
-<li>align-self 其实就是用来覆盖父级 align-items  垂直排列。</li>
-<li>flex-grow: 1;    定义子元素放大比例。</li>
-<li>order: 规定子元素顺序。排序：数值越小，越靠前，默认值0。</li>
-</ul>
-<h3 id="flex：1的含义"><a href="#flex：1的含义" class="headerlink" title="flex：1的含义"></a>flex：1的含义</h3><ul>
-<li>flex是flex-grow，flex-shrink，flex-basis的缩写。</li>
-<li>flex-grow：父控件空间有剩余是否放大；0表示不放大。</li>
-<li>flex-shrink：父控件空间不足是否缩小。</li>
-<li>flex-basis：子控件占主轴的大小，主轴就是flex的主方向，row是横向，column是竖向。</li>
-<li>flex默认属性是0 1 auto，(父控件有剩余控件不放大，父控件空间不足按1缩小，保持本身的空间大小)。</li>
-<li>flex:1;的值是1 1 0%，(父控件有剩余空间按1放大，父控件空间不足按1缩小，自身的空间大小是0%)。</li>
-</ul>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>CSS</category>
-        <category>Flex布局</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>补充深度克隆</title>
-    <url>/archives/1102c4d5.html</url>
-    <content><![CDATA[<p><strong>前言：</strong><br>在<a href="http://localhost:4000/blog/2015/08/10.html" target="_blank" rel="noopener">学习JavaScript基础篇</a>提到深度克隆与浅度克隆，最近在云栖社区看到有另一种深度克隆写法，因此记下笔记。</p>
-<p>实现思路：</p>
-<ul>
-<li><p>利用ES6的数组原方法Array.isArray判断数据类型。</p>
-</li>
-<li><p>如果是引用数据类型循环递归判断，否则输出。</p>
-</li>
-</ul>
-<p>代码片段：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function deepClone(origin)&#123;</span><br><span class="line">	var newObj = (Array.isArray(origin)) ? [] : &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	for(var key in origin)&#123;</span><br><span class="line">		newObj[key] = (typeof origin[key] == &apos;object&apos;) </span><br><span class="line">		? deepClone2(origin[key])</span><br><span class="line">		: origin[key]; </span><br><span class="line">	&#125;</span><br><span class="line">	return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>JSON.stringify() 妙用</title>
+    <url>/archives/85d76abc.html</url>
+    <content><![CDATA[<h4 id="调试对象"><a href="#调试对象" class="headerlink" title="调试对象"></a>调试对象</h4><p>比如，如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var user = &#123;</span><br><span class="line">	name: &apos;hello word&apos;,</span><br><span class="line">	age: 18</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(user)</span><br></pre></td></tr></table></figure>
+<p>打印输出 <code>[object Object]</code>，因为从对象到字符串的默认转换是 <code>[object Object]</code>。因此，使用 <code>JSON.stringify</code> 先将对象转化字符串，然后把结果输出控制台。如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var user = &#123;</span><br><span class="line">	name: &apos;hello word&apos;,</span><br><span class="line">	age: 18</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(JSON.stringify(user))</span><br><span class="line"></span><br><span class="line">// &#123;name:&quot;hello word&quot;, age:18&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="存储-localStorage-对象"><a href="#存储-localStorage-对象" class="headerlink" title="存储 localStorage 对象"></a>存储 localStorage 对象</h4><p>有时想存储创建的对象，并且在浏览器被关闭后让能恢复该对象。如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var course = &#123;</span><br><span class="line">	name: &apos;三年级语文&apos;,</span><br><span class="line">	price: 18</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">localStorage.setItem(&apos;course&apos;, JSON.stringify(course));</span><br><span class="line"></span><br><span class="line">var getLocalCourse = JSON.parse(localStorage.getItem(&apos;course&apos;));</span><br></pre></td></tr></table></figure>
+<h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function unique(arr) &#123;</span><br><span class="line">	var obj = &#123;&#125;;</span><br><span class="line">	arr.forEach(function(item) &#123;</span><br><span class="line">		var newData = &#123;&#125;;</span><br><span class="line">		Object.keys(item).sort().map(function(key) &#123;</span><br><span class="line">			newData[key] = item[key];</span><br><span class="line">		&#125;)</span><br><span class="line">		obj[JSON.stringify(newData)] = item; // 键名不会重复</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	arr = Object.keys(obj).map(function(val) &#123;</span><br><span class="line">		return JSON.parse(val);</span><br><span class="line">	&#125;)</span><br><span class="line">	return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>JSON.stringify</code> 第二个参数可以决定筛选出来的内容，还有第三个参数，可以参考 <code>MDN</code>。</p>
+<h4 id="实现深拷贝"><a href="#实现深拷贝" class="headerlink" title="实现深拷贝"></a>实现深拷贝</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function deepClone(data) &#123;</span><br><span class="line">	var _data = JSON.stringify(data);</span><br><span class="line">	var newData = JSON.parse(_data);</span><br><span class="line">	return newData;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="判断数组是否包含对象，或者对象是否相等"><a href="#判断数组是否包含对象，或者对象是否相等" class="headerlink" title="判断数组是否包含对象，或者对象是否相等"></a>判断数组是否包含对象，或者对象是否相等</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/* 判断数组是否包含某对象 */ </span><br><span class="line"></span><br><span class="line">var data1 = [</span><br><span class="line">	&#123; name: &apos;cherry&apos; &#125;,</span><br><span class="line">	&#123; name: &apos;sunny&apos; &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">var data2 = &#123; name: &apos;sunny&apos; &#125;;</span><br><span class="line"></span><br><span class="line">console.log(JSON.stringify(data1).indexOf(JSON.stringify(data2)) != -1)</span><br><span class="line">// true</span><br><span class="line"></span><br><span class="line">/* 判断数组或对象是否相等 */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var a = [1, 2, 3];</span><br><span class="line">var b = [1, 2, 3];</span><br><span class="line"></span><br><span class="line">console.log(JSON.stringify(a) == JSON.stringify(b)) </span><br><span class="line">// true</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>JavaScript</category>
-        <category>深度克隆</category>
+        <category>JSON.stringify() 妙用</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Git 创建多账号</title>
+    <url>/archives/aff47974.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>使用 <code>Git</code> 过程中，难免会遇到使用 <code>Git</code> 既管理公司项目，又要管理自己个人项目。那么 <code>Git</code> 如何做到呢？是本篇主要讨论的内容，在这里做下笔记。</p>
+<h3 id="生成新-ssh-key"><a href="#生成新-ssh-key" class="headerlink" title="生成新 ssh key"></a>生成新 ssh key</h3><p>确保已经安装了 <code>Git</code>，在电脑上打开 <code>Git</code> 创建 <code>ssh key</code>。如果已经存在一个 <code>ssh key</code> 那么需要生成第二个 <code>ssh key</code>，使用命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygn -t rsa -C &quot;email&quot;</span><br></pre></td></tr></table></figure>
+<p>为了与之前的 <code>ssh</code> 区分，可以重新命名以 <code>id_rsa_me</code> 重新命名。回车，重复确认回车即可。</p>
+<h3 id="添加新-ssh-key"><a href="#添加新-ssh-key" class="headerlink" title="添加新 ssh key"></a>添加新 ssh key</h3><p>默认 <code>ssh</code> 只会读取 <code>id_rsa</code>，所以为了让 <code>ssh</code> 识别新的私钥，需要将其添加到 <code>ssh agent</code>。</p>
+<p>使用命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_me</span><br></pre></td></tr></table></figure>
+<p>如果报错 <code>Could not open a connection to your authentication agent.</code>无法连接到 <code>ssh agent</code> 可执行 <code>ssh-agent bash</code> 命令后再执行 <code>ssh-add</code> 命令。</p>
+<p>然后将公钥添加到 <code>Git</code> 帐号。</p>
+<h3 id="配置-config-文件"><a href="#配置-config-文件" class="headerlink" title="配置 config 文件"></a>配置 config 文件</h3><p>查看 <code>.ssh</code> 文件中是否存在 <code>config</code> 文件。</p>
+<p>如果存在，可以直接编辑 <code>config</code> 文件。可以使用 <code>Sublime Text</code> 编辑器进行编辑。</p>
+<p>如果不存在，需要创建 <code>config</code> 文件，使用 <code>touch config</code> 命令创建，然后再编辑 <code>config</code> 文件。</p>
+<p>对 <code>config</code> 文件进行配置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 第一个账号</span><br><span class="line">Host xxx.com</span><br><span class="line">    HostName xxx.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># 第二个账号</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_me</span><br></pre></td></tr></table></figure>
+<h3 id="测试是否配置成功"><a href="#测试是否配置成功" class="headerlink" title="测试是否配置成功"></a>测试是否配置成功</h3><p>使用命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">ssh -T git@zc</span><br></pre></td></tr></table></figure>
+<p>如果出现欢迎语，则表示配置成功。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>创建 <code>Git</code> 多账号时，注意创建新的 <code>ssh key</code> 与默认 <code>ssh key</code> 区分，再创建 <code>config</code> 文件进行配置帐号进行管理。 </p>
+]]></content>
+      <categories>
+        <category>Git</category>
+        <category>创建多帐号</category>
       </categories>
   </entry>
   <entry>
@@ -1431,22 +1412,68 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       </categories>
   </entry>
   <entry>
-    <title>JSON.stringify() 妙用</title>
-    <url>/archives/85d76abc.html</url>
-    <content><![CDATA[<h4 id="调试对象"><a href="#调试对象" class="headerlink" title="调试对象"></a>调试对象</h4><p>比如，如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var user = &#123;</span><br><span class="line">	name: &apos;hello word&apos;,</span><br><span class="line">	age: 18</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(user)</span><br></pre></td></tr></table></figure>
-<p>打印输出 <code>[object Object]</code>，因为从对象到字符串的默认转换是 <code>[object Object]</code>。因此，使用 <code>JSON.stringify</code> 先将对象转化字符串，然后把结果输出控制台。如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var user = &#123;</span><br><span class="line">	name: &apos;hello word&apos;,</span><br><span class="line">	age: 18</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(JSON.stringify(user))</span><br><span class="line"></span><br><span class="line">// &#123;name:&quot;hello word&quot;, age:18&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="存储-localStorage-对象"><a href="#存储-localStorage-对象" class="headerlink" title="存储 localStorage 对象"></a>存储 localStorage 对象</h4><p>有时想存储创建的对象，并且在浏览器被关闭后让能恢复该对象。如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var course = &#123;</span><br><span class="line">	name: &apos;三年级语文&apos;,</span><br><span class="line">	price: 18</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">localStorage.setItem(&apos;course&apos;, JSON.stringify(course));</span><br><span class="line"></span><br><span class="line">var getLocalCourse = JSON.parse(localStorage.getItem(&apos;course&apos;));</span><br></pre></td></tr></table></figure>
-<h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function unique(arr) &#123;</span><br><span class="line">	var obj = &#123;&#125;;</span><br><span class="line">	arr.forEach(function(item) &#123;</span><br><span class="line">		var newData = &#123;&#125;;</span><br><span class="line">		Object.keys(item).sort().map(function(key) &#123;</span><br><span class="line">			newData[key] = item[key];</span><br><span class="line">		&#125;)</span><br><span class="line">		obj[JSON.stringify(newData)] = item; // 键名不会重复</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	arr = Object.keys(obj).map(function(val) &#123;</span><br><span class="line">		return JSON.parse(val);</span><br><span class="line">	&#125;)</span><br><span class="line">	return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>JSON.stringify</code> 第二个参数可以决定筛选出来的内容，还有第三个参数，可以参考 <code>MDN</code>。</p>
-<h4 id="实现深拷贝"><a href="#实现深拷贝" class="headerlink" title="实现深拷贝"></a>实现深拷贝</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function deepClone(data) &#123;</span><br><span class="line">	var _data = JSON.stringify(data);</span><br><span class="line">	var newData = JSON.parse(_data);</span><br><span class="line">	return newData;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="判断数组是否包含对象，或者对象是否相等"><a href="#判断数组是否包含对象，或者对象是否相等" class="headerlink" title="判断数组是否包含对象，或者对象是否相等"></a>判断数组是否包含对象，或者对象是否相等</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/* 判断数组是否包含某对象 */ </span><br><span class="line"></span><br><span class="line">var data1 = [</span><br><span class="line">	&#123; name: &apos;cherry&apos; &#125;,</span><br><span class="line">	&#123; name: &apos;sunny&apos; &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">var data2 = &#123; name: &apos;sunny&apos; &#125;;</span><br><span class="line"></span><br><span class="line">console.log(JSON.stringify(data1).indexOf(JSON.stringify(data2)) != -1)</span><br><span class="line">// true</span><br><span class="line"></span><br><span class="line">/* 判断数组或对象是否相等 */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var a = [1, 2, 3];</span><br><span class="line">var b = [1, 2, 3];</span><br><span class="line"></span><br><span class="line">console.log(JSON.stringify(a) == JSON.stringify(b)) </span><br><span class="line">// true</span><br></pre></td></tr></table></figure>
+    <title>学习Flex知识</title>
+    <url>/archives/48632995.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前都是使用传统的CSS布局方式，但随着CSS3广泛应用在移动端和主流浏览器中，抱着求学的心态学习接收前端新的知识Flex布局，在这里做下笔记进行总结。</p>
+<hr>
+<h3 id="Flex使用"><a href="#Flex使用" class="headerlink" title="Flex使用"></a>Flex使用</h3><p>设置Flex布局，在父框添加 display:flex即可。</p>
+<p>Flex布局有浏览器兼容性，需要根据不同浏览器内核添加不同浏览器前缀，比如Chrome浏览器使用 -webkit- 前缀。</p>
+<p><strong>注意：</strong> 如果用了弹性布局，子元素不需要浮动 float。</p>
+<h3 id="父框设置Flex携带属性"><a href="#父框设置Flex携带属性" class="headerlink" title="父框设置Flex携带属性"></a>父框设置Flex携带属性</h3><p>justify-content: 子元素水平排列方式，值有以下几种：</p>
+<ul>
+<li>center 居中，(常用)</li>
+<li>space-between    两端对齐(常用)</li>
+<li>space-around    子元素拉手分布    (常用)</li>
+<li>flex-start 居左</li>
+<li>flex-end 居右</li>
+</ul>
+<p>align-items: 子元素垂直排列，值有以下几种：</p>
+<ul>
+<li>center 居中(常用)</li>
+<li>flex-end 底部</li>
+<li>flex-start 开始</li>
+</ul>
+<p>align-content:多行的时候，垂直排列</p>
+<ul>
+<li>center 居中<br>…</li>
+</ul>
+<p>flex-direction: 排列方式，该属性值有以下几种：</p>
+<ul>
+<li>row 横向排列</li>
+<li>row-reverse 横向翻过排列</li>
+<li>column 纵向排列</li>
+<li>column-reverse 纵向翻过排列</li>
+</ul>
+<p>flex-wrap: 子元素是否在一行显示，该属性值有以下几种：</p>
+<ul>
+<li>nowrap 不换行</li>
+<li>wrap 换行</li>
+</ul>
+<p>flex-flow 全拼是 <code>&lt;flex-direction&gt;</code> 与 <code>&lt;flex-wrap&gt;</code>的缩写。    </p>
+<h3 id="子框身上属性"><a href="#子框身上属性" class="headerlink" title="子框身上属性:"></a>子框身上属性:</h3><p>父框设置Flex布局，子框携带的属性：</p>
+<ul>
+<li>flex:1，1 指的是一个系数。</li>
+<li>子元素在划分父元素宽度，先刨除固定宽度。</li>
+<li>align-self 其实就是用来覆盖父级 align-items  垂直排列。</li>
+<li>flex-grow: 1;    定义子元素放大比例。</li>
+<li>order: 规定子元素顺序。排序：数值越小，越靠前，默认值0。</li>
+</ul>
+<h3 id="flex：1的含义"><a href="#flex：1的含义" class="headerlink" title="flex：1的含义"></a>flex：1的含义</h3><ul>
+<li>flex是flex-grow，flex-shrink，flex-basis的缩写。</li>
+<li>flex-grow：父控件空间有剩余是否放大；0表示不放大。</li>
+<li>flex-shrink：父控件空间不足是否缩小。</li>
+<li>flex-basis：子控件占主轴的大小，主轴就是flex的主方向，row是横向，column是竖向。</li>
+<li>flex默认属性是0 1 auto，(父控件有剩余控件不放大，父控件空间不足按1缩小，保持本身的空间大小)。</li>
+<li>flex:1;的值是1 1 0%，(父控件有剩余空间按1放大，父控件空间不足按1缩小，自身的空间大小是0%)。</li>
+</ul>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></li>
+</ul>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
-        <category>JSON.stringify() 妙用</category>
+        <category>CSS</category>
+        <category>Flex布局</category>
       </categories>
   </entry>
   <entry>
@@ -1606,99 +1633,6 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       <categories>
         <category>Vue</category>
         <category>Vue实用技巧</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Git 创建多账号</title>
-    <url>/archives/aff47974.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>使用 <code>Git</code> 过程中，难免会遇到使用 <code>Git</code> 既管理公司项目，又要管理自己个人项目。那么 <code>Git</code> 如何做到呢？是本篇主要讨论的内容，在这里做下笔记。</p>
-<h3 id="生成新-ssh-key"><a href="#生成新-ssh-key" class="headerlink" title="生成新 ssh key"></a>生成新 ssh key</h3><p>确保已经安装了 <code>Git</code>，在电脑上打开 <code>Git</code> 创建 <code>ssh key</code>。如果已经存在一个 <code>ssh key</code> 那么需要生成第二个 <code>ssh key</code>，使用命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygn -t rsa -C &quot;email&quot;</span><br></pre></td></tr></table></figure>
-<p>为了与之前的 <code>ssh</code> 区分，可以重新命名以 <code>id_rsa_me</code> 重新命名。回车，重复确认回车即可。</p>
-<h3 id="添加新-ssh-key"><a href="#添加新-ssh-key" class="headerlink" title="添加新 ssh key"></a>添加新 ssh key</h3><p>默认 <code>ssh</code> 只会读取 <code>id_rsa</code>，所以为了让 <code>ssh</code> 识别新的私钥，需要将其添加到 <code>ssh agent</code>。</p>
-<p>使用命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_me</span><br></pre></td></tr></table></figure>
-<p>如果报错 <code>Could not open a connection to your authentication agent.</code>无法连接到 <code>ssh agent</code> 可执行 <code>ssh-agent bash</code> 命令后再执行 <code>ssh-add</code> 命令。</p>
-<p>然后将公钥添加到 <code>Git</code> 帐号。</p>
-<h3 id="配置-config-文件"><a href="#配置-config-文件" class="headerlink" title="配置 config 文件"></a>配置 config 文件</h3><p>查看 <code>.ssh</code> 文件中是否存在 <code>config</code> 文件。</p>
-<p>如果存在，可以直接编辑 <code>config</code> 文件。可以使用 <code>Sublime Text</code> 编辑器进行编辑。</p>
-<p>如果不存在，需要创建 <code>config</code> 文件，使用 <code>touch config</code> 命令创建，然后再编辑 <code>config</code> 文件。</p>
-<p>对 <code>config</code> 文件进行配置：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 第一个账号</span><br><span class="line">Host xxx.com</span><br><span class="line">    HostName xxx.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># 第二个账号</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_me</span><br></pre></td></tr></table></figure>
-<h3 id="测试是否配置成功"><a href="#测试是否配置成功" class="headerlink" title="测试是否配置成功"></a>测试是否配置成功</h3><p>使用命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">ssh -T git@zc</span><br></pre></td></tr></table></figure>
-<p>如果出现欢迎语，则表示配置成功。</p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>创建 <code>Git</code> 多账号时，注意创建新的 <code>ssh key</code> 与默认 <code>ssh key</code> 区分，再创建 <code>config</code> 文件进行配置帐号进行管理。 </p>
-]]></content>
-      <categories>
-        <category>Git</category>
-        <category>创建多帐号</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo个人博客绑定域名</title>
-    <url>/archives/8a6c9ade.html</url>
-    <content><![CDATA[<p><strong>前言</strong></p>
-<p>申请域名已经很久，之前偶尔用用，没有用起来；最近想充分利用，在网上研究一番，现在配置成功可以使用，记下心得。</p>
-<h3 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h3><p>在万网，新网等网站申请一个域名。本文以万网为例：</p>
-<ul>
-<li><p>首先注册阿里云账号，如果有淘宝账号的，可以直接登录。</p>
-</li>
-<li><p>登录以后，先进行实名认证（购买域名要用到）。</p>
-</li>
-<li><p>认证信息提交完毕后，可能需要一两天的审核时间。</p>
-</li>
-<li><p>认证完毕后回到首页，上方导航栏，产品-&gt;点击万网，搜索自己想要的域名并进行购买（域名持有者选择个人，这里就用到之前的认证）。</p>
-</li>
-<li><p>购买完毕后，回到首页点击右上方的控制台，进入后点击上方导航栏的产品与服务，然后选择域名，点击进入域名解析列表，然后就可以看到刚刚买的域名了，接下来进行解析配置（绑定）。</p>
-</li>
-</ul>
-<h3 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h3><p>登录成功阿里云，进入个人页面找到<strong>最近使用的产品</strong>文案，点击域名进入域名管理页面：</p>
-<p><img src="/images/1_6.png" alt="域名"></p>
-<p>在域名列表中找到自己想要解析的域名，点击域名右侧<code>解析</code>文案：</p>
-<p><img src="/images/1_7.png" alt="域名列表"></p>
-<p>进入到域名解析设置页面，如下图：</p>
-<p><img src="/images/1_8.png" alt="域名解析设置"></p>
-<ul>
-<li><p>第一个红色框中，点击修改在<code>记录值</code>中填写自己的<code>github</code>博客地址，不需要<code>http://</code>前缀。</p>
-</li>
-<li><p>第二个红色框中，填写博客站点的<code>IP</code>，获取博客<code>IP</code>方式：</p>
-</li>
-</ul>
-<p><code>win+R</code>快捷键打开“运行”窗口，输入<code>cmd</code>运行命令行控制台。</p>
-<p>用以下指令获取自己博客站点的<code>IP</code>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping xxx.github.io</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">正在 Ping xxx.github.io [185.xxx.xxx.153] 具有 32 字节的</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=57ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=55ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=56ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=60ms TTL=48</span><br></pre></td></tr></table></figure>
-<p>把获取到的<code>IP</code>填写在第二个红色框中。</p>
-<h3 id="创建CNAME"><a href="#创建CNAME" class="headerlink" title="创建CNAME"></a>创建CNAME</h3><p>在本地博客站点路径下的source文件夹里，创建一个名为CNAME的文件（注意要大写），里面写上你之前购买的域名。</p>
-<p>如下图：</p>
-<p><img src="/images/1_9.png" alt="填写CNAME"></p>
-<p>文件里的域名前加不加www都可以，具体规则如下：</p>
-<ul>
-<li>如果填写的是没有<code>www</code>的，比如 yuanbeauty.com，无论是访问 <code>http://www.yuanbeauty.com</code> 还是 <code>http://yuanbeauty.com</code> ，都会自动跳转到 <code>http://yuanbeauty.com</code>。</li>
-</ul>
-<ul>
-<li>如果你填写的是其它子域名，比如 <code>abc.yuanbeauty.com</code>，访问 <code>http://abc.yuanbeauty.com</code> 没问题，但是访问 <code>http://yuanbeauty.com</code> ，不会自动跳转到 <code>http://abc.yuanbeauty.com</code>。</li>
-</ul>
-<h3 id="github绑定域名"><a href="#github绑定域名" class="headerlink" title="github绑定域名"></a>github绑定域名</h3><p>在<a href="https://github.com" target="_blank" rel="noopener">github</a>上，点击进入头像个人设置，如下图：</p>
-<p><img src="/images/1_3.png" alt="setting"></p>
-<p>点击存放个人博客的仓库，在<strong>仓库标题</strong>下面，有<code>setting</code>设置点击进入，</p>
-<p><img src="/images/1_4.png" alt="setting"></p>
-<p>在当前页面拉动滚动条找到<code>GitHub Pages</code>，填入购买的域名：</p>
-<p><img src="/images/1_5.png" alt="github-pages"></p>
-<p>重新生成个人博客，打包部署就能使用域名访问博客，执行命令：</p>
-<ul>
-<li><p><code>hexo clean</code> 清理缓存文件</p>
-</li>
-<li><p><code>hexo g</code> 生成静态文件</p>
-</li>
-<li><p><code>hexo d</code> 部署个人博客项目</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>绑定域名</category>
       </categories>
   </entry>
   <entry>
@@ -1887,14 +1821,100 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       </categories>
   </entry>
   <entry>
-    <title>计算某天日期</title>
-    <url>/archives/1bbd2904.html</url>
+    <title>Hexo个人博客绑定域名</title>
+    <url>/archives/8a6c9ade.html</url>
+    <content><![CDATA[<p><strong>前言</strong></p>
+<p>申请域名已经很久，之前偶尔用用，没有用起来；最近想充分利用，在网上研究一番，现在配置成功可以使用，记下心得。</p>
+<h3 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h3><p>在万网，新网等网站申请一个域名。本文以万网为例：</p>
+<ul>
+<li><p>首先注册阿里云账号，如果有淘宝账号的，可以直接登录。</p>
+</li>
+<li><p>登录以后，先进行实名认证（购买域名要用到）。</p>
+</li>
+<li><p>认证信息提交完毕后，可能需要一两天的审核时间。</p>
+</li>
+<li><p>认证完毕后回到首页，上方导航栏，产品-&gt;点击万网，搜索自己想要的域名并进行购买（域名持有者选择个人，这里就用到之前的认证）。</p>
+</li>
+<li><p>购买完毕后，回到首页点击右上方的控制台，进入后点击上方导航栏的产品与服务，然后选择域名，点击进入域名解析列表，然后就可以看到刚刚买的域名了，接下来进行解析配置（绑定）。</p>
+</li>
+</ul>
+<h3 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h3><p>登录成功阿里云，进入个人页面找到<strong>最近使用的产品</strong>文案，点击域名进入域名管理页面：</p>
+<p><img src="/images/1_6.png" alt="域名"></p>
+<p>在域名列表中找到自己想要解析的域名，点击域名右侧<code>解析</code>文案：</p>
+<p><img src="/images/1_7.png" alt="域名列表"></p>
+<p>进入到域名解析设置页面，如下图：</p>
+<p><img src="/images/1_8.png" alt="域名解析设置"></p>
+<ul>
+<li><p>第一个红色框中，点击修改在<code>记录值</code>中填写自己的<code>github</code>博客地址，不需要<code>http://</code>前缀。</p>
+</li>
+<li><p>第二个红色框中，填写博客站点的<code>IP</code>，获取博客<code>IP</code>方式：</p>
+</li>
+</ul>
+<p><code>win+R</code>快捷键打开“运行”窗口，输入<code>cmd</code>运行命令行控制台。</p>
+<p>用以下指令获取自己博客站点的<code>IP</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping xxx.github.io</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">正在 Ping xxx.github.io [185.xxx.xxx.153] 具有 32 字节的</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=57ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=55ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=56ms TTL=48</span><br><span class="line">来自 xxx.xxx.xxx.xxx 的回复: 字节=32 时间=60ms TTL=48</span><br></pre></td></tr></table></figure>
+<p>把获取到的<code>IP</code>填写在第二个红色框中。</p>
+<h3 id="创建CNAME"><a href="#创建CNAME" class="headerlink" title="创建CNAME"></a>创建CNAME</h3><p>在本地博客站点路径下的source文件夹里，创建一个名为CNAME的文件（注意要大写），里面写上你之前购买的域名。</p>
+<p>如下图：</p>
+<p><img src="/images/1_9.png" alt="填写CNAME"></p>
+<p>文件里的域名前加不加www都可以，具体规则如下：</p>
+<ul>
+<li>如果填写的是没有<code>www</code>的，比如 yuanbeauty.com，无论是访问 <code>http://www.yuanbeauty.com</code> 还是 <code>http://yuanbeauty.com</code> ，都会自动跳转到 <code>http://yuanbeauty.com</code>。</li>
+</ul>
+<ul>
+<li>如果你填写的是其它子域名，比如 <code>abc.yuanbeauty.com</code>，访问 <code>http://abc.yuanbeauty.com</code> 没问题，但是访问 <code>http://yuanbeauty.com</code> ，不会自动跳转到 <code>http://abc.yuanbeauty.com</code>。</li>
+</ul>
+<h3 id="github绑定域名"><a href="#github绑定域名" class="headerlink" title="github绑定域名"></a>github绑定域名</h3><p>在<a href="https://github.com" target="_blank" rel="noopener">github</a>上，点击进入头像个人设置，如下图：</p>
+<p><img src="/images/1_3.png" alt="setting"></p>
+<p>点击存放个人博客的仓库，在<strong>仓库标题</strong>下面，有<code>setting</code>设置点击进入，</p>
+<p><img src="/images/1_4.png" alt="setting"></p>
+<p>在当前页面拉动滚动条找到<code>GitHub Pages</code>，填入购买的域名：</p>
+<p><img src="/images/1_5.png" alt="github-pages"></p>
+<p>重新生成个人博客，打包部署就能使用域名访问博客，执行命令：</p>
+<ul>
+<li><p><code>hexo clean</code> 清理缓存文件</p>
+</li>
+<li><p><code>hexo g</code> 生成静态文件</p>
+</li>
+<li><p><code>hexo d</code> 部署个人博客项目</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>绑定域名</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>浏览器 Url 参数转化为对象</title>
+    <url>/archives/14ec002f.html</url>
     <content><![CDATA[<p>项目需求：</p>
-<p>根据现有日期，计算前几天日期或后几天的日期。</p>
-<p>解决方式：</p>
-<p>顺便编写一个公共方法，方便后续使用。使用 <code>setDate</code> 计算已知日期加上固定天数；日期转化成字符串使用 <code>padStart</code> 不足两位的补全 0。</p>
+<p>教师端，题库列表界面需要传入 <code>n</code> 个参数，后续还有可能新增参数。由于是旧项目后端在 <code>url</code> 路由设置参数，后续开发也不方便。因此，由前端自定义传参接收参数。</p>
+<p>使用一般方式获取浏览器路有参数，比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var search = window.location.search;</span><br><span class="line"></span><br><span class="line">if(search.indexOf(&apos;?&apos;) != -1) &#123;</span><br><span class="line">	var val = search.split(&apos;?&apos;)[1];</span><br><span class="line">	val = val.split(&apos;&amp;&apos;).slice(-1)[0];</span><br><span class="line">	val = val.split(&apos;=&apos;)[1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述方式单独获取具体参数可以使用，如果获取多个参数就得考虑使用正则或者封装公共方法。</p>
+<p>如何获取多个浏览器 <code>url</code> 参数？</p>
+<p>下面是自己编写的方法，把浏览器参数存入对象中，以键值对的方式存在对象中。</p>
+<p>步骤：</p>
+<ul>
+<li><p>获取浏览器参数，使用 <code>window.location.search</code>。</p>
+</li>
+<li><p>使用 <code>split</code> 切割参数取下标为 1 的数据。</p>
+</li>
+<li><p>声明一个全局对象，保存参数数据。</p>
+</li>
+<li><p>使用 <code>split</code> 切割 <code>&amp;</code> 符号。</p>
+</li>
+<li><p>循环遍历上一步骤的数组，使用 <code>split</code> 切割数组每项中的数据，以 <code>=</code> 为切割点。</p>
+</li>
+<li><p>设置每项的数据下标 <code>0</code> 为对象的键名，<code>1</code> 为对象的键值。</p>
+</li>
+<li><p>循环结束后，返回该对象。</p>
+</li>
+</ul>
 <p>完整代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export default&#123;</span><br><span class="line">	methods: &#123;</span><br><span class="line">		initDate(day) &#123;</span><br><span class="line">			let timeDate,Y,M,D,h,m,s;</span><br><span class="line">			timeDate = new Date();</span><br><span class="line">			timeDate.setDate(timeDate.getDate() + day);</span><br><span class="line">			Y = timeDate.getFullYear();</span><br><span class="line">			M = (timeDate.getMonth() + 1).toString().padStart(2, &apos;0&apos;);</span><br><span class="line">			D = timeDate.getDate().toString().padStart(2, &apos;0&apos;);</span><br><span class="line">			h = timeDate.getHours().toString().padStart(2, &apos;0&apos;);</span><br><span class="line">			m = timeDate.getMinutes().toString().padStart(2, &apos;0&apos;);</span><br><span class="line">			s = timeDate.getSeconds().toString().padStart(2, &apos;0&apos;);</span><br><span class="line">			return `$&#123;Y&#125;-$&#123;M&#125;-$&#123;D&#125; $&#123;h&#125;:$&#123;m&#125;:$&#123;s&#125;`;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function getUrlParams(name) &#123;</span><br><span class="line">    var search = url.split(&apos;?&apos;) &amp;&amp; url.split(&apos;?&apos;)[1];</span><br><span class="line">    var obj = &#123; &#125;;</span><br><span class="line">    search = search.split(&apos;&amp;&apos;);</span><br><span class="line">    for(var i=0; i &lt; search.length; i++) &#123;</span><br><span class="line">        var search_v = search[i].split(&apos;=&apos;);</span><br><span class="line">        obj[search_v[0]] = search_v[1];</span><br><span class="line">    &#125;</span><br><span class="line">	return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>
@@ -1930,6 +1950,19 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       </categories>
   </entry>
   <entry>
+    <title>计算某天日期</title>
+    <url>/archives/1bbd2904.html</url>
+    <content><![CDATA[<p>项目需求：</p>
+<p>根据现有日期，计算前几天日期或后几天的日期。</p>
+<p>解决方式：</p>
+<p>顺便编写一个公共方法，方便后续使用。使用 <code>setDate</code> 计算已知日期加上固定天数；日期转化成字符串使用 <code>padStart</code> 不足两位的补全 0。</p>
+<p>完整代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export default&#123;</span><br><span class="line">	methods: &#123;</span><br><span class="line">		initDate(day) &#123;</span><br><span class="line">			let timeDate,Y,M,D,h,m,s;</span><br><span class="line">			timeDate = new Date();</span><br><span class="line">			timeDate.setDate(timeDate.getDate() + day);</span><br><span class="line">			Y = timeDate.getFullYear();</span><br><span class="line">			M = (timeDate.getMonth() + 1).toString().padStart(2, &apos;0&apos;);</span><br><span class="line">			D = timeDate.getDate().toString().padStart(2, &apos;0&apos;);</span><br><span class="line">			h = timeDate.getHours().toString().padStart(2, &apos;0&apos;);</span><br><span class="line">			m = timeDate.getMinutes().toString().padStart(2, &apos;0&apos;);</span><br><span class="line">			s = timeDate.getSeconds().toString().padStart(2, &apos;0&apos;);</span><br><span class="line">			return `$&#123;Y&#125;-$&#123;M&#125;-$&#123;D&#125; $&#123;h&#125;:$&#123;m&#125;:$&#123;s&#125;`;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
     <title>For循环中使用ref</title>
     <url>/archives/65239c83.html</url>
     <content><![CDATA[<p>项目需求：</p>
@@ -1942,39 +1975,6 @@ document.body.innerHTML = `&lt;div&gt;${name}&lt;/div&gt;`;
       <categories>
         <category>Vue</category>
         <category>ref</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>浏览器 Url 参数转化为对象</title>
-    <url>/archives/14ec002f.html</url>
-    <content><![CDATA[<p>项目需求：</p>
-<p>教师端，题库列表界面需要传入 <code>n</code> 个参数，后续还有可能新增参数。由于是旧项目后端在 <code>url</code> 路由设置参数，后续开发也不方便。因此，由前端自定义传参接收参数。</p>
-<p>使用一般方式获取浏览器路有参数，比如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var search = window.location.search;</span><br><span class="line"></span><br><span class="line">if(search.indexOf(&apos;?&apos;) != -1) &#123;</span><br><span class="line">	var val = search.split(&apos;?&apos;)[1];</span><br><span class="line">	val = val.split(&apos;&amp;&apos;).slice(-1)[0];</span><br><span class="line">	val = val.split(&apos;=&apos;)[1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述方式单独获取具体参数可以使用，如果获取多个参数就得考虑使用正则或者封装公共方法。</p>
-<p>如何获取多个浏览器 <code>url</code> 参数？</p>
-<p>下面是自己编写的方法，把浏览器参数存入对象中，以键值对的方式存在对象中。</p>
-<p>步骤：</p>
-<ul>
-<li><p>获取浏览器参数，使用 <code>window.location.search</code>。</p>
-</li>
-<li><p>使用 <code>split</code> 切割参数取下标为 1 的数据。</p>
-</li>
-<li><p>声明一个全局对象，保存参数数据。</p>
-</li>
-<li><p>使用 <code>split</code> 切割 <code>&amp;</code> 符号。</p>
-</li>
-<li><p>循环遍历上一步骤的数组，使用 <code>split</code> 切割数组每项中的数据，以 <code>=</code> 为切割点。</p>
-</li>
-<li><p>设置每项的数据下标 <code>0</code> 为对象的键名，<code>1</code> 为对象的键值。</p>
-</li>
-<li><p>循环结束后，返回该对象。</p>
-</li>
-</ul>
-<p>完整代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">function getUrlParams(name) &#123;</span><br><span class="line">    var search = url.split(&apos;?&apos;) &amp;&amp; url.split(&apos;?&apos;)[1];</span><br><span class="line">    var obj = &#123; &#125;;</span><br><span class="line">    search = search.split(&apos;&amp;&apos;);</span><br><span class="line">    for(var i=0; i &lt; search.length; i++) &#123;</span><br><span class="line">        var search_v = search[i].split(&apos;=&apos;);</span><br><span class="line">        obj[search_v[0]] = search_v[1];</span><br><span class="line">    &#125;</span><br><span class="line">	return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JavaScript</category>
       </categories>
   </entry>
   <entry>
