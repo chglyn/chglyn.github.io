@@ -397,6 +397,32 @@
   </entry>
   
   <entry>
+    <title>CSS3 绘制太极阴阳图</title>
+    <link href="http://blog.yuanbeauty.com/archives/7fd2b354.html"/>
+    <id>http://blog.yuanbeauty.com/archives/7fd2b354.html</id>
+    <published>2018-07-21T16:00:00.000Z</published>
+    <updated>2018-07-21T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="CSS3-绘制太极阴阳图"><a href="#CSS3-绘制太极阴阳图" class="headerlink" title="CSS3 绘制太极阴阳图"></a>CSS3 绘制太极阴阳图</h3><p>绘制一个圆形，使用伪元素设置两个小圆，结合相对定位和绝对定位拼接。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div class=&quot;taiji&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line"></span><br><span class="line">body&#123;</span><br><span class="line">background-color:#ccc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.taiji&#123;</span><br><span class="line">width:150px;</span><br><span class="line">height:300px;</span><br><span class="line">border-radius: 50%;</span><br><span class="line">background-color: #fff;</span><br><span class="line">border-left:  150px solid #000;</span><br><span class="line"></span><br><span class="line">margin: 200px auto;</span><br><span class="line">position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.taiji::before&#123;</span><br><span class="line">content:  &apos;&apos;;</span><br><span class="line">width: 0;</span><br><span class="line">height: 0;</span><br><span class="line">padding: 25px;</span><br><span class="line">border-radius: 50%;</span><br><span class="line">border: 50px solid #000;</span><br><span class="line">background-color: #fff;</span><br><span class="line"></span><br><span class="line">position: absolute;</span><br><span class="line">left: -75px;</span><br><span class="line">top: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.taiji::after&#123;</span><br><span class="line">content:  &apos;&apos;;</span><br><span class="line">width: 0;</span><br><span class="line">height: 0;</span><br><span class="line">padding: 25px;</span><br><span class="line">border-radius: 50%;</span><br><span class="line">border: 50px solid #fff;</span><br><span class="line">background-color: #000;</span><br><span class="line"></span><br><span class="line">position: absolute;</span><br><span class="line">top: 150px;</span><br><span class="line">left: -75px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;CSS3-绘制太极阴阳图&quot;&gt;&lt;a href=&quot;#CSS3-绘制太极阴阳图&quot; class=&quot;headerlink&quot; title=&quot;CSS3 绘制太极阴阳图&quot;&gt;&lt;/a&gt;CSS3 绘制太极阴阳图&lt;/h3&gt;&lt;p&gt;绘制一个圆形，使用伪元素设置两个小圆，结合相对定位和绝对定位
+      
+    
+    </summary>
+    
+    
+      <category term="CSS3" scheme="http://blog.yuanbeauty.com/categories/CSS3/"/>
+    
+      <category term="8-太极阴阳图" scheme="http://blog.yuanbeauty.com/categories/CSS3/8-%E5%A4%AA%E6%9E%81%E9%98%B4%E9%98%B3%E5%9B%BE/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>CSS3 绘制爱心与蛋形</title>
     <link href="http://blog.yuanbeauty.com/archives/f1f5b003.html"/>
     <id>http://blog.yuanbeauty.com/archives/f1f5b003.html</id>
@@ -417,33 +443,7 @@
     
       <category term="CSS3" scheme="http://blog.yuanbeauty.com/categories/CSS3/"/>
     
-      <category term="爱心与蛋形" scheme="http://blog.yuanbeauty.com/categories/CSS3/%E7%88%B1%E5%BF%83%E4%B8%8E%E8%9B%8B%E5%BD%A2/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CSS3 太极阴阳图</title>
-    <link href="http://blog.yuanbeauty.com/archives/7fd2b354.html"/>
-    <id>http://blog.yuanbeauty.com/archives/7fd2b354.html</id>
-    <published>2018-07-20T16:00:00.000Z</published>
-    <updated>2018-07-20T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="CSS3-绘制太极阴阳图"><a href="#CSS3-绘制太极阴阳图" class="headerlink" title="CSS3 绘制太极阴阳图"></a>CSS3 绘制太极阴阳图</h3><p>绘制一个圆形，使用伪元素设置两个小圆，结合相对定位和绝对定位拼接。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div class=&quot;taiji&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line"></span><br><span class="line">body&#123;</span><br><span class="line">background-color:#ccc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.taiji&#123;</span><br><span class="line">width:150px;</span><br><span class="line">height:300px;</span><br><span class="line">border-radius: 50%;</span><br><span class="line">background-color: #fff;</span><br><span class="line">border-left:  150px solid #000;</span><br><span class="line"></span><br><span class="line">margin: 200px auto;</span><br><span class="line">position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.taiji::before&#123;</span><br><span class="line">content:  &apos;&apos;;</span><br><span class="line">width: 0;</span><br><span class="line">height: 0;</span><br><span class="line">padding: 25px;</span><br><span class="line">border-radius: 50%;</span><br><span class="line">border: 50px solid #000;</span><br><span class="line">background-color: #fff;</span><br><span class="line"></span><br><span class="line">position: absolute;</span><br><span class="line">left: -75px;</span><br><span class="line">top: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.taiji::after&#123;</span><br><span class="line">content:  &apos;&apos;;</span><br><span class="line">width: 0;</span><br><span class="line">height: 0;</span><br><span class="line">padding: 25px;</span><br><span class="line">border-radius: 50%;</span><br><span class="line">border: 50px solid #fff;</span><br><span class="line">background-color: #000;</span><br><span class="line"></span><br><span class="line">position: absolute;</span><br><span class="line">top: 150px;</span><br><span class="line">left: -75px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;CSS3-绘制太极阴阳图&quot;&gt;&lt;a href=&quot;#CSS3-绘制太极阴阳图&quot; class=&quot;headerlink&quot; title=&quot;CSS3 绘制太极阴阳图&quot;&gt;&lt;/a&gt;CSS3 绘制太极阴阳图&lt;/h3&gt;&lt;p&gt;绘制一个圆形，使用伪元素设置两个小圆，结合相对定位和绝对定位
-      
-    
-    </summary>
-    
-    
-      <category term="CSS3" scheme="http://blog.yuanbeauty.com/categories/CSS3/"/>
-    
-      <category term="太极阴阳图" scheme="http://blog.yuanbeauty.com/categories/CSS3/%E5%A4%AA%E6%9E%81%E9%98%B4%E9%98%B3%E5%9B%BE/"/>
+      <category term="7-爱心与蛋形" scheme="http://blog.yuanbeauty.com/categories/CSS3/7-%E7%88%B1%E5%BF%83%E4%B8%8E%E8%9B%8B%E5%BD%A2/"/>
     
     
   </entry>
@@ -470,7 +470,7 @@
     
       <category term="CSS3" scheme="http://blog.yuanbeauty.com/categories/CSS3/"/>
     
-      <category term="梯形与五边形和六边形" scheme="http://blog.yuanbeauty.com/categories/CSS3/%E6%A2%AF%E5%BD%A2%E4%B8%8E%E4%BA%94%E8%BE%B9%E5%BD%A2%E5%92%8C%E5%85%AD%E8%BE%B9%E5%BD%A2/"/>
+      <category term="6-梯形与五边形和六边形" scheme="http://blog.yuanbeauty.com/categories/CSS3/6-%E6%A2%AF%E5%BD%A2%E4%B8%8E%E4%BA%94%E8%BE%B9%E5%BD%A2%E5%92%8C%E5%85%AD%E8%BE%B9%E5%BD%A2/"/>
     
     
   </entry>
@@ -496,7 +496,7 @@
     
       <category term="CSS3" scheme="http://blog.yuanbeauty.com/categories/CSS3/"/>
     
-      <category term="五角星与六角形" scheme="http://blog.yuanbeauty.com/categories/CSS3/%E4%BA%94%E8%A7%92%E6%98%9F%E4%B8%8E%E5%85%AD%E8%A7%92%E5%BD%A2/"/>
+      <category term="5-五角星与六角形" scheme="http://blog.yuanbeauty.com/categories/CSS3/5-%E4%BA%94%E8%A7%92%E6%98%9F%E4%B8%8E%E5%85%AD%E8%A7%92%E5%BD%A2/"/>
     
     
   </entry>
@@ -522,7 +522,7 @@
     
       <category term="CSS3" scheme="http://blog.yuanbeauty.com/categories/CSS3/"/>
     
-      <category term="菱形与平行四边形" scheme="http://blog.yuanbeauty.com/categories/CSS3/%E8%8F%B1%E5%BD%A2%E4%B8%8E%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2/"/>
+      <category term="4-菱形与平行四边形" scheme="http://blog.yuanbeauty.com/categories/CSS3/4-%E8%8F%B1%E5%BD%A2%E4%B8%8E%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2/"/>
     
     
   </entry>
@@ -548,7 +548,7 @@
     
       <category term="CSS3" scheme="http://blog.yuanbeauty.com/categories/CSS3/"/>
     
-      <category term="三角形" scheme="http://blog.yuanbeauty.com/categories/CSS3/%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
+      <category term="3-三角形" scheme="http://blog.yuanbeauty.com/categories/CSS3/3-%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
     
     
   </entry>
