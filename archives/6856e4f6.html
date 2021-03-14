@@ -459,7 +459,7 @@
 <h3 id="组合-API-本质："><a href="#组合-API-本质：" class="headerlink" title="组合 API 本质："></a>组合 <code>API</code> 本质：</h3><p>在 <code>setup</code> 中注册的变量或函数，会自动注册到 <code>vue2.x</code> 中的 <code>data</code> 或 <code>methods</code> 中。</p>
 <p>注意点：</p>
 <ul>
-<li><p>执行<code>setup</code> 函数，是在 <code>beforecreate</code> 钩子之前完成的。</p>
+<li><p>执行<code>setup</code> 函数，是在 <code>beforeCreate</code> 钩子之前完成的。</p>
 </li>
 <li><p>在 <code>setup</code> 函数中，无法使用 <code>data</code> 和 <code>methods</code>。</p>
 </li>
@@ -492,18 +492,25 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">setup() &#123;</span><br><span class="line">    let state = reactive(&#123;</span><br><span class="line">        time: new Date()</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    function fn() &#123;</span><br><span class="line">        const newTime = new Date(state.time.getTime())</span><br><span class="line">        newTime.setDate(state.time.getDate() + 1)</span><br><span class="line">        state.time = newTime</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return &#123; state, fn&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h3><p>什么是 <code>Ref</code>。</p>
-<pre><code>- `Ref` 是用来实现响应式数据的方法。
-
-- 由于 `Reactive` 传入一个对象，导致在开发中如果只想让某个变量实现响应式时会比较麻烦，因此 `Vue3.0` 提供了 `Ref` 方法，实现对简单值的监听。
-</code></pre><p><code>Ref</code> 本质：</p>
-<pre><code>- `Ref` 底层的本质还是 `Reactive`。
-
-系统会自动根据给 `Ref` 传入的值将它转化为 `ref(xx)` --&gt; `reactive({value: xx})`
-</code></pre><p><code>ref</code> 注意点：</p>
-<pre><code>- 在 `Vue` 中使用 `Ref` 的值，不用通过 `value` 获取。
-
-- 在 `JS` 中使用 `Ref` 的值必须通过 `value` 获取。
-</code></pre><h3 id="ref-与-reactive-区别"><a href="#ref-与-reactive-区别" class="headerlink" title="ref 与 reactive 区别"></a><code>ref</code> 与 <code>reactive</code> 区别</h3><ul>
+<ul>
+<li><p><code>Ref</code> 是用来实现响应式数据的方法。</p>
+</li>
+<li><p>由于 <code>Reactive</code> 传入一个对象，导致在开发中如果只想让某个变量实现响应式时会比较麻烦，因此 <code>Vue3.0</code> 提供了 <code>Ref</code> 方法，实现对简单值的监听。</p>
+</li>
+</ul>
+<p><code>Ref</code> 本质：</p>
+<ul>
+<li><code>Ref</code> 底层的本质还是 <code>Reactive</code>。</li>
+</ul>
+<p>系统会自动根据给 <code>Ref</code> 传入的值将它转化为 <code>ref(xx)</code> –&gt; <code>reactive({value: xx})</code></p>
+<p><code>ref</code> 注意点：</p>
+<ul>
+<li><p>在 <code>Vue</code> 中使用 <code>Ref</code> 的值，不用通过 <code>value</code> 获取。</p>
+</li>
+<li><p>在 <code>JS</code> 中使用 <code>Ref</code> 的值必须通过 <code>value</code> 获取。</p>
+</li>
+</ul>
+<h3 id="ref-与-reactive-区别"><a href="#ref-与-reactive-区别" class="headerlink" title="ref 与 reactive 区别"></a><code>ref</code> 与 <code>reactive</code> 区别</h3><ul>
 <li><p>如果在 <code>template</code> 中使用 <code>Ref</code> 类型的数据，<code>Vue</code> 会自动帮我们添加 <code>.value</code>。</p>
 </li>
 <li><p>如果在 <code>template</code> 中使用 <code>Reactive</code> 类型的数据，<code>Vue</code> 不会自动帮我们添加 <code>.value</code>。</p>
