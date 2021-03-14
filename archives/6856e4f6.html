@@ -1,0 +1,1198 @@
+<!doctype html>
+
+
+
+
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="Wh9e8U7wdZ">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="园子,web前端技术栈,web技术栈,Vue.js实战,微信小程序,React Native,Webpack,MVVM,React.js,Node.js,Redux,JavaScript,vue-router,react-router,小程序,跨端开发,react hooks,redux-saga,Web 前端实战,小程序实战,移动端实战,yuan blog">
+
+
+<meta property="article:tag" content="Vue.js实战">
+<meta property="article:tag" content="微信小程序">
+<meta property="article:tag" content="React Native">
+<meta property="article:tag" content="Webpack">
+<meta property="article:tag" content="MVVM">
+<meta property="article:tag" content="React.js">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="Redux">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="react hooks">
+<meta property="article:tag" content="redux-saga">
+<meta property="article:tag" content="Web 前端">
+<meta property="article:tag" content="移动端实战">
+<meta property="article:tag" content="小程序实战">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逺子君笔记" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Vue3.0 六大亮点： Performance：性能比 Vue2.x 快 2.2 倍。  Tree shaking support：按需编译，体积比 Vue2.x 更小。  Composition API：组合 API （类似 React Hooks）。  Better TypeScript support：更好的 TS 支持。  Custom Renderer API：暴露了自定义渲染 API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue3.0 笔记">
+<meta property="og:url" content="http://blog.yuanbeauty.com/archives/6856e4f6.html">
+<meta property="og:site_name" content="逺子君笔记">
+<meta property="og:description" content="Vue3.0 六大亮点： Performance：性能比 Vue2.x 快 2.2 倍。  Tree shaking support：按需编译，体积比 Vue2.x 更小。  Composition API：组合 API （类似 React Hooks）。  Better TypeScript support：更好的 TS 支持。  Custom Renderer API：暴露了自定义渲染 API">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-02-23T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue3.0 笔记">
+<meta name="twitter:description" content="Vue3.0 六大亮点： Performance：性能比 Vue2.x 快 2.2 倍。  Tree shaking support：按需编译，体积比 Vue2.x 更小。  Composition API：组合 API （类似 React Hooks）。  Better TypeScript support：更好的 TS 支持。  Custom Renderer API：暴露了自定义渲染 API">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.yuanbeauty.com/archives/6856e4f6.html">
+
+
+
+
+
+  <title> Vue3.0 笔记 - 逺子君笔记 - 或许为了自身写，或许为了知己写！ </title>
+</head>
+
+<body lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+    
+    <header id="header" class="header page-post-detail">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逺子君笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">或许为了自身写，或许为了知己写！</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页  
+            
+            
+            
+          </a>
+        </li>
+      
+
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档  
+            
+            
+              <span class="menu-num">34</span>
+            
+            
+          </a>
+        </li>
+      
+
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类  
+            
+            
+              <span class="menu-num">39</span>
+            
+            
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.yuanbeauty.com/archives/6856e4f6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/cc-bf-chglyn.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逺子君笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Vue3.0 笔记
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-09T00:00:00+08:00">
+                2021-01-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-02-24T00:00:00+08:00">
+                2021-02-24
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/archives/6856e4f6.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">字数统计</span>
+                  
+                    <span title="字数统计" }}">
+                      4k 字
+                    </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Vue3-0-六大亮点："><a href="#Vue3-0-六大亮点：" class="headerlink" title="Vue3.0 六大亮点："></a><code>Vue3.0</code> 六大亮点：</h3><ul>
+<li><p><code>Performance</code>：性能比 <code>Vue2.x</code> 快 2.2 倍。</p>
+</li>
+<li><p><code>Tree shaking support</code>：按需编译，体积比 <code>Vue2.x</code> 更小。</p>
+</li>
+<li><p><code>Composition API</code>：组合 <code>API</code> （类似 <code>React Hooks</code>）。</p>
+</li>
+<li><p><code>Better TypeScript support</code>：更好的 <code>TS</code> 支持。</p>
+</li>
+<li><p><code>Custom Renderer API</code>：暴露了自定义渲染 <code>API</code>。</p>
+</li>
+<li><p><code>Fragment，Teleport(Protal)，Suspense</code>：更先进的组件。</p>
+</li>
+</ul>
+<h3 id="Vue3-0-是如何变快的。"><a href="#Vue3-0-是如何变快的。" class="headerlink" title="Vue3.0 是如何变快的。"></a><code>Vue3.0</code> 是如何变快的。</h3><p><strong><code>diff</code> 方法优化</strong>：</p>
+<pre><code>* `Vue2.x` 中虚拟 `dom` 是进行全量的对比。
+
+* `Vue3.0` 新增了静态标记（`PatchFlag`）。
+
+    在与上次虚拟节点进行对比时候，只对比带有 `patch flag` 的节点。
+
+    并且可以通过 `flag` 的信息得知当前节点要对比的具体内容。
+</code></pre><p> <strong><code>hoistStatic</code> 静态提升</strong>：</p>
+<pre><code>* `Vue2.x` 中无论元素是否参与更新，每次都会重新创建。
+
+* `Vue3.0` 中对于不参与更新的元素，只会被创建一次，之后会在每次渲染的时候被不停的复用。
+</code></pre><p><strong><code>cacheHandlers</code> 事件侦听器缓存</strong></p>
+<pre><code>* 默认情况下 `onClick` 会被视为动态绑定，所以每次都会去追踪它的变化。但是因为是同一个函数，所以没有追踪变化，直接缓存起来复用即可。
+</code></pre><p><strong><code>SSR</code> 渲染</strong></p>
+<pre><code>* 当有大量静态内容的时候，这些内容会被当做纯字符串推进一个 `buffer` 里面，即使存在动态的绑定，会通过模板插值嵌入进去。这样比虚拟 `dom` 来渲染的快上很多。
+
+* 当静态内容达到一定量级时候，会用 `_createStaticVNode` 方法在客户端生成一个 `static node`，这些静态 `node`，会被直接 `innerHTML`，就不需要创建对象，然后根据对象渲染。
+</code></pre><p><strong>组合API</strong></p>
+<pre><code>* `setup` 函数是组合 `API` 入口函数。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; ref &#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">setup() &#123;</span><br><span class="line">    let count = ref(0)</span><br><span class="line"></span><br><span class="line">    function fn() &#123;</span><br><span class="line">        console.log(count)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return &#123; count, fn &#125;; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><p>组合 <code>API</code> 中定义变量或者函数必须 <code>return</code> 暴露给外界；定义方法不必定义到 <code>methods</code>中， 直接在组合 <code>API</code> 中定义即可。</p>
+<p><code>Ref</code> 只能监听简单类型的变化，不建议监听复杂类型（数组/对象等）的变化。</p>
+<p><code>Reactive</code> 可以监听复杂类型的变化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">setup() &#123;</span><br><span class="line">    let list = reactive(&#123;</span><br><span class="line">        lists: [&#123;id: 1, name: &apos;zs&apos;&#125;]</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    return &#123;list&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="组合-API-本质："><a href="#组合-API-本质：" class="headerlink" title="组合 API 本质："></a>组合 <code>API</code> 本质：</h3><p>在 <code>setup</code> 中注册的变量或函数，会自动注册到 <code>vue2.x</code> 中的 <code>data</code> 或 <code>methods</code> 中。</p>
+<p>注意点：</p>
+<pre><code>* 执行`setup` 函数，是在 `beforecreate` 钩子之前完成的。
+
+* 在 `setup` 函数中，无法使用 `data` 和 `methods`。
+
+* 在 `setup` 函数中，`this` 指向 `undefined`。
+
+* `setup` 函数只能是同步的不能是异步的。
+</code></pre><h3 id="Reactive"><a href="#Reactive" class="headerlink" title="Reactive"></a>Reactive</h3><p>什么是 <code>Reactive</code>。</p>
+<pre><code>* `Reactive` 是 `Vue3.0` 中提供的实现响应式数据的方法。
+
+* 在 `Vue2.0` 中响应式数据是通过 `defineProperty` 实现，在 `Vue3.0` 中响应式数据通过 `ES6` 的 `Propxy` 实现。
+</code></pre><p><code>Reactive</code> 注意点：</p>
+<pre><code>- `Reactive` 函数是对象(`json` 或 `arr`)。
+
+- 在创建响应式数据时，传递的不是对象，则无法更新视图。
+
+- 如果给 `Reactive` 传递**其他对象**：
+
+    * 默认情况下修改对象，界面不会自动更新。
+
+    * 如果想更新，可以通过重新赋值的方式。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">setup() &#123;</span><br><span class="line">    let state = reactive(&#123;</span><br><span class="line">        time: new Date()</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    function fn() &#123;</span><br><span class="line">        const newTime = new Date(state.time.getTime())</span><br><span class="line">        newTime.setDate(state.time.getDate() + 1)</span><br><span class="line">        state.time = newTime</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return &#123; state, fn&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h3><pre><code>什么是 `Ref`。
+
+    - `Ref` 是用来实现响应式数据的方法。
+
+    - 由于 `Reactive` 传入一个对象，导致在开发中如果只想让某个变量实现响应式时会比较麻烦，因此 `Vue3.0` 提供了 `Ref` 方法，实现对简单值的监听。
+
+`Ref` 本质：
+
+    - `Ref` 底层的本质还是 `Reactive`。
+
+    系统会自动根据给 `Ref` 传入的值将它转化为 `ref(xx)` --&gt; `reactive({value: xx})`
+
+`ref` 注意点：
+
+    - 在 `Vue` 中使用 `Ref` 的值，不用通过 `value` 获取。
+
+    - 在 `JS` 中使用 `Ref` 的值必须通过 `value` 获取。
+</code></pre><h3 id="ref-与-reactive-区别"><a href="#ref-与-reactive-区别" class="headerlink" title="ref 与 reactive 区别"></a><code>ref</code> 与 <code>reactive</code> 区别</h3><ul>
+<li><p>如果在 <code>template</code> 中使用 <code>Ref</code> 类型的数据，<code>Vue</code> 会自动帮我们添加 <code>.value</code>。</p>
+</li>
+<li><p>如果在 <code>template</code> 中使用 <code>Reactive</code> 类型的数据，<code>Vue</code> 不会自动帮我们添加 <code>.value</code>。</p>
+<p>  <strong>如何决定是否需要自动添加 <code>.vlue</code></strong></p>
+<ul>
+<li><p><code>Vue</code> 解析数据之前，会自动判断这个数据是否是 <code>Ref</code> 类型的；如果是，就自动添加 <code>.value</code>，如果不是就不自动添加 <code>.value</code>。</p>
+<p><strong>如何判断当前的数据是否是 <code>Ref</code> 类型</strong></p>
+</li>
+<li><p>通过当前数据的 <code>__v_ref</code> 来判断的。如果有这个私有属性，并且取值为 <code>true</code>，就代表是一个 <code>Ref</code> 类型的数据。</p>
+<p><strong>如何自行判断是 <code>Ref</code>，还是 <code>Reactive</code></strong></p>
+<ul>
+<li><p>通过 <code>isRef</code> 和 <code>isReactive</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import &#123;ref, isRef, isReactive&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">setup() &#123;</span><br><span class="line">    let count = ref(18)</span><br><span class="line"></span><br><span class="line">    console.log(isRef(count))</span><br><span class="line">    console.log(isReactive(count))</span><br><span class="line">    return &#123;count&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="递归监听"><a href="#递归监听" class="headerlink" title="递归监听"></a>递归监听</h3><pre><code>默认情况下，无论是通过 `Ref` 还是 `Reactive` 都是递归监听。
+
+递归监听存在的问题：
+
+    * 如果数据量较大时，非常消耗性能。
+
+创建递归监听，如：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;state.a&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">import &#123;reactive&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    setup() &#123;</span><br><span class="line">        let state = reactive(&#123;</span><br><span class="line">            a: &apos;a&apos;,</span><br><span class="line">            gf: &#123;</span><br><span class="line">                b: &apos;b&apos;,</span><br><span class="line">                f: &#123;</span><br><span class="line">                    c: &apos;c&apos;,</span><br><span class="line">                    s: &#123;</span><br><span class="line">                        d: &apos;d&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        state.a = 1;</span><br><span class="line">        state.gf.b = 2</span><br><span class="line"></span><br><span class="line">        console.log(state.a, state, state.gf.b, state.gf)</span><br><span class="line">        return &#123;state&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+监听到每一层数据变化， 界面 `UI` 更新数据。
+</code></pre><h3 id="非递归监听"><a href="#非递归监听" class="headerlink" title="非递归监听"></a>非递归监听</h3><pre><code>非递归监听：只能监听第一层， 不能监听其他层；即只有第一层包装成 `proxy`。
+
+创建非递归监听，使用 `shallowReactive` 和 `shallowRef`。
+
+**注意点：**
+
+* 如果是通过 `shallowReactive` 创建数据，只要第一层数据变化，就会更新界面 `UI` 第二层，第三层等等数据；如果第一层数据不更新，界面 `UI` 不会更新。
+
+* 如果是通过 `shallowRef` 创建数据，`Vue` 监听的是 `.value` 的变化，并不是第一层数据的变化。
+
+* 如果是通过 `shallowRef` 创建数据，想监听第 `n` 层数据，并主动更新 `UI` 界面，这时使用 `triggerRef`方法。
+
+* `Vue3.0` 只提供了 `triggerRef` 方法，没有提供 `triggerReactive` 方法；因此如果使用 `triggerReactive` 类型的数据，无法主动触发更新界面。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; state.a &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; state.gf.b &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">import &#123;reactive&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    setup() &#123;</span><br><span class="line">        let state = shallowReactive(&#123;</span><br><span class="line">            a: &apos;a&apos;,</span><br><span class="line">            gf: &#123;</span><br><span class="line">                b: &apos;b&apos;,</span><br><span class="line">                f: &#123;</span><br><span class="line">                    c: &apos;c&apos;,</span><br><span class="line">                    s: &#123;</span><br><span class="line">                        d: &apos;d&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        /*</span><br><span class="line">        let state = shallowRef(&#123;</span><br><span class="line">            a: &apos;a&apos;,</span><br><span class="line">            gf: &#123;</span><br><span class="line">                b: &apos;b&apos;,</span><br><span class="line">                f: &#123;</span><br><span class="line">                    c: &apos;c&apos;,</span><br><span class="line">                    s: &#123;</span><br><span class="line">                        d: &apos;d&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">       // state.a.value = 1;</span><br><span class="line">       // state.gf.b.value = 2</span><br><span class="line"></span><br><span class="line">        state.gf.f.s.d.value = 4;</span><br><span class="line">        triggerRef(state)</span><br><span class="line"></span><br><span class="line">        */</span><br><span class="line"></span><br><span class="line">        state.a = 1;</span><br><span class="line">        state.gf.b = 2</span><br><span class="line"></span><br><span class="line">        console.log(state.a, state, state.gf.b, state.gf)</span><br><span class="line">        return &#123;state&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="shallowRef-的本质"><a href="#shallowRef-的本质" class="headerlink" title="shallowRef 的本质"></a><code>shallowRef</code> 的本质</h3><pre><code>`shallowRef` 底层调用 `shallowReactive`，即： `shallowRef(18) --&gt; shallowReactive({value: 18})`。
+
+如果是通过 shallowRef 创建的数据，它监听的是 .value 的变化。因为底层本质上 .value 才是第一层。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">import &#123;reactive&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    setup() &#123;</span><br><span class="line">        let state = shallowReactive(&#123;</span><br><span class="line">            value: &#123;</span><br><span class="line">                a: &apos;a&apos;,</span><br><span class="line">                gf: &#123;</span><br><span class="line">                    b: &apos;b&apos;,</span><br><span class="line">                    f: &#123;</span><br><span class="line">                        c: &apos;c&apos;,</span><br><span class="line">                        s: &#123;</span><br><span class="line">                            d: &apos;d&apos;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        /*</span><br><span class="line">        let state = shallowRef(&#123;</span><br><span class="line">            a: &apos;a&apos;,</span><br><span class="line">            gf: &#123;</span><br><span class="line">                b: &apos;b&apos;,</span><br><span class="line">                f: &#123;</span><br><span class="line">                    c: &apos;c&apos;,</span><br><span class="line">                    s: &#123;</span><br><span class="line">                        d: &apos;d&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        state.a.value = 1;</span><br><span class="line">        state.gf.b.value = 2</span><br><span class="line"></span><br><span class="line">        */</span><br><span class="line"></span><br><span class="line">        state.a = 1;</span><br><span class="line">        state.gf.b = 2</span><br><span class="line"></span><br><span class="line">        console.log(state.a, state, state.gf.b, state.gf)</span><br><span class="line">        return &#123;state&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="toRaw"><a href="#toRaw" class="headerlink" title="toRaw"></a>toRaw</h3><pre><code>例子：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;obj.name&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    setup() &#123;</span><br><span class="line">        let obj = &#123; name: &apos;zs&apos;, age: 18 &#125;</span><br><span class="line">        obj.name = &apos;ming&apos;</span><br><span class="line"></span><br><span class="line">        return &#123;obj&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+修改名字数据发生改变，`UI` 没有更新，即不是响应式数据。如果先变成响应式使用 Ref 或者 Reactive。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;state.name&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">import &#123;reactive&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    setup() &#123;</span><br><span class="line">        let obj = &#123; name: &apos;zs&apos;, age: 18 &#125;</span><br><span class="line">        //obj.name = &apos;ming&apos;</span><br><span class="line"></span><br><span class="line">        let state = reactive(obj);</span><br><span class="line">        state.name = &apos;ming&apos;</span><br><span class="line"></span><br><span class="line">        console.log(obj == state) // false</span><br><span class="line"></span><br><span class="line">        return &#123;state&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+从上述得知，state 与 obj 是引用关系，state 引用了 obj。
+
+如果直接修改 obj，是无法触发界面更新。
+
+只有通过包装之后的对象修改，才会触发界面更新。
+
+**从 Reactive 中获取原始数据**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;state.name&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">import &#123;reactive, toRaw&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    setup() &#123;</span><br><span class="line">        let obj = &#123; name: &apos;zs&apos;, age: 18 &#125;</span><br><span class="line">        let state = reactive(obj);</span><br><span class="line"></span><br><span class="line">        state.name = &apos;ming&apos;</span><br><span class="line"></span><br><span class="line">        let obj2 = toRaw(state)</span><br><span class="line"></span><br><span class="line">        console.log(obj2, obj == obj2)</span><br><span class="line"></span><br><span class="line">        return &#123;state&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+Ref 或 Reactive 数据类型，每次修改都会被追踪，UI 界面都会被更新，这样非常消耗性能。如果有一些不需要追踪，不需要更新 UI 界面，这时就可以通过 toRaw 方法拿到原始数据，对原始数据进行修改，就不会被追踪，不会更新 UI 界面，性能提高。 
+
+ **从 Ref 中获取原始数据**
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;state.name&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">import &#123;ref, toRaw&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    setup() &#123;</span><br><span class="line">        let obj = &#123; name: &apos;zs&apos;, age: 18 &#125;</span><br><span class="line">        let state = ref(obj);</span><br><span class="line"></span><br><span class="line">        state.name = &apos;ming&apos;</span><br><span class="line"></span><br><span class="line">        let obj2 = toRaw(state.value)</span><br><span class="line"></span><br><span class="line">        console.log(obj2, obj == obj2)</span><br><span class="line"></span><br><span class="line">        return &#123;state&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+从 Ref 中获取原始数据必须添加 .value，因为 Ref 底层是使用 Reactive。
+</code></pre><h3 id="markRaw"><a href="#markRaw" class="headerlink" title="markRaw"></a>markRaw</h3><p>如果原始值永远不象被追踪变化，使用 markRaw。</p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;&#123;&#123;state&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/teamplate&gt;</span><br><span class="line"></span><br><span class="line">import &#123;reactive, markRaw&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">	setup() &#123;</span><br><span class="line">		let obj = &#123;name: &apos;zs&apos;, age: 18&#125;</span><br><span class="line">		obj = markRaw(obj)</span><br><span class="line">		let state = reactive(obj)</span><br><span class="line"></span><br><span class="line">		state.name = &apos;cherry&apos;</span><br><span class="line"></span><br><span class="line">		return &#123;state&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="toRef"><a href="#toRef" class="headerlink" title="toRef"></a>toRef</h3><p>和 Ref 一样，都是创建响应式数据。</p>
+<p>使用 Ref 打印输出值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;&#123;&#123;state&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/teamplate&gt;</span><br><span class="line"></span><br><span class="line">import &#123;reactive, ref&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">	setup() &#123;</span><br><span class="line">		let obj = &#123;name: &apos;zs&apos;, age: 18&#125;</span><br><span class="line">		let state = ref(obj.name)</span><br><span class="line"></span><br><span class="line">		state.value = &apos;cherry&apos;</span><br><span class="line">		console.log(obj, state)</span><br><span class="line"></span><br><span class="line">		return &#123;state&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结论：</strong></p>
+<ul>
+<li><p>如果使用 Ref 将某一个对象中的属性变成响应式的数据，修改响应式数据是不会影响到原始数据。</p>
+</li>
+<li><p>如果响应式数据通过 Ref 创建，修改了数据并会触发 UI 界面更新。</p>
+</li>
+<li><p>相当于 Ref 是复制一份原始值。</p>
+</li>
+</ul>
+<p>使用 roRef 打印输出值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;&#123;&#123;state&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/teamplate&gt;</span><br><span class="line"></span><br><span class="line">import &#123;reactive, toRef&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">	setup() &#123;</span><br><span class="line">		let obj = &#123;name: &apos;zs&apos;, age: 18&#125;</span><br><span class="line">		let state = toRef(obj, &apos;name&apos;)</span><br><span class="line">		</span><br><span class="line">		console.log(state)</span><br><span class="line">		state.value = &apos;cherry&apos;</span><br><span class="line">		console.log(obj, state)</span><br><span class="line"></span><br><span class="line">		return &#123;state&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结论：</strong></p>
+<ul>
+<li><p>如果使用 toRef 将某一个对象中的属性变成响应式的数据，修改响应式数据会影响到原始数据。</p>
+</li>
+<li><p>如果响应式数据通过 toRef 创建，修改了数据并不会触发 UI 界面更新。</p>
+</li>
+<li><p>toRef 的本质是引用原始值。</p>
+</li>
+</ul>
+<p><strong>应用场景：</strong></p>
+<ul>
+<li>如果让响应式数据和以前的数据关联起来，并且更新响应式数据之后并不想更新 UI 界面，就可以使用 toRef。</li>
+</ul>
+<h3 id="roRefs"><a href="#roRefs" class="headerlink" title="roRefs"></a>roRefs</h3><p>如果数据是多个字段，使用 toRef 就必须写多个字段重新赋值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;&#123;&#123;state&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/teamplate&gt;</span><br><span class="line"></span><br><span class="line">import &#123;reactive, toRef&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">	setup() &#123;</span><br><span class="line">		let obj = &#123;name: &apos;zs&apos;, age: 18&#125;</span><br><span class="line">		let state = toRef(obj, &apos;name&apos;)</span><br><span class="line">		let age = toRef(obj, &apos;age&apos;)</span><br><span class="line">		</span><br><span class="line">		state.value = &apos;cherry&apos;</span><br><span class="line">		age.value = 20</span><br><span class="line">		console.log(obj, state)</span><br><span class="line"></span><br><span class="line">		return &#123;state&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述可以通过 toRefs 简化，底层逻辑还是通过 toRef 实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;&#123;&#123;state&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/teamplate&gt;</span><br><span class="line"></span><br><span class="line">import &#123;reactive, toRefs&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">	setup() &#123;</span><br><span class="line">		let obj = &#123;name: &apos;zs&apos;, age: 18&#125;</span><br><span class="line">		let state = toRefs(obj)</span><br><span class="line">		</span><br><span class="line">		console.log(obj, state)</span><br><span class="line">		state.name.value = &apos;cherry&apos;</span><br><span class="line">		state.age.value = 20</span><br><span class="line">		</span><br><span class="line">		return &#123;state&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="customRef"><a href="#customRef" class="headerlink" title="customRef"></a>customRef</h3><p>理解为自定义 Ref。</p>
+<p>返回一个 Ref 对象，可以显式的控制以来追踪和触发相应。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;&#123;&#123;state&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/teamplate&gt;</span><br><span class="line"></span><br><span class="line">import &#123;ref, customRef&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">	setup() &#123;</span><br><span class="line">		let state = myRef(18)</span><br><span class="line"></span><br><span class="line">		state.value = 20;</span><br><span class="line">		</span><br><span class="line">		return &#123;state&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function myRef(value) &#123;</span><br><span class="line">	return customRef((track, trigger) =&gt; &#123;</span><br><span class="line">		//track -&gt; 追踪 </span><br><span class="line">		//trigger -&gt; 触发</span><br><span class="line">		return &#123;</span><br><span class="line">			get()&#123;</span><br><span class="line">				track() //告诉Vue 这个数据是需要追踪变化</span><br><span class="line">				return value</span><br><span class="line">			&#125;,</span><br><span class="line">			set(newVal) &#123;</span><br><span class="line">				value = newVal</span><br><span class="line">				trigger() // 告诉Vue触发界面更新</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体查看 <a href="https://v3.cn.vuejs.org/api/refs-api.html#customref" target="_blank" rel="noopener">Vue3.0 官方文档API</a>。</p>
+<h3 id="Ref-获取元素"><a href="#Ref-获取元素" class="headerlink" title="Ref 获取元素"></a>Ref 获取元素</h3><p>在 Vue2.x 中，可以通过给元素添加 ref=’xxx’，然后在代码中通过 refs.xxx 方式获取元素。</p>
+<p>在 Vue3.0 中，也可以通过 ref 获取元素，使用写法不同：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div ref=&quot;box&quot;&gt;box&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">import &#123;ref, onMounted&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	setup() &#123;</span><br><span class="line">		let box = ref(null)</span><br><span class="line"></span><br><span class="line">		onMounted(() =&gt; &#123;</span><br><span class="line">			console.log(box.value) // ②</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">		console.log(box.value) // ①</span><br><span class="line"></span><br><span class="line">		return &#123;box&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="readonly家族"><a href="#readonly家族" class="headerlink" title="readonly家族"></a>readonly家族</h3><ul>
+<li>readonly：用于创建一个只读的数据，并且是递归只读。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;&#123;&#123; state &#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">import &#123;readonly&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	setup() &#123;</span><br><span class="line">		const value = &#123;name: &apos;ls&apos;, age: 26&#125;</span><br><span class="line"></span><br><span class="line">		let state = readonly(&#123;</span><br><span class="line">			name: &apos;zs&apos;,</span><br><span class="line">			attr&#123;</span><br><span class="line">				age: 18,</span><br><span class="line">				height: 1.88</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">		state.name = &apos;cherry&apos;</span><br><span class="line">		state.attr.age = 20</span><br><span class="line">		state.attr.height = 1.77</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		value.name = &apos;xing&apos;</span><br><span class="line">		value.age = 66</span><br><span class="line"></span><br><span class="line">		console.log(value)</span><br><span class="line"></span><br><span class="line">		return &#123;state&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结论：</strong></p>
+<ul>
+<li>修改响应式数据，修改后的数据没变化，UI 界面数据没变化。</li>
+</ul>
+<p><strong>const 和 rwadonly区别：</strong></p>
+<ul>
+<li><p>const：赋值保护，不能给变量重新赋值</p>
+</li>
+<li><p>readonly：属性保护，不能给属性重新赋值</p>
+</li>
+</ul>
+<p><strong>shallowReadonly</strong>：用于创建一个第一层只读的数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;&#123;&#123; state &#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">import &#123;shallowReadonly&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	setup() &#123;</span><br><span class="line">		let state = shallowReadonly(&#123;</span><br><span class="line">			name: &apos;zs&apos;,</span><br><span class="line">			attr&#123;</span><br><span class="line">				age: 18,</span><br><span class="line">				height: 1.88</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">		state.name = &apos;cherry&apos;</span><br><span class="line">		state.attr.age = 20</span><br><span class="line">		state.attr.height = 1.77</span><br><span class="line"></span><br><span class="line">		return &#123;state&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结论：</strong></p>
+<p>修改响应式数据，修改后的数据第一层没发生变化，第二层数据发生变化，并且 UI 界面没更新。</p>
+<p><strong>isReadonly</strong>：用于判断是否是 Readonly。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;&#123;&#123; state &#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">import &#123;isReadonly,shallowReadonly&#125; from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	setup() &#123;</span><br><span class="line">		let state = shallowReadonly(&#123;</span><br><span class="line">			name: &apos;zs&apos;,</span><br><span class="line">			attr&#123;</span><br><span class="line">				age: 18,</span><br><span class="line">				height: 1.88</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">		state.name = &apos;cherry&apos;</span><br><span class="line">		state.attr.age = 20</span><br><span class="line">		state.attr.height = 1.77</span><br><span class="line"></span><br><span class="line">		console.log(isReadonly(state))</span><br><span class="line"></span><br><span class="line">		return &#123;state&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Vue3响应式数据本质"><a href="#Vue3响应式数据本质" class="headerlink" title="Vue3响应式数据本质"></a>Vue3响应式数据本质</h3><ul>
+<li><p>Vue2.x 是通过 defineProperty 实现响应式数据。</p>
+</li>
+<li><p>Vue3.0 是通过 Proxy 实现响应式数据。</p>
+</li>
+</ul>
+<p>模拟：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let obj = &#123; name: &apos;zs&apos;, age: 18 &#125;</span><br><span class="line"></span><br><span class="line">let state = new Proxy(obj, handler: &#123;</span><br><span class="line">	get(obj, key) &#123;</span><br><span class="line">		return obj[key]</span><br><span class="line">	&#125;,</span><br><span class="line">	set(obj, key, newVal) &#123;</span><br><span class="line">		obj[key] = newVal</span><br><span class="line">		return true</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">state.name = &apos;cherry&apos;</span><br><span class="line"></span><br><span class="line">console.log(state)</span><br></pre></td></tr></table></figure>
+<h3 id="实现-shallowReactive"><a href="#实现-shallowReactive" class="headerlink" title="实现 shallowReactive"></a>实现 shallowReactive</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function shallowReactive(obj) &#123;</span><br><span class="line">	return new Proxy(obj, handler: &#123;</span><br><span class="line">		get() &#123;</span><br><span class="line">			return obj[key]</span><br><span class="line">		&#125;,</span><br><span class="line">		set(obj, key, newVal) &#123;</span><br><span class="line">			obj[key] = newVal</span><br><span class="line">			return true</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let obj = &#123;</span><br><span class="line">	a: &apos;a&apos;,</span><br><span class="line">	gf: &#123;</span><br><span class="line">		b: &apos;b&apos;,</span><br><span class="line">		f: &#123;</span><br><span class="line">			c: &apos;c&apos;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let state = shallowReactive(obj)</span><br><span class="line"></span><br><span class="line">state.a = 1</span><br><span class="line">state.gf.b = 2</span><br><span class="line">state.gf.f.c = 3</span><br><span class="line"></span><br><span class="line">cosole.log(state)</span><br></pre></td></tr></table></figure>
+<h3 id="实现-shallowRef"><a href="#实现-shallowRef" class="headerlink" title="实现 shallowRef"></a>实现 shallowRef</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function shallowRef(val) &#123;</span><br><span class="line">	return shallowReactive(obj: &#123;value: val&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let state = shallowRef(obj)</span><br><span class="line"></span><br><span class="line">state.value.a = 1</span><br><span class="line">state.value.gf.b = 2</span><br><span class="line">state.value.gf.f.c = 3</span><br><span class="line"></span><br><span class="line">cosole.log(state)</span><br></pre></td></tr></table></figure>
+<h3 id="实现-Reactive"><a href="#实现-Reactive" class="headerlink" title="实现 Reactive"></a>实现 Reactive</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Reactive(obj) &#123;</span><br><span class="line"></span><br><span class="line">	if(typeof obj === &apos;object&apos;) &#123;</span><br><span class="line"></span><br><span class="line">		if(obj instanceof Array) &#123;</span><br><span class="line">			// 如果是一个数组，那取出数组中的每一个元素</span><br><span class="line">			// 判断每一个元素是否又是一个对象，如果又是一个对象，那么也需要包装Proxy</span><br><span class="line">			obj.forEach((item, index) =&gt; &#123;</span><br><span class="line">				if(typeof item === &apos;object&apos;) obj[index] = Reactive(item) </span><br><span class="line">			&#125;)</span><br><span class="line"></span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			// 如果是一个对象，那么取出对象属性的取值</span><br><span class="line">			// 判断对象属性的取值是否又是一个对象，如果是一个对象，那么也需要包装成 Proxy</span><br><span class="line"></span><br><span class="line">			for(let key in obj) &#123;</span><br><span class="line">				let item = obj[key]</span><br><span class="line">				if(typeof item === &apos;object&apos;) obj[index] = Reactive(item) </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		return new Proxy(obj, handler: &#123;</span><br><span class="line">			get() &#123;</span><br><span class="line">				return obj[key]</span><br><span class="line">			&#125;,</span><br><span class="line">			set(obj, key, newVal) &#123;</span><br><span class="line">				obj[key] = newVal</span><br><span class="line">				return true</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		console.log(`$&#123;obj&#125; is not object`)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let obj = &#123;</span><br><span class="line">	a: &apos;a&apos;,</span><br><span class="line">	gf: &#123;</span><br><span class="line">		b: &apos;b&apos;,</span><br><span class="line">		f: &#123;</span><br><span class="line">			c: &apos;c&apos;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let state = Reactive(obj)</span><br><span class="line"></span><br><span class="line">state.a = 1</span><br><span class="line">state.gf.b = 2</span><br><span class="line">state.gf.f.c = 3</span><br><span class="line"></span><br><span class="line">cosole.log(state)</span><br></pre></td></tr></table></figure>
+<h3 id="实现-Ref"><a href="#实现-Ref" class="headerlink" title="实现 Ref"></a>实现 Ref</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Ref(val) &#123;</span><br><span class="line">	return Reactive(obj: &#123;value: val&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;padding-top:20px;">———— / END / ————</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/e25871c1.html" rel="next" title="ReactRouter 笔记">
+                <i class="fa fa-chevron-left"></i> ReactRouter 笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/f898a10a.html" rel="prev" title="TypeSctipt 配置">
+                TypeSctipt 配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <!--a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a-->
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <!--a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a-->
+    <!--a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a-->
+    <!--a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a-->
+    <!--a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a-->
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/cc-bf-chglyn.png" alt="Changyuan">
+          <p class="site-author-name" itemprop="name">Changyuan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.baidu.com" title="baidu" target="_blank">baidu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://relign.github.io" title="relignBlog" target="_blank">relignBlog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.zhangtaifeng.com" title="zhangtaifeng" target="_blank">zhangtaifeng</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lmaomaoz.com/blog2" title="lmaomaoz" target="_blank">lmaomaoz</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue3-0-六大亮点："><span class="nav-number">1.</span> <span class="nav-text">Vue3.0 六大亮点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue3-0-是如何变快的。"><span class="nav-number">2.</span> <span class="nav-text">Vue3.0 是如何变快的。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合-API-本质："><span class="nav-number">3.</span> <span class="nav-text">组合 API 本质：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reactive"><span class="nav-number">4.</span> <span class="nav-text">Reactive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ref"><span class="nav-number">5.</span> <span class="nav-text">Ref</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ref-与-reactive-区别"><span class="nav-number">6.</span> <span class="nav-text">ref 与 reactive 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归监听"><span class="nav-number">7.</span> <span class="nav-text">递归监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非递归监听"><span class="nav-number">8.</span> <span class="nav-text">非递归监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shallowRef-的本质"><span class="nav-number">9.</span> <span class="nav-text">shallowRef 的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toRaw"><span class="nav-number">10.</span> <span class="nav-text">toRaw</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#markRaw"><span class="nav-number">11.</span> <span class="nav-text">markRaw</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toRef"><span class="nav-number">12.</span> <span class="nav-text">toRef</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#roRefs"><span class="nav-number">13.</span> <span class="nav-text">roRefs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#customRef"><span class="nav-number">14.</span> <span class="nav-text">customRef</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ref-获取元素"><span class="nav-number">15.</span> <span class="nav-text">Ref 获取元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#readonly家族"><span class="nav-number">16.</span> <span class="nav-text">readonly家族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue3响应式数据本质"><span class="nav-number">17.</span> <span class="nav-text">Vue3响应式数据本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现-shallowReactive"><span class="nav-number">18.</span> <span class="nav-text">实现 shallowReactive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现-shallowRef"><span class="nav-number">19.</span> <span class="nav-text">实现 shallowRef</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现-Reactive"><span class="nav-number">20.</span> <span class="nav-text">实现 Reactive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现-Ref"><span class="nav-number">21.</span> <span class="nav-text">实现 Ref</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  京ICP备13052054号-1
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love animation-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">逺子君笔记</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "http://blog.yuanbeauty.com",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    bp.src = (curProtocol === 'https') 
+    ? 'https://zz.bdstatic.com/linksubmit/push.js'
+    : 'http://push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+  
+
+</body>
+</html>
