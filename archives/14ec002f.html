@@ -383,7 +383,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      376 字
+                      377 字
                     </span>
               
 
@@ -431,7 +431,7 @@
 </li>
 </ul>
 <p>完整代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function getUrlParams(name) &#123;</span><br><span class="line">    var search = url.split(&apos;?&apos;) &amp;&amp; url.split(&apos;?&apos;)[1];</span><br><span class="line">    var obj = &#123; &#125;;</span><br><span class="line">    search = search.split(&apos;&amp;&apos;);</span><br><span class="line">    for(var i=0; i &lt; search.length; i++) &#123;</span><br><span class="line">        var search_v = search[i].split(&apos;=&apos;);</span><br><span class="line">        obj[search_v[0]] = search_v[1];</span><br><span class="line">    &#125;</span><br><span class="line">	return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function getUrlParams(url) &#123;</span><br><span class="line">    let obj =&#123;&#125;</span><br><span class="line">    if(url.indexOf(&apos;?&apos;) != -1) &#123;</span><br><span class="line">        url = url.split(&apos;?&apos;)[1]</span><br><span class="line">        url = url.split(&apos;&amp;&apos;)</span><br><span class="line">        for(let i=0; i&lt;url.length; i++) &#123;</span><br><span class="line">            let v = url[i].split(&apos;=&apos;)</span><br><span class="line">            obj[v[0]] = v[1]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
